@@ -1,0 +1,20 @@
+Upstream RNAbpFlow source: https://github.com/Bhattacharya-Lab/RNAbpFlow
+Pinned commit: e8b1c077f7951d4d6ebe00c851d22c37777dfc9f
+The upstream GPL-3.0 license is preserved in RNAbpFlow/LICENSE.
+This packet contains a modified GPL source copy and a separate engineering wrapper.
+
+Only upstream source modification: src/data/utils.py imports grouped sum/mean from
+the added src/data/torch_native_scatter.py, replacing its torch_scatter import.
+The added adapter supports only the published dim=0, vector group-index sum/mean
+operations and uses existing PyTorch index_add kernels. Unsupported calls fail.
+The adapter is supplied under the same GPL-3.0 terms as this modified source copy.
+No decoder equations, model layers, all-atom equations, or trained weights change.
+Eight actual CPU sum/mean reduction checks matched explicit grouped reductions.
+Seeded GPU coordinates are compared numerically; bitwise determinism is not claimed.
+
+The inference wrapper preserves the published predict_step, sampler, all-atom
+conversion and PDB writer. It normalizes the published seed to a Python integer,
+uses isolated outputs, and adds clocks, coordinate capture, finite checks and QC.
+The P4-P6 annotation map is a structural-reference engineering input; its 48 pairs
+are not predicted or inferred from probing. This public family is represented in
+baseline training data, so it is not a blind efficacy benchmark.

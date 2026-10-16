@@ -1,0 +1,7 @@
+# Added to an isolated system-site-packages venv; base CUDA Torch is preserved.
+hydra-core==1.3.2
+omegaconf==2.3.0
+beartype
+jaxtyping
+dm-tree
+gemmi

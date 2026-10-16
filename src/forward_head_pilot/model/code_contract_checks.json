@@ -1,0 +1,27 @@
+{
+  "scope": "Generated toy inputs exercise code contracts only; no biological efficacy evidence",
+  "status": "passed",
+  "checks": [
+    "Observed values/errors/masks never enter any feature matrix (SHAPE and DMS)",
+    "Rigid translation/rotation leaves local geometric invariants and predictions unchanged",
+    "Pairing negative control preserves all-row geometry marginals and exact coefficient count",
+    "Shuffle preserves geometry marginals on the scored DMS A/C subset (v1 all-row scheme detectably does not)",
+    "DMS observations at chemically ineligible G/U positions are rejected",
+    "Changing held-out targets and errors cannot change that fold's normalization, alpha or coefficients",
+    "Held-out feature distribution cannot contaminate training standardization",
+    "Replicate profile cannot increase its lineage's total training weight",
+    "Unweighted refit uses unit precision (uniform within profile) with identical features",
+    "Missing observations and unmapped coordinates use a common mask in all arms",
+    "Observed-null corruption and explicitly synthetic biological inputs are rejected",
+    "Unknown secondary annotations x/X/?/- stay masked rather than becoming pair labels",
+    "Exact, single-substitution and contained near-identical sequences cannot cross lineages; unrelated ones pass",
+    "Raw coordinate-source byte corruption is rejected against the provenance pin",
+    "Changed-code/frozen-plan mismatch aborts before any model output",
+    "Freeze requires a passed extraction audit of the exact cohort; audit change after freeze aborts the run",
+    "End-to-end toy freeze/run executes both weighting schemes and all frozen comparisons"
+  ],
+  "n_checks": 17,
+  "code_sha256": "1adceaa9d89b26d11a07ffeceac7394bb4e181c44ea2a26b73337402077a8ee4",
+  "test_sha256": "37d33f125bae0063c8818f3a851312906d77434ebf7da1a62933c85da120df9c",
+  "numpy_version": "2.5.0"
+}

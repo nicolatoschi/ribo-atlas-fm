@@ -1,0 +1,21 @@
+{
+  "packet": "refinement_frozen_e665e8ed11ae",
+  "core_payload_sha256": "e665e8ed11ae67c75d8102f4222256163f3ec5b063e995959e40c5727dd4dde0",
+  "core_payload_files": {
+    "CPU_preflight_stdout.txt": "1f397c2b07ac775ec6c78f65dd0dd9f73e480e1b4d890ef738b1e04b9299e481",
+    "README_refinement_engineering.txt": "723a1fc3db9aac07678b25fb5315c7f1d7a056bc152758ff4ddd05d0185d89ce",
+    "actual_CPU_topology_parameter_qualification.json": "1f397c2b07ac775ec6c78f65dd0dd9f73e480e1b4d890ef738b1e04b9299e481",
+    "inputs/1GID.pdb": "5e5365f900792975aab3b00d8620877db46037f64666d82cc40f6e0ad63089eb",
+    "openmm_rna_refinement.py": "219f02670dda0dea74c1457eb9c13352c0960fd3478c221fea84da15cc37ee69",
+    "qualify_openmm_preflight.py": "bfd7106efabc6fe01447ab60f07675b635ca59b15fdda11d481b9319221224ca",
+    "refinement_manifest.json": "6b21975edb4240bfb6ac369db01e1613a0e6f54ba287a4aa42f24caf0e64b3d4"
+  },
+  "identity_definition": "SHA256 of sorted compact JSON mapping relative core payload paths to SHA; excludes this manifest/sbatch/results",
+  "sbatch_sha256": "f5b82bef6b96644db06430c83b237e46172c6c886798c355a21aec3258976c1e",
+  "remote_frozen_directory": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/refinement_frozen_e665e8ed11ae",
+  "maximum_reserved_GPU_hours": 2,
+  "job_submitted_by_data_agent": false,
+  "GPU_energy_or_minimization_executed_by_data_agent": false,
+  "CPU_topology_parameter_qualification_actual": true,
+  "qualified_driver_sha256": "219f02670dda0dea74c1457eb9c13352c0960fd3478c221fea84da15cc37ee69"
+}

@@ -1,0 +1,45 @@
+{
+  "retrieved_utc": "2026-10-15T18:25:00Z",
+  "retrieved_by": "Claude (local Mac, scratch area only); nothing uploaded",
+  "code": {
+    "pypi_package": "rna-fm",
+    "version": "0.2.2",
+    "wheel": "rna_fm-0.2.2-py3-none-any.whl",
+    "wheel_url": "https://files.pythonhosted.org/packages/0b/1d/7edd5a84a0790e503d773e9872d48323eb53a3f4df70efbc3ad2b413c7f5/rna_fm-0.2.2-py3-none-any.whl",
+    "wheel_sha256": "4fff72892ad02559be969b7b3263483e7f3730132025ea05c9927c3675a5e0b4",
+    "wheel_upload_time": "2024-03-23T08:42:20Z",
+    "sdist_sha256": "0ea3bd004957c435d9a4716d13205dd058b95626e3097d1660e62de9c4d6c635",
+    "import_name": "fm",
+    "licence": "MIT",
+    "github_repository": "https://github.com/ml4bio/RNA-FM",
+    "github_head_commit": "348951516e0963d22bbb33b3c9fc18c89081d38e",
+    "github_head_commit_date": "2025-05-27T13:29:04+08:00",
+    "github_vs_wheel": "diff -rq of fm/ in the GitHub HEAD clone and in the 0.2.2 wheel: no differences (byte-identical package code)",
+    "declared_dependencies": ["numpy", "pandas", "tqdm", "scikit-learn", "ptflops"],
+    "dependency_notes": "import fm executes fm/downstream/baseline.py, which imports ptflops; nothing imports scikit-learn. Install with --no-deps: numpy/pandas/tqdm come from the existing torch 2.10 environment, ptflops is pinned below. This prevents pip from replacing the working CUDA torch."
+  },
+  "ptflops": {
+    "version": "0.7.5",
+    "wheel_url": "https://files.pythonhosted.org/packages/11/66/3eea7b5f6cc3f6ae7acb125ef82c083d9bb759c7e43fd333cb39eb1e1cfe/ptflops-0.7.5-py3-none-any.whl",
+    "wheel_sha256": "c47543d5209a21e0805b39a50d452c8f8f6f5b648684777490db6f9459bdda07",
+    "role": "import-time dependency of fm only; never called"
+  },
+  "weights": {
+    "file": "RNA-FM_pretrained.pth",
+    "bytes": 1194424423,
+    "sha256": "5b5d7d87b37c291ef42c140ef9edf7aea29f255fa2a4fd435f776c52e93d5e99",
+    "official_location_in_README": "GitHub README (HEAD 3489515): 'Download pre-trained models from our Hugging Face repo https://huggingface.co/cuhkaih/rnafm/tree/main'",
+    "download_url_pinned": "https://huggingface.co/cuhkaih/rnafm/resolve/91d4a46d28d8054a7b429955e8fc0c253ba0afd6/RNA-FM_pretrained.pth",
+    "huggingface_repo": "cuhkaih/rnafm",
+    "huggingface_revision": "91d4a46d28d8054a7b429955e8fc0c253ba0afd6",
+    "huggingface_lfs_oid_sha256": "5b5d7d87b37c291ef42c140ef9edf7aea29f255fa2a4fd435f776c52e93d5e99",
+    "verification": "local sha256 equals the HF LFS oid and the x-linked-etag response header; size equals x-linked-size",
+    "package_hub_url_status": "fm.pretrained.rna_fm_t12() hub URL https://proj.cse.cuhk.edu.hk/rnafm/api/download?filename=RNA-FM_pretrained.pth returned HTTP 403 on 2026-10-15 (GET and HEAD), so the README-designated HuggingFace copy is used",
+    "format": "torch zip archive (fairseq checkpoint): keys args, cfg, model, criterion, optimizer_history, task_state, extra_state, last_optimizer_state",
+    "safe_loading": "torch.load(weights_only=True, mmap=True) with argparse.Namespace as the only allow-listed global; no arbitrary unpickling",
+    "architecture_from_args": {"arch": "roberta_large (ESM-1b style)", "layers": 12, "embed_dim": 640, "ffn_embed_dim": 5120, "attention_heads": 20, "max_positions": 1024, "vocab": 25},
+    "parameters_unique": 99521546,
+    "original_pretraining_from_args": {"corpus": "RNAcentral (data path .../RNAcentral/data-bin)", "mask_prob": 0.15, "leave_unmasked_prob": 0.1, "random_token_prob": 0.1, "lr": 0.0005, "lr_scheduler": "inverse_sqrt", "warmup_updates": 10000, "weight_decay": 0.01, "adam_betas": "(0.9,0.98)", "fp16": true, "batch_size_per_gpu": 32, "gpus": 5, "update_freq": 64, "sequences_per_update": 10240, "num_updates_at_save": 51928, "tokens_per_sample": 1023},
+    "licence_note": "HF repo card declares apache-2.0; GitHub code is MIT"
+  }
+}

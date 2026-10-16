@@ -1,0 +1,37 @@
+{
+  "microbatch": 1,
+  "accumulation": 1,
+  "local_constructs": 1,
+  "global_constructs": 1,
+  "rank_max_seconds": 12.15386520899483,
+  "global_case_instances_per_second": 0.08227835201429749,
+  "first_microbatch_generated_signal": {
+    "generated_inverse_gradient_norm": 15.475519180297852,
+    "generated_probe_gradient_norm": 1.3886369466781616
+  },
+  "all_gradients_finite": true,
+  "combined_preclip_gradient_norm": 16.59138298034668,
+  "frozen_head_gradients_absent": true,
+  "actual_call_entries": {
+    "mean_forward": 10,
+    "gradient_forward": 10,
+    "backward_recompute": 10,
+    "native_teacher_forward": 1
+  },
+  "groups": [
+    {
+      "logical_ids": [
+        0
+      ],
+      "mean_pass_seconds": 2.4104930000030436,
+      "gradient_forward_seconds": 2.44379987497814,
+      "backward_recompute_seconds": 6.425013500003843,
+      "teacher_forward_backward_seconds": 0.7395847089937888,
+      "finite_K_case_mean_profile_MSE": 0.028001083061099052,
+      "adjacent_C4_mean": 0.060167042538523674,
+      "teacher_loss": 0.32644402980804443,
+      "maximum_replay_difference": 0.0
+    }
+  ],
+  "anomaly_enabled": false
+}

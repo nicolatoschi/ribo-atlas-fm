@@ -1,0 +1,63 @@
+#!/bin/bash
+#SBATCH --job-name=ribo-waveD-eval-cost
+#SBATCH --account=e-aif-2026fl01-993
+#SBATCH --partition=booster
+#SBATCH --nodes=32
+#SBATCH --ntasks-per-node=4
+#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu:4
+#SBATCH --time=01:30:00
+#SBATCH --exclude=jpbo-055-37
+#SBATCH --output=/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/results/waveD-%j.out
+#SBATCH --error=/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/results/waveD-%j.err
+# Wave D (PI-approved): frozen evaluation-pipeline cost and robustness across RNA length.
+# Node-agent pattern: exactly ONE srun per node (4 ranks = 4 GPUs); every rank reads its
+# static, pre-balanced case list from partition_plan.json and processes it sequentially.
+# Packet @PACKET_NAME@ (freeze sha256 @FREEZE_SHA@). Bash 3.2 compatible (no mapfile).
+set -uo pipefail
+ROOT=/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015
+PACKET=$ROOT/@PACKET_NAME@
+PY=/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/env/bin/python
+CKPT=/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/pretrained_checkpoint/RNA3DB.ckpt
+EXPECTED_NODES=32
+EXCLUDED_NODE=jpbo-055-37
+STEP_MINUTES=84
+SOFT_MARGIN_MINUTES=14
+HARD_MARGIN_MINUTES=4
+export OMP_NUM_THREADS=8 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONFAULTHANDLER=1
+export CUDA_CACHE_PATH=/tmp/${SLURM_JOB_ID}_nvcache
+RES=$ROOT/results/job_${SLURM_JOB_ID}
+refuse() { echo "REFUSED: $*" >&2; exit 2; }
+[ -f "$PACKET/FROZEN_MANIFEST.json" ] || refuse "packet manifest missing under $PACKET"
+[ -x "$PY" ] || refuse "python $PY missing"
+[ -f "$CKPT" ] || refuse "checkpoint $CKPT missing"
+N=($(scontrol show hostnames "$SLURM_JOB_NODELIST"))
+[ "${#N[@]}" -eq "$EXPECTED_NODES" ] || refuse "expected $EXPECTED_NODES nodes, got ${#N[@]}"
+DISTINCT=$(printf '%s\n' "${N[@]}" | grep -v '^$' | sort -u | wc -l | tr -d ' ')
+[ "$DISTINCT" -eq "$EXPECTED_NODES" ] || refuse "node list has $DISTINCT distinct non-empty names"
+for n in "${N[@]}"; do [ "$n" != "$EXCLUDED_NODE" ] || refuse "excluded node $EXCLUDED_NODE allocated"; done
+mkdir -p "$RES/logs" || refuse "cannot create $RES"
+NOW=$(date +%s)
+SOFT=$((NOW + (STEP_MINUTES - SOFT_MARGIN_MINUTES) * 60))
+HARD=$((NOW + (STEP_MINUTES - HARD_MARGIN_MINUTES) * 60))
+LEDGER=$RES/node_steps.tsv
+printf 'node_slot\tnode\tstep_minutes\tstart_utc\tend_utc\texit\n' > "$LEDGER"
+printf '%s\n' "${N[@]}" > "$RES/node_slots.txt"
+i=0
+while [ "$i" -lt "$EXPECTED_NODES" ]; do
+  node=${N[$i]}
+  [ -n "$node" ] || refuse "empty node name at slot $i"
+  slot=$(printf '%02d' "$i")
+  ( start=$(date -u +%FT%TZ)
+    srun --exact -N 1 --ntasks-per-node=4 -c 8 --gres=gpu:4 --mem=0 -t "$STEP_MINUTES" -w "$node" \
+         --kill-on-bad-exit=0 --chdir="$PACKET" \
+         "$PY" step_launch.py waveD_driver.py --packet "$PACKET" --node-slot "$i" --checkpoint "$CKPT" \
+         --out "$RES" --deadline-epoch "$SOFT" --hard-deadline-epoch "$HARD" \
+         < /dev/null > "$RES/logs/node_${slot}_${node}.log" 2>&1
+    rc=$?
+    printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$slot" "$node" "$STEP_MINUTES" "$start" "$(date -u +%FT%TZ)" "$rc" >> "$LEDGER" ) < /dev/null &
+  i=$((i + 1))
+done
+wait
+echo "wave D node steps finished $(date -u +%FT%TZ)"
+cat "$LEDGER"

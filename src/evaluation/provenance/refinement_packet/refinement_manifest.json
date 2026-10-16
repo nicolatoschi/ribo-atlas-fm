@@ -1,0 +1,250 @@
+{
+  "driver_sha256": "219f02670dda0dea74c1457eb9c13352c0960fd3478c221fea84da15cc37ee69",
+  "OpenMM_version": "8.4",
+  "forcefield_hashes": {
+    "amber14/RNA.OL3.xml": "61b793a49ded3c9c3bd9fbab328bc1b20b2b4ce7bc2358d537892ca64b085127",
+    "implicit/gbn2.xml": "d12c14820a413146eb008758c405b8690898811b4e08827b00a75a163395bde3"
+  },
+  "sequence": "GAAUUGCGGGAAAGGGGUCAACAGCCGUUCAGUACCAAGUCUCAGGGGAAACUUUGAGAUGGCCUUGCAAAGGGUAUGGUAAUAAGCUGACGGACAUGGUCCUAACCACGCAGCCAAGUCCUAAGUCAACAGAUCUUCUGUUGAUAUGGAUGCAGUUC",
+  "sequence_nt": 158,
+  "native": {
+    "packet_path": "inputs/1GID.pdb",
+    "sha256": "5e5365f900792975aab3b00d8620877db46037f64666d82cc40f6e0ad63089eb",
+    "source": "https://www.rcsb.org/structure/1GID/"
+  },
+  "generated": [
+    {
+      "sample_id": 0,
+      "source_seed": 420,
+      "sha256": "e6539eb7d0d52c95ff04da83e61778a60837901dfe8289db349491ff68fdbc4f",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_0.pdb"
+    },
+    {
+      "sample_id": 1,
+      "source_seed": 840,
+      "sha256": "c97b645d4390bbd245efa9799813c7a63da355e724345ff6e8eb55f2d676c585",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_1.pdb"
+    },
+    {
+      "sample_id": 2,
+      "source_seed": 1260,
+      "sha256": "efac2db73c7adf1513a12db5157d7479eb38f864f724b0124e8f1dc6d21b595f",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_2.pdb"
+    },
+    {
+      "sample_id": 3,
+      "source_seed": 1680,
+      "sha256": "c9dea0d5c905ed8aa4a34e94951b154ce6580a00f349fceffbaab4a01d7703e6",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_3.pdb"
+    },
+    {
+      "sample_id": 4,
+      "source_seed": 2100,
+      "sha256": "6e32da9b87fce2f91879ae153971d2119944a31af4c6922256be1b7e3986c17c",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_4.pdb"
+    },
+    {
+      "sample_id": 5,
+      "source_seed": 2520,
+      "sha256": "9595f61cd49c99333156400e7c737e66d535eeee638dd522f6bada663d7cf334",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_5.pdb"
+    },
+    {
+      "sample_id": 6,
+      "source_seed": 2940,
+      "sha256": "9e6da3dc65c3755daf7051d4efd70871309bdf14072e65facd21925e9eea6cc6",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_6.pdb"
+    },
+    {
+      "sample_id": 7,
+      "source_seed": 3360,
+      "sha256": "42ac741ae1469e0b5828f8c2440838edf1aa970de81b40682a91cfb25e2f840c",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_7.pdb"
+    },
+    {
+      "sample_id": 8,
+      "source_seed": 3780,
+      "sha256": "cacf4d15c2de01538d6720453d49b89f1df0f46d249432ee79444af477c5cdbb",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_8.pdb"
+    },
+    {
+      "sample_id": 9,
+      "source_seed": 4200,
+      "sha256": "23c6d4e079dee495ebfff976d4fb0c5abfe20dc8209446592dcab534a6fc79ea",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_9.pdb"
+    },
+    {
+      "sample_id": 10,
+      "source_seed": 4620,
+      "sha256": "2465908edd868202423027a80ca184c47810b1cfadf2f700c2aacb9ca388c351",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_10.pdb"
+    },
+    {
+      "sample_id": 11,
+      "source_seed": 5040,
+      "sha256": "01433ad8671817137d8ed0af44c358c148103ba3da3d814b8fd81440b70a3767",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_11.pdb"
+    },
+    {
+      "sample_id": 12,
+      "source_seed": 5460,
+      "sha256": "4ca6d540d72df938493c01c97225a8715fd13fbfe8fc8982f7c21f8e37f6b1c9",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_12.pdb"
+    },
+    {
+      "sample_id": 13,
+      "source_seed": 5880,
+      "sha256": "ccf40db9cc607d1a572dfb26cf065fc9f24e9df7c9d388175c8ba83ea14ac992",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_13.pdb"
+    },
+    {
+      "sample_id": 14,
+      "source_seed": 6300,
+      "sha256": "923b85b46c9b8c02d9b9563063300e0b40c996bde896f0c29981df2029af55b8",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_14.pdb"
+    },
+    {
+      "sample_id": 15,
+      "source_seed": 6720,
+      "sha256": "16e595cc8fb6c53c885c0f0dbafc8cfb43de6adcbd4bc512f6558c959ae0cc51",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_15.pdb"
+    },
+    {
+      "sample_id": 16,
+      "source_seed": 7140,
+      "sha256": "da2c2e702f0eb542afe8bc7b379ac1e10eb0e4bfe54f96ac6b6b78e9f149e74c",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_16.pdb"
+    },
+    {
+      "sample_id": 17,
+      "source_seed": 7560,
+      "sha256": "d1f0b5aedc5c5f49fa2b7f5bdac1e5b41d69f07a9d9f55f711e5fa5eb747729e",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_17.pdb"
+    },
+    {
+      "sample_id": 18,
+      "source_seed": 7980,
+      "sha256": "5681f2a56ba1f62e178687c498a314c0786b11a65225757166f995e44706d2a9",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_18.pdb"
+    },
+    {
+      "sample_id": 19,
+      "source_seed": 8400,
+      "sha256": "04924d866119b12ea39f020422f03a05e7679f60c24f635342e1daeb5c768e06",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_19.pdb"
+    },
+    {
+      "sample_id": 20,
+      "source_seed": 8820,
+      "sha256": "5bea3bc667398d0968602b89f1642b9a9b74efe44d54e53e93a3a1460e4e3feb",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_20.pdb"
+    },
+    {
+      "sample_id": 21,
+      "source_seed": 9240,
+      "sha256": "bd9d546c9e5216d41584e2f27a9180ef6a16baf9e0c9707587609812e82e3bc4",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_21.pdb"
+    },
+    {
+      "sample_id": 22,
+      "source_seed": 9660,
+      "sha256": "7b565eed735808c865d925edb72bc45d4443128331aef7bd47beabe6fc0f9cad",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_22.pdb"
+    },
+    {
+      "sample_id": 23,
+      "source_seed": 10080,
+      "sha256": "6fcc9af66d4abfbf6f4c4fc4b0d54b0d0c9b6d50e7e65a3ba2cc67a40da9ad31",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_23.pdb"
+    },
+    {
+      "sample_id": 24,
+      "source_seed": 10500,
+      "sha256": "c9e40a3f2696ed4e1447d6884c5d8ab45f96461127c820d21843ebee43a141f8",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_24.pdb"
+    },
+    {
+      "sample_id": 25,
+      "source_seed": 10920,
+      "sha256": "89ade60a4262a32bb8682515c2c52a438305eb59bb691e68833268cfa21beb70",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_25.pdb"
+    },
+    {
+      "sample_id": 26,
+      "source_seed": 11340,
+      "sha256": "a8e0070c8b74a3687c1adaf52c18f37bd00574f5fadac98601d291b573e429fe",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_26.pdb"
+    },
+    {
+      "sample_id": 27,
+      "source_seed": 11760,
+      "sha256": "c385dfe95255558ae04206a0a12d53f81e0594ed5524d50b84202fe0c31f9f6e",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_27.pdb"
+    },
+    {
+      "sample_id": 28,
+      "source_seed": 12180,
+      "sha256": "9f1ed726f826c8e6930371fb40f6408f0892712e98219d28b108c13f1ca32471",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_28.pdb"
+    },
+    {
+      "sample_id": 29,
+      "source_seed": 12600,
+      "sha256": "3a29de591488d9391e7abeaa9e14bf7c1c17c5d2e74302c388ed8e8fd6eb75c9",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_29.pdb"
+    },
+    {
+      "sample_id": 30,
+      "source_seed": 13020,
+      "sha256": "b041615780439e7aa9f272b7850605711bb20c9aa77137f7070cd58159830544",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_30.pdb"
+    },
+    {
+      "sample_id": 31,
+      "source_seed": 13440,
+      "sha256": "5c17674a491e9a0dd440b47d8515b95c2360b825b2483a787d389ad9e7c95557",
+      "remote_path": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/inference_frozen_6cbee47ef9de/results/job_2297413/rep_0_G1_K32/samples/Sample_31.pdb"
+    }
+  ],
+  "inference_source_commit": "e8b1c077f7951d4d6ebe00c851d22c37777dfc9f",
+  "inference_source_checkpoint_SHA256": "bb598a736193734541f63c59dae75d45db8c04f01a8414a758677367c4b1e213",
+  "native_original_heavy_records": 3383,
+  "generated_original_heavy_records": 3382,
+  "explicit_boundary": "5prime-OH/3prime-OH fragment; native removes first P/OP1/OP2/OP3, generated first P/OP1/OP2; originals unchanged; all157 interresidue phosphates retained",
+  "prepared_heavy_atoms": 3379,
+  "prepared_all_atoms_with_hydrogens": 5083,
+  "formal_charge_e": -157,
+  "restraints": {
+    "force": "0.5*k*distance_to_own_starting_heavy_position_squared",
+    "strengths_kJ_per_mol_nm2": [
+      1000,
+      100
+    ],
+    "maximum_iterations_per_stage": [
+      250,
+      250
+    ],
+    "requested_force_RMS_tolerance_kJ_per_mol_nm": 10
+  },
+  "platform": {
+    "CUDA_precision": "double",
+    "CUDA_DeterministicForces": "true",
+    "CPU_threads": 2,
+    "CPU_energy_context_in_preflight": false
+  },
+  "solvent_model": "GBn2, NoCutoff, dielectric1/78.3, kappa0; engineering pH7 hydrogen preparation, no Mg or explicit water",
+  "gate": "Native + fixed generated sample0 pass template/full-parameter construction, finite energy/positions/forces, bounded same-Hamiltonian energy-decreasing minimizer and O3prime-next-P range1.3\u20132.1A before K32",
+  "physical_QC_screens": {
+    "O3prime_next_P_A": [
+      1.3,
+      2.1
+    ],
+    "heavy_bond_error_A": 0.15,
+    "heavy_angle_error_degree": 15,
+    "nonbonded_clash": "heavy positive-epsilon r<0.75*2^(1/6)*Lorentz sigma; all explicit exceptions excluded; descriptive screens"
+  },
+  "GPU_work_executed": false,
+  "CPU_topology_parameterization_executed": true,
+  "job_submitted_by_data_agent": false,
+  "claim_scope": "Engineering local correction/cost and declared physical screens only; no equilibrium populations, conditional learned efficacy, Mg-specific chemistry or full chemical-validity certificate"
+}

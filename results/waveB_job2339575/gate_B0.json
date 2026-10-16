@@ -1,0 +1,96 @@
+{
+  "gate_passed": true,
+  "numerics_identical_within_tolerance": true,
+  "speed_ratio_on_over_off": 15.971009648136288,
+  "anomaly_off_K8_update_seconds": 110.0056794389966,
+  "anomaly_on_K8_update_seconds": 1756.9017676700023,
+  "projected_run1_seconds": 1920.0681532679591,
+  "run1_limit_seconds": 5400,
+  "run1_fits_75pct": true,
+  "projected_run2_seconds": 5600.227177559864,
+  "run2_limit_seconds": 10800,
+  "run2_fits_75pct": true,
+  "criteria": "identical inputs; gradient norms rel<=1e-6; losses atol1e-5/rtol1e-4; ratio>=5",
+  "rows": [
+    {
+      "rank": 0,
+      "off_seconds": 110.0056794389966,
+      "on_seconds": 1756.9017676700023,
+      "off_norm": 6.470302581787109,
+      "on_norm": 6.470302581787109,
+      "norm_bitwise_equal": true,
+      "off_phases": {
+        "mean_pass_seconds": 15.984653939958662,
+        "gradient_forward_seconds": 25.686988264962565,
+        "backward_recompute_seconds": 64.71817456110148,
+        "teacher_forward_backward_seconds": 3.0798836579779163
+      },
+      "on_phases": {
+        "mean_pass_seconds": 15.217495572054759,
+        "gradient_forward_seconds": 1050.8835573640536,
+        "backward_recompute_seconds": 689.5157271328499,
+        "teacher_forward_backward_seconds": 1.1194509890046902
+      }
+    },
+    {
+      "rank": 1,
+      "off_seconds": 110.0056794389966,
+      "on_seconds": 1756.9017676700023,
+      "off_norm": 6.470302581787109,
+      "on_norm": 6.470302581787109,
+      "norm_bitwise_equal": true,
+      "off_phases": {
+        "mean_pass_seconds": 16.166950415994506,
+        "gradient_forward_seconds": 25.860011318000033,
+        "backward_recompute_seconds": 67.18942516500829,
+        "teacher_forward_backward_seconds": 0.25347582902759314
+      },
+      "on_phases": {
+        "mean_pass_seconds": 15.33532453404041,
+        "gradient_forward_seconds": 1045.161966721993,
+        "backward_recompute_seconds": 681.7142252320191,
+        "teacher_forward_backward_seconds": 14.507593471033033
+      }
+    },
+    {
+      "rank": 2,
+      "off_seconds": 110.0056794389966,
+      "on_seconds": 1756.9017676700023,
+      "off_norm": 6.470302581787109,
+      "on_norm": 6.470302581787109,
+      "norm_bitwise_equal": true,
+      "off_phases": {
+        "mean_pass_seconds": 16.51431777497055,
+        "gradient_forward_seconds": 26.215595064975787,
+        "backward_recompute_seconds": 65.11708548892057,
+        "teacher_forward_backward_seconds": 1.6147292889654636
+      },
+      "on_phases": {
+        "mean_pass_seconds": 14.830047405033838,
+        "gradient_forward_seconds": 1047.3222938940744,
+        "backward_recompute_seconds": 673.868408302078,
+        "teacher_forward_backward_seconds": 20.708015415002592
+      }
+    },
+    {
+      "rank": 3,
+      "off_seconds": 110.0056794389966,
+      "on_seconds": 1756.9017676700023,
+      "off_norm": 6.470302581787109,
+      "on_norm": 6.470302581787109,
+      "norm_bitwise_equal": true,
+      "off_phases": {
+        "mean_pass_seconds": 16.55416277900804,
+        "gradient_forward_seconds": 25.79067334102001,
+        "backward_recompute_seconds": 66.16356309893308,
+        "teacher_forward_backward_seconds": 0.9411450179759413
+      },
+      "on_phases": {
+        "mean_pass_seconds": 14.238767842995003,
+        "gradient_forward_seconds": 989.1018116240739,
+        "backward_recompute_seconds": 702.8445640259306,
+        "teacher_forward_backward_seconds": 50.54514764301712
+      }
+    }
+  ]
+}

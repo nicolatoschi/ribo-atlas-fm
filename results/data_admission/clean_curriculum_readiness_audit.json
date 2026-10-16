@@ -1,0 +1,325 @@
+{
+  "measured_clean_cohorts": {
+    "dual_complete_source_unflagged": {
+      "full_construct_candidate_count": 77965,
+      "distinct_probed_100nt_core_count": 75659,
+      "by_source_group": [
+        {
+          "source_group": "M2PK90",
+          "full_construct_candidate_count": 9380,
+          "distinct_probed_100nt_core_count": 9380
+        },
+        {
+          "source_group": "OK1LIB",
+          "full_construct_candidate_count": 29314,
+          "distinct_probed_100nt_core_count": 28843
+        },
+        {
+          "source_group": "OK2TRN",
+          "full_construct_candidate_count": 26463,
+          "distinct_probed_100nt_core_count": 26042
+        },
+        {
+          "source_group": "RFMREP",
+          "full_construct_candidate_count": 12808,
+          "distinct_probed_100nt_core_count": 11497
+        }
+      ]
+    },
+    "at_least_one_complete_source_unflagged": {
+      "full_construct_candidate_count": 116379,
+      "distinct_probed_100nt_core_count": 111703,
+      "by_source_group": [
+        {
+          "source_group": "M2PK90",
+          "full_construct_candidate_count": 14224,
+          "distinct_probed_100nt_core_count": 14224
+        },
+        {
+          "source_group": "OK1LIB",
+          "full_construct_candidate_count": 44159,
+          "distinct_probed_100nt_core_count": 43262
+        },
+        {
+          "source_group": "OK2TRN",
+          "full_construct_candidate_count": 39148,
+          "distinct_probed_100nt_core_count": 38185
+        },
+        {
+          "source_group": "RFMREP",
+          "full_construct_candidate_count": 18848,
+          "distinct_probed_100nt_core_count": 16258
+        }
+      ]
+    }
+  },
+  "source_quality_summary": {
+    "source_warning_token_types": [
+      "warning:badQuality"
+    ],
+    "flagged_profile_records": 553558,
+    "flagged_complete_finite_profile_records": 492733,
+    "flagged_profiles_with_reported_SNR_below1": 553472,
+    "fraction_flagged_with_reported_SNR_below1": 0.9998446413925912,
+    "all_source_unflagged_profiles_have_reported_SNR_at_least1": true,
+    "flag_interpretation": "The warning marks low signal/read quality in these data; most flagged arrays are complete, rather than missing. The actual release stores warning:badQuality and numerical SNR. Exact upstream flag thresholds were not independently reimplemented; rounded SNR=1.000 and a few low-read flagged records prevent inferring an exact universal criterion."
+  },
+  "source_quality_table": [
+    {
+      "source": "M2PK90_2A3_0000",
+      "has_warning": 0,
+      "profile_records": 10235,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 10235,
+      "minimum_reads": 235,
+      "maximum_reads": 122968,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 23.145,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 10235,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 10235
+    },
+    {
+      "source": "M2PK90_2A3_0000",
+      "has_warning": 1,
+      "profile_records": 80765,
+      "wholly_missing_profiles": 16178,
+      "complete_finite_profiles": 64400,
+      "minimum_reads": 0,
+      "maximum_reads": 50422,
+      "minimum_reported_SNR": -0.22,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 80754,
+      "reported_SNR_at_least_one": 11,
+      "reported_reads_below100": 60576,
+      "reported_reads_at_least100_and_SNR_at_least_one": 11
+    },
+    {
+      "source": "M2PK90_DMS_0000",
+      "has_warning": 0,
+      "profile_records": 13369,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 13369,
+      "minimum_reads": 223,
+      "maximum_reads": 70900,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 21.86,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 13369,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 13369
+    },
+    {
+      "source": "M2PK90_DMS_0000",
+      "has_warning": 1,
+      "profile_records": 77631,
+      "wholly_missing_profiles": 16327,
+      "complete_finite_profiles": 61187,
+      "minimum_reads": 0,
+      "maximum_reads": 2738,
+      "minimum_reported_SNR": -0.074,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 77628,
+      "reported_SNR_at_least_one": 3,
+      "reported_reads_below100": 60542,
+      "reported_reads_at_least100_and_SNR_at_least_one": 3
+    },
+    {
+      "source": "OK1LIB_2A3_0000",
+      "has_warning": 0,
+      "profile_records": 42697,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 42697,
+      "minimum_reads": 101,
+      "maximum_reads": 328673,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 51.962,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 42697,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 42697
+    },
+    {
+      "source": "OK1LIB_2A3_0000",
+      "has_warning": 1,
+      "profile_records": 39475,
+      "wholly_missing_profiles": 3475,
+      "complete_finite_profiles": 35950,
+      "minimum_reads": 0,
+      "maximum_reads": 66656,
+      "minimum_reported_SNR": -0.105,
+      "maximum_reported_SNR": 1.125,
+      "reported_SNR_below_one": 39455,
+      "reported_SNR_at_least_one": 20,
+      "reported_reads_below100": 22449,
+      "reported_reads_at_least100_and_SNR_at_least_one": 12
+    },
+    {
+      "source": "OK1LIB_DMS_0000",
+      "has_warning": 0,
+      "profile_records": 30776,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 30776,
+      "minimum_reads": 272,
+      "maximum_reads": 315899,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 33.951,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 30776,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 30776
+    },
+    {
+      "source": "OK1LIB_DMS_0000",
+      "has_warning": 1,
+      "profile_records": 51396,
+      "wholly_missing_profiles": 2712,
+      "complete_finite_profiles": 48641,
+      "minimum_reads": 0,
+      "maximum_reads": 48019,
+      "minimum_reported_SNR": -0.191,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 51384,
+      "reported_SNR_at_least_one": 12,
+      "reported_reads_below100": 16715,
+      "reported_reads_at_least100_and_SNR_at_least_one": 12
+    },
+    {
+      "source": "OK2TRN_2A3_0000",
+      "has_warning": 0,
+      "profile_records": 28005,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 28005,
+      "minimum_reads": 224,
+      "maximum_reads": 435247,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 37.408,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 28005,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 28005
+    },
+    {
+      "source": "OK2TRN_2A3_0000",
+      "has_warning": 1,
+      "profile_records": 97118,
+      "wholly_missing_profiles": 6005,
+      "complete_finite_profiles": 91020,
+      "minimum_reads": 0,
+      "maximum_reads": 11987,
+      "minimum_reported_SNR": -0.083,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 97106,
+      "reported_SNR_at_least_one": 12,
+      "reported_reads_below100": 49783,
+      "reported_reads_at_least100_and_SNR_at_least_one": 12
+    },
+    {
+      "source": "OK2TRN_DMS_0000",
+      "has_warning": 0,
+      "profile_records": 37606,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 37606,
+      "minimum_reads": 205,
+      "maximum_reads": 351920,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 45.193,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 37606,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 37606
+    },
+    {
+      "source": "OK2TRN_DMS_0000",
+      "has_warning": 1,
+      "profile_records": 87517,
+      "wholly_missing_profiles": 5567,
+      "complete_finite_profiles": 81933,
+      "minimum_reads": 0,
+      "maximum_reads": 4215,
+      "minimum_reported_SNR": -0.078,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 87500,
+      "reported_SNR_at_least_one": 17,
+      "reported_reads_below100": 43448,
+      "reported_reads_at_least100_and_SNR_at_least_one": 17
+    },
+    {
+      "source": "RFMREP_2A3_0000",
+      "has_warning": 0,
+      "profile_records": 14063,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 14063,
+      "minimum_reads": 240,
+      "maximum_reads": 65334,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 17.359,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 14063,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 14063
+    },
+    {
+      "source": "RFMREP_2A3_0000",
+      "has_warning": 1,
+      "profile_records": 61593,
+      "wholly_missing_profiles": 5623,
+      "complete_finite_profiles": 55958,
+      "minimum_reads": 0,
+      "maximum_reads": 25069,
+      "minimum_reported_SNR": -0.123,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 61587,
+      "reported_SNR_at_least_one": 6,
+      "reported_reads_below100": 39060,
+      "reported_reads_at_least100_and_SNR_at_least_one": 6
+    },
+    {
+      "source": "RFMREP_DMS_0000",
+      "has_warning": 0,
+      "profile_records": 17593,
+      "wholly_missing_profiles": 0,
+      "complete_finite_profiles": 17593,
+      "minimum_reads": 214,
+      "maximum_reads": 81227,
+      "minimum_reported_SNR": 1.0,
+      "maximum_reported_SNR": 21.394,
+      "reported_SNR_below_one": 0,
+      "reported_SNR_at_least_one": 17593,
+      "reported_reads_below100": 0,
+      "reported_reads_at_least100_and_SNR_at_least_one": 17593
+    },
+    {
+      "source": "RFMREP_DMS_0000",
+      "has_warning": 1,
+      "profile_records": 58063,
+      "wholly_missing_profiles": 4416,
+      "complete_finite_profiles": 53644,
+      "minimum_reads": 0,
+      "maximum_reads": 6693,
+      "minimum_reported_SNR": -0.036,
+      "maximum_reported_SNR": 1.0,
+      "reported_SNR_below_one": 58058,
+      "reported_SNR_at_least_one": 5,
+      "reported_reads_below100": 35863,
+      "reported_reads_at_least100_and_SNR_at_least_one": 5
+    }
+  ],
+  "readiness_and_prospective_curriculum": {
+    "downloaded_source_assets_sha256_and_size_verified": 8,
+    "parsed_chemistry_profile_records": 747902,
+    "actual_condition_count": 1,
+    "full_construct_length_nt": 177,
+    "probed_positions_per_construct": 100,
+    "actual_input_fixture_count": 4,
+    "actual_input_fixture_declared_distinct_parent_ids": 4,
+    "final_task_specific_split_admitted_count": null,
+    "legacy_exposure_audited_count": null,
+    "independently_validated_family_count": null,
+    "prospective_strict_clean_training_distinct_core_cap": 60000,
+    "cap_rationale": "75,659 measured dual-clean distinct cores \u00d7 80%=60,527 before group/exposure losses; round down to a maximum planning cap of 60,000. Release only min(60,000, actually G1-admitted training cores) after parent/window lineage blocking, task-specific family/study/time holdouts and legacy exposure audit. This is a bounded prospective cap, not a measured post-partition cohort.",
+    "broad_K8_scope": "Sparse/uncertainty-aware learning may use observed candidate views under train-only error calibration and lineage weighting. Low-SNR source flags remain explicit; missing values are masked and no candidate count is an independent-family count.",
+    "strict_K32_scope": "Final ensemble learning uses the admitted clean cohort and fresh Monte Carlo draws; parent/mutant/correlated observations remain grouped and correctly weighted."
+  }
+}

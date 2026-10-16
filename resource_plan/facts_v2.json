@@ -1,0 +1,405 @@
+{
+  "request_NH": 83400,
+  "request_GPUh": 333600,
+  "model_total_NH": 83238.96883557357,
+  "ledger": [
+    {
+      "block": "Matched core",
+      "request_NH": 44900,
+      "model_NH": 44854.4
+    },
+    {
+      "block": "Mechanism ablations",
+      "request_NH": 17300,
+      "model_NH": 17260.6
+    },
+    {
+      "block": "Locked reproduction",
+      "request_NH": 9000,
+      "model_NH": 8970.9
+    },
+    {
+      "block": "Data-scaling study",
+      "request_NH": 3600,
+      "model_NH": 3588.4
+    },
+    {
+      "block": "Frozen evaluation (inference)",
+      "request_NH": 7100,
+      "model_NH": 7064.7
+    },
+    {
+      "block": "Shared fitting",
+      "request_NH": 1000,
+      "model_NH": 1000
+    },
+    {
+      "block": "Operations",
+      "request_NH": 500,
+      "model_NH": 500
+    }
+  ],
+  "inference_share": 0.08513189448441247,
+  "monthly_NH": [
+    1200,
+    18700,
+    18000,
+    21200,
+    17800,
+    6500
+  ],
+  "Q1_NH": 37900,
+  "Q2_NH": 45500,
+  "mean_nodes": 19.305555555555557,
+  "unit": {
+    "c8": 4.29,
+    "c32": 17.26,
+    "K8_m1": 27.5,
+    "K32_m1": 119.98,
+    "old_c8": 323.51,
+    "old_c32": 1340.71,
+    "eval_K32_case": 126.9,
+    "eval_K32_case_CI": [
+      122.51945611918833,
+      131.52710724822737
+    ],
+    "eval_packing": 0.8,
+    "eval_K32_case_priced": 158.6,
+    "eval_forecast_old": 368.2,
+    "length_exponent_K32": 0.12,
+    "length_exponent_K8": 0.13
+  },
+  "design": {
+    "arms": 3,
+    "seeds": 5,
+    "warm_cases": 300000,
+    "warm_passes": 3,
+    "fine_cases": 50000,
+    "fine_passes": 8,
+    "global_batch": 128,
+    "microbatch": 8,
+    "warm_updates": 7032,
+    "fine_updates": 3125,
+    "ablation_trajectories": 9,
+    "reproductions": 3,
+    "scaling_fractions": [
+      0.1,
+      0.3
+    ],
+    "final_eval_cohorts": 25500,
+    "dev_cases": 300,
+    "dev_check_cases": 100800,
+    "packing": 0.8
+  },
+  "gate": {
+    "off_s": 110.0,
+    "on_s": 1756.9,
+    "ratio": 16.0
+  },
+  "reliability": {
+    "B1_updates_s": [
+      482.7,
+      483.4,
+      473.7
+    ],
+    "old_2305296_s": 5362.9,
+    "job_2319595_s": [
+      6864.1,
+      6860.7,
+      6828.6
+    ],
+    "waveC_trajectories_qualified": 4,
+    "reports_per_trajectory": 384,
+    "identical_norms": [
+      88.58098602294922,
+      6.791296005249023
+    ]
+  },
+  "microbatch": {
+    "175_m1": 28.45026657843664,
+    "175_m8": 4.22201522668729,
+    "75_m1": 29.88239078053175,
+    "75_m16": 1.8599639632648177,
+    "HBM_175_m8_GiB": 12.837890625,
+    "binding_ratio": 1.007
+  },
+  "length": {
+    "1e8o_E": {
+      "L": 50,
+      "K32_update_s": 460.6,
+      "HBM_GiB": 0.55
+    },
+    "1grz_B": {
+      "L": 247,
+      "K32_update_s": 599.6,
+      "HBM_GiB": 3.57
+    },
+    "6cc1_B": {
+      "L": 100,
+      "K32_update_s": 469.3,
+      "HBM_GiB": 0.95
+    },
+    "6chr_A": {
+      "L": 621,
+      "K32_update_s": 602.0,
+      "HBM_GiB": 19.71
+    },
+    "6t3n_A": {
+      "L": 394,
+      "K32_update_s": 470.0,
+      "HBM_GiB": 8.18
+    },
+    "7ptk_B": {
+      "L": 720,
+      "K32_update_s": 681.4,
+      "HBM_GiB": 26.25
+    }
+  },
+  "concurrency": {
+    "K8_m8": {
+      "node_seconds_per_case": 4.283778765906391,
+      "min": 4.231295236280857,
+      "max": 4.371841416032112,
+      "groups": 8,
+      "source": "Wave C C3: median of 8 concurrent 8-node trajectories (32 GPUs, micro 8, local 8, B256), one update each",
+      "update_seconds": [
+        137.18364511302207,
+        135.6223024430219,
+        139.89892531302758,
+        136.71597441099584,
+        136.97819590498693,
+        138.67836849601008,
+        137.52786688302876,
+        135.40144756098744
+      ],
+      "peak_reserved_GiB": 12.837890625
+    },
+    "K32_m8": {
+      "node_seconds_per_case": 17.23646571748486,
+      "min": 16.98049762015762,
+      "max": 21.154066228500596,
+      "groups": 8,
+      "source": "Wave C C3: median of 8 concurrent 8-node trajectories (32 GPUs, micro 8, local 8, B256), one update each",
+      "update_seconds": [
+        551.3092298299889,
+        552.3449736529728,
+        545.5455649659852,
+        676.9301193120191,
+        553.9744356229785,
+        543.3759238450439,
+        551.8245760890422,
+        546.94581027003
+      ],
+      "peak_reserved_GiB": 12.837890625
+    }
+  },
+  "scaling": {
+    "strong_8_32_speedup": 4.59,
+    "weak_32_64": 0.79,
+    "weak_32_128": 0.81,
+    "T128_s": 586.2,
+    "slow_nodes": [
+      "jpbo-048-33",
+      "jpbo-049-19",
+      "jpbo-061-16"
+    ],
+    "faulty_nodes": [
+      "jpbo-055-37",
+      "jpbo-090-25"
+    ],
+    "slow_node_excess": [
+      {
+        "job": "job_2339575",
+        "step": "B2/r1_K8",
+        "node": "jpbo-048-33",
+        "excess": 0.34943973092779435
+      },
+      {
+        "job": "job_2339575",
+        "step": "B2/r1_K32",
+        "node": "jpbo-048-33",
+        "excess": 0.3321828305026082
+      },
+      {
+        "job": "job_2339575",
+        "step": "P2/weak_N64_K32",
+        "node": "jpbo-048-33",
+        "excess": 0.30525688260226835
+      },
+      {
+        "job": "job_2339575",
+        "step": "P2/weak_N64_K32",
+        "node": "jpbo-049-19",
+        "excess": 0.32994665759387054
+      },
+      {
+        "job": "job_2342412",
+        "step": "C3/K32_m8_g13",
+        "node": "jpbo-061-16",
+        "excess": 0.2289609699685753
+      },
+      {
+        "job": "job_2342412",
+        "step": "C4/wide_N128_K32",
+        "node": "jpbo-061-16",
+        "excess": 0.29399204420548797
+      }
+    ],
+    "slow_excess_pct": [
+      23,
+      35
+    ]
+  },
+  "waveD": {
+    "cases_done": 248,
+    "refinement_failures": {
+      "planned_cases": 256,
+      "case_json_present": 248,
+      "missing_case_json": [
+        "3f2q_X",
+        "4wfl_A",
+        "5t5h_E",
+        "5vt0_R",
+        "5zwo_I",
+        "7pkq_2",
+        "7r6q_1",
+        "8s95_C"
+      ],
+      "case_status": {
+        "complete": 165,
+        "partial": 83
+      },
+      "generation_status": {
+        "ok": 7936
+      },
+      "refinement_status": {
+        "ok": 5849,
+        "failed": 174,
+        "skipped_deadline": 3
+      },
+      "refinement_failure_category": {
+        "exception": 150,
+        "energy_increase": 24
+      },
+      "rank_status": {
+        "finished": 124,
+        "interrupted": 3,
+        "failed": 1
+      }
+    },
+    "anchor": {
+      "generated_ok": 32,
+      "refined_ok": 31,
+      "mean_generated_C4prime_lDDT": 0.5576429347045251,
+      "pilot_job2297413_mean_C4prime_lDDT_316atom_alignment_run": 0.557643,
+      "generation_predict_step_sum_s": 54.84063852514373,
+      "generation_sampler_sum_s": 53.921923707122914,
+      "pilot_1gpu_sampler_sum_s": 56.04009600601057,
+      "refinement_worker_seconds_sum": 326.7709194440977,
+      "pilot_refinement_case_wall_sum_s": 969.6,
+      "generated_PDB_sha_matches_job2297413": 32,
+      "refined_samples_compared_to_job2298016": 31,
+      "after_QC_identical_count": 0,
+      "stage_energies_match_count": 0
+    }
+  },
+  "waveE": {
+    "E16": 0.767,
+    "E32": 0.312,
+    "E64": 0.189,
+    "sdpa_speedup": 1.376,
+    "HBM_official_GiB": 45.9,
+    "HBM_sdpa_GiB": 24.7,
+    "heldout_delta": 0.00838,
+    "heldout_CI": [
+      -0.00102,
+      0.01578
+    ],
+    "heldout_families": 210,
+    "infamily_delta_1ep": -0.02901,
+    "infamily_CI_1ep": [
+      -0.04124,
+      -0.01816
+    ],
+    "loss_agreement_max": 0.00017
+  },
+  "waveF": {
+    "status": "executed_exploratory_forward_operator_only",
+    "n_lineages": 4,
+    "n_obs": 382,
+    "gate": {
+      "frozen_rule": "Geometry is described as adding held-out information only if, in BOTH the error-weighted primary and the unweighted refit, the mean lineage difference favours geometry over the secondary arm AND over the shuffled-geometry control, with at least 3 of 4 held-out lineages favouring geometry in each of those four comparisons. Otherwise the result is reported as null or mixed. Geometry-versus-sequence is reported descriptively. Small lineage count, crystal-as-solution-proxy, annotation-informed secondary baseline and study sensitivity accompany every estimate.",
+      "criteria_met": {
+        "error_weighted:secondary_context": false,
+        "error_weighted:shuffled_geometry_context": false,
+        "unweighted:secondary_context": false,
+        "unweighted:shuffled_geometry_context": false
+      },
+      "geometry_adds_information_by_frozen_gate": false
+    }
+  },
+  "spend_GPUh": {
+    "before_15oct_991": 393.2,
+    "before_15oct_993": 926.9,
+    "waveB": 280.3,
+    "waveC": 489.2,
+    "waveD": 154.5,
+    "waveE": 14.2,
+    "total": 2258.3
+  },
+  "sources": {
+    "waveB": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/retrieved/job_2339575/waveB_analysis.json",
+    "gate": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/retrieved/job_2339575/gate_B0.json",
+    "B1": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/retrieved/job_2339575/B1_reliability_qualification.json",
+    "waveC": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/retrieved/job_2342412/waveC_analysis.json",
+    "waveD": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/evaluation_pipeline_waveD/retrieved/job_2340563/aggregate/waveD_findings.json",
+    "waveF": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/biological_validation_pilot_v2/model/results/forward_head_results.json",
+    "plan": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/v2/resource_plan_v2.json",
+    "rel2319595": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/ensemble_training/production_reliability_pilot/retrieved/snapshot_20261015T164433Z/reliability_qualification_summary.json",
+    "admission": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/actual_probe_admission/actual_admission_evidence.json",
+    "readiness": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/actual_probe_admission/clean_curriculum_readiness_audit.json",
+    "rfam": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/rfam15_1_inventory.json",
+    "expansion": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/expansion_admission_20261016/admission_run/actual_admission_evidence.json",
+    "expansion_breakdown": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/resource_costing/expansion_admission_20261016/admission_run/expansion_breakdown.json"
+  },
+  "data": {
+    "profiles": 747902,
+    "candidates_observed": 351573,
+    "candidates_one_clean": 116379,
+    "candidates_both_clean": 77965,
+    "flagged_profiles": 553558,
+    "flagged_SNR_below1": 553472,
+    "rfam_sequences": 96910,
+    "rfam_tokens": 10566278,
+    "rfam_families": 4185
+  },
+  "data_all": {
+    "files": 60,
+    "new_files": 52,
+    "new_GB": 9.06,
+    "profiles": 3985378,
+    "candidates_observed": 1708211,
+    "candidates_one_clean": 485824,
+    "candidates_both_clean": 300166,
+    "flagged_profiles": 3180131,
+    "flagged_SNR_below1": 3179757,
+    "libraries": 17,
+    "lengths_nt": [
+      177,
+      207
+    ],
+    "holdout_fraction": 0.15,
+    "broad_capacity": 412950,
+    "clean_capacity": 255141
+  },
+  "host_RSS_GB": [
+    3.7,
+    4.4
+  ],
+  "gradient_spikes": {
+    "cases": 512,
+    "median_local_norm": 0.086,
+    "max_local_norm": 18304738.0,
+    "above_1000": 3
+  }
+}

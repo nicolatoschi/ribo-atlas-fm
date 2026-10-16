@@ -1,0 +1,97 @@
+{
+  "approval": "PI 15 Oct 2026: runs 0-2 on e-aif-2026fl01-993, expected ~140 GPU-h, max 292; run 0 first as gate",
+  "runs": [
+    {
+      "run": 0,
+      "job_id": 2339203,
+      "script": "run0_ab_gate.sbatch",
+      "script_sha256": "b7002b16e9c4711df50f04670a3e3b7c192c6dcf59eac8812f4200f43ae0e92c",
+      "account": "e-aif-2026fl01-993",
+      "nodes": 1,
+      "time_limit": "01:00:00",
+      "max_GPU_hours": 4,
+      "submitted_utc": "2026-10-15T17:44:28.815607+00:00",
+      "pre_submission_checks": "all packet files match manifests; original packet driver/launcher/wrapper and checkpoint hashes match; no active ribo jobs",
+      "cancelled_utc": "2026-10-15T18:23:14.816798+00:00",
+      "cancel_reason": "PI decision 15 Oct: fold Run 0 into Wave B (step B0); never started, 0 GPU-h"
+    },
+    {
+      "run": "waveB",
+      "job_id": 2339575,
+      "script": "waveB_cost_scaling.sbatch",
+      "script_sha256": "6ebee98f34e6b685fcd69f7d7cb34efd5729e8d6328cd1f7e3a3c5e914d137cb",
+      "account": "e-aif-2026fl01-993",
+      "nodes": 64,
+      "time_limit": "02:30:00",
+      "expected_GPU_hours": 400,
+      "max_GPU_hours": 640,
+      "submitted_utc": "2026-10-15T18:23:14.816798+00:00",
+      "packets": {
+        "fixed": "b63550bd42ee",
+        "reliability": "32e2cc0f8974",
+        "campaign": "e8ff330ee775",
+        "original_on_arm": "670450638bf1"
+      },
+      "steps": "B0 A/B gate (1 node); B1 reliability N32 (32); B2 2x N8 K8+K32 (16); B3 length ladder 50-720 nt K8x2/K32 (12); B4 microbatch sweep (3); P2 weak scaling K32/B256 on 64 nodes",
+      "pre_submission_checks": "remote hashes of all packets match manifests; sbatch sha match; bash -n; local placement dry run (35 sruns, disjoint); sbatch --test-only est. start 23:05 CEST"
+    },
+    {
+      "run": "waveE",
+      "job_id": 2340325,
+      "script": "work/sequence_prior_waveE/sbatch/waveE_rnafm_mlm.sbatch",
+      "script_sha256": "4ecd1e273692237e67dd95bdf95a656092fccc6ffaa5c38361e6dd32949a56e4",
+      "packet": "waveE_05ec1ab6b438",
+      "freeze_sha256": "05ec1ab6b43869854595aa8aa3818a4caee62960e842f376bd6a0a36741542ba",
+      "account": "e-aif-2026fl01-993",
+      "nodes": 64,
+      "time_limit": "00:50:00",
+      "expected_GPU_hours": "26-55",
+      "max_GPU_hours": 213.3,
+      "submitted_utc": "2026-10-15T20:17:45.765755+00:00",
+      "primary_endpoint": "held-out-family MLM loss at first epoch boundary (step 12) vs step 0, family bootstrap",
+      "pre_submission_checks": "remote verify_packet ok (13 files + weights sha256); env setup log LOAD TEST OK (digest matches Mac); sbatch sha match; bash -n; local placement dry run 23/23; sbatch --test-only est. 01:06 CEST"
+    },
+    {
+      "run": "waveD",
+      "job_id": 2340563,
+      "script": "work/geometry_pilot/evaluation_pipeline_waveD/sbatch/waveD_eval_cost.sbatch",
+      "script_sha256": "b53add7614b0de0ad0847551e4959c62dd988ebc2f32ffe1c8b0f64939c4b020",
+      "packet": "waveD_efec09f1317a",
+      "freeze_sha256": "efec09f1317ab5c2de8dfc2d4da011ae35d17fb1095420ce0b89fce40a6ea10d",
+      "account": "e-aif-2026fl01-993",
+      "nodes": 32,
+      "time_limit": "01:30:00",
+      "expected_GPU_hours": "70-75",
+      "max_GPU_hours": 192,
+      "submitted_utc": "2026-10-15T20:38:10.339683+00:00",
+      "scope": "256 cases (232 PDB chains + 23 bpRNA distillation + P4P6 anchor), K32 pretrained generation + OL3/GBn2 refinement (subset R by length) + validity/C4prime lDDT; all lDDT is pipeline QA (no verifiably held-out case)",
+      "pre_submission_checks": "remote verify_packet PASSED (files, checkpoint, sbatch sha); OpenMM 8.4 CUDA platform present in env; bash -n; local dry run; CPU smoke incl. failure/deadline/SIGTERM handling; sbatch --test-only est. 01:31 CEST"
+    },
+    {
+      "run": "waveC",
+      "job_id": 2342412,
+      "script": "waveC_production_shape.sbatch",
+      "script_sha256": "a1a18ddbdc88ec3f2236db4058dce11d10da6185186e7e383f214331dab7be0b",
+      "account": "e-aif-2026fl01-993",
+      "nodes": 128,
+      "time_limit": "01:45:00",
+      "expected_GPU_hours": 470,
+      "max_GPU_hours": 896,
+      "submitted_utc": "2026-10-15T22:00:59.098806+00:00",
+      "design": "C1 4x32-node reliability continuous (micro1); C2 cross-node resume on next block; C3 16x8-node microbatch-8 (8 K8 + 8 K32 groups, local 8); C4 128-node K32/B512 micro1",
+      "node_health_exclusions": {
+        "jpbo-055-37": "known faulty GPU",
+        "jpbo-048-33": "35-38% slower than peers in every Wave B step (job 2339575)",
+        "jpbo-049-19": "~33% slower in Wave B P2"
+      },
+      "caps_basis": "Wave B measured step times x ~1.6-2",
+      "pre_submission_checks": "sbatch sha match; bash -n; local placement dry run (25 sruns, rotation verified); sbatch --test-only est. 01:15 CEST; packets already verified on JUPITER"
+    }
+  ],
+  "decisions": [
+    {
+      "utc": "2026-10-15T18:23:14.816798+00:00",
+      "PI": "Fund all waves (B, C at 128 nodes, D, E, F, G conditional, up to ~3,000 GPU-h max); fold Run 0 into Wave B; RNA-FM download approved"
+    }
+  ]
+}

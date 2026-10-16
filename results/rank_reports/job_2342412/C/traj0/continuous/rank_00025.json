@@ -1,0 +1,170 @@
+{
+  "status": "Full-objective reliability stage completed",
+  "stage": "continuous",
+  "slurm_job_id": 2342412,
+  "slurm_step_id": "0",
+  "rank": 25,
+  "world_size": 128,
+  "identity": {
+    "campaign_manifest_sha256": "a526bc8488744c0beb9e2da55adfb5eef67baa742f2101116b5afbbde009101e",
+    "original_freeze_sha256": "b63550bd42eeabd2d05e2b1d38347aaf6e3b276a87fcc3976997aa9bebc630d0",
+    "slurm_job_id": 2342412,
+    "slurm_restart_count": 0,
+    "rank": 25,
+    "world_size": 128,
+    "case": "5zwm_B",
+    "length": 175,
+    "seed": 20261012,
+    "microbatch": 1,
+    "local_constructs": 1,
+    "global_case_instances": 128,
+    "K": 32,
+    "T": 50,
+    "fixture_sha256": "fc1a635152161fbac03f6410b44b09dd025eb37c3b2a9439eb4bc78281246870",
+    "official_checkpoint_sha256": "bb598a736193734541f63c59dae75d45db8c04f01a8414a758677367c4b1e213",
+    "frozen_head_sha256": "a84d5c04323d04e733642ff8b8881021c253b9c30905b69db8489c9fad95bc5e",
+    "observations_by_logical_id": {
+      "25": {
+        "target_sha256": "828a15cf2c7e024097560a0de9f79b378d8a007784bb8f2378417425d2699871",
+        "weights_sha256": "916847dad107f1277414b1818197ed3b0a2ac2b06fb16fcf51bce4a0b4970cfc",
+        "probe_sha256": "26df9990c3a7b65269dc315119ee37a5810b08c172e6b094e55a672a5365e129",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      }
+    },
+    "teacher_by_logical_id": {
+      "25": {
+        "t": "02ba609ee11cdb718f0cb80a85dbadc837b25f77ad1d62ac8baa5fa1551c3517",
+        "trans_t": "103feb58c732986a20da978ed8075f0188bc59c72940efbc35b28d42d0ddfdc9",
+        "rotmats_t": "e5236da82b28500bcded17497d2be29f69740d83a9a740673a1bb76eef23a9e1"
+      }
+    }
+  },
+  "updates": [
+    {
+      "microbatch": 1,
+      "accumulation": 1,
+      "local_constructs": 1,
+      "global_constructs": 128,
+      "rank_max_seconds": 472.4357718100073,
+      "global_case_instances_per_second": 0.27093629999608904,
+      "first_microbatch_generated_signal": {
+        "generated_inverse_gradient_norm": 0.09541208297014236,
+        "generated_probe_gradient_norm": 0.005183816887438297
+      },
+      "all_gradients_finite": true,
+      "combined_preclip_gradient_norm": 88.58098602294922,
+      "frozen_head_gradients_absent": true,
+      "actual_call_entries": {
+        "mean_forward": 1600,
+        "gradient_forward": 1600,
+        "backward_recompute": 1600,
+        "native_teacher_forward": 1
+      },
+      "groups": [
+        {
+          "logical_ids": [
+            25
+          ],
+          "mean_pass_seconds": 60.29989512899192,
+          "gradient_forward_seconds": 108.12077118409798,
+          "backward_recompute_seconds": 268.24961440701736,
+          "teacher_forward_backward_seconds": 35.270882676006295,
+          "finite_K_case_mean_profile_MSE": 0.05940047279000282,
+          "adjacent_C4_mean": 0.0018337842047913,
+          "teacher_loss": 0.5396468639373779,
+          "maximum_replay_difference": 0.0
+        }
+      ],
+      "GPU_peak_allocated_bytes": 1914715648,
+      "GPU_peak_reserved_bytes": 2174746624,
+      "GPU_capacity_bytes": 102005473280,
+      "completed_updates": 1,
+      "model_state_sha256": "1ef224a92b4cb4bea4321114587ca429244c1ddb08015d0c3a571c85c47f7e62",
+      "optimizer_state_sha256": "750b7ea65c20cc015fb2c2472a0311b952b8dab1e6dd6a83b9f177f399317f72",
+      "rng_state_sha256": "b101a7a9cc666b9eedc23aff0cd80489af870e72e49b8d205eea8c7486c59b73",
+      "scheduler_state_sha256": "845fe0ccdb59e8bb319e966c472422f4a8bc11e731d37fbb535143b359438316",
+      "data_cursor_sha256": "6e0813e36d08039d47f7428ef5a4e7ac1782d712f409fe927027de183e4275a3",
+      "AdamW_step_counter_range": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "microbatch": 1,
+      "accumulation": 1,
+      "local_constructs": 1,
+      "global_constructs": 128,
+      "rank_max_seconds": 475.3161786470446,
+      "global_case_instances_per_second": 0.2692944312654018,
+      "first_microbatch_generated_signal": {
+        "generated_inverse_gradient_norm": 0.09617570787668228,
+        "generated_probe_gradient_norm": 0.0046446253545582294
+      },
+      "all_gradients_finite": true,
+      "combined_preclip_gradient_norm": 6.791296005249023,
+      "frozen_head_gradients_absent": true,
+      "actual_call_entries": {
+        "mean_forward": 1600,
+        "gradient_forward": 1600,
+        "backward_recompute": 1600,
+        "native_teacher_forward": 1
+      },
+      "groups": [
+        {
+          "logical_ids": [
+            25
+          ],
+          "mean_pass_seconds": 60.33227861300111,
+          "gradient_forward_seconds": 110.51951057789847,
+          "backward_recompute_seconds": 273.1385178438504,
+          "teacher_forward_backward_seconds": 31.166539234982338,
+          "finite_K_case_mean_profile_MSE": 0.059331491589546204,
+          "adjacent_C4_mean": 0.0019094859380857088,
+          "teacher_loss": 0.5138978958129883,
+          "maximum_replay_difference": 0.0
+        }
+      ],
+      "GPU_peak_allocated_bytes": 2055398912,
+      "GPU_peak_reserved_bytes": 2231369728,
+      "GPU_capacity_bytes": 102005473280,
+      "completed_updates": 2,
+      "model_state_sha256": "b5445532bab0ad77012dca1a6c4c2ec5cea3eb4d202e59485f808018438bb4f7",
+      "optimizer_state_sha256": "9a9c6fca719b7282ae720cb28042baf3276dee812a7af2634a0e21dd3d8689ad",
+      "rng_state_sha256": "b101a7a9cc666b9eedc23aff0cd80489af870e72e49b8d205eea8c7486c59b73",
+      "scheduler_state_sha256": "845fe0ccdb59e8bb319e966c472422f4a8bc11e731d37fbb535143b359438316",
+      "data_cursor_sha256": "5f7c6ddde6af65f35063350ff4625c783c06914f5b1f8d3f686adb3d9debc592",
+      "AdamW_step_counter_range": [
+        2.0,
+        2.0
+      ]
+    }
+  ],
+  "checkpoint_files": [
+    {
+      "completed_updates": 1,
+      "file": "rank_00025_after_update1.pt",
+      "sha256": "59afedbc414287ddeaf5fea47b9f6500fc5415e63535451d93f34f84667c4f51",
+      "bytes": 207015751,
+      "seconds": 13.689184808987193
+    },
+    {
+      "completed_updates": 2,
+      "file": "rank_00025_after_update2_reference.pt",
+      "sha256": "49834418d8d6e0f2dba7b500c218990262eaf28471e892de4dc8808e834d30b5",
+      "bytes": 207032979,
+      "seconds": 5.096145546005573
+    }
+  ],
+  "restore_proof": null,
+  "restart_comparison": null,
+  "stage_wall_seconds": 969.1964659120422,
+  "collective_timeout_seconds": 43200,
+  "torch_version": "2.10.0",
+  "GPU_name": "NVIDIA GH200 120GB",
+  "host_peak_RSS_bytes": 4120969216,
+  "host_memory_scope": "Cumulative process maximum RSS including setup, full updates, checkpoint/state hashing and comparison; not simultaneous node RSS",
+  "timing_scope": "Consecutive complete optimizer updates; timed native body unchanged; state hashing/checkpoint I/O reported separately",
+  "scope": "One actual 175nt RNA; fixed 128 synthetic stochastic case instances and random frozen head; engineering reliability, not biological efficacy",
+  "scheduler_scope": "Original constant AdamW learning rate; no learning-rate scheduler exists in this native pilot",
+  "restart_scope": "Fresh srun processes within the same allocated job; different-node preemption recovery and shuffled-data cursor are not tested"
+}

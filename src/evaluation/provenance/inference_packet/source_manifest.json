@@ -1,0 +1,12 @@
+{
+  "official_repository": "https://github.com/Bhattacharya-Lab/RNAbpFlow",
+  "git_commit": "e8b1c077f7951d4d6ebe00c851d22c37777dfc9f",
+  "download_zip_sha256": "193a01c7f3e54be7710af83ab4e2dbf9fe4f95ff82a2fea4f566da9bb650ff08",
+  "portability_patch": {
+    "file": "src/data/utils.py",
+    "original_sha256": "b84d7ae02e2e3f899cced42ccee7407a2324f90608eefe3ac6afa3d6dd820a8a",
+    "ported_sha256": "543aa6938176aa15378a97c606c6e917e55dcc948d3b86bcd114568f57aba6a6",
+    "description": "Replace only grouped mean/sum torch_scatter import with torch-native index_add adapter; model structure untouched"
+  },
+  "pilot_input": "Public P4-P6 PDB1GID canonical158 bases with 48 reference annotation pairs; engineering/in-distribution baseline, not blind efficacy"
+}

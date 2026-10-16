@@ -1,0 +1,11 @@
+--- upstream/src/data/utils.py
++++ ported/src/data/utils.py
+@@ -13,7 +13,7 @@
+ import os
+ import torch.nn.functional as F
+ import torch
+-from torch_scatter import scatter_add, scatter
++from src.data.torch_native_scatter import scatter_add, scatter
+ from Bio import PDB
+ 
+ from src.data import rigid_utils as ru

@@ -1,0 +1,16 @@
+{
+ "purpose": "Scope correction for files in this directory; written 2026-10-16 after the second independent audit. The evidence files are left byte-unchanged because the parser (parse_actual_rdat.py, sha256 064468045bf5..., identical to the 8-file run) writes fixed header strings.",
+ "actual_scope": "All 60 RMDB DMS/2A3 RDAT assets listed in download_manifest.json (8 original + 52 acquired 2026-10-16), 17 source groups, VIRWIN viral-window deposits INCLUDED.",
+ "superseded_header_strings": {
+  "actual_admission_evidence.json:scope": "Four selected RNA-only groups; VIRWIN viral-window deposits explicitly excluded  -> describes the 8-file run only",
+  "actual_admission_evidence.json:groups": "lists only the original 4 groups (parser hard-codes the group table); per-group counts for all 17 groups are in expansion_breakdown.json",
+  "download_manifest.json:selection / excluded_source_group": "header carried over from the 8-file manifest; the note field (8 + 52) and the 60 asset rows are authoritative"
+ },
+ "authoritative": {
+  "totals": "actual_admission_evidence.json:totals (60 files, source_sha256_verified = 60)",
+  "per_group_clean_view_candidates": "expansion_breakdown.json:clean_view_candidates_by_group",
+  "groups": 17,
+  "VIRWIN_clean_view_candidates": 25280,
+  "total_bytes_60_assets": 10878682856
+ }
+}

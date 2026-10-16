@@ -1,0 +1,66 @@
+{
+ "status": "PI design decision 16 Oct 2026: 3 arms x 5 seeds; 3 broad K=8 passes over 300,000 clean-view cases and up to 8 clean K=32 passes over 50,000 dual-clean cases; mechanism ablations; one locked reproduction per arm; data-scaling study. Data sizes are within the admitted clean pools after 15% holdout (see sources).",
+ "microbatch": 8,
+ "training_length_nt": 177,
+ "global_batch": 128,
+ "exposure": {
+  "warm_cases": 300000,
+  "warm_cases_source": "Broad K=8 cohort of clean-view candidates (at least one complete, unflagged chemistry) after a 15% family/library/study holdout. Admitted pool from 60 hash-verified RMDB RDATs (8 original + 52 acquired 16 Oct 2026, the 30 largest DMS/2A3 counterpart pairs), parsed with the unchanged admission parser: 1,708,211 unique candidates with observations, 485,824 clean-view, so capacity 412,950 >= 300,000. Flagged low-signal profiles (80%, almost all SNR<1) are not used for training.",
+  "warm_passes": 3,
+  "fine_cases": 50000,
+  "fine_cases_source": "Clean K=32 cohort of candidates with both chemistries complete and unflagged after 15% holdout: 300,166 in the admitted pool, capacity 255,141 >= 50,000.",
+  "fine_passes": 8,
+  "passes_are_ceilings": "Each pass boundary is a common development check; continuation requires >=1% probe-error reduction or >=0.005 lDDT gain with paired interval excluding zero and preserved validity; two unsuccessful checks stop all arms; unused hours are returned"
+ },
+ "trajectories": {
+  "core": {
+   "warm": 15,
+   "fine": 15
+  },
+  "ablations": {
+   "warm": 0,
+   "fine": 9
+  },
+  "reproduction": {
+   "warm": 3,
+   "fine": 3
+  }
+ },
+ "data_scaling": [
+  {
+   "fraction": 0.1,
+   "trajectories": {
+    "warm": 3,
+    "fine": 3
+   }
+  },
+  {
+   "fraction": 0.3,
+   "trajectories": {
+    "warm": 3,
+    "fine": 3
+   }
+  }
+ ],
+ "expansion": null,
+ "inference": {
+  "final_eval_cohorts": 25500,
+  "dev_cases": 300,
+  "external_reference_and_preprocessing_NH": 1500,
+  "packing_efficiency": 0.8,
+  "dev_cases_source": "Fixed development panel frozen at G1",
+  "packing_source": "Assumed 80% GPU packing with a dynamic work queue. Wave D (static partition) reached 0.22; its fitted per-GPU occupancy of 127 node-s per K=32 case corresponds to 100% packing.",
+  "dev_checks_source": "Every pass boundary of every trajectory (core, reproduction, data scaling: warm + fine passes; ablations: fine passes) runs the fixed development panel."
+ },
+ "fixed": {
+  "shared_fitting_NH": 1000,
+  "operations_NH": 500
+ },
+ "rationale": {
+  "core": "Matched comparison of sequence-pair, probe-guided-pair and direct-probe arms (H1) with five optimisation seeds (seed variance enters the paired H1 intervals); all arms share data, exposure, K switch and stopping. The previous 63/64-update schedule existed only because costs were inflated 10x by a debug flag; ~7,000 warm + ~3,100 fine optimizer updates per trajectory is a conventional fine-tuning length for a 17M-parameter generative model.",
+  "ablations": "Three fine-stage mechanism ablations (context tokens off, uniform uncertainty weights, modality dropout off) x three seeds, starting from the matched direct-arm warm checkpoints; identical clean cohort and exposure.",
+  "reproduction": "One locked clean-environment replay per arm through the full curriculum (execution reproducibility).",
+  "data_scaling": "Direct arm at 10% and 30% of the training data (3 seeds each) plus the 100% core: the measured information-gain-versus-data curve tells experimentalists how much probing data a target class needs (decision-support deliverable).",
+  "expansion": "Broad K8 adaptation on all admissible public chemical-mapping data; conditional on admitted counts."
+ }
+}

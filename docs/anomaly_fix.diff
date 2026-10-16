@@ -1,0 +1,43 @@
+--- work/geometry_pilot/ensemble_training/native_fixed_frozen_670450638bf1/batched_full_trajectory_driver.py
++++ work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/native_anomaly_off_b63550bd42ee/batched_full_trajectory_driver.py
+@@ -116,7 +116,7 @@
+             constraint=native_adjacent_distance_constraint(atoms[:,:,c4_index],native_c4.expand(count,-1,-1),batch['res_mask'])
+             if not bool(torch.isfinite(profile).all()) or not bool(torch.isfinite(constraint)):raise RuntimeError('Nonfinite generated output')
+             return profile,constraint
+-    model=Workload().to(device)
++    model=Workload().to(device);torch.autograd.set_detect_anomaly(False);assert not torch.is_anomaly_enabled()
+     wrapped=DDP(model,device_ids=[device.index] if device.type=='cuda' else None,broadcast_buffers=False,find_unused_parameters=False) if world>1 else model
+     initial={k:v.detach().cpu().clone() for k,v in model.state_dict().items()};head_sha=state_sha(model.head)
+     trainable=[p for p in model.parameters() if p.requires_grad]
+@@ -189,6 +189,7 @@
+     reserved=torch.cuda.max_memory_reserved(device);capacity=torch.cuda.get_device_properties(device).total_memory
+     if reserved>.85*capacity:raise RuntimeError('Batched reserved HBM exceeds85%capacity')
+     report.update(status='Actual fixed-work batched final-generated ensemble training update completed',rank=rank,world_size=world,
++                  autograd_anomaly_enabled=torch.is_anomaly_enabled(),
+                   case=args.case,length=length,K_train=args.ensemble_size,time_grid_points=args.grid_points,
+                   GPU_peak_allocated_bytes=torch.cuda.max_memory_allocated(device),GPU_peak_reserved_bytes=reserved,GPU_capacity_bytes=capacity,
+                   torch_version=torch.__version__,GPU_name=torch.cuda.get_device_name(device),official_checkpoint_sha256=CHECKPOINT_SHA,
+--- work/geometry_pilot/ensemble_training/native_fixed_frozen_670450638bf1/native_fixed_launcher_driver.py
++++ work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/native_anomaly_off_b63550bd42ee/native_fixed_launcher_driver.py
+@@ -32,8 +32,8 @@
+                 'global_case_instances':report['global_constructs'],
+                 'observations_by_logical_id':observed,'teacher_by_logical_id':teacher,
+                 'input_hash_timing':'Observation hashing before model/timing; teacher report decoration after update',
+-                'numerical_backend':'Exact native isolated-largest-eigenvector derivative; unchanged8d2 driver',
+-                'source_driver_unchanged':True,
++                'numerical_backend':'Exact native isolated-largest-eigenvector derivative; 8d2 Workload/update; autograd anomaly-detection debug mode disabled after model construction',
++                'source_driver_unchanged':False,'source_driver_change':'Only torch.autograd.set_detect_anomaly(False) plus assertion after model construction; Workload and update AST-identical to 670450638bf1',
+                 'teacher_dropout_scope':'Frozen physical input per logical case; train-mode dropout layout differs with node/accumulation layout',
+             }
+         elif Path(path).name=='cpu_batched_full_test.json':
+--- work/geometry_pilot/ensemble_training/production_reliability_pilot/reliability_frozen_aa8af773fd10/production_reliability_driver.py
++++ work/geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/reliability_anomaly_off_32e2cc0f8974/production_reliability_driver.py
+@@ -123,7 +123,7 @@
+             constraint=native_adjacent_distance_constraint(atoms[:,:,c4_index],native_c4.expand(count,-1,-1),batch['res_mask'])
+             if not bool(torch.isfinite(profile).all()) or not bool(torch.isfinite(constraint)):raise RuntimeError('Nonfinite generated output')
+             return profile,constraint
+-    model=Workload().to(device)
++    model=Workload().to(device);torch.autograd.set_detect_anomaly(False);assert not torch.is_anomaly_enabled()
+     wrapped=DDP(model,device_ids=[device.index] if device.type=='cuda' else None,broadcast_buffers=False,find_unused_parameters=False) if world>1 else model
+     initial={k:v.detach().cpu().clone() for k,v in model.state_dict().items()};head_sha=state_sha(model.head)
+     trainable=[p for p in model.parameters() if p.requires_grad]

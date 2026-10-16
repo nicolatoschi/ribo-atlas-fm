@@ -1,0 +1,23 @@
+--- work/geometry_pilot/ensemble_training/native_fixed_frozen_670450638bf1/batched_full_trajectory_driver.py	2026-10-13 01:57:29
++++ scratch/bench/packet/batched_full_trajectory_driver.py	2026-10-15 19:25:13
+@@ -173,16 +173,10 @@
+                 'first_microbatch_generated_signal':first_signal,'all_gradients_finite':True,'combined_preclip_gradient_norm':norm,
+                 'frozen_head_gradients_absent':True,'actual_call_entries':counts,'groups':rows},gradients
+     if args.cpu_proof:
+-        assert device.type=='cpu' and world==1 and args.local_constructs==2 and args.grid_points==2 and args.ensemble_size==2
+-        a,ga=update(1,0.);b,gb=update(2,0.);assert ga.keys()==gb.keys()
+-        maximum=max(float((ga[k]-gb[k]).abs().max()) for k in ga)
+-        assert all(torch.allclose(ga[k],gb[k],atol=1e-5,rtol=1e-4) for k in ga),'Microbatch gradient normalization differs'
+-        c,_=update(2,1.)
+-        atomic_json(out/'cpu_batched_full_test.json',{'status':'Actually executed native75nt batch2/T2 derivative and full-teacher CPU tests passed',
+-                    'case':args.case,'length':length,'K':2,'T':2,'GPU_allocation':False,
+-                    'generated_plus_adjacency_micro1_vs2_max_gradient_difference':maximum,
+-                    'teacher_dropout_scope':'Gradient equality tests teacher_weight0; teacher_weight1 batch2 separately finite; train-mode dropout layout varies across microbatch',
+-                    'fixture_sha256':sha(fixture_path),'driver_sha256':sha(Path(__file__)),'reports':[a,b,c]});return
++        assert device.type=='cpu' and world==1
++        report,_=update(args.microbatch,1.)
++        report['anomaly_enabled']=torch.is_anomaly_enabled()
++        atomic_json(out/'cpu_timing.json',report);return
+     if world>1:dist.barrier()
+     torch.cuda.reset_peak_memory_stats(device)
+     report,_=update(args.microbatch,1.)

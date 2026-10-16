@@ -1,0 +1,40 @@
+Wave E analysis
+results: /e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/results/waveE_job_2340325
+
+Timing (timed steps; rank-max step time):
+  P1_N16         W=  64 official median 0.3292s [0.3217,0.3395] tok/s 2.5e+06 (3.906e+04/GPU) HBM 46.76/93.45 GiB RSS 3.26 GiB
+  P1_N32         W= 128 official median 0.4047s [0.3995,0.4145] tok/s 2.105e+06 (1.645e+04/GPU) HBM 46.73/93.45 GiB RSS 3.27 GiB
+  P1_N8          W=  32 official median 0.5048s [0.4664,0.5101] tok/s 1.846e+06 (5.768e+04/GPU) HBM 45.91/93.45 GiB RSS 3.27 GiB
+  P1_N8_sdpa     W=  32 sdpa     median 0.3667s [0.3339,0.3754] tok/s 2.322e+06 (7.255e+04/GPU) HBM 24.68/93.43 GiB RSS 3.24 GiB
+  P2_N64         W= 256 official median 0.3343s [0.3280,0.3409] tok/s 2.663e+06 (1.04e+04/GPU) HBM 41.05/93.18 GiB RSS 3.39 GiB
+Strong scaling vs P1_N8: E = (T_ref/T_W)/(W/W_ref)
+  P1_N16         x2 GPUs speedup 1.533 E 0.767 [0.706,0.787]
+  P1_N32         x4 GPUs speedup 1.247 E 0.312 [0.288,0.318]
+  P1_N8          x1 GPUs speedup 1.000 E 1.000 [0.927,1.075]
+  P1_N8_sdpa     x1 GPUs speedup 1.376 E 1.376 [1.267,1.514]
+  P2_N64         x8 GPUs speedup 1.510 E 0.189 [0.175,0.193]
+  loss vs reference P1_N16: max |diff| 1.70e-04 over 60 steps
+  loss vs reference P1_N32: max |diff| 1.23e-04 over 60 steps
+  loss vs reference P1_N8_sdpa: max |diff| 1.43e-04 over 60 steps
+  loss vs reference P2_N64: max |diff| 1.41e-04 over 60 steps
+Learning endpoints (paired masks; 95% bootstrap over held-out families). Note: RNA-FM was pretrained on RNAcentral, which very likely already contains these Rfam seed sequences; the family/clan split controls leakage within Wave E continued pretraining only
+PRIMARY (pre-specified) | heldout_family: step 0 -> 12 (1.061 epochs): CE 1.08866 -> 1.09703 nats (ppl 2.9703 -> 2.9953); delta +0.00838 95% CI [-0.00102,+0.01578] over 210 families; group CI [-0.00118,+0.01562] over 198 groups; 50.5% families improved
+SECONDARY: multi-epoch result on a small corpus | heldout_family: step 0 -> 72 (6.364 epochs): CE 1.08866 -> 1.09628 nats (ppl 2.9703 -> 2.9930); delta +0.00763 95% CI [-0.00262,+0.01507] over 210 families; group CI [-0.00280,+0.01495] over 198 groups; 51.0% families improved
+  heldout_family curve (paired change vs step 0):
+    step  12 (1.06 epochs): delta +0.00838 [-0.00085,+0.01572]
+    step  23 (2.03 epochs): delta +0.00687 [-0.00221,+0.01394]
+    step  34 (3.01 epochs): delta +0.00797 [-0.00139,+0.01497]
+    step  46 (4.07 epochs): delta +0.00829 [-0.00163,+0.01564]
+    step  57 (5.04 epochs): delta +0.00823 [-0.00153,+0.01556]
+    step  68 (6.01 epochs): delta +0.00766 [-0.00227,+0.01504]
+    step  72 (6.36 epochs): delta +0.00763 [-0.00261,+0.01516]
+secondary: in-family contrast at the primary step | val_in_family: step 0 -> 12 (1.061 epochs): CE 1.02783 -> 0.99882 nats (ppl 2.7950 -> 2.7151); delta -0.02901 95% CI [-0.04124,-0.01816] over 478 families; group CI [-0.04617,-0.01394] over 433 groups; 58.2% families improved
+SECONDARY: multi-epoch result on a small corpus | val_in_family: step 0 -> 72 (6.364 epochs): CE 1.02783 -> 0.90005 nats (ppl 2.7950 -> 2.4597); delta -0.12778 95% CI [-0.17769,-0.08097] over 478 families; group CI [-0.19201,-0.06887] over 433 groups; 71.5% families improved
+  val_in_family curve (paired change vs step 0):
+    step  12 (1.06 epochs): delta -0.02901 [-0.04154,-0.01819]
+    step  23 (2.03 epochs): delta -0.06691 [-0.09457,-0.04172]
+    step  34 (3.01 epochs): delta -0.09744 [-0.13824,-0.06068]
+    step  46 (4.07 epochs): delta -0.11506 [-0.16195,-0.07179]
+    step  57 (5.04 epochs): delta -0.12288 [-0.17336,-0.07750]
+    step  68 (6.01 epochs): delta -0.12668 [-0.17770,-0.07939]
+    step  72 (6.36 epochs): delta -0.12778 [-0.17838,-0.08136]

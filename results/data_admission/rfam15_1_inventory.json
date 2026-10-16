@@ -1,0 +1,45 @@
+{
+  "source": "Rfam CURRENT release15.1, downloaded12October2026",
+  "source_url": "https://ftp.ebi.ac.uk/pub/databases/Rfam/CURRENT/Rfam.seed.gz",
+  "source_sha256": "41f014f4ab5628620935f089b1bb77987ebc162fda7c72bff368a32c9cccabac",
+  "source_rights": "CC0, supplied COPYING included",
+  "families_in_source": 4227,
+  "source_sequence_rows": 109390,
+  "excluded_ambiguous_rows": 474,
+  "excluded_length_below30": 1070,
+  "excluded_length_above1024": 578,
+  "eligible_source_occurrence_rows": 107268,
+  "exact_unique_sequences": 96910,
+  "unique_nucleotide_tokens": 10566278,
+  "length_min": 30,
+  "length_median": 86.0,
+  "length_mean": 109.03186461665463,
+  "length_max": 1014,
+  "families_with_eligible_records": 4185,
+  "exact_sequences_with_multiple_family_memberships": 45,
+  "length_bins": {
+    "30-128": {
+      "unique_sequences": 73182,
+      "tokens": 5671849
+    },
+    "129-256": {
+      "unique_sequences": 19561,
+      "tokens": 3348540
+    },
+    "257-512": {
+      "unique_sequences": 3663,
+      "tokens": 1238341
+    },
+    "513-1024": {
+      "unique_sequences": 504,
+      "tokens": 307548
+    }
+  },
+  "not_yet_admitted_to_final_training": "Family/clan/near-identity exclusions and final test overlap controls must be applied; no train/blind split made here",
+  "scope": "Sequence-source inventory only; no measured binding/probe labels, independent biological efficacy cohort, or model training",
+  "output_sha256": {
+    "rfam15_1_canonical_unique.fasta": "3f53f44933a2ed9c79aebbb64f56ac6f79234f65b34854376e3f162c4ec4abbb",
+    "rfam15_1_sequence_memberships.jsonl": "b00482ae24cf1d63a3d4336be4cb8892585de96d799d79852306bfff244ad66d",
+    "rfam15_1_family_inventory.csv": "3f424fb5bd93d847b100d595ea36e206bf2c297495eb1fbd92a136abffd77bfa"
+  }
+}

@@ -1,0 +1,1046 @@
+{
+ "source": "work/resource_costing/rmdb_metadata/deposit_audit/selected_deposit_metadata.json (pinned commit 0a267edb82a30119a0af3b3dfc8fcbf6dbf07357)",
+ "selection": "30 largest DMS/2A3 counterpart pairs; files of the 4 libraries already held excluded",
+ "files": [
+  {
+   "rmdb_id": "OK2TST_2A3_0000",
+   "occurrences": 125294,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK2TST_2A3_0000.rdat",
+   "bytes": 304461599,
+   "published_sha256": "da4d380decf1637814d21c952c6453fa444e34daad19fa1d549834fb51d29c63",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK2TST_DMS_0000",
+   "occurrences": 125294,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK2TST_DMS_0000.rdat",
+   "bytes": 304334898,
+   "published_sha256": "b36ecc99dd804f419027e266362436e0d3c595b151864153889a80ab5bc0adc2",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_2A3_0000",
+   "occurrences": 75251,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_2A3_0000.rdat",
+   "bytes": 229159636,
+   "published_sha256": "f78c6dea3a48fde9ab3c348060b1102eabd612f981dddeb1a16c2f0ca8d4ceb2",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_DMS_0000",
+   "occurrences": 75251,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_DMS_0000.rdat",
+   "bytes": 229320598,
+   "published_sha256": "5ec8ea15e5d44933a7f27d1b0212b3f70f2ee49f008991d0db372264b12976d3",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_2A3_0001",
+   "occurrences": 75251,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_2A3_0001.rdat",
+   "bytes": 229152477,
+   "published_sha256": "25821f8f307d682896a81c9be698bd3f02ead8df0d98f12c6d0aa585e406d0d3",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_DMS_0001",
+   "occurrences": 75251,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_DMS_0001.rdat",
+   "bytes": 229322020,
+   "published_sha256": "721b9fcd2bea1109184ea931012c0b28466c17129f5fd022346c92afe3ed0112",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_2A3_0000",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_2A3_0000.rdat",
+   "bytes": 210550022,
+   "published_sha256": "b2c7ea793843c22e8cce218660c6c5d6030fa774683b2aab653873430b36d84c",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_DMS_0000",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_DMS_0000.rdat",
+   "bytes": 210658052,
+   "published_sha256": "e55c94c2059f909a8f80540bd43367619367be570bf1a3100245f1f59f03ec0d",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0000",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0000.rdat",
+   "bytes": 171784775,
+   "published_sha256": "b8ceb8cf83f0817f94fe06d3a466ca77d7f8e8404a04cb89d5ce4e7a6523a3a7",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0000",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0000.rdat",
+   "bytes": 171777216,
+   "published_sha256": "1e49ce267bb4dc5da74feb925223b22e241022af98402617f98e980b84e720a3",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0001",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0001.rdat",
+   "bytes": 171785488,
+   "published_sha256": "60793fcf7fd9162e39ef9464643847f0f6506b1a498b917d697e501f2fff3d6b",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0001",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0001.rdat",
+   "bytes": 171773113,
+   "published_sha256": "86ff798e52302f7ca65d95d343299e32d1b717a6fb3b58d3dfac7ae194355da1",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_2A3_0001",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_2A3_0001.rdat",
+   "bytes": 210549110,
+   "published_sha256": "d81247b2d8686326474ccae5dce8ac9a80b5c82587e607d17d96b7730819ca1e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_DMS_0001",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_DMS_0001.rdat",
+   "bytes": 210651788,
+   "published_sha256": "da469027e78f8f88f5b67725336e0d5acaa439ab16c2cc0ea31d6971abc40255",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_2A3_0002",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_2A3_0002.rdat",
+   "bytes": 210549161,
+   "published_sha256": "e5ec41adcc132cef89abdf375b542393345c222a5de7f6064786c9f31b5d6224",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_DMS_0002",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_DMS_0002.rdat",
+   "bytes": 210649959,
+   "published_sha256": "210028e8b5801f422d7d49b5876da19aa548ecae7e298b00c067b1d414ab857e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_2A3_0003",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_2A3_0003.rdat",
+   "bytes": 210553899,
+   "published_sha256": "9b397cfa7d03d0b8053c856de0dab81c0014763f1f233e7b382b2387b4b6f85e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_DMS_0003",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_DMS_0003.rdat",
+   "bytes": 210655053,
+   "published_sha256": "2e58309bac210a69e4edd08351bc4f5424a29043521d41ecbfe4926ab8cd6677",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0003",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0003.rdat",
+   "bytes": 216579276,
+   "published_sha256": "a67a1d2b93ece93201e9011916cc313ef53df8126399d61bc16657f025954d44",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0003",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0003.rdat",
+   "bytes": 216758373,
+   "published_sha256": "e0e5ef9a9384151c4de828b478e8fd14e8a668670d2aeb598208270311186764",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0004",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0004.rdat",
+   "bytes": 216709612,
+   "published_sha256": "233d5e0316b945cd62dc6f760b86eb6e1dc1ae8ef874dbb417266639835eb940",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0004",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0004.rdat",
+   "bytes": 216894845,
+   "published_sha256": "86040cf78275eb17fbba0f10556725ce3ff740062101db31cec8eb956a01c344",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0005",
+   "occurrences": 70001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0005.rdat",
+   "bytes": 216606719,
+   "published_sha256": "0341a4bd637c5c61dfab97133882e289f6c9de6320081dfe83eb2d7b02ddd3d3",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0005",
+   "occurrences": 70001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0005.rdat",
+   "bytes": 216797336,
+   "published_sha256": "301e0d8ac2e11a3949847020cf555ec418bd1eb8066073d02b1a46ab316c7351",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_2A3_0004",
+   "occurrences": 66398,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_2A3_0004.rdat",
+   "bytes": 199708304,
+   "published_sha256": "43fac021e1d910b3e67a626505716fb8fd01483236494dcbbffcc58c84ddef8f",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "OK3TST_DMS_0004",
+   "occurrences": 66398,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK3TST_DMS_0004.rdat",
+   "bytes": 199814596,
+   "published_sha256": "9e8eaa38e0b2fbb3648bd1a52c777394ebf07501af0e085be6199264463664e6",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0002",
+   "occurrences": 63352,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0002.rdat",
+   "bytes": 155455065,
+   "published_sha256": "a1fee405781415aea84ed059f353b72933c6cd18d000bb853ab9dafd8ee9fc10",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0002",
+   "occurrences": 63352,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0002.rdat",
+   "bytes": 155446805,
+   "published_sha256": "d17f4a00d507cf81f98cdbc6f15e015b041fa61fd707739db39126f35125495e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "15KREP_2A3_0001",
+   "occurrences": 60001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/15KREP_2A3_0001.rdat",
+   "bytes": 144543440,
+   "published_sha256": "0a38dcc2b0e7feab2cb429be9e5ed649daf4f8035ff5f2a4f91e6a0c3ff149ee",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "15KREP_DMS_0001",
+   "occurrences": 60001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/15KREP_DMS_0001.rdat",
+   "bytes": 144533693,
+   "published_sha256": "b30e7d1008c7307558c7986710941b160056a67680f0a3e39e33260fb185e35e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "VIRWIN_2A3_0000",
+   "occurrences": 57815,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/VIRWIN_2A3_0000.rdat",
+   "bytes": 139580287,
+   "published_sha256": "a23b64f05cb709b6ca400752491b0df2f18eaea38f014f850c53f85ba724ea6d",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "VIRWIN_DMS_0000",
+   "occurrences": 57815,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/VIRWIN_DMS_0000.rdat",
+   "bytes": 139552987,
+   "published_sha256": "f79c6aa5fa873c03d883fb1c51fa1692c05a7ff9b1526a371bfd0286a652932e",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "VIRWIN_2A3_0001",
+   "occurrences": 56045,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/VIRWIN_2A3_0001.rdat",
+   "bytes": 172978829,
+   "published_sha256": "5f8d9288e3aa82906ec691e8ebb63e39c88f8fd96e73208c224c3262d368e592",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "VIRWIN_DMS_0001",
+   "occurrences": 56045,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/VIRWIN_DMS_0001.rdat",
+   "bytes": 173122387,
+   "published_sha256": "f4ce0a358486f642d826b0de765d96fdb9a1496e426783146260f098eb147cd2",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRDEL_2A3_0001",
+   "occurrences": 52225,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRDEL_2A3_0001.rdat",
+   "bytes": 133884245,
+   "published_sha256": "7ea8a72835883f9b207f7ed3459b732e2dd2fd81cae8f2edfd6fd303da9863f3",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRDEL_DMS_0001",
+   "occurrences": 52225,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRDEL_DMS_0001.rdat",
+   "bytes": 133823831,
+   "published_sha256": "466f8cdbf8bb5473534dcfa14d1c6c6522a80eece3d5364486a1ef51e9efeba8",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRDES_2A3_0000",
+   "occurrences": 52225,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRDES_2A3_0000.rdat",
+   "bytes": 130179914,
+   "published_sha256": "1116ceb7f7ec8e69bd40890fb68c42ee4b616eaa5e8a7501bac337c024c4c554",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRDES_DMS_0000",
+   "occurrences": 52225,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRDES_DMS_0000.rdat",
+   "bytes": 130123618,
+   "published_sha256": "b9a75cf45b051a21d87e4cabd88f716eb381d893cd753a06ceecc6b4d0dbd562",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRINS_2A3_0002",
+   "occurrences": 51887,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRINS_2A3_0002.rdat",
+   "bytes": 134994702,
+   "published_sha256": "d34f7eccee6d494f73432b719d97560b913b18d23efa9950ba2b3e060b4c3ef6",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "TTRINS_DMS_0002",
+   "occurrences": 51887,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/TTRINS_DMS_0002.rdat",
+   "bytes": 134994611,
+   "published_sha256": "830644b34d2f0d77a6888aebbb635a2cf3cd0c02c49b8d3bc77e32e230fa1522",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2PK50_2A3_0000",
+   "occurrences": 51001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2PK50_2A3_0000.rdat",
+   "bytes": 123500789,
+   "published_sha256": "4b08347b74cf72d8d15e4dc1befac4a9065e907342ea268a0cca0cfdf2f767d2",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2PK50_DMS_0000",
+   "occurrences": 51001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2PK50_DMS_0000.rdat",
+   "bytes": 123466580,
+   "published_sha256": "410d26b8ba309baba95bdfb6058641d93443301dfb0e7f53847cb0ed0ea5655f",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "RNAMAK_2A3_0000",
+   "occurrences": 50001,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RNAMAK_2A3_0000.rdat",
+   "bytes": 155110616,
+   "published_sha256": "7d620f06fdda3484aae1b9ffc3aad4c0013394e4ae83c8b966cb00f270087a68",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "RNAMAK_DMS_0000",
+   "occurrences": 50001,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RNAMAK_DMS_0000.rdat",
+   "bytes": 155212703,
+   "published_sha256": "1a9c06e10ea4ce481c7db3de8facb275ebec2c5a08717015ffb4f870d458a339",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_2A3_0002",
+   "occurrences": 46656,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_2A3_0002.rdat",
+   "bytes": 142050785,
+   "published_sha256": "ab07b8c4b3bae6c651cadf66370d60dc7132855ff5af3732c9f1bd5989c9bb11",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "M2RFPK_DMS_0002",
+   "occurrences": 46656,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2RFPK_DMS_0002.rdat",
+   "bytes": 142173191,
+   "published_sha256": "9014f4b0b08df21764e9dbaf7f125ca1b4f8c14191fedd1ad91587613c5f3f75",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_2A3_0006",
+   "occurrences": 41006,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_2A3_0006.rdat",
+   "bytes": 126973122,
+   "published_sha256": "d84f28a9a08671fcb7b4e55f7e588a76df43583aeb65a157827cf78f21561337",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "SRSBCV_DMS_0006",
+   "occurrences": 41006,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/SRSBCV_DMS_0006.rdat",
+   "bytes": 127082392,
+   "published_sha256": "3c650db1df66b083b2f55aa6b8f9b4ad9ae5c8249cb0dcb70fe8508c0392b7e9",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "RFM100_2A3_0000",
+   "occurrences": 37829,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "bicine:150mM(pH8.5)",
+    "KOAc:150mM"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RFM100_2A3_0000.rdat",
+   "bytes": 91482159,
+   "published_sha256": "e1e6a29ba1680a9516aff529b30ea675bb485249a0b9caf0e36403262ced0dbf",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "RFM100_DMS_0000",
+   "occurrences": 37829,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "bicine:150mM(pH8.5)",
+    "KOAc:150mM"
+   ],
+   "template_length": 177,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RFM100_DMS_0000.rdat",
+   "bytes": 91558264,
+   "published_sha256": "f40d729801582cfe359c43002b2eb642a23b25e9ab1f301073b18db9d021e3b2",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "ARCHII_2A3_0000",
+   "occurrences": 26518,
+   "modifier": [
+    "2A3"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-general/ARCHII_2A3_0000.rdat",
+   "bytes": 81343842,
+   "published_sha256": "f7cfcf45782444c0bda0e12f80fa96f3cc4fd4c3714cd8dc22027873f71c91c6",
+   "state": "uploaded"
+  },
+  {
+   "rmdb_id": "ARCHII_DMS_0000",
+   "occurrences": 26518,
+   "modifier": [
+    "DMS"
+   ],
+   "temperature": [
+    "24C"
+   ],
+   "conditions": [
+    "MgCl2:10mM",
+    "KOAc:150mM",
+    "bicine:150mM(pH8.5)"
+   ],
+   "template_length": 207,
+   "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-general/ARCHII_DMS_0000.rdat",
+   "bytes": 81396424,
+   "published_sha256": "e938c8c8cb22372914b6cb08147c035c54f1d1fcda9eb9608088e238e4ff18de",
+   "state": "uploaded"
+  }
+ ]
+}

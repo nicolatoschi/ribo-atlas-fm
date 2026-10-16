@@ -1,0 +1,13 @@
+RIBO-ATLAS-FM Wave D evaluation-pipeline cost/robustness summary
+Pipeline QA on RNAbpFlow training cases (anchor P4-P6 family also in training); NOT held-out accuracy.
+
+Cases analysed 248 of 256 planned; case status {'complete': 165, 'partial': 83}; rank status {'finished': 124, 'interrupted': 3, 'failed': 1}.
+generation_predict_step_seconds_per_sample: a=1.741 + b=0.019*(L/158)^3.00  (n=247, R2=0.866, median |rel err| 0.028)
+refinement_worker_seconds_per_sample: a=1.801 + b=8.263*(L/158)^3.00  (n=244, R2=0.628, median |rel err| 0.167)
+occupancy_K32_GPU_seconds: a=119.567 + b=275.984*(L/158)^3.00  (n=244, R2=0.649, median |rel err| 0.114)
+Node-seconds per K32 case: 158 nt 98.9 (pilot one-node wall 293.4); 177 nt 126.9 (plan forecast 368.2); mean over 3156 pool lengths 69.0.
+25500 K32 cohorts + unchanged dev term: 1361 NH at 177 nt, 951 NH over the pool length distribution (1.11% of 85500; 10% cap 8550 NH).
+P4-P6 anchor: {"generated_ok": 32, "refined_ok": 31, "mean_generated_C4prime_lDDT": 0.5576429347045251, "pilot_job2297413_mean_C4prime_lDDT_316atom_alignment_run": 0.557643, "generation_predict_step_sum_s": 54.84063852514373, "generation_sampler_sum_s": 53.921923707122914, "pilot_1gpu_sampler_sum_s": 56.04009600601057, "refinement_worker_seconds_sum": 326.7709194440977, "pilot_refinement_case_wall_sum_s": 969.6, "generated_PDB_sha_matches_job2297413": 32, "refined_samples_compared_to_job2298016": 31, "after_QC_identical_count": 0, "stage_energies_match_count": 0}
+Failures: generation {'ok': 7936}; refinement {'ok': 5849, 'failed': 174, 'skipped_deadline': 3} {'exception': 150, 'energy_increase': 24}; missing case JSON 8.
+Allocation: {"elapsed_seconds": 4345.0, "nodes": 32, "node_hours": 38.62222222222222, "GPU_hours": 154.48888888888888, "source": "sacct", "sum_case_wall_GPU_seconds": 122638.10891842126, "GPU_packing_efficiency": 0.22050868260648246}
+Refinement cost for cases with R<32 is extrapolated linearly from the measured refined subset (sample IDs 0..R-1).

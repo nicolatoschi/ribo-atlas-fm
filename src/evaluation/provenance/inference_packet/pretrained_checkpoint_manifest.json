@@ -1,0 +1,11 @@
+{
+  "bytes": 558025173,
+  "md5": "f79ce1555126ee77651594b65a95cb4b",
+  "sha256": "7f78050f7869c99511310d86a2a8de0249797967ded8de8893db0f31cb705d6f",
+  "source_url": "https://zenodo.org/api/records/18305861/files/model.tar.gz/content",
+  "selected_checkpoint": {
+    "path": "work/geometry_pilot/pretrained_checkpoint/RNA3DB.ckpt",
+    "bytes": 203034292,
+    "sha256": "bb598a736193734541f63c59dae75d45db8c04f01a8414a758677367c4b1e213"
+  }
+}

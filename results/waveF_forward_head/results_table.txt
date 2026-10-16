@@ -1,0 +1,58 @@
+Wave F v2 results digest (human-readable view of results/forward_head_results.json)
+results sha256 e6b96b27139fb18e6222101b155fc0c66d11f9912f4bb454dbbf4554d90a62c5
+plan sha256    d5dbdc94e518c1b8e2d3d6c8e6edf223578b892d83a374fe268eb75fb3a23b6a
+Exploratory: 4 lineages; crystals are stand-ins for solution states; intervals descriptive only.
+Comparisons are reference minus candidate MSE: positive favours the candidate (geometry).
+
+== scheme error_weighted, metric error_weighted_mse (held-out lineage MSE; mean Pearson r)
+arm                         P4P6_groupI     TPP_riboswitch  adenine_add     ydao_cdiamp_ri  equal-lineage
+sequence_context            0.2869 r=0.12   0.0177 r=-0.04  0.0467 r=0.21   0.0179 r=0.43   0.0923
+secondary_context           0.2704 r=0.41   0.0169 r=0.24   0.0337 r=0.54   0.0227 r=0.5    0.0859
+geometry_context            0.2803 r=0.41   0.0163 r=0.19   0.0337 r=0.49   0.0251 r=0.49   0.0889
+shuffled_geometry_context   0.2787 r=0.38   0.0186 r=0.11   0.0338 r=0.48   0.0211 r=0.51   0.0881
+alphas: {'sequence_context': [10.0, 10.0, 1.0, 10.0], 'secondary_context': [0.1, 10.0, 1.0, 10.0], 'geometry_context': [1.0, 10.0, 10.0, 10.0], 'shuffled_geometry_context': [1.0, 10.0, 10.0, 10.0]}
+
+== scheme unweighted, metric unweighted_mse (held-out lineage MSE; mean Pearson r)
+arm                         P4P6_groupI     TPP_riboswitch  adenine_add     ydao_cdiamp_ri  equal-lineage
+sequence_context            0.6373 r=0.11   0.0297 r=-0.09  0.1815 r=0.24   0.0300 r=0.53   0.2196
+secondary_context           0.6207 r=0.39   0.0295 r=0.21   0.1706 r=0.44   0.0394 r=0.55   0.2151
+geometry_context            0.6397 r=0.39   0.0271 r=0.21   0.1645 r=0.48   0.0474 r=0.54   0.2197
+shuffled_geometry_context   0.6206 r=0.34   0.0291 r=0.13   0.1651 r=0.47   0.0390 r=0.59   0.2135
+alphas: {'sequence_context': [10.0, 10.0, 1.0, 10.0], 'secondary_context': [0.1, 10.0, 10.0, 10.0], 'geometry_context': [1.0, 10.0, 10.0, 10.0], 'shuffled_geometry_context': [10.0, 10.0, 10.0, 10.0]}
+
+== comparisons (reference minus geometry; positive favours candidate)
+error_weighted  error_weighted_mse  sequence_context -> geometry_context             mean +0.0035 rel +0.037 CI [-0.0037,+0.0101] favour 3/4 {'P4P6_gro': 0.0066, 'TPP_ribo': 0.0014, 'adenine_': 0.013, 'ydao_cdi': -0.0072}
+error_weighted  error_weighted_mse  secondary_context -> geometry_context            mean -0.0030 rel -0.034 CI [-0.0074,+0.0003] favour 1/4 {'P4P6_gro': -0.0099, 'TPP_ribo': 0.0005, 'adenine_': -0.0, 'ydao_cdi': -0.0024}
+error_weighted  error_weighted_mse  shuffled_geometry_context -> geometry_context    mean -0.0008 rel -0.009 CI [-0.0030,+0.0013] favour 2/4 {'P4P6_gro': -0.0015, 'TPP_ribo': 0.0022, 'adenine_': 0.0001, 'ydao_cdi': -0.004}
+error_weighted  error_weighted_mse  sequence_context -> secondary_context            mean +0.0064 rel +0.069 CI [-0.0020,+0.0148] favour 3/4 {'P4P6_gro': 0.0165, 'TPP_ribo': 0.0008, 'adenine_': 0.013, 'ydao_cdi': -0.0048}
+error_weighted  unweighted_mse      sequence_context -> geometry_context             mean +0.0047 rel +0.022 CI [-0.0029,+0.0123] favour 3/4 {'P4P6_gro': 0.011, 'TPP_ribo': 0.0014, 'adenine_': 0.0135, 'ydao_cdi': -0.0072}
+error_weighted  unweighted_mse      secondary_context -> geometry_context            mean -0.0093 rel -0.046 CI [-0.0177,-0.0010] favour 1/4 {'P4P6_gro': -0.0147, 'TPP_ribo': 0.0005, 'adenine_': -0.0207, 'ydao_cdi': -0.0024}
+error_weighted  unweighted_mse      shuffled_geometry_context -> geometry_context    mean -0.0007 rel -0.004 CI [-0.0029,+0.0014] favour 2/4 {'P4P6_gro': -0.0019, 'TPP_ribo': 0.0022, 'adenine_': 0.0007, 'ydao_cdi': -0.004}
+error_weighted  unweighted_mse      sequence_context -> secondary_context            mean +0.0140 rel +0.065 CI [-0.0020,+0.0300] favour 3/4 {'P4P6_gro': 0.0256, 'TPP_ribo': 0.0008, 'adenine_': 0.0343, 'ydao_cdi': -0.0048}
+unweighted      unweighted_mse      sequence_context -> geometry_context             mean -0.0000 rel -0.000 CI [-0.0124,+0.0122] favour 2/4 {'P4P6_gro': -0.0024, 'TPP_ribo': 0.0026, 'adenine_': 0.017, 'ydao_cdi': -0.0174}
+unweighted      unweighted_mse      secondary_context -> geometry_context            mean -0.0046 rel -0.021 CI [-0.0136,+0.0043] favour 2/4 {'P4P6_gro': -0.019, 'TPP_ribo': 0.0024, 'adenine_': 0.0061, 'ydao_cdi': -0.008}
+unweighted      unweighted_mse      shuffled_geometry_context -> geometry_context    mean -0.0062 rel -0.029 CI [-0.0142,+0.0013] favour 2/4 {'P4P6_gro': -0.0191, 'TPP_ribo': 0.002, 'adenine_': 0.0006, 'ydao_cdi': -0.0084}
+unweighted      unweighted_mse      sequence_context -> secondary_context            mean +0.0046 rel +0.021 CI [-0.0046,+0.0137] favour 3/4 {'P4P6_gro': 0.0166, 'TPP_ribo': 0.0002, 'adenine_': 0.0109, 'ydao_cdi': -0.0094}
+
+== study holdout (error_weighted)
+Cheng2017 ['TPP_riboswitch', 'ydao_cdiamp_riboswitch'] executed 
+    sequence_context             {'TPP_ribosw': 0.0885, 'ydao_cdiam': 0.0933}
+    secondary_context            {'TPP_ribosw': 0.0989, 'ydao_cdiam': 0.1684}
+    geometry_context             {'TPP_ribosw': 0.099, 'ydao_cdiam': 0.2387}
+    shuffled_geometry_context    {'TPP_ribosw': 0.1045, 'ydao_cdiam': 0.1845}
+Cordero2012 ['P4P6_groupI'] executed 
+    sequence_context             {'P4P6_group': 0.3665}
+    secondary_context            {'P4P6_group': 0.3807}
+    geometry_context             {'P4P6_group': 0.3878}
+    shuffled_geometry_context    {'P4P6_group': 0.3819}
+Kladwang2011 ['P4P6_groupI', 'adenine_add'] executed Held-out chemistry absent from training: chemistry-specific slopes are untrained (extrapolation).
+    sequence_context             {'P4P6_group': 0.2691, 'adenine_ad': 0.0889}
+    secondary_context            {'P4P6_group': 0.2669, 'adenine_ad': 0.0867}
+    geometry_context             {'P4P6_group': 0.2652, 'adenine_ad': 0.0842}
+    shuffled_geometry_context    {'P4P6_group': 0.2639, 'adenine_ad': 0.0834}
+
+== per-profile (error_weighted scheme)
+sequence_context [('P4P6_DMS_aqu', 0.3665, 0.9498, 0.14), ('P4P6_SHAPE_a', 0.2074, 0.3362, 0.1), ('TPP_DMS_holo', 0.0177, 0.0177, -0.04), ('adenine_add_', 0.0467, 0.1839, 0.21), ('ydaO_DMS_hol', 0.0179, 0.0179, 0.43)]
+secondary_context [('P4P6_DMS_aqu', 0.3807, 0.9648, 0.36), ('P4P6_SHAPE_a', 0.1601, 0.2699, 0.46), ('TPP_DMS_holo', 0.0169, 0.0169, 0.24), ('adenine_add_', 0.0337, 0.1496, 0.54), ('ydaO_DMS_hol', 0.0227, 0.0227, 0.5)]
+geometry_context [('P4P6_DMS_aqu', 0.3878, 0.9745, 0.34), ('P4P6_SHAPE_a', 0.1727, 0.2895, 0.49), ('TPP_DMS_holo', 0.0163, 0.0163, 0.19), ('adenine_add_', 0.0337, 0.1703, 0.49), ('ydaO_DMS_hol', 0.0251, 0.0251, 0.49)]
+shuffled_geometry_context [('P4P6_DMS_aqu', 0.3819, 0.967, 0.32), ('P4P6_SHAPE_a', 0.1756, 0.2933, 0.44), ('TPP_DMS_holo', 0.0186, 0.0186, 0.11), ('adenine_add_', 0.0338, 0.171, 0.48), ('ydaO_DMS_hol', 0.0211, 0.0211, 0.51)]

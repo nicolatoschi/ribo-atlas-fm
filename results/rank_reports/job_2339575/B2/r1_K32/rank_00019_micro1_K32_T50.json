@@ -1,0 +1,185 @@
+{
+  "microbatch": 1,
+  "accumulation": 4,
+  "local_constructs": 4,
+  "global_constructs": 128,
+  "rank_max_seconds": 2489.7050423699548,
+  "global_case_instances_per_second": 0.05141171256100143,
+  "first_microbatch_generated_signal": {
+    "generated_inverse_gradient_norm": 0.01801622286438942,
+    "generated_probe_gradient_norm": 0.0022773239761590958
+  },
+  "all_gradients_finite": true,
+  "combined_preclip_gradient_norm": 88.70464324951172,
+  "frozen_head_gradients_absent": true,
+  "actual_call_entries": {
+    "mean_forward": 6400,
+    "gradient_forward": 6400,
+    "backward_recompute": 6400,
+    "native_teacher_forward": 4
+  },
+  "groups": [
+    {
+      "logical_ids": [
+        76
+      ],
+      "mean_pass_seconds": 57.78070846002083,
+      "gradient_forward_seconds": 107.16627073194832,
+      "backward_recompute_seconds": 258.14260994509095,
+      "teacher_forward_backward_seconds": 0.2158217839896679,
+      "finite_K_case_mean_profile_MSE": 0.027794785797595978,
+      "adjacent_C4_mean": 0.00200301564836991,
+      "teacher_loss": 0.542668879032135,
+      "maximum_replay_difference": 0.0
+    },
+    {
+      "logical_ids": [
+        77
+      ],
+      "mean_pass_seconds": 61.55585601401981,
+      "gradient_forward_seconds": 108.92607501900056,
+      "backward_recompute_seconds": 256.47006015497027,
+      "teacher_forward_backward_seconds": 0.19021963299019262,
+      "finite_K_case_mean_profile_MSE": 0.06399817019701004,
+      "adjacent_C4_mean": 0.0019433161978668068,
+      "teacher_loss": 0.3485668897628784,
+      "maximum_replay_difference": 0.0
+    },
+    {
+      "logical_ids": [
+        78
+      ],
+      "mean_pass_seconds": 61.24847592198057,
+      "gradient_forward_seconds": 109.97528803802561,
+      "backward_recompute_seconds": 259.2906533679925,
+      "teacher_forward_backward_seconds": 0.19189125497359782,
+      "finite_K_case_mean_profile_MSE": 0.030241943895816803,
+      "adjacent_C4_mean": 0.0022417083455366082,
+      "teacher_loss": 0.34213224053382874,
+      "maximum_replay_difference": 0.0
+    },
+    {
+      "logical_ids": [
+        79
+      ],
+      "mean_pass_seconds": 60.86120246298378,
+      "gradient_forward_seconds": 109.758305928146,
+      "backward_recompute_seconds": 261.18871549709,
+      "teacher_forward_backward_seconds": 776.2704713550047,
+      "finite_K_case_mean_profile_MSE": 0.062471117824316025,
+      "adjacent_C4_mean": 0.001991493765672203,
+      "teacher_loss": 0.439441442489624,
+      "maximum_replay_difference": 0.0
+    }
+  ],
+  "status": "Actual fixed-work batched final-generated ensemble training update completed",
+  "rank": 19,
+  "world_size": 32,
+  "autograd_anomaly_enabled": false,
+  "case": "5zwm_B",
+  "length": 175,
+  "K_train": 32,
+  "time_grid_points": 50,
+  "GPU_peak_allocated_bytes": 1915967488,
+  "GPU_peak_reserved_bytes": 2172649472,
+  "GPU_capacity_bytes": 102005473280,
+  "torch_version": "2.10.0",
+  "GPU_name": "NVIDIA GH200 120GB",
+  "official_checkpoint_sha256": "bb598a736193734541f63c59dae75d45db8c04f01a8414a758677367c4b1e213",
+  "frozen_head_sha256": "a84d5c04323d04e733642ff8b8881021c253b9c30905b69db8489c9fad95bc5e",
+  "teacher_fixture_sha256": "fc1a635152161fbac03f6410b44b09dd025eb37c3b2a9439eb4bc78281246870",
+  "logical_ids": [
+    76,
+    77,
+    78,
+    79
+  ],
+  "source_sha256": {
+    "batched_full_trajectory_driver.py": "ba267a88994760d28c9984b3e52998c450f5f95a2b0ab5c060a012a1848356ca",
+    "batched_ensemble_core.py": "d8ff1c048dd3de0a342b300548b3fc3aa253874ea104b6e694b710c2f6b05135",
+    "full_trajectory_core.py": "45895a7a4389cb1eba61b0f0fe5ee040ce01aaabee9471e7cd364700f5392849",
+    "differentiable_rotation.py": "371b1de40e71e4ea6de1d6da350994d8bb0448bd00f64fe8da00e403be6f6c3d",
+    "ensemble_mean_core.py": "5c0e54f0426d74a0839f0428048f3aabc9082149b8867cb7a8ac8191568c6173"
+  },
+  "observations": "Synthetic; same logical-case observations acrossK andmicrobatch",
+  "teacher_RNG_layout": "Frozen singleton physical inputs; train-mode dropout distribution unchanged but layout differs acrossmicrobatch",
+  "reduction": "Mean ofperconstruct weighted mean-profile MSE plus nativeadjacency; dividedbyaccumulation; finalteacherbackwardDDPreducesonce",
+  "weights": {
+    "bulk": 1,
+    "adjacency": 0.1,
+    "teacher": 1
+  },
+  "finite_K_scope": "MeanMSEcontainsvariance/Kbias",
+  "timing_scope": "Initialoptimizerupdate; includesactualmean/replay/backward/recompute/teacher/checks/clipping/AdamW; excludespreload/reset/report",
+  "parameter_count": 17211738,
+  "trainable_inverse_parameters": 17207065,
+  "frozen_head_parameters": 4673,
+  "native_fixed_work_contract": {
+    "wrapper_sha256": "10ade71349eeda2eb025f8a09738fc5955c000e7110269bd386cb2b5bfca1843",
+    "frozen_manifest_sha256": "a23609f6202fbc4845efb5659a753e469ac986ce1f51b87add20e945de961cdc",
+    "case": "5zwm_B",
+    "length": 175,
+    "seed": 20261012,
+    "global_case_instances": 128,
+    "observations_by_logical_id": {
+      "76": {
+        "target_sha256": "8ee8432fa0dfb3bb2438bb911a4934a555e38a3c065a6d8a4faa5c87a86965c0",
+        "weights_sha256": "48dd4dd9e750abd61c571e13edb228c48c9d1af0f73c2506432a4eea57e1de3f",
+        "probe_sha256": "ca7c3cc3896eb44b2c5643acae1116453b8db337951e12613d10b4d615d08bfa",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "77": {
+        "target_sha256": "e45eef1e802d02c8c45a553a7775ad2f1c6b54021641697dd424c346d96c39be",
+        "weights_sha256": "3c8e9a70fdcc12fdbd11708e5f69c0a850aba73a3e3bc141ab9914610159146f",
+        "probe_sha256": "54f3779f6c3497a6b3932f9a6c3e0326215d6eee244ed85d346644b4a9f6ec8b",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      },
+      "78": {
+        "target_sha256": "a5e075e37b916b9fbfa83bf1d90ad39fa815f867c1b27b344ce5c6bcc45be3b4",
+        "weights_sha256": "72e1b4a92e6e83765488d01ff8dafe691c236769abbe6cb56bd12f3e875b17ae",
+        "probe_sha256": "214fefc00a8329d3ebe5a4704d396a2d6fb18b13f57f7a771637f740236fe95e",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "79": {
+        "target_sha256": "8d333acd6c1791700d1349f83d5aa03119ac64356f7120cc51fa4b4d9c509824",
+        "weights_sha256": "0d6023efe4370f1ada3b58950e6022206d701596dace35efe0d96cc208ee5cf0",
+        "probe_sha256": "e0b43b35103d3627434fb72b2612d64bd92ef3350b4949dcb249eebe90db49a1",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      }
+    },
+    "teacher_by_logical_id": {
+      "76": {
+        "t": "b385fd0e0e28f5d8313ec235693d7d4f82bb9bdfe5ff2c98999605d8e602bb97",
+        "trans_t": "80d38747ed96fc95be2ff67f9bd8d1beaaa1c26a11b4e4109ca5d63359aeb67c",
+        "rotmats_t": "88e33e90d1f7321e217e9728e107c2909ea765f4bd13afc71eb46e86ec3a0863"
+      },
+      "77": {
+        "t": "a73c8b05d33761b3639c13c617accf4e0ef45badf41015ced8df7c94e224bff7",
+        "trans_t": "575eccadb7187aa8b6c3573d8bbbdb39bb8a3e2a919e619b5bb65c51df8a9f29",
+        "rotmats_t": "2b050b31cee1b58352a3efc5d71d0b0fb24b93b1f956916a42cab2b04d049947"
+      },
+      "78": {
+        "t": "508c8ba922f2ff8ad96c3a2a5bd21c5a520e03d6f994997045e466abb84b3083",
+        "trans_t": "a8520697713afab647e5e86c46b58d8ee675523b52a0fc6a20c90e7513419463",
+        "rotmats_t": "4a129e8bfdea2458f0b4a41efabcd815bb28d648bfa625722a45c49aa752dc4b"
+      },
+      "79": {
+        "t": "4d9d59287af65be663b9be5d6d1490ba6c05887411ee0f7fcce70cf199c59210",
+        "trans_t": "bc9b1fe5a81d79a6fc68b1f04f23af5ec7c005426a1319a4a9b2571016dacd3e",
+        "rotmats_t": "c8f624114748985b4b5bf1430e456f2d330ba69655f028f06b8ddfb39e4c5383"
+      }
+    },
+    "input_hash_timing": "Observation hashing before model/timing; teacher report decoration after update",
+    "numerical_backend": "Exact native isolated-largest-eigenvector derivative; 8d2 Workload/update; autograd anomaly-detection debug mode disabled after model construction",
+    "source_driver_unchanged": false,
+    "source_driver_change": "Only torch.autograd.set_detect_anomaly(False) plus assertion after model construction; Workload and update AST-identical to 670450638bf1",
+    "teacher_dropout_scope": "Frozen physical input per logical case; train-mode dropout layout differs with node/accumulation layout"
+  },
+  "site_runtime_limit_contract": {
+    "wrapper_sha256": "9c5deddc5e033c9c46c44167e27eac68da6a689aac0df3b8df78ae3ea44da453",
+    "original_freeze_sha256": "b63550bd42eeabd2d05e2b1d38347aaf6e3b276a87fcc3976997aa9bebc630d0",
+    "site_max_wall_seconds": 43200,
+    "collective_timeout_seconds": 43200,
+    "scope": "Runtime timeout override and after-update metadata only; numerical source and guards unchanged"
+  }
+}

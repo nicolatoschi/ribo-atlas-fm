@@ -1,0 +1,1044 @@
+--- work/geometry_pilot/biological_validation_pilot/cohort/prepare_cohort.py	2026-10-14 12:37:26
++++ work/geometry_pilot/biological_validation_pilot_v2/cohort/prepare_cohort_v2.py	2026-10-15 20:33:25
+@@ -1,5 +1,20 @@
+-"""Freeze authentic exact-core pilot data and lineage folds before fitting.
++"""Wave F v2: freeze the NON-VIRAL exact-core pilot cohort and lineage folds before fitting.
+ 
++Derived from v1 prepare_cohort.py (sha256 in ../CHANGES.md). Changes versus v1:
++  * Scope restricted to non-viral RNAs (independent benign pilot audit, 2026-10-14):
++    Zika xrRNA (ZIKAXR_DMS_0000 / 5TPY) removed; ydaO c-di-AMP riboswitch
++    (YDAORS_DMS_0001 profile 1, mutation:WT, 10 uM c-di-AMP) mapped to 4QLM chain A
++    residues 39-123 (= RDAT positions 37-121) added, exactly as established by
++    ../benign_cohort/ydao_source_mapping_audit.json. The exclusion of Zika is a scope
++    decision taken before any model fit (v1 manifest fitted:false); it is not based on
++    data quality or on any model outcome.
++  * A deposited STRUCTURE whose bracket type is unbalanced is not repaired: every
++    position annotated with that bracket type is set to unknown ('x'). This affects
++    only the ydaO pseudoknot ('[' x7 vs ']' x6 in the deposited RDAT); the rule was
++    fixed from the annotation string alone, without inspecting reactivities or fits.
++  * Coordinate chains with unobserved residues may be restricted to an explicit
++    contiguous PDB residue range (only 4QLM; range taken from the mapping audit).
++
+ Crystal structures are explicit structural proxies for solution measurements,
+ not claims of identical thermodynamic state or unseen-pretraining benchmarks.
+ Only deposited wild-type rows are selected. No target-dependent source selection.
+@@ -9,13 +24,16 @@
+ import numpy as np
+ BASE=Path(__file__).resolve().parent
+ SRC=BASE/'sources'
++MAPPING_AUDIT=BASE.parent/'benign_cohort'/'ydao_source_mapping_audit.json'
+ CASES=[
+  ('adenine_add_SHAPE_holo','adenine_add','ADDRSW_SHP_0001',1,'SHAPE','1Y26','X','Kladwang2011','SHAPE_2011_HEPES_24C','Ligand-present deposited row selected a priori; adenine5mM in assay and adenine in crystal. Crystallization solvent/temperature differ.'),
+  ('P4P6_SHAPE_aqueous','P4P6_groupI','TRP4P6_SHP_0001',1,'SHAPE','1GID','A','Kladwang2011','SHAPE_2011_HEPES_24C','Aqueous no-MPD deposited row selected a priori; crystal includes cobalt hexammine, unlike assay. One native core, not independent crystal-copy states.'),
+  ('P4P6_DMS_aqueous','P4P6_groupI','TRP4P6_DMS_0001',1,'DMS','1GID','A','Cordero2012','DMS_2012_HEPES_24C','One average deposited DMS profile; same P4P6 lineage as SHAPE. Crystal includes cobalt hexammine, unlike assay.'),
+- ('Zika_xrRNA_DMS_WT','Zika_xrRNA','ZIKAXR_DMS_0000',1,'DMS','5TPY','A','Cheng2017','DMS_2017_cacodylate_24C','Only mutation:WT row selected; hundreds of mutate-map rows are not independent native-coordinate examples. Crystal/solution solvent and packing differ.'),
+  ('TPP_DMS_holo_WT','TPP_riboswitch','TPPRSW_DMS_0001',1,'DMS','2GDI','X','Cheng2017','DMS_2017_cacodylate_24C','Only mutation:WT ligand-present row selected; assay10mMTPP and crystalTPP. Crystal X/Y are copies of one core, use only X. Noncanonical GTP/CCC termini outside core are excluded.'),
++ ('ydaO_DMS_holo_WT','ydao_cdiamp_riboswitch','YDAORS_DMS_0001',1,'DMS','4QLM','A','Cheng2017','DMS_2017_cacodylate_24C','Only mutation:WT ligand-present row (profile 1) selected a priori; assay 10 uM c-di-AMP and crystal 4QLM contains two c-di-AMP. Exact 85-nt contiguous core = 4QLM chain A residues 39-123 = RDAT positions 37-121 (longest contiguous observed C4prime block, per benign_cohort/ydao_source_mapping_audit.json). Crystal residues 3-12 and 22-34 exist but are outside the contiguous core and residues 1-2, 13-21, 35-38, 124-125 are unobserved, so packing descriptors near that interface are truncated (partial domain). 2.72 A crystal with high B factors (core mean ~90 A^2). Source RDAT has no REACTIVITY_ERROR (unit precision within profile). Deposited pseudoknot bracket type is unbalanced; those 13 positions are set unknown (no repair). RDAT organism label vs PDB organism: see organism_label_check.json.'),
+ ]
++# Explicit contiguous residue windows for chains with unobserved residues (from the mapping audit).
++RESIDUE_RANGES={('4QLM','A'):(39,123)}
+ def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+ def dump(path,data):path.write_text(json.dumps(data,indent=2,allow_nan=False)+'\n')
+ def parse_rdat(path):
+@@ -33,40 +51,56 @@
+    field='annotation' if k.startswith('ANNOTATION_DATA') else 'stderr' if k.startswith('REACTIVITY_ERROR') else 'reactivity'
+    p[field]=' '.join(rest) if field=='annotation' else [float(x) for x in rest]
+  return d
+-def pdb_chain(path,chain):
++def pdb_chain(path,chain,residue_range=None):
+  residues={}
+  for line in path.read_text().splitlines():
+   if not line.startswith('ATOM  ') or line[21]!=chain:continue
+   base=line[17:20].strip()
+   if base not in ['A','C','G','U']:continue
+-  key=(int(line[22:26]),line[26].strip());r=residues.setdefault(key,{'base':base,'atoms':{}})
++  key=(int(line[22:26]),line[26].strip())
++  if residue_range is not None and not (residue_range[0]<=key[0]<=residue_range[1]):continue
++  r=residues.setdefault(key,{'base':base,'atoms':{}})
+   assert r['base']==base
+   atom=line[12:16].strip().replace('*',"'");alt=line[16].strip();priority=2 if not alt else 1 if alt=='A' else 0;occ=float(line[54:60])
+   new={'xyz':[float(line[a:b]) for a,b in [(30,38),(38,46),(46,54)]],'choice':(priority,occ)}
+   old=r['atoms'].get(atom)
+   if old is None or new['choice']>old['choice']:r['atoms'][atom]=new
+- return list(residues.items())
++ out=list(residues.items())
++ if residue_range is not None:
++  numbers=[k[0] for k,_ in out]
++  assert numbers==list(range(residue_range[0],residue_range[1]+1)),'residue window must be complete and contiguous'
++ return out
+ def restricted_secondary(struct,start,length):
+  # Multiple bracket types support deposited pseudoknot annotations; letter-pairs
+- # are intentionally not inferred. All currently admitted files use these types.
+- stacks={c:[] for c in '([{<'};partner=dict(zip(')]}>','([{<'));pairs=[]
++ # are intentionally not inferred. v2: a bracket type that is unbalanced in the
++ # deposited string is NOT repaired; all its positions become unknown ('x').
++ openers='([{<';partner=dict(zip(')]}>',openers))
++ unbalanced={op for op in openers if struct.count(op)!=struct.count({v:k for k,v in partner.items()}[op])}
++ stacks={c:[] for c in openers};pairs=[];unknown=set()
+  for i,c in enumerate(struct):
+-  if c in stacks:stacks[c].append(i)
++  if c in stacks:
++   if c in unbalanced:unknown.add(i);continue
++   stacks[c].append(i)
+   elif c in partner:
+-   op=partner[c];assert stacks[op],(i,c)
++   op=partner[c]
++   if op in unbalanced:unknown.add(i);continue
++   assert stacks[op],(i,c)
+    j=stacks[op].pop()
+    if start<=j<start+length and start<=i<start+length:pairs.append((j-start,i-start,op,c))
+   else:assert c=='.',c
+  assert all(not s for s in stacks.values())
+  chars=['.']*length
+  for i,j,op,cl in pairs:chars[i]=op;chars[j]=cl
+- return ''.join(chars),[[i,j] for i,j,_,_ in sorted(pairs)]
++ unknown_core=sorted(i-start for i in unknown if start<=i<start+length)
++ for i in unknown_core:chars[i]='x'
++ return ''.join(chars),[[i,j] for i,j,_,_ in sorted(pairs)],{'unbalanced_bracket_types':sorted(unbalanced),'positions_set_unknown_core_0based':unknown_core}
+ examples=[];allrows=[]
+ for name,lineage,ident,profile,chem,pdb,chain,study,protocol,note in CASES:
+  data=parse_rdat(SRC/(ident+'.rdat'));pf=data['profiles'][profile]
+  assert profile==1
+  if data['annotation'].find('MutateAndMap')>=0:assert pf['annotation']=='mutation:WT'
+- coord=pdb_chain(SRC/(pdb+'.pdb'),chain);sequence=''.join(r['base'] for _,r in coord)
++ window=RESIDUE_RANGES.get((pdb,chain))
++ coord=pdb_chain(SRC/(pdb+'.pdb'),chain,window);sequence=''.join(r['base'] for _,r in coord)
+  assert len(sequence)>=50
+  full=data['sequence'];assert full.upper().count(sequence)==1
+  start=full.upper().index(sequence);L=len(sequence)
+@@ -81,7 +115,7 @@
+   shared=parse_rdat(SRC/'TRP4P6_SHP_0001.rdat');assert shared['sequence']==full
+   structure=shared['structure'];secondary_source='TRP4P6_SHP_0001'
+  else:structure=data['structure']
+- secondary,pairs=restricted_secondary(structure,start,L)
++ secondary,pairs,secondary_handling=restricted_secondary(structure,start,L)
+  for i,((resnum,icode),r) in enumerate(coord):
+   construct_index=start+i;pos=construct_index+1+data['offset'];j=positions.get(pos)
+   y=pf['reactivity'][j] if j is not None else None;e=pf.get('stderr',[None]*len(data['positions']))[j] if j is not None else None
+@@ -91,32 +125,40 @@
+   assert "C4'"in r['atoms'];coords.append(r['atoms']["C4'"]['xyz']);pcoords.append(r['atoms'].get('P',{}).get('xyz'))
+   fullatoms.append({a:v['xyz'] for a,v in r['atoms'].items()})
+   mapping.append({'core_index_1based':i+1,'construct_index_1based':construct_index+1,'deposited_coordinate':pos,'pdb_resnum':resnum,'pdb_icode':icode,'base':sequence[i]})
+-  allrows.append(dict(example_id=name,lineage_id=lineage,chemistry=chem,core_index_1based=i+1,construct_index_1based=construct_index+1,deposited_coordinate=pos,pdb=pdb,chain=chain,pdb_resnum=resnum,pdb_icode=icode,base=sequence[i],reactivity=y,stderr=e,observed_finite=observed,observed_mask=bool(allowed)))
++  allrows.append(dict(example_id=name,lineage_id=lineage,chemistry=chem,core_index_1based=i+1,construct_index_1based=construct_index+1,deposited_coordinate=pos,pdb=pdb,chain=chain,pdb_resnum=resnum,pdb_icode=icode,base=sequence[i],reactivity=y,stderr=e,observed_finite=observed,observed_mask=bool(allowed),secondary_token=secondary[i]))
+  # All source/coordinate identities established without inspecting model accuracy.
++ provenance={'rmdb_id':ident,'profile_row':profile,'rdat_path':'sources/'+ident+'.rdat','rdat_sha256':sha(SRC/(ident+'.rdat')),'metadata_path':'sources/'+ident+'.md','metadata_sha256':sha(SRC/(ident+'.md')),'secondary_annotation_rmdb_source':secondary_source,'secondary_annotation_rdat_sha256':sha(SRC/(secondary_source+'.rdat')),'pdb_id':pdb,'pdb_chain':chain,'pdb_path':'sources/'+pdb+'.pdb','pdb_sha256':sha(SRC/(pdb+'.pdb')),'PDB_technology':'X-RAY DIFFRACTION','coordinate_atom':"C4'",'coordinate_units':'angstrom','full_assay_sequence':full,'full_assay_length':len(full),'core_construct_1based':[start+1,start+L],'pdb_residue_window':list(window) if window else None,'excluded_5prime_assay_sequence':full[:start],'excluded_3prime_assay_sequence':full[start+L:],'offset':data['offset'],'source_comments':data['comments'],'deposited_row_count_not_independent_RNAs':len(data['profiles']),'secondary_annotation_handling':secondary_handling,'source_name_field':data.get('name')}
++ if ident=='YDAORS_DMS_0001':
++  provenance['mapping_audit']={'path':'../benign_cohort/ydao_source_mapping_audit.json','sha256':sha(MAPPING_AUDIT),'note':'Mapping established by the earlier exact-core audit; independently re-derived from raw bytes by verify_extraction_from_raw.py.'}
+  example={'example_id':name,'lineage_id':lineage,'study_id':study,'chemistry':chem,'protocol_id':protocol,'sequence':sequence,'reactivity':ys,'stderr':errors,'observed_mask':mask,'secondary_dot_bracket':secondary,'secondary_pairs_0based':pairs,'coordinates':coords,'phosphate_coordinates':pcoords,'all_atom_coordinates':fullatoms,'mapping':mapping,
+  'admission':{'eligible':True,'geometry_compatibility':'structural_proxy_exact_sequence_core','exact_sequence_core':True,'complete_C4prime':True,'identical_crystal_solution_conditions':False,'interpretation':'Small empirical cross-lineage structure-to-probe validation using experimental crystal geometry as a solution-state proxy; no structure-generation or condition-response efficacy claim.','limitations':note},
+- 'protocol':{'source_annotation':annotation,'reported_error_available':'stderr'in pf,'DMS_primary_mask':'A/C only' if chem=='DMS' else 'All finite measured nucleotides','target_normalization':'Original deposited values unchanged, including finite negatives; any transform/scaling must be fixed from training folds only.','temperature_C':24,'MgCl2_mM':10,'buffer':'50mMNaHEPESpH8' if 'HEPES'in annotation else '300mMNa-cacodylatepH7','native_core_geometry':True,'deposited_secondary_annotation':'Source-provided annotation restricted to this exact core, not independently predicted sequence-only secondary structure.'},
+- 'provenance':{'rmdb_id':ident,'profile_row':profile,'rdat_path':'sources/'+ident+'.rdat','rdat_sha256':sha(SRC/(ident+'.rdat')),'metadata_path':'sources/'+ident+'.md','metadata_sha256':sha(SRC/(ident+'.md')),'secondary_annotation_rmdb_source':secondary_source,'secondary_annotation_rdat_sha256':sha(SRC/(secondary_source+'.rdat')),'pdb_id':pdb,'pdb_chain':chain,'pdb_path':'sources/'+pdb+'.pdb','pdb_sha256':sha(SRC/(pdb+'.pdb')),'PDB_technology':'X-RAY DIFFRACTION','full_assay_sequence':full,'full_assay_length':len(full),'core_construct_1based':[start+1,start+L],'excluded_5prime_assay_sequence':full[:start],'excluded_3prime_assay_sequence':full[start+L:],'offset':data['offset'],'source_comments':data['comments'],'deposited_row_count_not_independent_RNAs':len(data['profiles'])}}
++ 'protocol':{'source_annotation':annotation,'reported_error_available':'stderr'in pf,'reported_error_semantics':'REACTIVITY_ERROR as deposited, in deposited reactivity units; whether it is a standard deviation or a standard error of replicate means is not stated in the local RDAT/metadata files (unknown). Absent field = no reported uncertainty (null).','DMS_primary_mask':'A/C only' if chem=='DMS' else 'All finite measured nucleotides','target_normalization':'Original deposited values unchanged, including finite negatives; any transform/scaling must be fixed from training folds only.','temperature_C':24,'MgCl2_mM':10,'buffer':'50mMNaHEPESpH8' if 'HEPES'in annotation else '300mMNa-cacodylatepH7','native_core_geometry':True,'deposited_secondary_annotation':'Source-provided annotation restricted to this exact core, not independently predicted sequence-only secondary structure. Its original derivation may have used chemical-mapping data from the same group/experiment class (not established either way): treat the secondary arm as an annotation-informed baseline that may carry target-derived information.'},
++ 'provenance':provenance}
+  examples.append(example)
+ lineages=sorted(set(e['lineage_id']for e in examples));folds=[]
+ for held in lineages:
+  folds.append({'fold_id':'holdout_'+held,'test_lineages':[held],'train_lineages':[x for x in lineages if x!=held],'test_examples':[e['example_id']for e in examples if e['lineage_id']==held],'train_examples':[e['example_id']for e in examples if e['lineage_id']!=held]})
+-contract={'schema_version':1,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'Frozen before any learned-head fit','independent_lineage_count':len(lineages),'case_profile_count':len(examples),'outer_folds':folds,'grouping':'Entire RNA lineage, including both P4P6 chemistries, held out together. Shared study is disclosed; no study-disjoint claim.','primary_scoring':'DMS A/C finite observations; SHAPE all finite observations. Missing errors remain null and must not be replaced by invented measurement errors. Equal-lineage macro metrics; no nucleotide-independence p-value.','model_scope':'Small forward measurement-operator pilot. No pretrained structural model used to establish unseen-structure generalization; these old RNAs may be exposed in public pretrained corpora.','test_profile_use':'Held-out targets used solely for final scoring; never input descriptors, target normalization, hyperparameter selection or refinement. Inner CV grouped by training lineage only.','crystal_state_scope':'Every example is a crystal-geometry proxy for a solution measurement, with exact sequence core. Different buffers/packing/ions mean these are not identical solution ensembles.','examples':examples}
++contract={'schema_version':2,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'status':'Frozen before any learned-head fit','scope_restriction':'Non-viral RNAs only (adenine riboswitch, P4-P6 group I domain, TPP riboswitch, ydaO c-di-AMP riboswitch), per independent_benign_pilot_audit.txt. Zika xrRNA excluded by scope (see excluded_primary_candidates.json).','independent_lineage_count':len(lineages),'case_profile_count':len(examples),'outer_folds':folds,'grouping':'Entire RNA lineage, including both P4P6 chemistries, held out together. Shared study is disclosed; no study-disjoint claim.','primary_scoring':'DMS A/C finite observations; SHAPE all finite observations. Missing errors remain null and must not be replaced by invented measurement errors. Equal-lineage macro metrics; no nucleotide-independence p-value.','model_scope':'Small forward measurement-operator pilot. No pretrained structural model used to establish unseen-structure generalization; these old RNAs may be exposed in public pretrained corpora.','test_profile_use':'Held-out targets used solely for final scoring; never input descriptors, target normalization, hyperparameter selection or refinement. Inner CV grouped by training lineage only.','crystal_state_scope':'Every example is a crystal-geometry proxy for a solution measurement, with exact sequence core. Different buffers/packing/ions mean these are not identical solution ensembles.','examples':examples}
+ dump(BASE/'paired_core_cohort.json',contract)
+-split={'schema_version':1,'frozen_utc':contract['created_utc'],'frozen_before_model_fitting':True,'cohort_sha256':sha(BASE/'paired_core_cohort.json'),'outer_folds':folds,'source_choice_rule':'Selected wild-type ligand-present rows and exact contiguous canonical coordinate cores by source annotation/sequence integrity, before fitting. Excluded engineered-loop/mutation/partner mismatches from primary.','primary_case_ids':[e['example_id']for e in examples]}
++split={'schema_version':2,'frozen_utc':contract['created_utc'],'frozen_before_model_fitting':True,'cohort_sha256':sha(BASE/'paired_core_cohort.json'),'outer_folds':folds,'source_choice_rule':'Selected wild-type ligand-present rows and exact contiguous canonical coordinate cores by source annotation/sequence integrity, before fitting. Excluded engineered-loop/mutation/partner mismatches from primary. v2: non-viral scope; Zika xrRNA replaced by ydaO (4QLM A 39-123).','primary_case_ids':[e['example_id']for e in examples]}
+ dump(BASE/'frozen_lineage_splits.json',split)
+ with (BASE/'paired_core_observations.csv').open('w',newline='')as f:
+  w=csv.DictWriter(f,fieldnames=list(allrows[0]));w.writeheader();w.writerows(allrows)
+-counts={e['example_id']:{'lineage_id':e['lineage_id'],'length':len(e['sequence']),'chemistry':e['chemistry'],'scored_observations':sum(e['observed_mask']),'finite_reactivity':sum(x is not None for x in e['reactivity']),'reported_error_count':sum(x is not None for x in e['stderr']),'coordinate_source':e['provenance']['pdb_id']+'_'+e['provenance']['pdb_chain']}for e in examples}
+-dump(BASE/'admission_summary.json',{'cohort_sha256':sha(BASE/'paired_core_cohort.json'),'split_sha256':sha(BASE/'frozen_lineage_splits.json'),'status':'Prepared authenticated finite pilot data; no fit has been run by data-preparation script','independent_lineages':len(lineages),'examples':counts,'total_scored_observations':sum(sum(e['observed_mask'])for e in examples),'all_C4prime_complete':True,'exact_contiguous_core_mapping':True,'secondary_labels_are_deposited_not_sequence_predicted':True,'condition_exactness_claim':False,'coordinate_augmentation_count':0,'source_copy_replication_count':0})
+-dump(BASE/'excluded_primary_candidates.json',{'exclusions':[
++counts={e['example_id']:{'lineage_id':e['lineage_id'],'length':len(e['sequence']),'chemistry':e['chemistry'],'scored_observations_before_structure_mask':sum(e['observed_mask']),'scored_observations_after_secondary_unknown_mask':sum(m and s!='x' for m,s in zip(e['observed_mask'],e['secondary_dot_bracket'])),'finite_reactivity':sum(x is not None for x in e['reactivity']),'finite_negative_reactivity':sum(x is not None and x<0 for x in e['reactivity']),'reported_error_count':sum(x is not None for x in e['stderr']),'zero_reported_error_count':sum(x==0 for x in e['stderr'] if x is not None),'secondary_unknown_positions':e['secondary_dot_bracket'].count('x'),'coordinate_source':e['provenance']['pdb_id']+'_'+e['provenance']['pdb_chain']}for e in examples}
++dump(BASE/'admission_summary.json',{'cohort_sha256':sha(BASE/'paired_core_cohort.json'),'split_sha256':sha(BASE/'frozen_lineage_splits.json'),'status':'Prepared authenticated finite pilot data; no fit has been run by data-preparation script','scope_restriction':contract['scope_restriction'],'independent_lineages':len(lineages),'examples':counts,'total_scored_observations_after_secondary_unknown_mask':sum(c['scored_observations_after_secondary_unknown_mask'] for c in counts.values()),'chemistry_by_lineage':{l:sorted({e['chemistry'] for e in examples if e['lineage_id']==l}) for l in lineages},'study_by_lineage':{l:sorted({e['study_id'] for e in examples if e['lineage_id']==l}) for l in lineages},'all_C4prime_complete':True,'exact_contiguous_core_mapping':True,'secondary_labels_are_deposited_not_sequence_predicted':True,'condition_exactness_claim':False,'coordinate_augmentation_count':0,'source_copy_replication_count':0})
++dump(BASE/'excluded_primary_candidates.json',{'schema_version':2,'note':'v2 supersedes the v1 list: the v1 ydaO entry is replaced (see ydaO entries below) and Zika xrRNA is added (scope).','exclusions':[
++ {'source':'ZIKAXR_DMS_0000/5TPY (Zika_xrRNA_DMS_WT)','reason':'SCOPE: the pilot is restricted to non-viral RNAs per independent_benign_pilot_audit.txt (adenine, P4-P6, TPP, ydaO). The source passed the v1 exact-core mapping (71 nt, 36 DMS A/C sites, no REACTIVITY_ERROR). Exclusion decided before any model fit (v1 prepared manifest fitted:false; no v1 results exist); not a data-quality or outcome-based exclusion. Source files retained in sources/.'},
++ {'source':'YDAORS_DMS_0000 (ligand-absent WT) with 4QLM','reason':'Apo assay versus c-di-AMP-bound crystal is not a state-compatible primary pair (same rule as TPPRSW_DMS_0000); same-lineage condition, not an independent lineage. Ligand-present YDAORS_DMS_0001 is admitted instead.'},
++ {'source':'YDAORS_DMS_0001 profiles 2-192 (mutate-and-map)','reason':'Mutation perturbations of the same parent RNA; only mutation:WT profile 1 admitted.'},
++ {'source':'4OQU, 4P8Z as ydaO coordinate candidates','reason':'Different RNAs (SAM-I/IV riboswitch; lariat-capping ribozyme); no whole-SEQRES exact source match (ydao_source_mapping_audit.json).'},
++ {'source':'4QLM chain A residues outside 39-123','reason':'Residues 1-2, 13-21, 35-38, 124-125 unobserved; observed residues 3-12 and 22-34 are not contiguous with the 85-nt core and are not used (no splicing). Partial-domain packing caveat recorded.'},
++ {'source':'v1 entry "YDAORS_DMS_0000/0001 with4QLM,4OQU"','reason':'SUPERSEDED: v1 judged no exact contiguous core; the later exact-core audit (benign_cohort/ydao_source_mapping_audit.json) established 4QLM A 39-123 = RDAT 37-121 with sequence identity 1.0 and zero indels/substitutions.'},
+  {'source':'CIDGMP_SHP_0001/3MXH,3IWN,3MUT,3MUV','reason':'Engineered U1A-binding insertion/mutations means full coordinate chain is not an exact contiguous assayed core; no splicing/substitution admitted.'},
+  {'source':'GLYCFN_SHP_0001/3P49','reason':'Engineered insertion in one loop; full chain not exact contiguous assayed core. Shared-core proxy could be separate sensitivity analysis, not primary.'},
+  {'source':'TRNAPH_SHP_0001/1EHZ','reason':'Probe transcript versus modified native tRNA coordinate modification state not established; canonicalization insufficient.'},
+  {'source':'5SRRNA_SHP_0001','reason':'Isolated probing versus ribosome-bound coordinates requires partner compatibility; excluded primary.'},
+  {'source':'GIR1RZ_DMS_0000/4P8Z','reason':'Assay U versus crystal C at corresponding core140 (construct159); one mutation, not exact contiguous core. Excluded primary rather than silently repaired.'},
+  {'source':'RNASEP_DMS_0000/1NBS,1U9S','reason':'Wrong structural domain/species; no exact native catalytic-domain coordinate match admitted. Source retained as failed candidate lead.'},
+- {'source':'YDAORS_DMS_0000/0001 with4QLM,4OQU','reason':'Inspected coordinate chains not exact contiguous assayed core; disordered/modified loops require additional mapping review.'},
+  {'source':'TPPRSW_DMS_0000/2GDI','reason':'Apo assay and holo crystal are not a state-compatible primary pair; ligand-present0001 used instead.'},
+  {'source':'ADDRSW_SHP_0001 references1Y27/2G9C/3GO2','reason':'Alternative1Y27/2G9C sequences do not exactly match assayed add core;3GO2 is a protein entry despite deposit source lead. Exact1Y26 chosen.'},
+  {'source':'Crystal chains1GID_B/2GDI_Y and mutate-map rows','reason':'Copies/perturbations of the same parent RNA do not create independent native-coordinate cases; retained source files only.'}]})
+--- work/geometry_pilot/biological_validation_pilot/model/forward_head_pilot.py	2026-10-14 12:50:34
++++ work/geometry_pilot/biological_validation_pilot_v2/model/forward_head_pilot.py	2026-10-15 21:38:41
+@@ -1,9 +1,22 @@
+ #!/usr/bin/env python3
+-"""Leakage-resistant, bounded structure-to-probe forward-model pilot.
++"""Leakage-resistant, bounded structure-to-probe forward-model pilot (Wave F v2).
+ 
+ This is a learned measurement operator, not an inverse structure predictor. It
+ does not use probe observations, errors, profile IDs or study IDs as features.
+ No synthetic data are admitted to a biological run. See --help for freeze/run.
++
++v2 changes versus v1 (see ../CHANGES.md for the audit-point mapping):
++  * shuffled-geometry control permutes within the chemically eligible, structurally
++    annotated rows (DMS: A/C; SHAPE: all), so the evaluated-row geometry marginal is
++    preserved; eligibility uses sequence+chemistry only, never observations;
++  * freeze verifies and records that marginal preservation per profile;
++  * a full unweighted refit (unit precision) is run as a pre-specified sensitivity
++    alongside the error-weighted primary; REACTIVITY_ERROR semantics are recorded
++    as unknown and the 0.1 floor as an arbitrary constant;
++  * freeze requires a passed raw-extraction audit bound to the exact cohort hash;
++  * the cross-lineage guard now implements a near-identity check (global and
++    local alignment) in addition to exact identity;
++  * a sequence-versus-geometry comparison is added to the frozen comparison set.
+ """
+ from __future__ import annotations
+ 
+@@ -16,7 +29,7 @@
+ 
+ import numpy as np
+ 
+-VERSION = "forward-head-lineage-ridge-v1"
++VERSION = "forward-head-lineage-ridge-v2"
+ ARMS = ("sequence_context", "secondary_context", "geometry_context", "shuffled_geometry_context")
+ ALPHAS = [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0]
+ SEED = 20261014
+@@ -24,6 +37,13 @@
+ BOOTSTRAPS = 10000
+ CHEMISTRIES = ["DMS", "SHAPE", "CMCT", "OTHER"]
+ NUMERIC_CONTEXT = ["temperature_c", "ph", "magnesium_mm", "monovalent_mm", "ligand_um"]
++WEIGHTING_SCHEMES = ("error_weighted", "unweighted")
++# Near-identity guard (pre-specified; scores match +1, mismatch -1, linear gap -2).
++NEAR_IDENTITY_GLOBAL = 0.80          # global (Needleman-Wunsch) identity over alignment columns
++NEAR_IDENTITY_LOCAL = 0.90           # local (Smith-Waterman) identity over aligned columns ...
++NEAR_IDENTITY_LOCAL_COVERAGE = 0.50  # ... spanning at least this fraction of the shorter sequence
++COMPARISONS = (("sequence_context", "geometry_context"), ("secondary_context", "geometry_context"),
++               ("shuffled_geometry_context", "geometry_context"), ("sequence_context", "secondary_context"))
+ 
+ 
+ def sha(path):
+@@ -48,6 +68,16 @@
+     return "CMCT" if "CMCT" in text else "OTHER"
+ 
+ 
++def chemical_eligibility(e):
++    """Positions the chemistry can score, from sequence and chemistry only (never y).
++
++    DMS primary scoring is restricted to A/C (N1-A/N3-C methylation); other
++    chemistries score every nucleotide. Observation masks must be a subset."""
++    if chemistry_group(e["chemistry"]) == "DMS":
++        return np.asarray([nt in "AC" for nt in e["sequence"]], dtype=bool)
++    return np.ones(len(e["sequence"]), dtype=bool)
++
++
+ def dot_pairs(dot):
+     """Support standard pseudoknot brackets; unknown entries remain unknown."""
+     # Reserve x/X for explicitly unknown secondary annotation, as below.
+@@ -147,6 +177,82 @@
+     return checked
+ 
+ 
++def _align(a, b, local):
++    """Deterministic NW (global) / SW (local) alignment; returns identity statistics."""
++    match, mismatch, gap = 1, -1, -2
++    n, m = len(a), len(b)
++    H = np.zeros((n + 1, m + 1))
++    T = np.zeros((n + 1, m + 1), dtype=np.int8)  # 0 stop, 1 diagonal, 2 up, 3 left
++    if not local:
++        H[1:, 0] = gap * np.arange(1, n + 1)
++        H[0, 1:] = gap * np.arange(1, m + 1)
++        T[1:, 0], T[0, 1:] = 2, 3
++    for i in range(1, n + 1):
++        for j in range(1, m + 1):
++            options = (H[i - 1, j - 1] + (match if a[i - 1] == b[j - 1] else mismatch),
++                       H[i - 1, j] + gap, H[i, j - 1] + gap)
++            k = int(np.argmax(options))  # ties prefer diagonal, then up
++            best = options[k]
++            if local and best <= 0:
++                H[i, j], T[i, j] = 0.0, 0
++            else:
++                H[i, j], T[i, j] = best, k + 1
++    if local:
++        i, j = np.unravel_index(int(np.argmax(H)), H.shape)
++    else:
++        i, j = n, m
++    end_i, end_j = int(i), int(j)
++    matches = columns = 0
++    while (i > 0 or j > 0) and T[i, j] != 0:
++        step = T[i, j]
++        columns += 1
++        if step == 1:
++            matches += int(a[i - 1] == b[j - 1])
++            i, j = i - 1, j - 1
++        elif step == 2:
++            i -= 1
++        else:
++            j -= 1
++    span_a, span_b = end_i - int(i), end_j - int(j)
++    return {"matches": matches, "columns": columns, "identity": matches / columns if columns else 0.0,
++            "span_a": span_a, "span_b": span_b}
++
++
++def cross_lineage_similarity(examples):
++    """Pairwise sequence similarity for every pair of profiles in different lineages."""
++    rows = []
++    seen = {}
++    for e in examples:
++        seen.setdefault((e["lineage_id"], e["sequence"]), e["example_id"])
++    items = sorted(seen.items())
++    for x in range(len(items)):
++        for y in range(x + 1, len(items)):
++            (la, sa), ea = items[x]
++            (lb, sb), eb = items[y]
++            if la == lb:
++                continue
++            g = _align(sa, sb, local=False)
++            s = _align(sa, sb, local=True)
++            shorter = min(len(sa), len(sb))
++            coverage = (s["span_a"] if len(sa) <= len(sb) else s["span_b"]) / shorter
++            near = (sa == sb or g["identity"] >= NEAR_IDENTITY_GLOBAL
++                    or (s["identity"] >= NEAR_IDENTITY_LOCAL and coverage >= NEAR_IDENTITY_LOCAL_COVERAGE))
++            rows.append({"lineage_a": la, "example_a": ea, "lineage_b": lb, "example_b": eb,
++                         "length_a": len(sa), "length_b": len(sb), "exact_identical": sa == sb,
++                         "global_identity": round(g["identity"], 4),
++                         "local_identity": round(s["identity"], 4),
++                         "local_coverage_of_shorter": round(coverage, 4), "near_identical": bool(near)})
++    return rows
++
++
++def check_lineage_independence(examples):
++    rows = cross_lineage_similarity(examples)
++    flagged = [r for r in rows if r["near_identical"]]
++    if flagged:
++        raise ValueError(f"Exact or near-identical sequences assigned to different lineages: {flagged}")
++    return rows
++
++
+ def sequence_features(e):
+     n = len(e["sequence"])
+     rows = []
+@@ -228,13 +334,18 @@
+     seq = sequence_features(e)
+     sec, secondary_valid = secondary_features(e)
+     geo, geometry_valid = geometry_features(e)
+-    # A deterministic within-profile negative control retains feature marginals and
+-    # coefficient count, but breaks the residue-to-geometry pairing. The fixed seed
+-    # never depends on observations; this is not a biological randomisation test.
++    structural_valid = geometry_valid & secondary_valid
++    # v2 negative control: a deterministic within-profile permutation of geometry
++    # rows restricted to the chemically eligible, structurally annotated positions
++    # (DMS: A/C; SHAPE: all). Every scored row is in this set, so the geometry
++    # marginal over the scored rows is preserved whenever every eligible row is
++    # observed (verified and recorded at freeze). Eligibility uses sequence and
++    # chemistry only; the fixed seed never depends on observations. This breaks the
++    # residue-to-geometry pairing; it is not a biological randomisation test.
+     stable = int(hashlib.sha256(e["example_id"].encode()).hexdigest()[:8], 16)
+     rng = np.random.default_rng(SEED + stable)
+     permuted = geo.copy()
+-    indices = np.flatnonzero(geometry_valid & secondary_valid)
++    indices = np.flatnonzero(structural_valid & chemical_eligibility(e))
+     permuted[indices] = geo[rng.permutation(indices)]
+     raw = {
+         "sequence_context": seq,
+@@ -248,40 +359,74 @@
+     chemistry = chemistry_group(e["chemistry"])
+     matrices = {arm: np.concatenate([x, x * float(chemistry == "DMS"), x * float(chemistry == "SHAPE")], axis=1)
+                 for arm, x in raw.items()}
+-    return matrices, geometry_valid & secondary_valid
++    return matrices, structural_valid
+ 
+ 
+-def prepared_rows(examples):
++def precision_of(error, weighting):
++    if weighting == "unweighted":
++        return 1.0
++    if weighting != "error_weighted":
++        raise ValueError(f"Unknown weighting scheme {weighting}")
++    # No source error means unit precision, explicitly reported in the plan.
++    return 1.0 / max(float(error), ERROR_FLOOR) ** 2 if error is not None else 1.0
++
++
++def prepared_rows(examples, weighting="error_weighted"):
+     matrices = {a: [] for a in ARMS}
+     y, precision, profile, lineage, study, chemistry, position = [], [], [], [], [], [], []
+     counts = []
+     for e in examples:
+         features, structural_valid = feature_matrices(e)
+-        selected = np.asarray(e["observed_mask"], dtype=bool) & structural_valid
++        eligible = chemical_eligibility(e)
++        observed = np.asarray(e["observed_mask"], dtype=bool)
++        if np.any(observed & ~eligible):
++            raise ValueError(f"{e['example_id']}: observation mask includes chemically ineligible positions")
++        selected = observed & structural_valid
+         if selected.sum() < 3:
+             raise ValueError(f"{e['example_id']}: fewer than 3 common measured/mapped nucleotides")
+         for a in ARMS:
+             matrices[a].append(features[a][selected])
+         indices = np.flatnonzero(selected)
++        permutation_set = structural_valid & eligible
+         for i in indices:
+             error = e["stderr"][i]
+             y.append(float(e["reactivity"][i]))
+-            # No source error means unit precision, explicitly reported in the plan.
+-            precision.append(1.0 / max(float(error), ERROR_FLOOR) ** 2 if error is not None else 1.0)
++            precision.append(precision_of(error, weighting))
+             profile.append(e["example_id"])
+             lineage.append(e["lineage_id"])
+             study.append(e["study_id"])
+             chemistry.append(chemistry_group(e["chemistry"]))
+             position.append(int(i))
+-        counts.append({"example_id": e["example_id"], "lineage_id": e["lineage_id"], "n_common": int(selected.sum()),
++        reported = [e["stderr"][i] for i in indices if e["stderr"][i] is not None]
++        counts.append({"example_id": e["example_id"], "lineage_id": e["lineage_id"], "study_id": e["study_id"],
++                       "chemistry": chemistry_group(e["chemistry"]), "n_common": int(selected.sum()),
+                        "n_error_missing": sum(e["stderr"][i] is None for i in indices),
++                       "n_error_zero": sum(x == 0 for x in reported),
++                       "n_error_at_or_below_floor": sum(x <= ERROR_FLOOR for x in reported),
++                       "n_shuffle_permutation_rows": int(permutation_set.sum()),
++                       "n_shuffle_eligible_rows_unobserved": int((permutation_set & ~observed).sum()),
+                        "geometry_compatibility": e["admission"].get("geometry_compatibility", "unspecified")})
+     return {"X": {a: np.concatenate(v) for a, v in matrices.items()}, "y": np.asarray(y),
+             "precision": np.asarray(precision), "profile": np.asarray(profile), "lineage": np.asarray(lineage),
+             "study": np.asarray(study), "chemistry": np.asarray(chemistry),
+-            "position": np.asarray(position), "counts": counts}
++            "position": np.asarray(position), "counts": counts, "weighting": weighting}
+ 
+ 
++def shuffle_marginal_audit(rows):
++    """Feature-only check: geometry vs shuffled-geometry columns on the scored rows."""
++    start = rows["X"]["secondary_context"].shape[1] // 3  # unexpanded secondary width
++    width = rows["X"]["geometry_context"].shape[1] // 3
++    out = []
++    for p in sorted(set(rows["profile"])):
++        m = rows["profile"] == p
++        g = rows["X"]["geometry_context"][m][:, start:width]
++        s = rows["X"]["shuffled_geometry_context"][m][:, start:width]
++        out.append({"example_id": str(p), "n_scored_rows": int(m.sum()),
++                    "scored_row_geometry_marginal_preserved": bool(np.array_equal(np.sort(g, axis=0), np.sort(s, axis=0))),
++                    "fraction_rows_with_changed_geometry": float(np.mean(np.any(g != s, axis=1)))})
++    return out
++
++
+ def balanced_weights(rows, selection):
+     """Equal lineage weight, equal profile within lineage, precision within profile."""
+     w = np.zeros(len(rows["y"]))
+@@ -364,9 +509,20 @@
+     return selected, choices
+ 
+ 
+-def make_plan(cohort, path):
++def check_extraction_audit(audit_path, cohort):
++    audit = json.loads(Path(audit_path).read_text())
++    if audit.get("status") != "passed" or audit.get("n_failed") != 0:
++        raise ValueError("Raw-source extraction audit did not pass; do not freeze")
++    if audit.get("cohort_sha256") != sha(cohort):
++        raise ValueError("Raw-source extraction audit was made for a different cohort file")
++    return {"path": str(Path(audit_path).resolve()), "sha256": sha(audit_path), "n_checks": audit.get("n_checks"),
++            "status": audit["status"], "verifier_sha256": audit.get("verifier_sha256")}
++
++
++def make_plan(cohort, path, extraction_audit):
+     examples = normalize_cohort(json.loads(Path(cohort).read_text()))
+     source_hashes = verify_sources(examples, cohort)
++    audit = check_extraction_audit(extraction_audit, cohort)
+     rows = prepared_rows(examples)
+     groups = sorted(set(rows["lineage"]))
+     if len(groups) < 4:
+@@ -374,32 +530,49 @@
+     studies = sorted(set(rows["study"]))
+     if len(studies) < 2:
+         raise ValueError("At least two original studies required; single-study source is insufficient")
+-    # Near-identical constructs must never cross a lineage split, regardless of chemistry.
+-    sequence_groups = defaultdict(set)
+-    for e in examples:
+-        sequence_groups[e["sequence"]].add(e["lineage_id"])
+-    if any(len(g) > 1 for g in sequence_groups.values()):
+-        raise ValueError("Exact sequence assigned to multiple lineages")
++    # Exact and near-identical constructs must never cross a lineage split.
++    similarity = check_lineage_independence(examples)
++    marginals = shuffle_marginal_audit(rows)
++    shuffle_exact = all(m["scored_row_geometry_marginal_preserved"] for m in marginals)
++    if not shuffle_exact:
++        raise ValueError("Shuffled-geometry control does not preserve scored-row marginals; respecify before freezing")
++    chem_by_lineage = {g: sorted(set(rows["chemistry"][rows["lineage"] == g])) for g in groups}
++    study_by_lineage = {g: sorted(set(rows["study"][rows["lineage"] == g])) for g in groups}
++    lineages_per_chemistry = {c: sorted(set(rows["lineage"][rows["chemistry"] == c])) for c in sorted(set(rows["chemistry"]))}
+     plan = {
+         "schema_version": VERSION, "created_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+         "cohort_path": str(Path(cohort).resolve()), "cohort_sha256": sha(cohort), "code_sha256": sha(__file__),
+         "verified_source_sha256": source_hashes,
+-        "scope": "Exploratory cross-family learned structure-to-probe measurement operator; no inverse-model, blind structure or causal condition-response efficacy claim",
++        "raw_extraction_audit": audit,
++        "scope": "Exploratory cross-family learned structure-to-probe measurement operator on four NON-VIRAL RNA lineages; no inverse-model, blind structure or causal condition-response efficacy claim",
+         "no_pretrained_model": True, "required_lineages": 4, "n_lineages": len(groups), "n_studies": len(studies),
+         "lineages": groups, "studies": studies, "arms": list(ARMS), "alpha_grid": ALPHAS,
+         "feature_counts": {a: int(rows["X"][a].shape[1]) for a in ARMS}, "common_masks": rows["counts"],
+-        "split": "Outer leave-one-entire-lineage-out; inner leave-one-training-lineage-out selection. Sequence-identical profiles cannot cross outer folds.",
++        "chemistry_by_lineage": chem_by_lineage, "study_by_lineage": study_by_lineage,
++        "lineages_per_chemistry": lineages_per_chemistry,
++        "split": "Outer leave-one-entire-lineage-out; inner leave-one-training-lineage-out selection.",
++        "lineage_independence_guard": {
++            "rule": f"Reject if any cross-lineage pair is exactly identical, has global Needleman-Wunsch identity >= {NEAR_IDENTITY_GLOBAL}, or a Smith-Waterman local alignment with identity >= {NEAR_IDENTITY_LOCAL} spanning >= {NEAR_IDENTITY_LOCAL_COVERAGE} of the shorter sequence (match +1, mismatch -1, linear gap -2).",
++            "pairwise": similarity,
++            "limit": "Sequence similarity is a guard, not proof of lineage independence; related variants, shared ancestry or repeated crystal copies remain a scientific-curation responsibility."},
+         "cross_study_limit": "Lineage folds may share a study/protocol. A leave-one-study-out sensitivity is separate and never labelled cross-study when fewer than two training lineages remain.",
+         "outcome": "As-deposited reactivity; no per-test-profile normalization, clipping, rescaling, centering or target transformation",
+-        "features": "Observed sequence-window identity, chemistry group, five numeric assay covariates with explicit missing flags; supplied source-deposited secondary-structure indicators (not learned from this pilot's target values); C4-prime distance/packing/angle invariants. Every arm has shared plus fixed DMS-specific and SHAPE-specific slope blocks. No reactivity, uncertainty, observation mask, accession, lineage or study ID enters a predictor.",
+-        "capacity": "Nested linear ridge with 41/51/69/69 coefficients plus intercept, same alpha grid and nested selection. Geometry and shuffled geometry have exactly identical coefficient count. Secondary versus geometry is a nested-feature comparison, not exactly capacity matched.",
+-        "weights": {"standard_error_floor": ERROR_FLOOR, "missing_error_precision": 1.0,
+-                    "objective": "Inverse-variance precision within profile; equal profiles per lineage; equal lineages. Training-only weighted feature standardization and intercept."},
+-        "primary_endpoint": "Equal-lineage average of profile error-weighted MSE; paired held-out lineage differences (secondary minus geometry, positive favours geometry)",
+-        "secondary_endpoints": ["Equal-lineage unweighted MSE", "Mean within-profile Pearson correlation, constant profiles/predictions reported null", "Chemistry-stratified held-out MSE", "Geometry minus shuffled-pairing negative control", "Study holdout sensitivity"],
++        "features": "Observed sequence-window identity, chemistry group, five numeric assay covariates with explicit missing flags; supplied source-deposited secondary-structure indicators (not learned from this pilot's target values, but their original derivation may have used chemical-mapping data: annotation-informed baseline); C4-prime distance/packing/angle invariants. Every arm has shared plus fixed DMS-specific and SHAPE-specific slope blocks. No reactivity, uncertainty, observation mask, accession, lineage or study ID enters a predictor.",
++        "shuffled_geometry_control": {
++            "specification": "Within-profile deterministic permutation (seed = SEED + first 32 bits of SHA-256(example_id)) of geometry rows among positions that are chemically eligible (DMS: A/C; SHAPE: all; from sequence and chemistry only) and have known geometry and secondary annotation.",
++            "claim": "Exactly matches the geometry arm's coefficient count, alpha grid and selection; the geometry-feature marginal over the scored rows of every profile is preserved (verified below). Effective degrees of freedom may still differ. A single seeded permutation is a diagnostic negative control, not a randomisation p-value.",
++            "scored_row_marginal_verification": marginals},
++        "weights": {"error_floor_reactivity_units": ERROR_FLOOR, "missing_error_precision": 1.0,
++                    "error_semantics": "REACTIVITY_ERROR as deposited in the RDAT, in deposited reactivity units. Whether it is a standard deviation across replicates or a standard error of the replicate mean is not stated in the local source files: semantics UNKNOWN. The 0.1 floor is an arbitrary pre-specified constant, not measurement calibration. Zero errors would receive floor precision (none occur in this cohort). Profiles without the field (TPP, ydaO) get uniform weight within profile.",
++                    "objective": "Inverse-variance precision within profile; equal profiles per lineage; equal lineages. Training-only weighted feature standardization and intercept.",
++                    "schemes": list(WEIGHTING_SCHEMES),
++                    "sensitivity": "The complete nested analysis (inner alpha selection, training weights and evaluation) is repeated with unit precision for every nucleotide (unweighted refit)."},
++        "primary_endpoint": "Equal-lineage average of profile error-weighted MSE (error_weighted scheme); paired held-out lineage differences, reference minus geometry (positive favours geometry)",
++        "comparisons": [{"reference": r, "candidate": c} for r, c in COMPARISONS],
++        "secondary_endpoints": ["Equal-lineage unweighted MSE", "Full unweighted refit (pre-specified weighting sensitivity)", "Mean within-profile Pearson correlation, constant profiles/predictions reported null", "Chemistry-stratified held-out MSE", "Geometry minus shuffled-pairing negative control", "Study holdout sensitivity"],
+         "uncertainty": {"unit": "RNA lineage", "resamples": BOOTSTRAPS, "seed": SEED,
+-                        "interval": "Descriptive paired percentile 95% bootstrap; no nucleotide-level significance claim and no powered confirmatory claim from a small pilot"},
+-        "interpretation_gate": "Geometry improvement is exploratory only and must survive comparison with the secondary arm and the equal-capacity shuffled-geometry control. Small lineage count, coordinate/solution compatibility and study sensitivity must accompany all reported estimates.",
++                        "interval": "Descriptive paired percentile 95% bootstrap over 4 lineages (at most 35 distinct resample means); no nucleotide-level significance claim and no powered confirmatory claim"},
++        "interpretation_gate": "Geometry is described as adding held-out information only if, in BOTH the error-weighted primary and the unweighted refit, the mean lineage difference favours geometry over the secondary arm AND over the shuffled-geometry control, with at least 3 of 4 held-out lineages favouring geometry in each of those four comparisons. Otherwise the result is reported as null or mixed. Geometry-versus-sequence is reported descriptively. Small lineage count, crystal-as-solution-proxy, annotation-informed secondary baseline and study sensitivity accompany every estimate.",
+         "synthetic_data": False,
+     }
+     # Assert printed coefficient counts instead of silently letting prose drift.
+@@ -408,34 +581,25 @@
+     return plan
+ 
+ 
+-def descriptive_comparison(arms, reference, candidate):
++def descriptive_comparison(arms, reference, candidate, metric="error_weighted_mse"):
+     r = {x["lineage_id"]: x for x in arms[reference]["lineage_metrics"]}
+     c = {x["lineage_id"]: x for x in arms[candidate]["lineage_metrics"]}
+     groups = sorted(r.keys() & c.keys())
+-    d = np.asarray([r[g]["error_weighted_mse"] - c[g]["error_weighted_mse"] for g in groups])
++    d = np.asarray([r[g][metric] - c[g][metric] for g in groups])
+     rng = np.random.default_rng(SEED)
+     bs = d[rng.integers(0, len(d), size=(BOOTSTRAPS, len(d)))].mean(axis=1)
+-    reference_mean = float(np.mean([r[g]["error_weighted_mse"] for g in groups]))
+-    return {"reference": reference, "candidate": candidate, "unit": "lineage", "n": len(groups),
++    reference_mean = float(np.mean([r[g][metric] for g in groups]))
++    return {"reference": reference, "candidate": candidate, "metric": metric, "unit": "lineage", "n": len(groups),
+             "lineage_differences_reference_minus_candidate": dict(zip(groups, map(float, d))),
+-            "mean_error_weighted_mse_difference": float(d.mean()),
++            "mean_difference": float(d.mean()),
+             "relative_mse_reduction": float(d.mean() / reference_mean) if reference_mean > 0 else None,
+             "descriptive_bootstrap_95_interval": list(map(float, np.quantile(bs, [0.025, 0.975]))),
+             "n_lineages_favouring_candidate": int((d > 0).sum()), "confirmatory_p_value": None}
+ 
+ 
+-def run_plan(cohort, plan_path, output):
+-    plan = json.loads(Path(plan_path).read_text())
+-    if plan.get("schema_version") != VERSION or plan.get("cohort_sha256") != sha(cohort) or plan.get("code_sha256") != sha(__file__):
+-        raise ValueError("Cohort or code changed after freezing; create and review a new plan, do not reuse this plan")
+-    examples = normalize_cohort(json.loads(Path(cohort).read_text()))
+-    if verify_sources(examples, cohort) != plan["verified_source_sha256"]:
+-        raise ValueError("Pinned source collection changed after analysis freeze")
+-    rows = prepared_rows(examples)
++def fit_scheme(rows):
+     groups = sorted(set(rows["lineage"]))
+-    results = {}
+-    models = {}
+-    prediction_rows = []
++    results, models, prediction_rows = {}, {}, []
+     for arm in ARMS:
+         predictions = np.full(len(rows["y"]), np.nan)
+         folds = []
+@@ -449,7 +613,7 @@
+             folds.append({"held_out_lineage": str(held), "train_lineages": sorted(set(rows["lineage"][train])),
+                           "test_profiles": sorted(set(rows["profile"][test])), "alpha": alpha,
+                           "effective_degrees_of_freedom": model["effective_df"], "inner_selection": scores})
+-            models[f"{arm}::{held}"] = {k: v.tolist() if isinstance(v, np.ndarray) else v for k, v in model.items()}
++            models[f"{rows['weighting']}::{arm}::{held}"] = {k: v.tolist() if isinstance(v, np.ndarray) else v for k, v in model.items()}
+         if not np.isfinite(predictions).all():
+             raise RuntimeError("Outer predictions missing")
+         profiles = profile_metrics(rows, np.ones(len(predictions), dtype=bool), predictions)
+@@ -465,8 +629,13 @@
+                         "equal_lineage_error_weighted_mse": float(np.mean([r["error_weighted_mse"] for r in lineages])),
+                         "equal_lineage_unweighted_mse": float(np.mean([r["unweighted_mse"] for r in lineages]))}
+         for i, pred in enumerate(predictions):
+-            prediction_rows.append({"arm": arm, "example_id": str(rows["profile"][i]), "lineage_id": str(rows["lineage"][i]),
+-                                    "position_zero_based": int(rows["position"][i]), "target": float(rows["y"][i]), "prediction": float(pred)})
++            prediction_rows.append({"weighting": rows["weighting"], "arm": arm, "example_id": str(rows["profile"][i]),
++                                    "lineage_id": str(rows["lineage"][i]), "position_zero_based": int(rows["position"][i]),
++                                    "target": float(rows["y"][i]), "prediction": float(pred)})
++    return results, models, prediction_rows
++
++
++def study_holdout(rows):
+     study_sensitivity = []
+     for study in sorted(set(rows["study"])):
+         test = rows["study"] == study
+@@ -475,11 +644,14 @@
+         test_lineages = sorted(set(rows["lineage"][test]))
+         train = ~np.isin(rows["lineage"], test_lineages)
+         remaining = sorted(set(rows["lineage"][train]))
+-        sr = {"held_out_study": str(study), "held_out_lineages": test_lineages, "train_lineages": remaining}
++        sr = {"held_out_study": str(study), "held_out_lineages": test_lineages, "train_lineages": remaining,
++              "train_chemistries": sorted(set(rows["chemistry"][train])), "test_chemistries": sorted(set(rows["chemistry"][test]))}
+         if len(remaining) < 2:
+             sr["status"] = "not_estimable_insufficient_training_lineages"
+         else:
+             sr["status"] = "executed"
++            if not set(sr["test_chemistries"]) <= set(sr["train_chemistries"]):
++                sr["chemistry_extrapolation"] = "Held-out chemistry absent from training: chemistry-specific slopes are untrained (extrapolation)."
+             sr["arms"] = {}
+             for arm in ARMS:
+                 alpha, _ = inner_alpha(rows, arm, train)
+@@ -489,19 +661,53 @@
+                 pred[test] = predict(model, rows["X"][arm][test])
+                 sr["arms"][arm] = {"alpha": alpha, "lineage_metrics": lineage_metrics(profile_metrics(rows, test, pred))}
+         study_sensitivity.append(sr)
++    return study_sensitivity
++
++
++def gate(comparisons):
++    """Apply the frozen interpretation gate to the four gate comparisons."""
++    needed = [(s, ref) for s in WEIGHTING_SCHEMES for ref in ("secondary_context", "shuffled_geometry_context")]
++    status = {}
++    for scheme, ref in needed:
++        c = next(x for x in comparisons if x["scheme"] == scheme and x["reference"] == ref
++                 and x["candidate"] == "geometry_context" and x["metric"] == ("error_weighted_mse" if scheme == "error_weighted" else "unweighted_mse"))
++        status[f"{scheme}:{ref}"] = bool(c["mean_difference"] > 0 and c["n_lineages_favouring_candidate"] >= 3)
++    return {"criteria_met": status, "geometry_adds_information_by_frozen_gate": all(status.values())}
++
++
++def run_plan(cohort, plan_path, output):
++    plan = json.loads(Path(plan_path).read_text())
++    if plan.get("schema_version") != VERSION or plan.get("cohort_sha256") != sha(cohort) or plan.get("code_sha256") != sha(__file__):
++        raise ValueError("Cohort or code changed after freezing; create and review a new plan, do not reuse this plan")
++    examples = normalize_cohort(json.loads(Path(cohort).read_text()))
++    if verify_sources(examples, cohort) != plan["verified_source_sha256"]:
++        raise ValueError("Pinned source collection changed after analysis freeze")
++    if sha(plan["raw_extraction_audit"]["path"]) != plan["raw_extraction_audit"]["sha256"]:
++        raise ValueError("Raw-source extraction audit changed after analysis freeze")
++    schemes, models, prediction_rows, comparisons = {}, {}, [], []
++    for weighting in WEIGHTING_SCHEMES:
++        rows = prepared_rows(examples, weighting)
++        results, m, p = fit_scheme(rows)
++        schemes[weighting] = {"arms": results, "study_holdout_sensitivity": study_holdout(rows)}
++        models.update(m)
++        prediction_rows += p
++        metrics = ["error_weighted_mse", "unweighted_mse"] if weighting == "error_weighted" else ["unweighted_mse"]
++        for metric in metrics:
++            for reference, candidate in COMPARISONS:
++                comparisons.append({"scheme": weighting, **descriptive_comparison(results, reference, candidate, metric)})
+     report = {"schema_version": VERSION, "completed_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+               "cohort_sha256": sha(cohort), "plan_sha256": sha(plan_path), "code_sha256": sha(__file__),
+-              "n_examples": len(examples), "n_lineages": len(groups), "n_common_observations": len(rows["y"]),
+-              "status": "executed_exploratory_forward_operator_only", "scope": plan["scope"], "arms": results,
+-              "comparisons": [descriptive_comparison(results, "secondary_context", "geometry_context"),
+-                              descriptive_comparison(results, "shuffled_geometry_context", "geometry_context"),
+-                              descriptive_comparison(results, "sequence_context", "secondary_context")],
+-              "study_holdout_sensitivity": study_sensitivity,
+-              "limitations": ["Residues, replicate profiles and crystal copies are not independent lineages.",
++              "n_examples": len(examples), "n_lineages": plan["n_lineages"], "n_common_observations": int(len(prepared_rows(examples)["y"])),
++              "status": "executed_exploratory_forward_operator_only", "scope": plan["scope"],
++              "primary_scheme": "error_weighted", "schemes": schemes, "comparisons": comparisons,
++              "interpretation_gate": {"frozen_rule": plan["interpretation_gate"], **gate(comparisons)},
++              "limitations": ["Four lineages: exploratory readiness test only; bootstrap intervals over 4 units are descriptive and coarse.",
++                              "Residues, replicate profiles and crystal copies are not independent lineages.",
+                               "Nested feature models have different dimensions; equal-capacity shuffled-geometry control is reported separately.",
+                               "As-deposited scales and protocol/study heterogeneity limit transfer; no held-out target normalization was used.",
+-                              "A deposited crystal conformation may differ from the probing solution ensemble; cohort admission strata remain mandatory.",
+-                              "The secondary baseline uses supplied deposited annotations, not an independently predicted sequence-only structure; original annotation derivation is not established by this fit.",
++                              "Deposited crystal conformations are stand-ins for solution ensembles; buffers, ligands, packing and ions differ. ydaO is a partial 85-nt core with truncated packing context and high B factors.",
++                              "The secondary baseline uses supplied deposited annotations whose derivation may have used chemical-mapping data; it is an annotation-informed baseline, possibly advantaged relative to a blind sequence-only structure.",
++                              "REACTIVITY_ERROR semantics are unknown and the 0.1 floor is arbitrary; two of four lineages have no reported errors; the unweighted refit is reported alongside.",
+                               "No inverse-model adaptation or condition-response inference was run in this pilot."]}
+     output = Path(output)
+     dump(output / "forward_head_results.json", report)
+@@ -520,17 +726,18 @@
+     freeze = sub.add_parser("freeze", help="Admit dataset and pin exact cohort/code/splits before fitting")
+     freeze.add_argument("--cohort", required=True)
+     freeze.add_argument("--plan", required=True)
++    freeze.add_argument("--extraction-audit", required=True, help="Passed raw_extraction_verification.json for this exact cohort")
+     run = sub.add_parser("run", help="Execute only against unchanged frozen plan")
+     run.add_argument("--cohort", required=True)
+     run.add_argument("--plan", required=True)
+     run.add_argument("--output", required=True)
+     args = ap.parse_args()
+     if args.command == "freeze":
+-        p = make_plan(args.cohort, args.plan)
++        p = make_plan(args.cohort, args.plan, args.extraction_audit)
+         print(json.dumps({"status": "frozen_not_fitted", "n_lineages": p["n_lineages"], "feature_counts": p["feature_counts"], "plan_sha256": sha(args.plan)}, indent=2))
+     else:
+         r = run_plan(args.cohort, args.plan, args.output)
+-        print(json.dumps({"status": r["status"], "n_lineages": r["n_lineages"], "comparisons": r["comparisons"]}, indent=2))
++        print(json.dumps({"status": r["status"], "n_lineages": r["n_lineages"], "interpretation_gate": r["interpretation_gate"]}, indent=2))
+ 
+ 
+ if __name__ == "__main__":
+--- work/geometry_pilot/biological_validation_pilot/model/test_forward_head_contract.py	2026-10-14 12:50:34
++++ work/geometry_pilot/biological_validation_pilot_v2/model/test_forward_head_contract.py	2026-10-15 21:39:54
+@@ -1,5 +1,10 @@
+ #!/usr/bin/env python3
+-"""CPU corruption and leakage checks; generated toy values are code tests only."""
++"""CPU corruption and leakage checks; generated toy values are code tests only.
++
++v2 adds: masked-subset (DMS A/C) shuffle marginals, ineligible-observation
++rejection, near-identity lineage guard, unweighted-refit precision, extraction-
++audit binding at freeze, and an end-to-end toy freeze/run of both weighting schemes.
++"""
+ from __future__ import annotations
+ import copy
+ import json
+@@ -27,6 +32,18 @@
+     }
+ 
+ 
++def dms_mask(e):
++    e = copy.deepcopy(e)
++    if m.chemistry_group(e["chemistry"]) == "DMS":
++        e["observed_mask"] = [nt in "AC" for nt in e["sequence"]]
++    return e
++
++
++def toy_sequence(k, n=30):
++    rng = np.random.default_rng(500 + k)
++    return "".join(rng.choice(list("ACGU"), size=n))
++
++
+ def main():
+     checks = []
+     e = example(0)
+@@ -37,7 +54,12 @@
+     corrupt["observed_mask"] = [False] * len(e["sequence"])
+     changed, _ = m.feature_matrices(corrupt)
+     assert all(np.array_equal(original[a], changed[a]) for a in m.ARMS)
+-    checks.append("Observed values/errors/masks never enter any feature matrix")
++    d = example(1)  # DMS: the A/C-restricted shuffle must not read observations either
++    corrupt_d = copy.deepcopy(d)
++    corrupt_d["reactivity"] = [-5.0] * len(d["sequence"])
++    corrupt_d["observed_mask"] = [False] * len(d["sequence"])
++    assert all(np.array_equal(m.feature_matrices(d)[0][a], m.feature_matrices(corrupt_d)[0][a]) for a in m.ARMS)
++    checks.append("Observed values/errors/masks never enter any feature matrix (SHAPE and DMS)")
+ 
+     # Translations and rotations must leave all physical features unchanged.
+     q, _ = np.linalg.qr(np.random.default_rng(8).normal(size=(3, 3)))
+@@ -51,9 +73,36 @@
+     start = original["secondary_context"].shape[1]
+     assert np.allclose(np.sort(original["geometry_context"][:, start:], axis=0),
+                        np.sort(original["shuffled_geometry_context"][:, start:], axis=0))
+-    checks.append("Pairing negative control preserves geometry marginals and exact coefficient count")
++    checks.append("Pairing negative control preserves all-row geometry marginals and exact coefficient count")
+ 
+-    examples = [example(k) for k in range(4)]
++    # v2: marginals over the scored DMS A/C subset are preserved exactly.
++    dm = dms_mask(example(1))
++    feats, structural = m.feature_matrices(dm)
++    sel = np.asarray(dm["observed_mask"]) & structural
++    s0, s1 = feats["secondary_context"].shape[1] // 3, feats["geometry_context"].shape[1] // 3
++    g, s = feats["geometry_context"][sel][:, s0:s1], feats["shuffled_geometry_context"][sel][:, s0:s1]
++    assert np.array_equal(np.sort(g, axis=0), np.sort(s, axis=0))
++    assert np.any(g != s)  # the pairing is actually broken
++    # Sensitivity: the v1 scheme (permute every structurally valid row) fails this check.
++    geo, _ = m.geometry_features(dm)
++    v1_idx = np.flatnonzero(structural)
++    v1 = geo.copy()
++    v1[v1_idx] = geo[np.random.default_rng(m.SEED + 1).permutation(v1_idx)]
++    assert not np.array_equal(np.sort(geo[sel], axis=0), np.sort(v1[sel], axis=0))
++    rows_dm = m.prepared_rows([dm, dms_mask(example(0))])
++    assert all(x["scored_row_geometry_marginal_preserved"] for x in m.shuffle_marginal_audit(rows_dm))
++    checks.append("Shuffle preserves geometry marginals on the scored DMS A/C subset (v1 all-row scheme detectably does not)")
++
++    bad_dms = copy.deepcopy(example(1))  # observed G/U under DMS is outside the frozen scoring rule
++    try:
++        m.prepared_rows([bad_dms])
++    except ValueError:
++        pass
++    else:
++        raise AssertionError("DMS G/U observation accepted")
++    checks.append("DMS observations at chemically ineligible G/U positions are rejected")
++
++    examples = [dms_mask(example(k)) for k in range(4)]  # DMS toys scored on A/C only (v2 rule)
+     rows = m.prepared_rows(examples)
+     outer_train = rows["lineage"] != "toy_lineage_0"
+     alpha, _ = m.inner_alpha(rows, "geometry_context", outer_train)
+@@ -86,6 +135,14 @@
+     assert np.isclose(w[twice["profile"] == duplicate["example_id"]].sum(), 0.125)
+     checks.append("Replicate profile cannot increase its lineage's total training weight")
+ 
++    unweighted = m.prepared_rows(examples, "unweighted")
++    assert np.all(unweighted["precision"] == 1.0) and np.any(rows["precision"] != 1.0)
++    wu = m.balanced_weights(unweighted, np.ones(len(unweighted["y"]), dtype=bool))
++    for p in sorted(set(unweighted["profile"])):
++        assert np.allclose(wu[unweighted["profile"] == p], wu[unweighted["profile"] == p][0])
++    assert all(np.array_equal(rows["X"][a], unweighted["X"][a]) for a in m.ARMS)
++    checks.append("Unweighted refit uses unit precision (uniform within profile) with identical features")
++
+     missing = copy.deepcopy(e)
+     missing["reactivity"][2] = None; missing["observed_mask"][2] = False
+     missing["coordinates"][4] = None
+@@ -114,6 +171,25 @@
+     assert secondary_known.tolist() == [True, True, False, False, False, False, True, True]
+     checks.append("Unknown secondary annotations x/X/?/- stay masked rather than becoming pair labels")
+ 
++    # v2: near-identity guard (exact, single substitution, sub-construct containment).
++    base = toy_sequence(0, 60)
++    variant = base[:20] + ("A" if base[20] != "A" else "C") + base[21:]
++    def pair(seq_b):
++        a = {"example_id": "a", "lineage_id": "L_a", "sequence": base}
++        b = {"example_id": "b", "lineage_id": "L_b", "sequence": seq_b}
++        return m.cross_lineage_similarity([a, b])[0]
++    assert pair(base)["near_identical"] and pair(variant)["near_identical"]
++    assert pair(base[10:45])["near_identical"]  # contained sub-construct
++    assert not pair(toy_sequence(1, 60))["near_identical"]
++    try:
++        m.check_lineage_independence([{"example_id": "a", "lineage_id": "L_a", "sequence": base},
++                                      {"example_id": "b", "lineage_id": "L_b", "sequence": variant}])
++    except ValueError:
++        pass
++    else:
++        raise AssertionError("Near-identical cross-lineage sequence accepted")
++    checks.append("Exact, single-substitution and contained near-identical sequences cannot cross lineages; unrelated ones pass")
++
+     with tempfile.TemporaryDirectory() as temporary:
+         p = Path(temporary)
+         source_example = copy.deepcopy(e)
+@@ -149,9 +225,57 @@
+         assert not (p / "out").exists()
+     checks.append("Changed-code/frozen-plan mismatch aborts before any model output")
+ 
++    # v2: freeze is bound to a passed raw-extraction audit of the exact cohort; end-to-end toy run.
++    with tempfile.TemporaryDirectory() as temporary:
++        p = Path(temporary)
++        (p / "sources").mkdir()
++        toys = []
++        for k in range(4):
++            t = dms_mask(example(k))
++            t["sequence"] = toy_sequence(10 + k, 14)
++            t = dms_mask(t)
++            t["reactivity"] = [float(x) for x in np.random.default_rng(900 + k).normal(size=14)]
++            t["provenance"] = {}
++            for name in ("rdat", "metadata", "pdb"):
++                src = p / "sources" / f"toy{k}_{name}.txt"
++                src.write_text(f"Generated toy source {k} {name}; not biological evidence")
++                t["provenance"][f"{name}_path"] = f"sources/{src.name}"
++                t["provenance"][f"{name}_sha256"] = m.sha(src)
++            toys.append(t)
++        cohort = p / "cohort.json"
++        cohort.write_text(json.dumps({"synthetic": False, "examples": toys}))
++        audit = p / "audit.json"
++        for bad_audit in ({"status": "passed", "n_failed": 0, "cohort_sha256": "0" * 64},
++                          {"status": "FAILED", "n_failed": 1, "cohort_sha256": m.sha(cohort)}):
++            audit.write_text(json.dumps(bad_audit))
++            try:
++                m.make_plan(cohort, p / "plan.json", audit)
++            except ValueError:
++                pass
++            else:
++                raise AssertionError("Freeze accepted a mismatched or failed extraction audit")
++            assert not (p / "plan.json").exists()
++        audit.write_text(json.dumps({"status": "passed", "n_failed": 0, "n_checks": 1, "cohort_sha256": m.sha(cohort)}))
++        plan = m.make_plan(cohort, p / "plan.json", audit)
++        assert all(x["scored_row_geometry_marginal_preserved"] for x in plan["shuffled_geometry_control"]["scored_row_marginal_verification"])
++        report = m.run_plan(cohort, p / "plan.json", p / "out")
++        assert set(report["schemes"]) == set(m.WEIGHTING_SCHEMES)
++        assert {(c["scheme"], c["reference"], c["metric"]) for c in report["comparisons"]} >= {
++            ("error_weighted", "sequence_context", "error_weighted_mse"), ("unweighted", "shuffled_geometry_context", "unweighted_mse")}
++        audit.write_text(json.dumps({"status": "passed", "n_failed": 0, "n_checks": 2, "cohort_sha256": m.sha(cohort)}))
++        try:
++            m.run_plan(cohort, p / "plan.json", p / "out2")
++        except ValueError:
++            pass
++        else:
++            raise AssertionError("Run accepted an extraction audit changed after freezing")
++        assert not (p / "out2").exists()
++    checks.append("Freeze requires a passed extraction audit of the exact cohort; audit change after freeze aborts the run")
++    checks.append("End-to-end toy freeze/run executes both weighting schemes and all frozen comparisons")
++
+     report = {"scope": "Generated toy inputs exercise code contracts only; no biological efficacy evidence",
+               "status": "passed", "checks": checks, "n_checks": len(checks),
+-              "code_sha256": m.sha(m.__file__), "numpy_version": np.__version__}
++              "code_sha256": m.sha(m.__file__), "test_sha256": m.sha(__file__), "numpy_version": np.__version__}
+     m.dump(Path(__file__).with_name("code_contract_checks.json"), report)
+     print(json.dumps(report, indent=2))
+ 
+--- work/geometry_pilot/biological_validation_pilot/model/README.txt	2026-10-14 12:40:30
++++ work/geometry_pilot/biological_validation_pilot_v2/model/README.txt	2026-10-15 21:41:06
+@@ -1,79 +1,120 @@
+-LEARNED STRUCTURE-TO-PROBE MEASUREMENT-OPERATOR PILOT
++LEARNED STRUCTURE-TO-PROBE MEASUREMENT-OPERATOR PILOT (Wave F, v2)
+ 
++What changed from v1 is listed, point by point against the audit, in ../CHANGES.md.
++
+ Scope
+ This CPU pilot tests whether local tertiary-coordinate descriptors add held-out
+ probe-prediction information beyond sequence, observable assay context and
+-independently supplied secondary structure. It does not train the RNAbpFlow
+-inverse model, predict blind structures, establish causal condition responses,
+-or use a previously random systems-test head as biological evidence.
++supplied secondary structure. It does not train the RNAbpFlow inverse model,
++predict blind structures, establish causal condition responses, or use a
++previously random systems-test head as biological evidence.
+ 
+-The small admitted crystal-to-solution source set must be described as structural
+-proxies. Construct mapping alone does not establish identical solution conditions
+-or conformational populations. All cohort admission statements travel with the
+-results. Four lineages are an exploratory readiness test, not a powered efficacy
+-study; profiles, residues and crystal copies cannot inflate that count.
++v2 cohort (non-viral only, per independent_benign_pilot_audit.txt): adenine
++riboswitch SHAPE (1Y26 X), P4-P6 SHAPE + DMS (1GID A), TPP riboswitch DMS (2GDI X),
++ydaO c-di-AMP riboswitch DMS (YDAORS_DMS_0001 profile 1 on 4QLM A residues 39-123).
++Zika xrRNA was removed for scope, before any fit (see
++../cohort/excluded_primary_candidates.json). 382 scored nucleotides, 5 profiles,
++4 lineages, 3 studies.
+ 
++The admitted crystal-to-solution source set is a structural PROXY. Construct
++mapping alone does not establish identical solution conditions or conformational
++populations. Four lineages are an exploratory readiness test, not a powered
++efficacy study; profiles, residues and crystal copies cannot inflate that count.
++
+ Models and endpoints
+ All arms use a fixed five-position nucleotide window, chemistry and recorded
+ numeric assay covariates with missing-value indicators. The secondary arm adds
+ supplied base-pair descriptors. The geometry arm adds C4-prime local distances,
+ packing and angle invariants. Fixed DMS- and SHAPE-specific slope blocks allow
+ chemistry-specific effects. No observations, errors, observed masks, profile,
+-study or lineage accession enter the predictor. IDs determine folds and the fixed
+-negative-control permutation only. These are bounded linear ridge models, not
+-large pretrained neural heads.
++study or lineage accession enter the predictor. These are bounded linear ridge
++models, not large pretrained neural heads.
+ 
+-The sequence, secondary and geometry arms are nested-feature comparisons with
+-different dimensions. A fourth arm permutes geometry-to-residue pairing within
+-each profile; this control exactly matches geometry-arm coefficient count and
+-feature marginals. It is a diagnostic negative control, not a randomisation p-value.
++Secondary-structure caveat (audit point 6). The secondary arm uses the
++source-deposited RDAT STRUCTURE annotation restricted to each core. Those
++annotations may themselves have been derived or refined using chemical-mapping
++data from the same laboratory or experiment class; their derivation is not
++documented in the local files. The fit never learns them from y, but the secondary
++arm must be read as an ANNOTATION-INFORMED baseline that may carry target-derived
++information, not as a blind sequence-only structure. This can favour the
++secondary arm relative to geometry. The arm is retained, not dropped. Where a
++deposited bracket family is unbalanced (ydaO pseudoknot: 7 '[' vs 6 ']'), all
++positions of that family are set unknown ('x') rather than repaired; unknown
++positions are masked in every arm.
+ 
+-Outer folds hold out an entire lineage, including all chemistry/replicate profiles
+-and closely related constructs assigned that lineage. Inner folds hold out a
+-training lineage to select a penalty from the same six-value grid in every arm.
+-Features and intercept are standardized/fitted only on the outer/inner training
+-rows. As-deposited targets are never normalized against a held-out profile.
++Shuffled-geometry control (audit point 2). A fourth arm permutes geometry rows
++within each profile, restricted to positions that are chemically eligible
++(DMS: A/C; SHAPE: all; decided from sequence and chemistry, never observations)
++and have known geometry and secondary annotation. Because every scored row lies in
++that set, the geometry-feature marginal over the scored rows is preserved; freeze
++verifies this per profile and refuses to proceed otherwise (all five profiles
++pass; every eligible row is observed in this cohort). The control exactly
++matches the geometry arm's coefficient count, alpha grid and selection procedure.
++It is a single seeded diagnostic negative control, not a randomisation p-value.
++(v1 permuted all structurally valid rows before the A/C mask, so its stated
++marginal claim did not hold on the scored DMS subset.)
+ 
+-Masked inverse-error-variance MSE uses a fixed error floor of 0.1 source reactivity
+-units; genuinely absent uncertainty gets unit precision rather than fabricated
+-errors. Nucleotides share a common observation/coordinate/secondary mask in all
+-arms. Profiles have equal weight within lineage; lineages have equal total weight.
+-The main estimate is the paired held-out-lineage MSE difference. Per-profile
+-correlation, unweighted MSE, all lineage outcomes and separate study-holdout
+-sensitivity are retained. Intervals resample entire lineages and remain
+-descriptive at this pilot's sample size. No nucleotide-level p-value is produced.
++Folds. Outer folds hold out an entire lineage, including all chemistry/replicate
++profiles. Inner folds hold out a training lineage to select a penalty from the
++same six-value grid in every arm. Features and intercept are standardized/fitted
++only on the outer/inner training rows. Targets are never normalized against a
++held-out profile.
+ 
+-Commands
+-1. Run code-only corruption/invariance checks:
+-   python test_forward_head_contract.py
+-2. Freeze the admitted source cohort, code hash, folds, weights and endpoint:
+-   python forward_head_pilot.py freeze --cohort ../cohort/paired_cohort.json \
+-       --plan frozen_analysis_plan.json
+-3. Fit and score only against that exact frozen plan:
+-   python forward_head_pilot.py run --cohort ../cohort/paired_cohort.json \
++Lineage-independence guard (audit point 5). Freeze rejects any cross-lineage pair
++that is exactly identical, has global Needleman-Wunsch identity >= 0.80, or a
++Smith-Waterman local alignment with identity >= 0.90 spanning >= 50% of the
++shorter sequence (match +1, mismatch -1, gap -2). All pairwise values are stored
++in the plan (max global identity in this cohort 0.53). This is a guard, not proof
++of independence: lineage labels remain a scientific-curation responsibility.
++
++Weights and errors (audit point 3). REACTIVITY_ERROR is used as deposited, in
++deposited reactivity units. The local RDAT/RMDB files do not state whether it is
++a standard deviation across replicates or a standard error of the mean, so its
++semantics are UNKNOWN. The error floor of 0.1 reactivity units is an arbitrary
++pre-specified constant, not a calibration; most reported errors in this cohort
++are at or below it (67/71 adenine, 154/158 P4-P6 SHAPE, 69/78 scored P4-P6 DMS),
++so error weighting mainly down-weights a minority of high-error nucleotides.
++TPP and ydaO report no errors and get uniform weight within profile. No zero or
++sentinel errors occur. Profiles have equal weight within lineage; lineages have
++equal total weight. The primary estimate is the equal-lineage error-weighted MSE
++(error_weighted scheme). The COMPLETE nested analysis is repeated with unit
++precision everywhere (unweighted scheme) as a pre-specified sensitivity.
++
++Interpretation gate (frozen before the run). Geometry is described as adding
++held-out information only if, in BOTH weighting schemes, the mean lineage
++difference favours geometry over the secondary arm AND over the shuffled-geometry
++control, with at least 3 of 4 held-out lineages favouring geometry in each.
++Otherwise the result is reported as null or mixed. Intervals resample entire
++lineages (4 units) and are descriptive only. No nucleotide-level p-value.
++
++Raw-source extraction audit (audit point 4). ../cohort/verify_extraction_from_raw.py
++re-derives every prepared array from the raw local RDAT/PDB bytes with independent
++parsers and asserts exact equality (103 checks). Freeze requires this audit to have
++passed for the exact cohort hash; run aborts if it changes afterwards.
++
++Organism label (audit point 7). See ../cohort/organism_label_check.json: the ydaO
++RDAT says "C. subtarraneus" (sic), 4QLM says Thermoanaerobacter tengcongensis
++(taxid 273068, MB4). Likely a taxonomic synonym (T. tengcongensis =
++Caldanaerobacter subterraneus subsp. tengcongensis); the synonymy is from domain
++knowledge and could not be confirmed from local files, but 125/125 SEQRES identity
++with the probed construct is verified locally. The caveat does not apply to TPP
++(RDAT: E. coli; 2GDI: synthetic transcript).
++
++Commands (run from this directory, CPU only, NumPy only)
++1. python test_forward_head_contract.py
++2. python forward_head_pilot.py freeze --cohort ../cohort/paired_core_cohort.json \
++       --plan frozen_analysis_plan.json \
++       --extraction-audit ../cohort/raw_extraction_verification.json
++3. python forward_head_pilot.py run --cohort ../cohort/paired_core_cohort.json \
+        --plan frozen_analysis_plan.json --output results
+ 
+-The actual source filename may differ; pass the admitted file explicitly. A code
+-or cohort change invalidates the plan. Review and freeze a new version before
+-running it; never silently patch a previously frozen analysis. CPU NumPy alone is
+-required. GPU allocation is unnecessary for these small fits.
++A code or cohort change invalidates the plan. Review and freeze a new version
++before running it; never silently patch a previously frozen analysis.
+ 
+ Outputs
+-The report records per-profile and per-lineage outcomes, all selected penalties
+-and inner scores, degrees of freedom, study sensitivities, paired differences and
+-descriptive intervals. All held-out nucleotide predictions and frozen outer-fold
+-coefficients/feature transforms are retained separately. SHA-256 provenance binds
+-the code, cohort, plan and every output. Synthetic toy checks have their own file
+-and are explicitly excluded from biological evidence.
+-
+-Admission JSON contract
+-Top-level {schema_version, synthetic:false, examples:[...]}.
+-Each example needs example_id, lineage_id, study_id, chemistry, sequence, equal-
+-length reactivity/stderr/observed_mask/coordinates vectors, secondary_dot_bracket,
+-admission:{eligible:true, geometry_compatibility:...}, and source/mapping
+-provenance. Missing observations/errors/coordinates use null (not fabricated zero).
+-Each coordinate is a finite C4-prime [x,y,z] vector in angstrom. The optional
+-context object supports temperature_c, ph, magnesium_mm, monovalent_mm and
+-ligand_um only. Unrecorded context is absent/null, never inferred from outcomes.
+-An independent scientific admission review must define chemistry masks and
+-lineage grouping before the model script is run.
++results/forward_head_results.json (both weighting schemes, all arms, folds,
++selected penalties, per-profile/per-lineage metrics, chemistry strata, study
++holdouts, comparisons and the gate outcome), held_out_predictions.json,
++fitted_outer_models.json and execution_provenance.json (SHA-256 of plan, cohort,
++code and outputs). results_table.txt is a human-readable digest of the results
++file. Synthetic toy checks (code_contract_checks.json) are code tests only.

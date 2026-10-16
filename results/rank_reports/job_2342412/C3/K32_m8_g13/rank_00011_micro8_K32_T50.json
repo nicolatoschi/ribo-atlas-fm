@@ -1,0 +1,201 @@
+{
+  "microbatch": 8,
+  "accumulation": 1,
+  "local_constructs": 8,
+  "global_constructs": 256,
+  "rank_max_seconds": 676.9301193120191,
+  "global_case_instances_per_second": 0.3781778837971919,
+  "first_microbatch_generated_signal": {
+    "generated_inverse_gradient_norm": 1.7297868728637695,
+    "generated_probe_gradient_norm": 0.1579834222793579
+  },
+  "all_gradients_finite": true,
+  "combined_preclip_gradient_norm": 5.242893695831299,
+  "frozen_head_gradients_absent": true,
+  "actual_call_entries": {
+    "mean_forward": 1600,
+    "gradient_forward": 1600,
+    "backward_recompute": 1600,
+    "native_teacher_forward": 1
+  },
+  "groups": [
+    {
+      "logical_ids": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "mean_pass_seconds": 82.38779345399234,
+      "gradient_forward_seconds": 126.07706304400926,
+      "backward_recompute_seconds": 322.3431530658854,
+      "teacher_forward_backward_seconds": 145.90954216301907,
+      "finite_K_case_mean_profile_MSE": 0.045167647302150726,
+      "adjacent_C4_mean": 0.0019485473094391637,
+      "teacher_loss": 0.6132971048355103,
+      "maximum_replay_difference": 0.0
+    }
+  ],
+  "status": "Actual fixed-work batched final-generated ensemble training update completed",
+  "rank": 11,
+  "world_size": 32,
+  "autograd_anomaly_enabled": false,
+  "case": "5zwm_B",
+  "length": 175,
+  "K_train": 32,
+  "time_grid_points": 50,
+  "GPU_peak_allocated_bytes": 13044667392,
+  "GPU_peak_reserved_bytes": 13784580096,
+  "GPU_capacity_bytes": 102005473280,
+  "torch_version": "2.10.0",
+  "GPU_name": "NVIDIA GH200 120GB",
+  "official_checkpoint_sha256": "bb598a736193734541f63c59dae75d45db8c04f01a8414a758677367c4b1e213",
+  "frozen_head_sha256": "a84d5c04323d04e733642ff8b8881021c253b9c30905b69db8489c9fad95bc5e",
+  "teacher_fixture_sha256": "2a93eb8c1de53a79758bca883278e59076eb6922b73c600dfbc016be1f73bb20",
+  "logical_ids": [
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "source_sha256": {
+    "batched_full_trajectory_driver.py": "ba267a88994760d28c9984b3e52998c450f5f95a2b0ab5c060a012a1848356ca",
+    "batched_ensemble_core.py": "d8ff1c048dd3de0a342b300548b3fc3aa253874ea104b6e694b710c2f6b05135",
+    "full_trajectory_core.py": "45895a7a4389cb1eba61b0f0fe5ee040ce01aaabee9471e7cd364700f5392849",
+    "differentiable_rotation.py": "371b1de40e71e4ea6de1d6da350994d8bb0448bd00f64fe8da00e403be6f6c3d",
+    "ensemble_mean_core.py": "5c0e54f0426d74a0839f0428048f3aabc9082149b8867cb7a8ac8191568c6173"
+  },
+  "observations": "Synthetic; same logical-case observations acrossK andmicrobatch",
+  "teacher_RNG_layout": "Frozen singleton physical inputs; train-mode dropout distribution unchanged but layout differs acrossmicrobatch",
+  "reduction": "Mean ofperconstruct weighted mean-profile MSE plus nativeadjacency; dividedbyaccumulation; finalteacherbackwardDDPreducesonce",
+  "weights": {
+    "bulk": 1,
+    "adjacency": 0.1,
+    "teacher": 1
+  },
+  "finite_K_scope": "MeanMSEcontainsvariance/Kbias",
+  "timing_scope": "Initialoptimizerupdate; includesactualmean/replay/backward/recompute/teacher/checks/clipping/AdamW; excludespreload/reset/report",
+  "parameter_count": 17211738,
+  "trainable_inverse_parameters": 17207065,
+  "frozen_head_parameters": 4673,
+  "native_fixed_work_contract": {
+    "wrapper_sha256": "10ade71349eeda2eb025f8a09738fc5955c000e7110269bd386cb2b5bfca1843",
+    "frozen_manifest_sha256": "bea07cc8fe2e7a1f63f2901074ca61d5c623316e89769e4140a0689b65e3cf24",
+    "case": "5zwm_B",
+    "length": 175,
+    "seed": 20261012,
+    "global_case_instances": 256,
+    "observations_by_logical_id": {
+      "88": {
+        "target_sha256": "ce6c69252307f399059ad78d6e85747e6875e721936c56f824a5e52d43402e4e",
+        "weights_sha256": "1b8be90246b4af1225ed532c4f3a969595cb73cdf721beca6d7c9e16d98bf619",
+        "probe_sha256": "19356ca12d9a8d17f1982694d1ab07479d62d565aea7210c9141f248d01b9136",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "89": {
+        "target_sha256": "d802076ab5c5fac0510ce870785386c3ff76db4a3798ea11568fb90b40077977",
+        "weights_sha256": "315e256afc9466b71a858667b9e733d79ae1c88e085e9ef2f65906c40a7452c4",
+        "probe_sha256": "fdf175b7e37993f9ae0ece537af1cc4dde9910f1de7709e507d07dac4e227c19",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      },
+      "90": {
+        "target_sha256": "18d551c7ebf75ad88705e2f4592a659c940b27d01ade1888b0879f7215022324",
+        "weights_sha256": "326e4d22674297e032d284142b62408fe6fd51eee4788094920b659b3a17cf5b",
+        "probe_sha256": "7602697b1878c99d57cd7cac51421f7b8da63b423a100a43cc3bee0b9cd95b0e",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "91": {
+        "target_sha256": "8f7fcf6721e02ac36ee4bf6b103cfeb8a9f24938722c0a4859be5f4a4e8259a1",
+        "weights_sha256": "0eb36ce2848f456ccd457f24a5cb18f82d10496d2db67c4474528d1dd32801e0",
+        "probe_sha256": "eb660e69d785e67f353352cfd03c2a248bf1d0c4ea8ecbfa82b279938bc7ca27",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      },
+      "92": {
+        "target_sha256": "ff49ecf219c18bdab1707b436ea038843e76286512c1fa843f4312ed9823ffa8",
+        "weights_sha256": "8a49b4dcf6d12f084a30e2b9d41de33215ec978f780bdd4b36f22e867bbf7f90",
+        "probe_sha256": "b2fcdb343fcda4a60365ed68c395d9177d193a087a874e77cf2fe8bc6b24160b",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "93": {
+        "target_sha256": "cdf9cad1e7072ac212dde8be7bc0d87e8184375cf670ad733410e9b07c2234c3",
+        "weights_sha256": "2d62bff646130fc2162ccc9f874f980ba3f8091477c7efdeb81b9ff68c89aaff",
+        "probe_sha256": "c5eff5475b181dd378bbbf3d7383ac03de77625b26aa353bf44fcee116edd1c4",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      },
+      "94": {
+        "target_sha256": "55a49306cb7ae97e3d3e00a6f08c1b2c3fdc15ef40370ad82ae5287d9aae973c",
+        "weights_sha256": "ae31c2e74eddfbc83965520a50989d32ab2a8ea9c8015fae282e54e2246f0c4f",
+        "probe_sha256": "880f0da11aa1066bdc3ad2af8a6d9807869b1d4dfce10adcf3de2778b87c5849",
+        "chemistry_sha256": "d82b7cbd46b7af06cba491ec632d4dc71a29f1afdaf85f78d5246829ba831270"
+      },
+      "95": {
+        "target_sha256": "7da8d30fca775e176f95aa8e9e6359a3dc5a2601b10fd84d05dfec777735bfe7",
+        "weights_sha256": "c7d640dc34997c321377d711202bfead2f165ff70adee8d2f97e6531169c8f67",
+        "probe_sha256": "89d30587590dda25780fb7ebbe0a1f49a2ca22a2b7175ea2ee10df2bcc58dbfb",
+        "chemistry_sha256": "fa2899e03500b64037da989a68f74ca6e10c7ddaa8469a31a1ed211c97d1332c"
+      }
+    },
+    "teacher_by_logical_id": {
+      "88": {
+        "t": "135bed62196a488dd1f131380aadd45ef1eebb72a52f4b3231aff88611a708f6",
+        "trans_t": "3336aff75faf301ed0b1f5bdd834adc1fd7ba45f7ab04245ee9650e6161e15a4",
+        "rotmats_t": "1941d1174ba50a01ec5a9ac80348c3076dc06c3e6bfa72306a915d264a132e4a"
+      },
+      "89": {
+        "t": "79d4d6ca778dcfc15de11da810e6024f56fd4c16a5167de49a40b543b6450620",
+        "trans_t": "29c368be530a024a6656dc6054238b014f6e81d4da8ee61eeabfba02017cbbf7",
+        "rotmats_t": "6477cb5c722256fe1193b189f10077cf1a9ec3bace45db6b075fffdf4074577c"
+      },
+      "90": {
+        "t": "7f8d0f20c787559db25ef8d32ffdfad6a0ce7db1614b2781dd9253bf6d212cd4",
+        "trans_t": "f046f838b995ff214bd86b3c42c66edd3296becdc4d27a38c66dd645ad361cb6",
+        "rotmats_t": "dff0a86b46de9116da87deece6a6c1998c28f1c40ea1b421eca3d31ca56b2171"
+      },
+      "91": {
+        "t": "d4ac63fd07efc8e3377f97dd683b6599cce08f81e64747d30a6ce17cb400ce73",
+        "trans_t": "f17143190eba2acdfd0f09871aed1e85e8d0c832d5789bf2f9c6129ce791f998",
+        "rotmats_t": "725e97bf5c79a9323bc3287d68b47c25e0cdde325872abbaf52769d8f5a85f58"
+      },
+      "92": {
+        "t": "619eba369339ce11c7a6239dce6ff2c16d572578b92e0814497b66e151a77291",
+        "trans_t": "dddc542791842b2eda099eaa7dbbdf8356791c3ef79985fb5528c3a83717c1f5",
+        "rotmats_t": "4d1e82fb0ea2d66139bef2134abe8eafc438e998861d145ab852782b165445ee"
+      },
+      "93": {
+        "t": "d44cb27937c36aa32df607d599b0ae2212c762560b0642fd741f46d2366a08db",
+        "trans_t": "ea794dae1e04347d1727a792a1eecc4679c26d869a3ad04334e45bebec135c87",
+        "rotmats_t": "0b12ec627115e3111329509679e17eaea2765a9a56e8856616089843f307ca7c"
+      },
+      "94": {
+        "t": "1455b3d6a63ada0464401f05ae2422b323f0d4ba3428999b3a874589aa3c52c3",
+        "trans_t": "3b8c39e90d12bc9d4afad8a60b63df5a97113830b7463e83c0be813bc6dd105b",
+        "rotmats_t": "d39400f1e485d1572515e8bc28abaf188c81ee607359a43cfb28930e5b276b55"
+      },
+      "95": {
+        "t": "7fd6800afa600aca48f107e9955a4ff772a6b4bb84628ea3c082553518bbb9af",
+        "trans_t": "700ae513036116c17fca9df34afbb6eee393536e853bf9a0c0a3fd42b3869ea7",
+        "rotmats_t": "beed68068d4786dbf6eb92bf956f5b6500357178f4f5e0eafc1a871f03d7ad5f"
+      }
+    },
+    "input_hash_timing": "Observation hashing before model/timing; teacher report decoration after update",
+    "numerical_backend": "Exact native isolated-largest-eigenvector derivative; 8d2 Workload/update; autograd anomaly-detection debug mode disabled after model construction",
+    "source_driver_unchanged": false,
+    "source_driver_change": "Only torch.autograd.set_detect_anomaly(False) plus assertion after model construction; Workload and update AST-identical to 670450638bf1",
+    "teacher_dropout_scope": "Frozen physical input per logical case; train-mode dropout layout differs with node/accumulation layout"
+  },
+  "site_runtime_limit_contract": {
+    "wrapper_sha256": "9c5deddc5e033c9c46c44167e27eac68da6a689aac0df3b8df78ae3ea44da453",
+    "original_freeze_sha256": "e8ff330ee77590e9d0fab7a82f7c156e2d2e7cc6938d527fc21e0927e15b0fb7",
+    "site_max_wall_seconds": 43200,
+    "collective_timeout_seconds": 43200,
+    "scope": "Runtime timeout override and after-update metadata only; numerical source and guards unchanged"
+  }
+}

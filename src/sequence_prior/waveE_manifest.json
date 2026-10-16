@@ -1,0 +1,89 @@
+{
+  "freeze_sha256": "05ec1ab6b43869854595aa8aa3818a4caee62960e842f376bd6a0a36741542ba",
+  "configuration": {
+    "experiment": "RIBO-ATLAS-FM Wave E: masked-LM continued pretraining of official RNA-FM (rna-fm 0.2.2, RNA-FM_pretrained.pth) on Rfam 15.1 seed sequences, family/clan-held-out split",
+    "status": "Prepared locally by Claude 15 Oct 2026; not uploaded, not submitted",
+    "approval": "PI 15 Oct 2026: Wave E funded; RNA-FM code and weights may be downloaded to JUPITER",
+    "account": "e-aif-2026fl01-993",
+    "partition": "booster",
+    "nodes": 64,
+    "tasks_per_node": 4,
+    "cpus_per_task": 8,
+    "gpus_per_node": 4,
+    "remote_root": "/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015",
+    "packet_destination": "/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/waveE_<freeze12>",
+    "results_root": "/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/results",
+    "venv": "/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/waveE_env",
+    "base_env": "/e/project1/e-aif-2026fl01-991/ribo_geometry_pilot_20261012/env",
+    "weights_path": "/e/project1/e-aif-2026fl01-991/ribo_anomaly_off_20261015/waveE_assets/RNA-FM_pretrained.pth",
+    "weights_sha256": "5b5d7d87b37c291ef42c140ef9edf7aea29f255fa2a4fd435f776c52e93d5e99",
+    "weights_url": "https://huggingface.co/cuhkaih/rnafm/resolve/91d4a46d28d8054a7b429955e8fc0c253ba0afd6/RNA-FM_pretrained.pth",
+    "rnafm_wheel_sha256": "4fff72892ad02559be969b7b3263483e7f3730132025ea05c9927c3675a5e0b4",
+    "rnafm_github_commit": "348951516e0963d22bbb33b3c9fc18c89081d38e",
+    "step_launch_source": "geometry_pilot/ensemble_training/anomaly_off_remeasure_20261015/step_launch.py",
+    "step_launch_sha256": "eb0d567702d9c32d2fc236605591dcf8479eaa81fe5f9325b6566fb5a45e3e63",
+    "dataset_sha256": "fc34fe0aba27a57036a79890dc26dc5a3d905a3873c23f8747696c8aa240efb2",
+    "split": {
+      "train": {
+        "sequences": 92684,
+        "families": 3975,
+        "groups": 3668,
+        "clans": 145,
+        "sha256_of_sorted_sequence_ids": "39291bb9ade322c51d10b3e8a131e0f455bb97ff00ee8932fa8e3f704bd56cff"
+      },
+      "val_in_family": {
+        "sequences": 894,
+        "families": 478,
+        "groups": 433,
+        "clans": 70,
+        "sha256_of_sorted_sequence_ids": "f3e5b46ea9eee9ccf61cfc9ae79d1e1713462d08a726645f29372af0e6f49182"
+      },
+      "heldout_family": {
+        "sequences": 3332,
+        "families": 210,
+        "groups": 198,
+        "clans": 6,
+        "sha256_of_sorted_sequence_ids": "be2a78f3fb589b865e186ed25a33c9d3db84a9741409e334e503ac6aeef53fa1"
+      }
+    },
+    "plan": {
+      "phase1_concurrent": {
+        "P1_N8": "nodes 0-7, official attention",
+        "P1_N16": "nodes 8-23, official",
+        "P1_N32": "nodes 24-55, official",
+        "P1_N8_sdpa": "nodes 56-63, supplementary: same run with SDPA attention"
+      },
+      "phase1_protocol": "10 untimed + 50 timed steps at 8,192 sequences/step, mode scaling, stop after step 60",
+      "phase2": "P2_N64 on all 64 nodes, mode train: eval step 0, steps 1-60 (timing), continue to step 72 (~1 more epoch), eval at epoch boundaries and step 72, save final model",
+      "gate": "phase 2 runs only if at least one primary phase-1 step exits 0"
+    },
+    "primary_endpoint": {
+      "split": "heldout_family",
+      "comparison": "first evaluation step whose epochs_seen = step*global_batch/n_train >= 1.0 (step 12 = 1.061 epochs at 8,192 sequences/step and 92,684 training sequences) versus step 0",
+      "statistic": "token-weighted masked-LM cross-entropy change (nats) and perplexity ratio, paired masks",
+      "interval": "95% percentile bootstrap, 10,000 resamples of held-out families (primary family per sequence); group (clan/shared-sequence component) bootstrap as sensitivity",
+      "pre_specified": "fixed before submission on 15 Oct 2026 (coordinator review); reported whatever its sign"
+    },
+    "secondary_endpoints": {
+      "multi_epoch": "heldout_family change at step 72 (about 6.4 epochs of a small, redundant corpus) versus step 0, explicitly labelled multi-epoch; the remaining epoch-boundary evaluations form the learning curve",
+      "in_family": "val_in_family change at the same steps (in-distribution contrast)"
+    },
+    "leakage_note": "RNA-FM was pretrained on RNAcentral, which very likely already contains these Rfam seed sequences; the family/clan split controls leakage within Wave E continued pretraining only",
+    "analysis": "analyze_waveE.py: efficiency vs P1_N8, tokens/s, HBM/RSS, per-step loss consistency; PRIMARY held-out-family CE change at the first evaluation >= 1.0 epoch (step 12) vs step 0 with family bootstrap (10,000) and group sensitivity; SECONDARY step-72 multi-epoch change, in-family contrast and epoch curve"
+  },
+  "files": {
+    "analyze_waveE.py": "e74d6a92427173db27a1f82d030f306e1e94841dbeb8d72b6424c3f033581036",
+    "build_waveE_split.py": "441bbfd6495e6ac39e37a265bf56192af4aadfe5f39bd9a8e81d2fdf16e0e38d",
+    "freeze_waveE_packet.py": "2d99343d9074d9dbb98e4c4cfbcd4011ca28f4482a3f84a0bc09283e8bb56da4",
+    "requirements-waveE.txt": "e1096c298371b6cfad412b45a329be7d2cd788a71d0b370f9f6e4f7e17d9569a",
+    "rnafm_sources.json": "bdb3774785c6793471307c59cb3a299a546a704d707df460283ad1966ae99a87",
+    "setup_waveE_env.sh": "ac0853e230999a28b11763c58e4a426a4a2bd00383b241bc2b713328eaacfdb5",
+    "smoke_checks.py": "0aa2c593f959378166445795540a0e0877b219be523c133ac8696b87f11142d3",
+    "step_launch.py": "eb0d567702d9c32d2fc236605591dcf8479eaa81fe5f9325b6566fb5a45e3e63",
+    "verify_packet.py": "e34dc4ea180a4c8bbebe032284cfea12f7e2a3f86173009a3e4e5b689176c0f7",
+    "waveE_config.json": "23b2e72141ceca046eca8cee84651be7102a4662d7635072f1db7a7a54ec94d9",
+    "waveE_dataset.tsv": "fc34fe0aba27a57036a79890dc26dc5a3d905a3873c23f8747696c8aa240efb2",
+    "waveE_mlm.py": "1f15e5ad3d2715b0589a595041c01c04b3583dd4de10f33f3a2b4be24a95acd7",
+    "waveE_split_summary.json": "ac31a58be94f112f969f5083daa7ee204ac7d2bee30a4b898f3cb1e0a3d03680"
+  }
+}

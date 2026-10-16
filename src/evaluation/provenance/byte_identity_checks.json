@@ -1,0 +1,114 @@
+{
+ "RNAbpFlow/Inputs/P4P6_ref158/P4P6_ref158.fasta": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": null
+ },
+ "RNAbpFlow/Inputs/P4P6_ref158/annotation_pairs.npy": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": null
+ },
+ "RNAbpFlow/LICENSE": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/__init__.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/__init__.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/all_atom.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/base_constants.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/data_transform.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/dataset.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/feats.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/interpolant_inf.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/nucleicacid.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/rigid_utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/so3_utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/tensor_utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/data/torch_native_scatter.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": null
+ },
+ "RNAbpFlow/src/data/utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": false
+ },
+ "RNAbpFlow/src/models/edge_embedder.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/flow_model.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/flow_module_inf.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/ipa_pytorch.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/node_embedder.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/torsion_net.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/models/utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "RNAbpFlow/src/utils.py": {
+  "matches_inference_packet_manifest": true,
+  "matches_pristine_upstream_zip_e8b1c07": true
+ },
+ "openmm_rna_refinement.py": {
+  "matches_source": true,
+  "source_sha256": "219f02670dda0dea74c1457eb9c13352c0960fd3478c221fea84da15cc37ee69"
+ },
+ "rna_backbone_metrics.py": {
+  "matches_source": true,
+  "source_sha256": "ccf7c682f714efa796fd5863924082ceb430a658b318ad59be6d9e3278588d9b"
+ },
+ "step_launch.py": {
+  "matches_source": true,
+  "source_sha256": "eb0d567702d9c32d2fc236605591dcf8479eaa81fe5f9325b6566fb5a45e3e63"
+ }
+}

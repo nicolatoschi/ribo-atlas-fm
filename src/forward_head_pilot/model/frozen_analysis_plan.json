@@ -1,0 +1,345 @@
+{
+  "schema_version": "forward-head-lineage-ridge-v2",
+  "created_utc": "2026-10-15T19:40:08.653892+00:00",
+  "cohort_path": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/biological_validation_pilot_v2/cohort/paired_core_cohort.json",
+  "cohort_sha256": "16daa486d622ff039a5b020e3061253f11a42fb1e598ef1f42a810c9dbd2a8b8",
+  "code_sha256": "1adceaa9d89b26d11a07ffeceac7394bb4e181c44ea2a26b73337402077a8ee4",
+  "verified_source_sha256": {
+    "sources/ADDRSW_SHP_0001.rdat": "731ef0da63473c4e01246b1cdc592fc921ae634e7dd444d59d5fcacbc2258b74",
+    "sources/ADDRSW_SHP_0001.md": "0eed50e5c1ff646bbb7b6a98490aa608ba72e0c8a98160fa7767ea429570b1c6",
+    "sources/1Y26.pdb": "03f58169ed96e29d0d03e5f947ba432d5a3092084369e1cf1d93b3b1efa79b22",
+    "sources/TRP4P6_SHP_0001.rdat": "f9437e7b722fc0dff9625fe91caf51b0568515694e6fb4bd3da70328948b5f54",
+    "sources/TRP4P6_SHP_0001.md": "dee5a04a9fda57fafb0ef43214f5e70efdcf72d0e3982eb5655cb703aa0e28f3",
+    "sources/1GID.pdb": "5e5365f900792975aab3b00d8620877db46037f64666d82cc40f6e0ad63089eb",
+    "sources/TRP4P6_DMS_0001.rdat": "9b029c1a055d236a5ebe18d91fc83b275f33ba06b37b1c28cce2fe779e78e250",
+    "sources/TRP4P6_DMS_0001.md": "eacf192cb8c5914df5c041ee0b8bfde494cbffb6abc98fad86fba3ed81044363",
+    "sources/TPPRSW_DMS_0001.rdat": "0e6bd1e33f0bc85e7775c363086ec469e8f1a7fcd40ae291e09f1752046be85e",
+    "sources/TPPRSW_DMS_0001.md": "8eaf312f62b1bf5ed601112964cdf86971fff21ac91e67cef895a56efa5d03a1",
+    "sources/2GDI.pdb": "8a84e7e471279968508467b3677274321d9d45659882ef6e78afa1fc164b5931",
+    "sources/YDAORS_DMS_0001.rdat": "16f1b2d80ae2612a16967979cca0ed1c2a9d1e34d901674ab5a282d9b3cc834b",
+    "sources/YDAORS_DMS_0001.md": "7d0229f759c6c31d7cfe4a70a94995d5232d52113328a07492855c377710f40b",
+    "sources/4QLM.pdb": "a6ce266f86ce9ff0ad35306dee17e42126cd13dcd54f15ce79b79216b9e0ecc8"
+  },
+  "raw_extraction_audit": {
+    "path": "/Users/nicolatoschi/Documents/RIBO_ATLAS_FM/work/geometry_pilot/biological_validation_pilot_v2/cohort/raw_extraction_verification.json",
+    "sha256": "87a72846461f36d472f5381083a259775134cbb61c191ab33af8d340fc06febb",
+    "n_checks": 103,
+    "status": "passed",
+    "verifier_sha256": "186348c021e37070d72ecde141fc8ad11622c78e31d23453ecf08b4440298918"
+  },
+  "scope": "Exploratory cross-family learned structure-to-probe measurement operator on four NON-VIRAL RNA lineages; no inverse-model, blind structure or causal condition-response efficacy claim",
+  "no_pretrained_model": true,
+  "required_lineages": 4,
+  "n_lineages": 4,
+  "n_studies": 3,
+  "lineages": [
+    "P4P6_groupI",
+    "TPP_riboswitch",
+    "adenine_add",
+    "ydao_cdiamp_riboswitch"
+  ],
+  "studies": [
+    "Cheng2017",
+    "Cordero2012",
+    "Kladwang2011"
+  ],
+  "arms": [
+    "sequence_context",
+    "secondary_context",
+    "geometry_context",
+    "shuffled_geometry_context"
+  ],
+  "alpha_grid": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "feature_counts": {
+    "sequence_context": 123,
+    "secondary_context": 153,
+    "geometry_context": 207,
+    "shuffled_geometry_context": 207
+  },
+  "common_masks": [
+    {
+      "example_id": "adenine_add_SHAPE_holo",
+      "lineage_id": "adenine_add",
+      "study_id": "Kladwang2011",
+      "chemistry": "SHAPE",
+      "n_common": 71,
+      "n_error_missing": 0,
+      "n_error_zero": 0,
+      "n_error_at_or_below_floor": 67,
+      "n_shuffle_permutation_rows": 71,
+      "n_shuffle_eligible_rows_unobserved": 0,
+      "geometry_compatibility": "structural_proxy_exact_sequence_core"
+    },
+    {
+      "example_id": "P4P6_SHAPE_aqueous",
+      "lineage_id": "P4P6_groupI",
+      "study_id": "Kladwang2011",
+      "chemistry": "SHAPE",
+      "n_common": 158,
+      "n_error_missing": 0,
+      "n_error_zero": 0,
+      "n_error_at_or_below_floor": 154,
+      "n_shuffle_permutation_rows": 158,
+      "n_shuffle_eligible_rows_unobserved": 0,
+      "geometry_compatibility": "structural_proxy_exact_sequence_core"
+    },
+    {
+      "example_id": "P4P6_DMS_aqueous",
+      "lineage_id": "P4P6_groupI",
+      "study_id": "Cordero2012",
+      "chemistry": "DMS",
+      "n_common": 78,
+      "n_error_missing": 0,
+      "n_error_zero": 0,
+      "n_error_at_or_below_floor": 69,
+      "n_shuffle_permutation_rows": 78,
+      "n_shuffle_eligible_rows_unobserved": 0,
+      "geometry_compatibility": "structural_proxy_exact_sequence_core"
+    },
+    {
+      "example_id": "TPP_DMS_holo_WT",
+      "lineage_id": "TPP_riboswitch",
+      "study_id": "Cheng2017",
+      "chemistry": "DMS",
+      "n_common": 36,
+      "n_error_missing": 36,
+      "n_error_zero": 0,
+      "n_error_at_or_below_floor": 0,
+      "n_shuffle_permutation_rows": 36,
+      "n_shuffle_eligible_rows_unobserved": 0,
+      "geometry_compatibility": "structural_proxy_exact_sequence_core"
+    },
+    {
+      "example_id": "ydaO_DMS_holo_WT",
+      "lineage_id": "ydao_cdiamp_riboswitch",
+      "study_id": "Cheng2017",
+      "chemistry": "DMS",
+      "n_common": 39,
+      "n_error_missing": 39,
+      "n_error_zero": 0,
+      "n_error_at_or_below_floor": 0,
+      "n_shuffle_permutation_rows": 39,
+      "n_shuffle_eligible_rows_unobserved": 0,
+      "geometry_compatibility": "structural_proxy_exact_sequence_core"
+    }
+  ],
+  "chemistry_by_lineage": {
+    "P4P6_groupI": [
+      "DMS",
+      "SHAPE"
+    ],
+    "TPP_riboswitch": [
+      "DMS"
+    ],
+    "adenine_add": [
+      "SHAPE"
+    ],
+    "ydao_cdiamp_riboswitch": [
+      "DMS"
+    ]
+  },
+  "study_by_lineage": {
+    "P4P6_groupI": [
+      "Cordero2012",
+      "Kladwang2011"
+    ],
+    "TPP_riboswitch": [
+      "Cheng2017"
+    ],
+    "adenine_add": [
+      "Kladwang2011"
+    ],
+    "ydao_cdiamp_riboswitch": [
+      "Cheng2017"
+    ]
+  },
+  "lineages_per_chemistry": {
+    "DMS": [
+      "P4P6_groupI",
+      "TPP_riboswitch",
+      "ydao_cdiamp_riboswitch"
+    ],
+    "SHAPE": [
+      "P4P6_groupI",
+      "adenine_add"
+    ]
+  },
+  "split": "Outer leave-one-entire-lineage-out; inner leave-one-training-lineage-out selection.",
+  "lineage_independence_guard": {
+    "rule": "Reject if any cross-lineage pair is exactly identical, has global Needleman-Wunsch identity >= 0.8, or a Smith-Waterman local alignment with identity >= 0.9 spanning >= 0.5 of the shorter sequence (match +1, mismatch -1, linear gap -2).",
+    "pairwise": [
+      {
+        "lineage_a": "P4P6_groupI",
+        "example_a": "P4P6_SHAPE_aqueous",
+        "lineage_b": "TPP_riboswitch",
+        "example_b": "TPP_DMS_holo_WT",
+        "length_a": 158,
+        "length_b": 78,
+        "exact_identical": false,
+        "global_identity": 0.4241,
+        "local_identity": 0.9,
+        "local_coverage_of_shorter": 0.1282,
+        "near_identical": false
+      },
+      {
+        "lineage_a": "P4P6_groupI",
+        "example_a": "P4P6_SHAPE_aqueous",
+        "lineage_b": "adenine_add",
+        "example_b": "adenine_add_SHAPE_holo",
+        "length_a": 158,
+        "length_b": 71,
+        "exact_identical": false,
+        "global_identity": 0.4177,
+        "local_identity": 1.0,
+        "local_coverage_of_shorter": 0.1127,
+        "near_identical": false
+      },
+      {
+        "lineage_a": "P4P6_groupI",
+        "example_a": "P4P6_SHAPE_aqueous",
+        "lineage_b": "ydao_cdiamp_riboswitch",
+        "example_b": "ydaO_DMS_holo_WT",
+        "length_a": 158,
+        "length_b": 85,
+        "exact_identical": false,
+        "global_identity": 0.4403,
+        "local_identity": 0.75,
+        "local_coverage_of_shorter": 0.2588,
+        "near_identical": false
+      },
+      {
+        "lineage_a": "TPP_riboswitch",
+        "example_a": "TPP_DMS_holo_WT",
+        "lineage_b": "adenine_add",
+        "example_b": "adenine_add_SHAPE_holo",
+        "length_a": 78,
+        "length_b": 71,
+        "exact_identical": false,
+        "global_identity": 0.4557,
+        "local_identity": 0.8182,
+        "local_coverage_of_shorter": 0.1549,
+        "near_identical": false
+      },
+      {
+        "lineage_a": "TPP_riboswitch",
+        "example_a": "TPP_DMS_holo_WT",
+        "lineage_b": "ydao_cdiamp_riboswitch",
+        "example_b": "ydaO_DMS_holo_WT",
+        "length_a": 78,
+        "length_b": 85,
+        "exact_identical": false,
+        "global_identity": 0.5281,
+        "local_identity": 0.7222,
+        "local_coverage_of_shorter": 0.2179,
+        "near_identical": false
+      },
+      {
+        "lineage_a": "adenine_add",
+        "example_a": "adenine_add_SHAPE_holo",
+        "lineage_b": "ydao_cdiamp_riboswitch",
+        "example_b": "ydaO_DMS_holo_WT",
+        "length_a": 71,
+        "length_b": 85,
+        "exact_identical": false,
+        "global_identity": 0.4884,
+        "local_identity": 0.7857,
+        "local_coverage_of_shorter": 0.1972,
+        "near_identical": false
+      }
+    ],
+    "limit": "Sequence similarity is a guard, not proof of lineage independence; related variants, shared ancestry or repeated crystal copies remain a scientific-curation responsibility."
+  },
+  "cross_study_limit": "Lineage folds may share a study/protocol. A leave-one-study-out sensitivity is separate and never labelled cross-study when fewer than two training lineages remain.",
+  "outcome": "As-deposited reactivity; no per-test-profile normalization, clipping, rescaling, centering or target transformation",
+  "features": "Observed sequence-window identity, chemistry group, five numeric assay covariates with explicit missing flags; supplied source-deposited secondary-structure indicators (not learned from this pilot's target values, but their original derivation may have used chemical-mapping data: annotation-informed baseline); C4-prime distance/packing/angle invariants. Every arm has shared plus fixed DMS-specific and SHAPE-specific slope blocks. No reactivity, uncertainty, observation mask, accession, lineage or study ID enters a predictor.",
+  "shuffled_geometry_control": {
+    "specification": "Within-profile deterministic permutation (seed = SEED + first 32 bits of SHA-256(example_id)) of geometry rows among positions that are chemically eligible (DMS: A/C; SHAPE: all; from sequence and chemistry only) and have known geometry and secondary annotation.",
+    "claim": "Exactly matches the geometry arm's coefficient count, alpha grid and selection; the geometry-feature marginal over the scored rows of every profile is preserved (verified below). Effective degrees of freedom may still differ. A single seeded permutation is a diagnostic negative control, not a randomisation p-value.",
+    "scored_row_marginal_verification": [
+      {
+        "example_id": "P4P6_DMS_aqueous",
+        "n_scored_rows": 78,
+        "scored_row_geometry_marginal_preserved": true,
+        "fraction_rows_with_changed_geometry": 0.9871794871794872
+      },
+      {
+        "example_id": "P4P6_SHAPE_aqueous",
+        "n_scored_rows": 158,
+        "scored_row_geometry_marginal_preserved": true,
+        "fraction_rows_with_changed_geometry": 0.9746835443037974
+      },
+      {
+        "example_id": "TPP_DMS_holo_WT",
+        "n_scored_rows": 36,
+        "scored_row_geometry_marginal_preserved": true,
+        "fraction_rows_with_changed_geometry": 0.9166666666666666
+      },
+      {
+        "example_id": "adenine_add_SHAPE_holo",
+        "n_scored_rows": 71,
+        "scored_row_geometry_marginal_preserved": true,
+        "fraction_rows_with_changed_geometry": 1.0
+      },
+      {
+        "example_id": "ydaO_DMS_holo_WT",
+        "n_scored_rows": 39,
+        "scored_row_geometry_marginal_preserved": true,
+        "fraction_rows_with_changed_geometry": 0.9487179487179487
+      }
+    ]
+  },
+  "weights": {
+    "error_floor_reactivity_units": 0.1,
+    "missing_error_precision": 1.0,
+    "error_semantics": "REACTIVITY_ERROR as deposited in the RDAT, in deposited reactivity units. Whether it is a standard deviation across replicates or a standard error of the replicate mean is not stated in the local source files: semantics UNKNOWN. The 0.1 floor is an arbitrary pre-specified constant, not measurement calibration. Zero errors would receive floor precision (none occur in this cohort). Profiles without the field (TPP, ydaO) get uniform weight within profile.",
+    "objective": "Inverse-variance precision within profile; equal profiles per lineage; equal lineages. Training-only weighted feature standardization and intercept.",
+    "schemes": [
+      "error_weighted",
+      "unweighted"
+    ],
+    "sensitivity": "The complete nested analysis (inner alpha selection, training weights and evaluation) is repeated with unit precision for every nucleotide (unweighted refit)."
+  },
+  "primary_endpoint": "Equal-lineage average of profile error-weighted MSE (error_weighted scheme); paired held-out lineage differences, reference minus geometry (positive favours geometry)",
+  "comparisons": [
+    {
+      "reference": "sequence_context",
+      "candidate": "geometry_context"
+    },
+    {
+      "reference": "secondary_context",
+      "candidate": "geometry_context"
+    },
+    {
+      "reference": "shuffled_geometry_context",
+      "candidate": "geometry_context"
+    },
+    {
+      "reference": "sequence_context",
+      "candidate": "secondary_context"
+    }
+  ],
+  "secondary_endpoints": [
+    "Equal-lineage unweighted MSE",
+    "Full unweighted refit (pre-specified weighting sensitivity)",
+    "Mean within-profile Pearson correlation, constant profiles/predictions reported null",
+    "Chemistry-stratified held-out MSE",
+    "Geometry minus shuffled-pairing negative control",
+    "Study holdout sensitivity"
+  ],
+  "uncertainty": {
+    "unit": "RNA lineage",
+    "resamples": 10000,
+    "seed": 20261014,
+    "interval": "Descriptive paired percentile 95% bootstrap over 4 lineages (at most 35 distinct resample means); no nucleotide-level significance claim and no powered confirmatory claim"
+  },
+  "interpretation_gate": "Geometry is described as adding held-out information only if, in BOTH the error-weighted primary and the unweighted refit, the mean lineage difference favours geometry over the secondary arm AND over the shuffled-geometry control, with at least 3 of 4 held-out lineages favouring geometry in each of those four comparisons. Otherwise the result is reported as null or mixed. Geometry-versus-sequence is reported descriptively. Small lineage count, crystal-as-solution-proxy, annotation-informed secondary baseline and study sensitivity accompany every estimate.",
+  "synthetic_data": false,
+  "capacity": "Nested linear ridge with {'sequence_context': 123, 'secondary_context': 153, 'geometry_context': 207, 'shuffled_geometry_context': 207} feature coefficients plus intercept, identical alpha grid and nested selection. Geometry versus shuffled geometry exactly matches capacity; secondary versus geometry is a nested-feature comparison."
+}

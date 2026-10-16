@@ -1,0 +1,1913 @@
+{
+  "builder": "build_waveE_split.py",
+  "salt": "RIBO-ATLAS-FM waveE family/clan split v1",
+  "parameters": {
+    "target_heldout_family_fraction": 0.05,
+    "max_heldout_sequence_fraction": 0.08,
+    "val_in_family_fraction": 0.01,
+    "rnafm_max_nucleotides": 1022
+  },
+  "inputs_sha256": {
+    "Rfam.seed.gz": "41f014f4ab5628620935f089b1bb77987ebc162fda7c72bff368a32c9cccabac",
+    "rfam15_1_canonical_unique.fasta": "3f53f44933a2ed9c79aebbb64f56ac6f79234f65b34854376e3f162c4ec4abbb",
+    "rfam15_1_sequence_memberships.jsonl": "b00482ae24cf1d63a3d4336be4cb8892585de96d799d79852306bfff244ad66d",
+    "rfam15_1_family_inventory.csv": "3f424fb5bd93d847b100d595ea36e206bf2c297495eb1fbd92a136abffd77bfa"
+  },
+  "inputs_note": "verified against rfam15_1_inventory.json (12 Oct 2026); family inventory CSV columns rfam,name,seed_rows,canonical_30_1024_rows,canonical_residue_occurrences (no clan column, so clans are parsed from #=GF CL lines of Rfam.seed.gz)",
+  "sequences": 96910,
+  "families_with_eligible_records": 4185,
+  "families_in_a_clan": 468,
+  "clans_present": 151,
+  "sequences_with_multiple_family_memberships": 45,
+  "groups_total": 3866,
+  "largest_group_sequences": 3077,
+  "heldout_family_target": 210,
+  "heldout_sequence_cap": 7752,
+  "heldout_groups": [
+    {
+      "group": "Gcfd3f1d3e6eb",
+      "families": [
+        "RF01460"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G9aa8c80d6258",
+      "families": [
+        "RF03574"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G9b2b7b00777b",
+      "families": [
+        "RF01442"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G8f6703a0ca53",
+      "families": [
+        "RF02996"
+      ],
+      "clans": [],
+      "sequences": 154
+    },
+    {
+      "group": "Gde9ae405720c",
+      "families": [
+        "RF03861"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gf5c4c93a4bfa",
+      "families": [
+        "RF01037"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G0bb9a4c8a4be",
+      "families": [
+        "RF02920"
+      ],
+      "clans": [],
+      "sequences": 12
+    },
+    {
+      "group": "G768359fbe6d3",
+      "families": [
+        "RF04137"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G7a2c0a6f8652",
+      "families": [
+        "RF02433"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G284728fc6d4d",
+      "families": [
+        "RF00174",
+        "RF01482",
+        "RF01689"
+      ],
+      "clans": [
+        "CL00101"
+      ],
+      "sequences": 579
+    },
+    {
+      "group": "Ga3a72a2ebb2e",
+      "families": [
+        "RF03566"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gf29ca2178ff4",
+      "families": [
+        "RF02200"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "Gf818faae28fc",
+      "families": [
+        "RF01175"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G7414d53d9a5c",
+      "families": [
+        "RF00756"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "G3266d53676da",
+      "families": [
+        "RF02399"
+      ],
+      "clans": [],
+      "sequences": 17
+    },
+    {
+      "group": "G04af38af207f",
+      "families": [
+        "RF00942"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G21632f3ae972",
+      "families": [
+        "RF00691"
+      ],
+      "clans": [],
+      "sequences": 33
+    },
+    {
+      "group": "Gab47b588fe87",
+      "families": [
+        "RF01541"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G7c8b58dff8f4",
+      "families": [
+        "RF00789"
+      ],
+      "clans": [],
+      "sequences": 14
+    },
+    {
+      "group": "G267700178aef",
+      "families": [
+        "RF03374"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G1094aa408c54",
+      "families": [
+        "RF03333"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G325de2639c73",
+      "families": [
+        "RF02261"
+      ],
+      "clans": [],
+      "sequences": 23
+    },
+    {
+      "group": "G4de00749a6d3",
+      "families": [
+        "RF01723"
+      ],
+      "clans": [],
+      "sequences": 15
+    },
+    {
+      "group": "Gf7d44b456d51",
+      "families": [
+        "RF03996"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G9f4767d81dc2",
+      "families": [
+        "RF01524"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Gba16c3380cbf",
+      "families": [
+        "RF00844"
+      ],
+      "clans": [],
+      "sequences": 26
+    },
+    {
+      "group": "Ga3842a53f9de",
+      "families": [
+        "RF01901"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "Gd9a698958bd8",
+      "families": [
+        "RF02842"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G4a61d3b487bd",
+      "families": [
+        "RF04301"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G1c47b90a6e59",
+      "families": [
+        "RF02927"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "Gfbd6d85208c1",
+      "families": [
+        "RF01021"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G4e8db39c4911",
+      "families": [
+        "RF01102"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gca7d74ab2092",
+      "families": [
+        "RF00078"
+      ],
+      "clans": [],
+      "sequences": 17
+    },
+    {
+      "group": "G8b43862745b1",
+      "families": [
+        "RF03646"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G1ba7e1f4dbad",
+      "families": [
+        "RF04155"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G36d61c84412d",
+      "families": [
+        "RF03586"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G6b8a40fed8cd",
+      "families": [
+        "RF01642"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gd5adc3872247",
+      "families": [
+        "RF03874"
+      ],
+      "clans": [],
+      "sequences": 1
+    },
+    {
+      "group": "Ge56fe5d2970a",
+      "families": [
+        "RF02376"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "Gbc7ca8907726",
+      "families": [
+        "RF02040"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gd87f6b4a2b3a",
+      "families": [
+        "RF03085"
+      ],
+      "clans": [],
+      "sequences": 107
+    },
+    {
+      "group": "G96cd9e6c0266",
+      "families": [
+        "RF01535"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G92a5fd06f617",
+      "families": [
+        "RF00726"
+      ],
+      "clans": [],
+      "sequences": 41
+    },
+    {
+      "group": "G9cc89201ccf6",
+      "families": [
+        "RF03248"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G9785afbac8b1",
+      "families": [
+        "RF00644"
+      ],
+      "clans": [],
+      "sequences": 68
+    },
+    {
+      "group": "G3f3ab30fda36",
+      "families": [
+        "RF01045"
+      ],
+      "clans": [],
+      "sequences": 10
+    },
+    {
+      "group": "Gf5ce0a57960c",
+      "families": [
+        "RF02988"
+      ],
+      "clans": [],
+      "sequences": 41
+    },
+    {
+      "group": "Gb6c6b48188ec",
+      "families": [
+        "RF03755"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G46c31d699b08",
+      "families": [
+        "RF00780"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gcc15c96088e1",
+      "families": [
+        "RF02353"
+      ],
+      "clans": [],
+      "sequences": 10
+    },
+    {
+      "group": "G66d309792905",
+      "families": [
+        "RF01517"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Ga7ecfa4f28c5",
+      "families": [
+        "RF02921"
+      ],
+      "clans": [],
+      "sequences": 137
+    },
+    {
+      "group": "Ga6fa96a22238",
+      "families": [
+        "RF03098"
+      ],
+      "clans": [],
+      "sequences": 18
+    },
+    {
+      "group": "G065f90598953",
+      "families": [
+        "RF01614"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G6baa0cb6824a",
+      "families": [
+        "RF01894"
+      ],
+      "clans": [],
+      "sequences": 20
+    },
+    {
+      "group": "Gb2cf3fc01554",
+      "families": [
+        "RF04122"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Ga115fe8d77a7",
+      "families": [
+        "RF02818"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G84ef52821336",
+      "families": [
+        "RF04175"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G16b983ea2fb9",
+      "families": [
+        "RF02929"
+      ],
+      "clans": [],
+      "sequences": 90
+    },
+    {
+      "group": "G78d29c78e90c",
+      "families": [
+        "RF02822"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Gabaf47d2e3f1",
+      "families": [
+        "RF02310"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G5a59b0ad4283",
+      "families": [
+        "RF01229"
+      ],
+      "clans": [],
+      "sequences": 28
+    },
+    {
+      "group": "Gd4e78b733a3b",
+      "families": [
+        "RF02950"
+      ],
+      "clans": [],
+      "sequences": 19
+    },
+    {
+      "group": "Gdb70e45c7858",
+      "families": [
+        "RF02846"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G9eca8a5c7cc1",
+      "families": [
+        "RF03860",
+        "RF04278"
+      ],
+      "clans": [
+        "CL00145"
+      ],
+      "sequences": 20
+    },
+    {
+      "group": "Ga08f58658c02",
+      "families": [
+        "RF03462"
+      ],
+      "clans": [],
+      "sequences": 1
+    },
+    {
+      "group": "Gbe638655706e",
+      "families": [
+        "RF02356"
+      ],
+      "clans": [],
+      "sequences": 25
+    },
+    {
+      "group": "Gd55bb656a82f",
+      "families": [
+        "RF00558"
+      ],
+      "clans": [],
+      "sequences": 43
+    },
+    {
+      "group": "G0b48f606c7b2",
+      "families": [
+        "RF02837"
+      ],
+      "clans": [],
+      "sequences": 26
+    },
+    {
+      "group": "Gf62233187cc8",
+      "families": [
+        "RF01487"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G3283069984a4",
+      "families": [
+        "RF03927"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G88d8e6d09d03",
+      "families": [
+        "RF02814"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Ge0063b5c960e",
+      "families": [
+        "RF02724"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G5160f773018c",
+      "families": [
+        "RF03210"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gfdfa2d8dc038",
+      "families": [
+        "RF03627"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gbd2aa491c730",
+      "families": [
+        "RF02175"
+      ],
+      "clans": [],
+      "sequences": 18
+    },
+    {
+      "group": "G4d9f74a30b94",
+      "families": [
+        "RF01738"
+      ],
+      "clans": [],
+      "sequences": 13
+    },
+    {
+      "group": "G7f124db47e75",
+      "families": [
+        "RF01597"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gc2be7cc0370d",
+      "families": [
+        "RF01157"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Ga4838fb75e1e",
+      "families": [
+        "RF02646"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gc44aff9b086c",
+      "families": [
+        "RF03812"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gba1412e94553",
+      "families": [
+        "RF00740"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "G0c55861b0d0c",
+      "families": [
+        "RF03638"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G29cc5d0b8502",
+      "families": [
+        "RF01575"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G1c6bf9c3137d",
+      "families": [
+        "RF04150"
+      ],
+      "clans": [],
+      "sequences": 25
+    },
+    {
+      "group": "G512aa0aa0eb9",
+      "families": [
+        "RF02049"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G767560fe1bbc",
+      "families": [
+        "RF04223"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gc53752f75b6a",
+      "families": [
+        "RF00914"
+      ],
+      "clans": [],
+      "sequences": 1
+    },
+    {
+      "group": "G41bd37303ea2",
+      "families": [
+        "RF03367"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Ga4eec13ab103",
+      "families": [
+        "RF01590"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G27776a362081",
+      "families": [
+        "RF01458"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G430f5f2eacdd",
+      "families": [
+        "RF00306"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Ga5939144cd50",
+      "families": [
+        "RF01545"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G8fd7dc9b380c",
+      "families": [
+        "RF01511"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G5ce4b8cc1332",
+      "families": [
+        "RF02065"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G711909753d93",
+      "families": [
+        "RF02608"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G747bf906ad17",
+      "families": [
+        "RF00040"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "Gbd7f6a317c9e",
+      "families": [
+        "RF02459"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G94aadd60eb11",
+      "families": [
+        "RF01396"
+      ],
+      "clans": [],
+      "sequences": 17
+    },
+    {
+      "group": "Ga31aedccd675",
+      "families": [
+        "RF01992"
+      ],
+      "clans": [],
+      "sequences": 24
+    },
+    {
+      "group": "G0546013b5bb5",
+      "families": [
+        "RF00704"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "G842625c6d80b",
+      "families": [
+        "RF04072"
+      ],
+      "clans": [],
+      "sequences": 14
+    },
+    {
+      "group": "Geba68f5699a5",
+      "families": [
+        "RF01873"
+      ],
+      "clans": [],
+      "sequences": 18
+    },
+    {
+      "group": "G4b8bc9d18742",
+      "families": [
+        "RF00528"
+      ],
+      "clans": [],
+      "sequences": 11
+    },
+    {
+      "group": "Gd60568721232",
+      "families": [
+        "RF00757"
+      ],
+      "clans": [],
+      "sequences": 22
+    },
+    {
+      "group": "G720bab09f54a",
+      "families": [
+        "RF00117"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "Ge004e98fd2c6",
+      "families": [
+        "RF02994"
+      ],
+      "clans": [],
+      "sequences": 77
+    },
+    {
+      "group": "G021ec7d2d2fd",
+      "families": [
+        "RF02794"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G962c7a59b8d1",
+      "families": [
+        "RF04093"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Ge4433c0ba7b9",
+      "families": [
+        "RF01736"
+      ],
+      "clans": [],
+      "sequences": 12
+    },
+    {
+      "group": "Gc5e362a67319",
+      "families": [
+        "RF03834"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G2dbebdc38de1",
+      "families": [
+        "RF00755"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G2530b0bcc34b",
+      "families": [
+        "RF02235"
+      ],
+      "clans": [],
+      "sequences": 10
+    },
+    {
+      "group": "Gef3b6aa11ecf",
+      "families": [
+        "RF03494"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G811e2cc70f8d",
+      "families": [
+        "RF01591"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gb0ef4d503fbd",
+      "families": [
+        "RF03840"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "Gb5801a6ae8d2",
+      "families": [
+        "RF04210"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G3a62e5e41d69",
+      "families": [
+        "RF01034"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G6064967fdbea",
+      "families": [
+        "RF00697"
+      ],
+      "clans": [],
+      "sequences": 12
+    },
+    {
+      "group": "G27bfc8faca1b",
+      "families": [
+        "RF00242"
+      ],
+      "clans": [],
+      "sequences": 11
+    },
+    {
+      "group": "G2ef14eeadf4a",
+      "families": [
+        "RF02238"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G5de97db21465",
+      "families": [
+        "RF00014"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "Gaa61a6e5785a",
+      "families": [
+        "RF00873"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gf495640451ba",
+      "families": [
+        "RF01397"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "Gbd8e1a5d68dd",
+      "families": [
+        "RF02825"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G37e9c52d0864",
+      "families": [
+        "RF03798"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G839d61787364",
+      "families": [
+        "RF02578"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G07ad40fa98c1",
+      "families": [
+        "RF01760"
+      ],
+      "clans": [],
+      "sequences": 44
+    },
+    {
+      "group": "Gea7e65960596",
+      "families": [
+        "RF02877"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G92922669e296",
+      "families": [
+        "RF01628"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gb3616a1b534d",
+      "families": [
+        "RF02500"
+      ],
+      "clans": [],
+      "sequences": 32
+    },
+    {
+      "group": "Ga9b407bb9850",
+      "families": [
+        "RF01743"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G00fdfb346cbf",
+      "families": [
+        "RF02311"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G89758c84e2f5",
+      "families": [
+        "RF00777"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G31ebc5f8a7a6",
+      "families": [
+        "RF01983"
+      ],
+      "clans": [],
+      "sequences": 16
+    },
+    {
+      "group": "G2e3193baef70",
+      "families": [
+        "RF00022"
+      ],
+      "clans": [],
+      "sequences": 24
+    },
+    {
+      "group": "G091771b238e3",
+      "families": [
+        "RF04191"
+      ],
+      "clans": [],
+      "sequences": 48
+    },
+    {
+      "group": "Gbcdf02d77fdb",
+      "families": [
+        "RF00389"
+      ],
+      "clans": [],
+      "sequences": 42
+    },
+    {
+      "group": "G4254e2b107d1",
+      "families": [
+        "RF02038"
+      ],
+      "clans": [],
+      "sequences": 23
+    },
+    {
+      "group": "G92cc642c790f",
+      "families": [
+        "RF04204"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G4dca7514ef47",
+      "families": [
+        "RF02943"
+      ],
+      "clans": [],
+      "sequences": 36
+    },
+    {
+      "group": "G2d68d1110498",
+      "families": [
+        "RF02839"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gc13047968551",
+      "families": [
+        "RF03856"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gbfd403847d1c",
+      "families": [
+        "RF00513"
+      ],
+      "clans": [],
+      "sequences": 22
+    },
+    {
+      "group": "Ge7c3c2a04f64",
+      "families": [
+        "RF01763"
+      ],
+      "clans": [],
+      "sequences": 38
+    },
+    {
+      "group": "Gfe4666d10f1c",
+      "families": [
+        "RF03109"
+      ],
+      "clans": [],
+      "sequences": 11
+    },
+    {
+      "group": "G653eb830eb98",
+      "families": [
+        "RF02270"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gcc1faaf042ec",
+      "families": [
+        "RF00254",
+        "RF00455"
+      ],
+      "clans": [
+        "CL00085"
+      ],
+      "sequences": 137
+    },
+    {
+      "group": "G81851ec12c8e",
+      "families": [
+        "RF04202"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G95791b0e7341",
+      "families": [
+        "RF03354"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G93121dab01f2",
+      "families": [
+        "RF03152"
+      ],
+      "clans": [],
+      "sequences": 16
+    },
+    {
+      "group": "G6d7652caaddc",
+      "families": [
+        "RF02332"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G80b205f27d84",
+      "families": [
+        "RF01582"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gad5e8dbf43a4",
+      "families": [
+        "RF02812"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G6152c0d3d630",
+      "families": [
+        "RF04156"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "G591fccf2279a",
+      "families": [
+        "RF00986"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G474a8024f30b",
+      "families": [
+        "RF03662"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gf580ed74fc24",
+      "families": [
+        "RF00282"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gc149ea2f8072",
+      "families": [
+        "RF03621"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gca2aa4791ee2",
+      "families": [
+        "RF00874"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G48bc0046a4ae",
+      "families": [
+        "RF00862"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G108e9830b70b",
+      "families": [
+        "RF00091",
+        "RF01251",
+        "RF01261",
+        "RF01434"
+      ],
+      "clans": [
+        "CL00040"
+      ],
+      "sequences": 23
+    },
+    {
+      "group": "G0328d8a8a504",
+      "families": [
+        "RF02787"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G72e38c1cb6e8",
+      "families": [
+        "RF02183"
+      ],
+      "clans": [],
+      "sequences": 28
+    },
+    {
+      "group": "G05ef3ecfc812",
+      "families": [
+        "RF01433"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G0651fa39086e",
+      "families": [
+        "RF02582"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gc04bcf8fd47c",
+      "families": [
+        "RF01789"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G7cafd0ff5d2e",
+      "families": [
+        "RF03476"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G9612b18eb274",
+      "families": [
+        "RF01219"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "G5ebbefe8f251",
+      "families": [
+        "RF00377"
+      ],
+      "clans": [],
+      "sequences": 25
+    },
+    {
+      "group": "G1ffe150ebb31",
+      "families": [
+        "RF02882"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gc0adbcbcd258",
+      "families": [
+        "RF03381"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G901063ec5f8e",
+      "families": [
+        "RF01624"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "Gf09b8afeea7f",
+      "families": [
+        "RF02774"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "Gcf5c66e9d9e7",
+      "families": [
+        "RF04215"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G792d02242f6e",
+      "families": [
+        "RF02191"
+      ],
+      "clans": [],
+      "sequences": 7
+    },
+    {
+      "group": "Gf3f9044e9bbf",
+      "families": [
+        "RF00474"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G8ca26666dbec",
+      "families": [
+        "RF02100"
+      ],
+      "clans": [],
+      "sequences": 9
+    },
+    {
+      "group": "G55d35a3a0e5b",
+      "families": [
+        "RF04348"
+      ],
+      "clans": [],
+      "sequences": 228
+    },
+    {
+      "group": "G1d431b21bf44",
+      "families": [
+        "RF00149"
+      ],
+      "clans": [],
+      "sequences": 12
+    },
+    {
+      "group": "Gf5179dfd6adb",
+      "families": [
+        "RF02264"
+      ],
+      "clans": [],
+      "sequences": 12
+    },
+    {
+      "group": "G4a8c4b242187",
+      "families": [
+        "RF01318",
+        "RF01320",
+        "RF01376",
+        "RF01377"
+      ],
+      "clans": [
+        "CL00015"
+      ],
+      "sequences": 26
+    },
+    {
+      "group": "G8f1605b2730e",
+      "families": [
+        "RF00310"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "Gd81952bd694e",
+      "families": [
+        "RF03258"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G3088ac4717f1",
+      "families": [
+        "RF00752"
+      ],
+      "clans": [],
+      "sequences": 15
+    },
+    {
+      "group": "G07d546656285",
+      "families": [
+        "RF03835"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G9fa5baf48b32",
+      "families": [
+        "RF01824"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G3bb1f7de26f3",
+      "families": [
+        "RF02133"
+      ],
+      "clans": [],
+      "sequences": 14
+    },
+    {
+      "group": "G99b5879089d6",
+      "families": [
+        "RF03606"
+      ],
+      "clans": [],
+      "sequences": 1
+    },
+    {
+      "group": "G74fb6e91a73f",
+      "families": [
+        "RF04239"
+      ],
+      "clans": [],
+      "sequences": 2
+    },
+    {
+      "group": "G632b2082b643",
+      "families": [
+        "RF00681"
+      ],
+      "clans": [],
+      "sequences": 6
+    },
+    {
+      "group": "G53b9653389a1",
+      "families": [
+        "RF02897"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G13314f18948c",
+      "families": [
+        "RF02940"
+      ],
+      "clans": [],
+      "sequences": 38
+    },
+    {
+      "group": "G455dfd65717c",
+      "families": [
+        "RF00915"
+      ],
+      "clans": [],
+      "sequences": 5
+    },
+    {
+      "group": "G4afdf697a5cf",
+      "families": [
+        "RF01406"
+      ],
+      "clans": [],
+      "sequences": 8
+    },
+    {
+      "group": "G36d933cddaa0",
+      "families": [
+        "RF00314"
+      ],
+      "clans": [],
+      "sequences": 3
+    },
+    {
+      "group": "G220e209fd21e",
+      "families": [
+        "RF00795"
+      ],
+      "clans": [],
+      "sequences": 4
+    },
+    {
+      "group": "G1dccf6730ab6",
+      "families": [
+        "RF00846",
+        "RF03467",
+        "RF04275"
+      ],
+      "clans": [
+        "CL00142"
+      ],
+      "sequences": 15
+    }
+  ],
+  "groups_skipped_by_sequence_cap": [],
+  "val_candidates_returned_to_train_to_keep_family_seen": 1,
+  "heldout_families": [
+    "RF00014",
+    "RF00022",
+    "RF00040",
+    "RF00078",
+    "RF00091",
+    "RF00117",
+    "RF00149",
+    "RF00174",
+    "RF00242",
+    "RF00254",
+    "RF00282",
+    "RF00306",
+    "RF00310",
+    "RF00314",
+    "RF00377",
+    "RF00389",
+    "RF00455",
+    "RF00474",
+    "RF00513",
+    "RF00528",
+    "RF00558",
+    "RF00644",
+    "RF00681",
+    "RF00691",
+    "RF00697",
+    "RF00704",
+    "RF00726",
+    "RF00740",
+    "RF00752",
+    "RF00755",
+    "RF00756",
+    "RF00757",
+    "RF00777",
+    "RF00780",
+    "RF00789",
+    "RF00795",
+    "RF00844",
+    "RF00846",
+    "RF00862",
+    "RF00873",
+    "RF00874",
+    "RF00914",
+    "RF00915",
+    "RF00942",
+    "RF00986",
+    "RF01021",
+    "RF01034",
+    "RF01037",
+    "RF01045",
+    "RF01102",
+    "RF01157",
+    "RF01175",
+    "RF01219",
+    "RF01229",
+    "RF01251",
+    "RF01261",
+    "RF01318",
+    "RF01320",
+    "RF01376",
+    "RF01377",
+    "RF01396",
+    "RF01397",
+    "RF01406",
+    "RF01433",
+    "RF01434",
+    "RF01442",
+    "RF01458",
+    "RF01460",
+    "RF01482",
+    "RF01487",
+    "RF01511",
+    "RF01517",
+    "RF01524",
+    "RF01535",
+    "RF01541",
+    "RF01545",
+    "RF01575",
+    "RF01582",
+    "RF01590",
+    "RF01591",
+    "RF01597",
+    "RF01614",
+    "RF01624",
+    "RF01628",
+    "RF01642",
+    "RF01689",
+    "RF01723",
+    "RF01736",
+    "RF01738",
+    "RF01743",
+    "RF01760",
+    "RF01763",
+    "RF01789",
+    "RF01824",
+    "RF01873",
+    "RF01894",
+    "RF01901",
+    "RF01983",
+    "RF01992",
+    "RF02038",
+    "RF02040",
+    "RF02049",
+    "RF02065",
+    "RF02100",
+    "RF02133",
+    "RF02175",
+    "RF02183",
+    "RF02191",
+    "RF02200",
+    "RF02235",
+    "RF02238",
+    "RF02261",
+    "RF02264",
+    "RF02270",
+    "RF02310",
+    "RF02311",
+    "RF02332",
+    "RF02353",
+    "RF02356",
+    "RF02376",
+    "RF02399",
+    "RF02433",
+    "RF02459",
+    "RF02500",
+    "RF02578",
+    "RF02582",
+    "RF02608",
+    "RF02646",
+    "RF02724",
+    "RF02774",
+    "RF02787",
+    "RF02794",
+    "RF02812",
+    "RF02814",
+    "RF02818",
+    "RF02822",
+    "RF02825",
+    "RF02837",
+    "RF02839",
+    "RF02842",
+    "RF02846",
+    "RF02877",
+    "RF02882",
+    "RF02897",
+    "RF02920",
+    "RF02921",
+    "RF02927",
+    "RF02929",
+    "RF02940",
+    "RF02943",
+    "RF02950",
+    "RF02988",
+    "RF02994",
+    "RF02996",
+    "RF03085",
+    "RF03098",
+    "RF03109",
+    "RF03152",
+    "RF03210",
+    "RF03248",
+    "RF03258",
+    "RF03333",
+    "RF03354",
+    "RF03367",
+    "RF03374",
+    "RF03381",
+    "RF03462",
+    "RF03467",
+    "RF03476",
+    "RF03494",
+    "RF03566",
+    "RF03574",
+    "RF03586",
+    "RF03606",
+    "RF03621",
+    "RF03627",
+    "RF03638",
+    "RF03646",
+    "RF03662",
+    "RF03755",
+    "RF03798",
+    "RF03812",
+    "RF03834",
+    "RF03835",
+    "RF03840",
+    "RF03856",
+    "RF03860",
+    "RF03861",
+    "RF03874",
+    "RF03927",
+    "RF03996",
+    "RF04072",
+    "RF04093",
+    "RF04122",
+    "RF04137",
+    "RF04150",
+    "RF04155",
+    "RF04156",
+    "RF04175",
+    "RF04191",
+    "RF04202",
+    "RF04204",
+    "RF04210",
+    "RF04215",
+    "RF04223",
+    "RF04239",
+    "RF04275",
+    "RF04278",
+    "RF04301",
+    "RF04348"
+  ],
+  "splits": {
+    "train": {
+      "sequences": 92684,
+      "fraction_of_sequences": 0.95639,
+      "families": 3975,
+      "groups": 3668,
+      "clans": 145,
+      "length": {
+        "n": 92684,
+        "min": 30,
+        "median": 85,
+        "mean": 108.526,
+        "max": 1014,
+        "tokens_incl_cls_eos": 10243949
+      },
+      "sha256_of_sorted_sequence_ids": "39291bb9ade322c51d10b3e8a131e0f455bb97ff00ee8932fa8e3f704bd56cff"
+    },
+    "val_in_family": {
+      "sequences": 894,
+      "fraction_of_sequences": 0.00923,
+      "families": 478,
+      "groups": 433,
+      "clans": 70,
+      "length": {
+        "n": 894,
+        "min": 30,
+        "median": 84,
+        "mean": 109.324,
+        "max": 623,
+        "tokens_incl_cls_eos": 99524
+      },
+      "sha256_of_sorted_sequence_ids": "f3e5b46ea9eee9ccf61cfc9ae79d1e1713462d08a726645f29372af0e6f49182"
+    },
+    "heldout_family": {
+      "sequences": 3332,
+      "fraction_of_sequences": 0.03438,
+      "families": 210,
+      "groups": 198,
+      "clans": 6,
+      "length": {
+        "n": 3332,
+        "min": 32,
+        "median": 91,
+        "mean": 123.038,
+        "max": 451,
+        "tokens_incl_cls_eos": 416625
+      },
+      "sha256_of_sorted_sequence_ids": "be2a78f3fb589b865e186ed25a33c9d3db84a9741409e334e503ac6aeef53fa1"
+    }
+  },
+  "length_policy": "no cropping: max length 1014 nt <= 1022 nt (1024 learned positions incl. <cls> and <eos>); the trainer refuses sequences above the limit",
+  "leakage_controls": [
+    "whole clans held out together",
+    "families sharing an exact sequence held out together",
+    "no held-out sequence belongs to any training family (asserted)"
+  ],
+  "limitations": [
+    "no sequence-identity (e.g. MMseqs2/cd-hit) filter across unrelated clans/families",
+    "RNA-FM was pretrained on RNAcentral, which very likely contains these Rfam seed sequences: the split controls leakage within Wave E continued pretraining only"
+  ],
+  "outputs_sha256": {
+    "waveE_dataset.tsv": "fc34fe0aba27a57036a79890dc26dc5a3d905a3873c23f8747696c8aa240efb2"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "selection": "OK2TRN, OK1LIB, M2PK90, RFMREP DMS and 2A3",
+  "excluded_source_group": "VIRWIN",
+  "pinned_repository_commit": "0a267edb82a30119a0af3b3dfc8fcbf6dbf07357",
+  "assets": [
+    {
+      "rmdb_id": "OK2TRN_2A3_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK2TRN_2A3_0000.rdat",
+      "expected_bytes": 302708515,
+      "expected_sha256": "3389dd3e086787be6b9492376250a9050663814e7bd274d01ca617e13d325a56",
+      "started_UTC": "2026-10-12T21:42:21.381888+00:00",
+      "actual_bytes": 302708515,
+      "actual_sha256": "3389dd3e086787be6b9492376250a9050663814e7bd274d01ca617e13d325a56",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:09.323449+00:00"
+    },
+    {
+      "rmdb_id": "OK2TRN_DMS_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK2TRN_DMS_0000.rdat",
+      "expected_bytes": 302546984,
+      "expected_sha256": "26b3f56daede90b3481c341772bdb908b65bbe95f62a2e5b086b8a25834d60e0",
+      "started_UTC": "2026-10-12T21:42:21.382289+00:00",
+      "actual_bytes": 302546984,
+      "actual_sha256": "26b3f56daede90b3481c341772bdb908b65bbe95f62a2e5b086b8a25834d60e0",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:02.262352+00:00"
+    },
+    {
+      "rmdb_id": "M2PK90_2A3_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2PK90_2A3_0000.rdat",
+      "expected_bytes": 219475544,
+      "expected_sha256": "e139e7918b6c984e41e6ed0bf4273e57630732686834e6eac5e140e79a0e2ef0",
+      "started_UTC": "2026-10-12T21:42:21.382455+00:00",
+      "actual_bytes": 219475544,
+      "actual_sha256": "e139e7918b6c984e41e6ed0bf4273e57630732686834e6eac5e140e79a0e2ef0",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:42:54.930591+00:00"
+    },
+    {
+      "rmdb_id": "M2PK90_DMS_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/M2PK90_DMS_0000.rdat",
+      "expected_bytes": 219412452,
+      "expected_sha256": "efc209f453c2e9fe1f15feb7fe1082598723c0b1a8dfa408a938e18a35e1afad",
+      "started_UTC": "2026-10-12T21:42:21.382603+00:00",
+      "actual_bytes": 219412452,
+      "actual_sha256": "efc209f453c2e9fe1f15feb7fe1082598723c0b1a8dfa408a938e18a35e1afad",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:00.363208+00:00"
+    },
+    {
+      "rmdb_id": "OK1LIB_2A3_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK1LIB_2A3_0000.rdat",
+      "expected_bytes": 197372727,
+      "expected_sha256": "7ee6f4b3aa0f21eaf2ffc78a7d9ef5dae0feb3cca8a647c8ec3f79e3e46ffc5f",
+      "started_UTC": "2026-10-12T21:42:54.931303+00:00",
+      "actual_bytes": 197372727,
+      "actual_sha256": "7ee6f4b3aa0f21eaf2ffc78a7d9ef5dae0feb3cca8a647c8ec3f79e3e46ffc5f",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:33.516461+00:00"
+    },
+    {
+      "rmdb_id": "OK1LIB_DMS_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-eterna/OK1LIB_DMS_0000.rdat",
+      "expected_bytes": 197592090,
+      "expected_sha256": "24f7adb9dd9dfac243ea6581a376bad41cf74c981165ecf332114e52da59b31c",
+      "started_UTC": "2026-10-12T21:43:00.364141+00:00",
+      "actual_bytes": 197592090,
+      "actual_sha256": "24f7adb9dd9dfac243ea6581a376bad41cf74c981165ecf332114e52da59b31c",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:43.898444+00:00"
+    },
+    {
+      "rmdb_id": "RFMREP_2A3_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RFMREP_2A3_0000.rdat",
+      "expected_bytes": 188752972,
+      "expected_sha256": "42100a265b4e10b2a1d7f7c07a7d009e37f6850372e89f963dc0963e281ea954",
+      "started_UTC": "2026-10-12T21:43:02.263090+00:00",
+      "actual_bytes": 188752972,
+      "actual_sha256": "42100a265b4e10b2a1d7f7c07a7d009e37f6850372e89f963dc0963e281ea954",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:35.845162+00:00"
+    },
+    {
+      "rmdb_id": "RFMREP_DMS_0000",
+      "url": "https://github.com/DasLab/rmdb.github.io/releases/download/data-rna-structures/RFMREP_DMS_0000.rdat",
+      "expected_bytes": 188698366,
+      "expected_sha256": "d7ecf57d2717f5e2616dddd54125df584a54668ae34529268e57afda40637846",
+      "started_UTC": "2026-10-12T21:43:09.323874+00:00",
+      "actual_bytes": 188698366,
+      "actual_sha256": "d7ecf57d2717f5e2616dddd54125df584a54668ae34529268e57afda40637846",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "verified",
+      "completed_UTC": "2026-10-12T21:43:29.806391+00:00"
+    }
+  ]
+}

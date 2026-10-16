@@ -1,0 +1,75 @@
+{
+ "clean_view_candidates_by_group": [
+  [
+   "SRSBCV",
+   114354
+  ],
+  [
+   "M2RFPK",
+   50848
+  ],
+  [
+   "OK3TST",
+   45354
+  ],
+  [
+   "OK1LIB",
+   44159
+  ],
+  [
+   "OK2TRN",
+   39148
+  ],
+  [
+   "OK2TST",
+   37859
+  ],
+  [
+   "RFMREP",
+   32499
+  ],
+  [
+   "VIRWIN",
+   25280
+  ],
+  [
+   "RFM100",
+   25215
+  ],
+  [
+   "M2PK50",
+   16327
+  ],
+  [
+   "TTRDEL",
+   15747
+  ],
+  [
+   "M2PK90",
+   14224
+  ],
+  [
+   "TTRDES",
+   13318
+  ],
+  [
+   "RNAMAK",
+   12431
+  ],
+  [
+   "15KREP",
+   11683
+  ],
+  [
+   "TTRINS",
+   7170
+  ],
+  [
+   "ARCHII",
+   5344
+  ]
+ ],
+ "flagged_profiles": 3180131,
+ "flagged_SNR_below1": 3179757,
+ "profiles": 3985378
+}

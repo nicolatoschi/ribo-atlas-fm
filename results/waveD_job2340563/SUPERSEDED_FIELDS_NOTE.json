@@ -1,0 +1,8 @@
+{
+ "purpose": "Written 2026-10-16. waveD_findings.json is left unchanged as retrieved evidence.",
+ "superseded_fields": {
+  "pricing.ten_percent_cap_node_hours (8550), pricing.percent_of_allocation_*": "computed against an earlier internal costing of 85,500 NH; the current request and 10% cap are in work/rebuild_v2/facts_v2.json (request_NH, inference_share)",
+  "pricing.node_seconds_per_K32_case_at_177nt (126.9)": "valid, but is a length fit at PERFECT packing (occupancy/4); the request prices it at 80% packing (158.6 node-s) in resource_plan_v2.json",
+  "anchor_P4P6": "generation reproduces the pilot bit for bit (32/32 PDB SHA matches); refinement does not (after_QC_identical_count = 0, stage_energies_match_count = 0 of 31)"
+ }
+}

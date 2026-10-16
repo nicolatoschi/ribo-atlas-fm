@@ -1,0 +1,6 @@
+# Wave E additions, installed with: python -m pip install --no-deps --require-hashes --only-binary=:all: -r requirements-waveE.txt
+# --no-deps keeps the working CUDA torch 2.10 and numpy/pandas/tqdm of the base environment.
+# rna-fm 0.2.2 (PyPI, MIT; fm/ byte-identical to github.com/ml4bio/RNA-FM HEAD 348951516e0963d22bbb33b3c9fc18c89081d38e)
+rna-fm==0.2.2 --hash=sha256:4fff72892ad02559be969b7b3263483e7f3730132025ea05c9927c3675a5e0b4
+# ptflops: imported by fm/downstream/baseline.py at "import fm"; never called
+ptflops==0.7.5 --hash=sha256:c47543d5209a21e0805b39a50d452c8f8f6f5b648684777490db6f9459bdda07
