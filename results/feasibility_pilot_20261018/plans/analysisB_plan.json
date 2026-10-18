@@ -1,0 +1,101 @@
+{
+ "schema": "feasibility-analysisB-plan-v1",
+ "created_utc": "2026-10-17T23:07:33.773257+00:00",
+ "status": "FROZEN before any base-resolved arm was fitted",
+ "title": "Base-resolved observation head on the frozen Wave F v2 four-lineage cohort",
+ "cohort": {
+  "path": "inputs/local_copies/paired_core_cohort.json",
+  "sha256_must_equal": "16daa486d622ff039a5b020e3061253f11a42fb1e598ef1f42a810c9dbd2a8b8",
+  "content": "4 non-viral lineages, 5 profiles, 382 scored nucleotides (adenine SHAPE 71, P4-P6 SHAPE 158, P4-P6 DMS 78, TPP DMS 36, ydaO DMS 39)"
+ },
+ "protocol_reused_unchanged": "forward_head_pilot.py v2 (sha256 1adceaa9...) imported read-only: same features for the sequence and secondary arms, same scored rows (observed & C4'-valid & secondary-valid), same chemistry-specific slope blocks, same precision weights (error floor 0.1; unweighted refit), same outer leave-one-lineage-out and inner leave-one-training-lineage-out alpha selection over [1e-4..10], same equal-lineage metrics, same paired lineage percentile bootstrap (10,000, seed 20261014) and the same study-holdout sensitivity.",
+ "arms": {
+  "sequence_context": "unchanged",
+  "secondary_context": "unchanged",
+  "geometry_context": "unchanged C4' arm (reproduction reference)",
+  "shuffled_geometry_context": "unchanged",
+  "base_context": "sequence + secondary + base-resolved block (C4' block replaced)",
+  "shuffled_base_context": "base-resolved block rows permuted within profile among chemically eligible scored positions using exactly the Wave F v2 permutation (seed 20261014 + first 32 bits of SHA-256(example_id))"
+ },
+ "base_resolved_descriptors": {
+  "features": [
+   "dms_atom_sasa",
+   "o2p_sasa",
+   "base_sasa",
+   "canonical_pair",
+   "base_hbond",
+   "stack_5p",
+   "stack_3p",
+   "stack_nonlocal"
+  ],
+  "scales": {
+   "dms_atom_sasa": 10.0,
+   "o2p_sasa": 10.0,
+   "base_sasa": 100.0
+  },
+  "definition": "Analysis B, step 1 (structure only; reads no reactivity values).\n\nBase-resolved descriptors for every core nucleotide of the frozen Wave F v2 cohort, computed\nfrom the all-atom deposited crystal chain (whole chain, not only the probed core) plus the\nassay ligand where the probed profile is ligand-present. Per nucleotide (fixed physical scales):\n\n  dms_atom_sasa  SASA of the DMS-reactive atom (A N1, C N3; 0 for G/U)          / 10 A^2\n  o2p_sasa       SASA of the 2'-O (O2')                                         / 10 A^2\n  base_sasa      SASA of all base heavy atoms (base-face exposure)              / 100 A^2\n  canonical_pair cis Watson-Crick or G.U pair to any residue of the chain (0/1)\n  base_hbond     number of residues with a base-base N/O...N/O <= 3.4 A, capped at 2, / 2\n  stack_5p       base stacked on the 5' chain neighbour (0/1)\n  stack_3p       base stacked on the 3' chain neighbour (0/1)\n  stack_nonlocal base stacked on any non-neighbour residue (0/1)\n\nGeometric criteria are those of structure_features.py (frozen; identical to Analysis A).\nWrites results/analysisB_descriptors.json.\n",
+  "ligands_in_sasa": {
+   "adenine_add_SHAPE_holo": [
+    [
+     "ADE",
+     "X",
+     90
+    ]
+   ],
+   "P4P6_SHAPE_aqueous": [],
+   "P4P6_DMS_aqueous": [],
+   "TPP_DMS_holo_WT": [
+    [
+     "TPP",
+     "X",
+     100
+    ]
+   ],
+   "ydaO_DMS_holo_WT": [
+    [
+     "2BA",
+     "A",
+     203
+    ],
+    [
+     "2BA",
+     "A",
+     204
+    ]
+   ]
+  },
+  "structure_context": "whole deposited RNA chain (not only the probed core) plus assay ligand heavy atoms; no waters, ions, other chains or symmetry mates",
+  "file": "results/analysisB_descriptors.json"
+ },
+ "comparisons": "Wave F v2 four comparisons plus secondary->base, shuffled_base->base, sequence->base, geometry(C4')->base; reference minus candidate MSE per held-out lineage (positive favours base), for error_weighted (error-weighted and unweighted MSE) and the unweighted refit",
+ "interval": "Descriptive paired percentile 95% bootstrap over the 4 lineages (identical to Wave F v2); no p-values",
+ "interpretation_gate": "Base-resolved geometry is described as adding held-out information only if, in BOTH the error-weighted primary and the unweighted refit, the mean lineage difference favours base_context over secondary_context AND over shuffled_base_context, with at least 3 of 4 held-out lineages favouring base_context in each of those four comparisons. Otherwise the result is reported as null or mixed. Base-versus-sequence and base-versus-C4' are descriptive.",
+ "shuffle_calibration": {
+  "n_permutations": 500,
+  "rationale": "In the pre-freeze plumbing test on seeded random targets the inherited Wave F gate was met by chance (base and C4' arms both beat secondary on 4/4 lineages by ~1% MSE), so the single seeded shuffle is not a calibrated control. A pre-registered calibration therefore refits 500 independent within-profile shuffles of the base block (and, for reference, of the C4' block) with the full nested procedure; one-sided permutation p = (1 + #{shuffled equal-lineage MSE <= observed}) / 501, per weighting scheme.",
+  "role": "Base-resolved geometry is described as carrying information beyond its shuffled marginals only if the frozen gate is met AND the calibration p < 0.05 in both schemes. The gate alone is reported but is not sufficient."
+ },
+ "reproduction_requirement": "The run must reproduce the published Wave F v2 lineage metrics and selected alphas for the four original arms (|difference| < 1e-10) or it stops without reporting the base arm.",
+ "disclosures": [
+  "Descriptor thresholds are shared with Analysis A and were fixed on crystal structures only.",
+  "Wave F v2 results for the original four arms were known before this plan (they are the published null). No base-resolved arm had been fitted.",
+  "A plumbing test on seeded random targets was run before freezing (results/synthetic_test_analysisB.json); it contains no real data. On those random targets the inherited Wave F gate was met (base and C4' arms both beat secondary and their single shuffle), while the 500-shuffle calibration gave p = 0.08-0.14; this motivated making the calibration a required part of the interpretation."
+ ],
+ "frozen_files_sha256": {
+  "scripts/analysis_b.py": "53c4783caffc9da26a97842b9a8e4b3721355845f44f8ae4ee1f3e7c25e9ff56",
+  "scripts/base_descriptors_B.py": "1b8bbdbe36b3dae7b99a05b50dc12ec5163228cda3d71872b9dae63cd1b88629",
+  "scripts/structure_features.py": "a8321a5e81155084c17f621d29ef8e45e3900e745794c0174f8979100f0439f6",
+  "scripts/pdbtools.py": "8bea82184e58cb7cb7064ee886a2afdc2d3b5074aa4e20c5e8d6acf9c2fab590",
+  "scripts/make_plan_B.py": "333178c0646b0cd04fcd4bc9ed4b13fe8b5c66617573c21e2f6bc2ba9f9ce310",
+  "results/analysisB_descriptors.json": "4cd1c1ee74aa3957cc9a7fc9c59a96bd81f8ce0b4e7d345fb7ebadf2328d7acc",
+  "inputs/local_copies/paired_core_cohort.json": "16daa486d622ff039a5b020e3061253f11a42fb1e598ef1f42a810c9dbd2a8b8",
+  "inputs/local_copies/frozen_lineage_splits.json": "202df0934fbdad803908782176a692d07b703453812f2408a3e6ccc4f1c69b44",
+  "inputs/local_copies/forward_head_pilot.py": "1adceaa9d89b26d11a07ffeceac7394bb4e181c44ea2a26b73337402077a8ee4",
+  "inputs/local_copies/frozen_analysis_plan.json": "d5dbdc94e518c1b8e2d3d6c8e6edf223578b892d83a374fe268eb75fb3a23b6a",
+  "inputs/local_copies/v2_forward_head_results.json": "e6b96b27139fb18e6222101b155fc0c66d11f9912f4bb454dbbf4554d90a62c5",
+  "inputs/local_copies/1Y26.pdb": "03f58169ed96e29d0d03e5f947ba432d5a3092084369e1cf1d93b3b1efa79b22",
+  "inputs/local_copies/1GID.pdb": "5e5365f900792975aab3b00d8620877db46037f64666d82cc40f6e0ad63089eb",
+  "inputs/local_copies/2GDI.pdb": "8a84e7e471279968508467b3677274321d9d45659882ef6e78afa1fc164b5931",
+  "inputs/local_copies/4QLM.pdb": "a6ce266f86ce9ff0ad35306dee17e42126cd13dcd54f15ce79b79216b9e0ecc8"
+ }
+}

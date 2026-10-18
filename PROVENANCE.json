@@ -10846,6 +10846,252 @@
    "matches_packet_manifest": [
     "reliability_anomaly_off_32e2cc0f8974:verify_reliability_results.py"
    ]
+  },
+  "src/feasibility_pilot/analysis_a.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/analysis_a.py",
+   "origin_sha256": "c2715249081e331c53ce8e365839031b10230214540320d02ec317a5d541220f",
+   "bytes": 13487,
+   "sha256": "c2715249081e331c53ce8e365839031b10230214540320d02ec317a5d541220f"
+  },
+  "src/feasibility_pilot/analysis_a_posthoc.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/analysis_a_posthoc.py",
+   "origin_sha256": "c37d2cd320afc7246c1303306f4595fb3e96abcc457303a07de37d3bb459dd5c",
+   "bytes": 1477,
+   "sha256": "c37d2cd320afc7246c1303306f4595fb3e96abcc457303a07de37d3bb459dd5c"
+  },
+  "src/feasibility_pilot/analysis_b.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/analysis_b.py",
+   "origin_sha256": "53c4783caffc9da26a97842b9a8e4b3721355845f44f8ae4ee1f3e7c25e9ff56",
+   "bytes": 18186,
+   "sha256": "53c4783caffc9da26a97842b9a8e4b3721355845f44f8ae4ee1f3e7c25e9ff56"
+  },
+  "src/feasibility_pilot/analysis_b_posthoc.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/analysis_b_posthoc.py",
+   "origin_sha256": "b69ae306b2cc7b77c40bd79437405aa5bae7a7b7ae08c289eb2444ce64aba348",
+   "bytes": 2874,
+   "sha256": "b69ae306b2cc7b77c40bd79437405aa5bae7a7b7ae08c289eb2444ce64aba348"
+  },
+  "src/feasibility_pilot/base_descriptors_B.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/base_descriptors_B.py",
+   "origin_sha256": "1b8bbdbe36b3dae7b99a05b50dc12ec5163228cda3d71872b9dae63cd1b88629",
+   "bytes": 6149,
+   "sha256": "1b8bbdbe36b3dae7b99a05b50dc12ec5163228cda3d71872b9dae63cd1b88629"
+  },
+  "src/feasibility_pilot/build_classes_A.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/build_classes_A.py",
+   "origin_sha256": "89aedda02a7f062c1438df4842cd060dbefdd0d154a965b6edc1b6370a0ae039",
+   "bytes": 8329,
+   "sha256": "89aedda02a7f062c1438df4842cd060dbefdd0d154a965b6edc1b6370a0ae039"
+  },
+  "src/feasibility_pilot/collect_inputs.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/collect_inputs.py",
+   "origin_sha256": "f78c5b71f894b1d4af112973e8befcf3cfdfb6a3fe8c76e713fab7fb0129dcf8",
+   "bytes": 5048,
+   "sha256": "f78c5b71f894b1d4af112973e8befcf3cfdfb6a3fe8c76e713fab7fb0129dcf8"
+  },
+  "src/feasibility_pilot/fetch_public.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/fetch_public.py",
+   "origin_sha256": "304806bb2c10f9f28d9862d4c45070cf95b1a395f035c14452712f948abd8e9b",
+   "bytes": 1865,
+   "sha256": "304806bb2c10f9f28d9862d4c45070cf95b1a395f035c14452712f948abd8e9b"
+  },
+  "src/feasibility_pilot/finalize.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/finalize.py",
+   "origin_sha256": "dfa3eea389be0acf39989441ea70f95bbfee67821102d229f47c5eaf9f0207ee",
+   "bytes": 4290,
+   "sha256": "dfa3eea389be0acf39989441ea70f95bbfee67821102d229f47c5eaf9f0207ee"
+  },
+  "src/feasibility_pilot/make_figure.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/make_figure.py",
+   "origin_sha256": "609c563ea848a25e3316f007e7b7f26aa4a1b4c40bb984f9a00732f23e64cfc6",
+   "bytes": 6024,
+   "sha256": "609c563ea848a25e3316f007e7b7f26aa4a1b4c40bb984f9a00732f23e64cfc6"
+  },
+  "src/feasibility_pilot/make_plan_A.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/make_plan_A.py",
+   "origin_sha256": "643180ed8bed18a38f3d357dab888147f0b25cfd4a4c820fc517c68cb849ef95",
+   "bytes": 14225,
+   "sha256": "643180ed8bed18a38f3d357dab888147f0b25cfd4a4c820fc517c68cb849ef95"
+  },
+  "src/feasibility_pilot/make_plan_B.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/make_plan_B.py",
+   "origin_sha256": "333178c0646b0cd04fcd4bc9ed4b13fe8b5c66617573c21e2f6bc2ba9f9ce310",
+   "bytes": 5929,
+   "sha256": "333178c0646b0cd04fcd4bc9ed4b13fe8b5c66617573c21e2f6bc2ba9f9ce310"
+  },
+  "src/feasibility_pilot/pdbtools.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/pdbtools.py",
+   "origin_sha256": "8bea82184e58cb7cb7064ee886a2afdc2d3b5074aa4e20c5e8d6acf9c2fab590",
+   "bytes": 6894,
+   "sha256": "8bea82184e58cb7cb7064ee886a2afdc2d3b5074aa4e20c5e8d6acf9c2fab590"
+  },
+  "src/feasibility_pilot/rdat.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/rdat.py",
+   "origin_sha256": "d19d6fd98740473da1675b21df5a448e51071ba31b63edbd8cdd0801be262f9f",
+   "bytes": 3024,
+   "sha256": "d19d6fd98740473da1675b21df5a448e51071ba31b63edbd8cdd0801be262f9f"
+  },
+  "src/feasibility_pilot/rdat_header.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/rdat_header.py",
+   "origin_sha256": "88d15822b340c28b2753ef2ff56aa915a5a9a0e0eed0a217c6ac7aae3b7a3891",
+   "bytes": 806,
+   "sha256": "88d15822b340c28b2753ef2ff56aa915a5a9a0e0eed0a217c6ac7aae3b7a3891"
+  },
+  "src/feasibility_pilot/structure_features.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/structure_features.py",
+   "origin_sha256": "a8321a5e81155084c17f621d29ef8e45e3900e745794c0174f8979100f0439f6",
+   "bytes": 14560,
+   "sha256": "a8321a5e81155084c17f621d29ef8e45e3900e745794c0174f8979100f0439f6"
+  },
+  "src/feasibility_pilot/summarize_detail.py": {
+   "origin": "work/feasibility_pilot_20261018/scripts/summarize_detail.py",
+   "origin_sha256": "faf99abfbc4e1f6f2467bddaf08b9c4fae2351560bc2e68c2aa9f1540fa09719",
+   "bytes": 530,
+   "sha256": "faf99abfbc4e1f6f2467bddaf08b9c4fae2351560bc2e68c2aa9f1540fa09719"
+  },
+  "results/feasibility_pilot_20261018/plans/FREEZE_LOG.txt": {
+   "origin": "work/feasibility_pilot_20261018/plans/FREEZE_LOG.txt",
+   "origin_sha256": "dd7b103b9d097bd3a9305dfa475f18a7ba8e54b779f9fb3245214a1d116f8177",
+   "bytes": 359,
+   "sha256": "dd7b103b9d097bd3a9305dfa475f18a7ba8e54b779f9fb3245214a1d116f8177"
+  },
+  "results/feasibility_pilot_20261018/plans/analysisA_plan.json": {
+   "origin": "work/feasibility_pilot_20261018/plans/analysisA_plan.json",
+   "origin_sha256": "010e2f22cb8a376f7c82903b09d516be42706f70d827d93a46c115a5f2c8cd48",
+   "bytes": 45062,
+   "sha256": "010e2f22cb8a376f7c82903b09d516be42706f70d827d93a46c115a5f2c8cd48"
+  },
+  "results/feasibility_pilot_20261018/plans/analysisA_plan.sha256": {
+   "origin": "work/feasibility_pilot_20261018/plans/analysisA_plan.sha256",
+   "origin_sha256": "b1f67148f937e460e3384e19a80f0ffbb5003daf55730b4d41b2956d1f8ce610",
+   "bytes": 92,
+   "sha256": "b1f67148f937e460e3384e19a80f0ffbb5003daf55730b4d41b2956d1f8ce610"
+  },
+  "results/feasibility_pilot_20261018/plans/analysisB_plan.json": {
+   "origin": "work/feasibility_pilot_20261018/plans/analysisB_plan.json",
+   "origin_sha256": "29712078efd5f5bdc4b4dd96e62675add37b83fac76368fff01e72d891e2899c",
+   "bytes": 7768,
+   "sha256": "29712078efd5f5bdc4b4dd96e62675add37b83fac76368fff01e72d891e2899c"
+  },
+  "results/feasibility_pilot_20261018/plans/analysisB_plan.sha256": {
+   "origin": "work/feasibility_pilot_20261018/plans/analysisB_plan.sha256",
+   "origin_sha256": "623f24cf321d4041493307b80908fe80d2fedea166e6a0ad09c3e8ec02a76d71",
+   "bytes": 92,
+   "sha256": "623f24cf321d4041493307b80908fe80d2fedea166e6a0ad09c3e8ec02a76d71"
+  },
+  "results/feasibility_pilot_20261018/results/RESULTS_INDEX.json": {
+   "origin": "work/feasibility_pilot_20261018/results/RESULTS_INDEX.json",
+   "origin_sha256": "a1d37297bddac83953a16e51f4029f84d1c690076b69f03d8d081eda69fbfe7a",
+   "bytes": 19040,
+   "sha256": "a1d37297bddac83953a16e51f4029f84d1c690076b69f03d8d081eda69fbfe7a"
+  },
+  "results/feasibility_pilot_20261018/results/analysisA_classes.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisA_classes.json",
+   "origin_sha256": "f892ffaec463661bdbb737b866350084d68f1ded179bbc06832e54a425071342",
+   "bytes": 673649,
+   "sha256": "f892ffaec463661bdbb737b866350084d68f1ded179bbc06832e54a425071342"
+  },
+  "results/feasibility_pilot_20261018/results/analysisA_per_position.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisA_per_position.json",
+   "origin_sha256": "37105a882b88f62f2e233ff40a91dc0e76bb9d5322d7401ab23813f99b6d6c71",
+   "bytes": 434375,
+   "sha256": "37105a882b88f62f2e233ff40a91dc0e76bb9d5322d7401ab23813f99b6d6c71"
+  },
+  "results/feasibility_pilot_20261018/results/analysisA_posthoc_response_magnitude.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisA_posthoc_response_magnitude.json",
+   "origin_sha256": "b4e2d440e49a6f07888ca8f829ed1253cf51169a1471b83441dc8169f47225f0",
+   "bytes": 4852,
+   "sha256": "b4e2d440e49a6f07888ca8f829ed1253cf51169a1471b83441dc8169f47225f0"
+  },
+  "results/feasibility_pilot_20261018/results/analysisA_results.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisA_results.json",
+   "origin_sha256": "d86596efc379e389f3e46ac5973c76fc8a808b9483bacfd0a6e169dfa80ec1d9",
+   "bytes": 130699,
+   "sha256": "d86596efc379e389f3e46ac5973c76fc8a808b9483bacfd0a6e169dfa80ec1d9"
+  },
+  "results/feasibility_pilot_20261018/results/analysisB_descriptors.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisB_descriptors.json",
+   "origin_sha256": "4cd1c1ee74aa3957cc9a7fc9c59a96bd81f8ce0b4e7d345fb7ebadf2328d7acc",
+   "bytes": 280176,
+   "sha256": "4cd1c1ee74aa3957cc9a7fc9c59a96bd81f8ce0b4e7d345fb7ebadf2328d7acc"
+  },
+  "results/feasibility_pilot_20261018/results/analysisB_held_out_predictions.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisB_held_out_predictions.json",
+   "origin_sha256": "68ea2a8c851afaf39dec8bfcc75210c8cbba41bdf1f96a9a2e8e9af7df42e20a",
+   "bytes": 805717,
+   "sha256": "68ea2a8c851afaf39dec8bfcc75210c8cbba41bdf1f96a9a2e8e9af7df42e20a"
+  },
+  "results/feasibility_pilot_20261018/results/analysisB_posthoc_correlation_calibration.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisB_posthoc_correlation_calibration.json",
+   "origin_sha256": "779e97456af833b19e1b2ccbc1672a0868075d0c102df23887734a8d500a1cd5",
+   "bytes": 2960,
+   "sha256": "779e97456af833b19e1b2ccbc1672a0868075d0c102df23887734a8d500a1cd5"
+  },
+  "results/feasibility_pilot_20261018/results/analysisB_results.json": {
+   "origin": "work/feasibility_pilot_20261018/results/analysisB_results.json",
+   "origin_sha256": "fdde6aa10c87451ad2e4977cf31b86f14c650362545f3092aca0306536c0baf0",
+   "bytes": 134655,
+   "sha256": "fdde6aa10c87451ad2e4977cf31b86f14c650362545f3092aca0306536c0baf0"
+  },
+  "results/feasibility_pilot_20261018/results/synthetic_test_analysisA.json": {
+   "origin": "work/feasibility_pilot_20261018/results/synthetic_test_analysisA.json",
+   "origin_sha256": "20e5c553253c421112ca7abb09e610057cd32fca0afde9dd1d574c8047077ec8",
+   "bytes": 130481,
+   "sha256": "20e5c553253c421112ca7abb09e610057cd32fca0afde9dd1d574c8047077ec8"
+  },
+  "results/feasibility_pilot_20261018/results/synthetic_test_analysisB.json": {
+   "origin": "work/feasibility_pilot_20261018/results/synthetic_test_analysisB.json",
+   "origin_sha256": "adf8577cf9c49b8522c35eaacaa40eb24359e772630f2c58c93dd74ed0a24a1e",
+   "bytes": 134680,
+   "sha256": "adf8577cf9c49b8522c35eaacaa40eb24359e772630f2c58c93dd74ed0a24a1e"
+  },
+  "results/feasibility_pilot_20261018/logs/analysisA_run.log": {
+   "origin": "work/feasibility_pilot_20261018/logs/analysisA_run.log",
+   "origin_sha256": "65fdfe4e63e1559d4cad32de377a6cbf9af79a1578b4047c55081febf0326880",
+   "bytes": 2665,
+   "sha256": "65fdfe4e63e1559d4cad32de377a6cbf9af79a1578b4047c55081febf0326880"
+  },
+  "results/feasibility_pilot_20261018/logs/analysisB_posthoc.log": {
+   "origin": "work/feasibility_pilot_20261018/logs/analysisB_posthoc.log",
+   "origin_sha256": "70d8cbc9535a47fe140e93d8e18406ed93a77f311a63a641023a00c50034c834",
+   "bytes": 502,
+   "sha256": "70d8cbc9535a47fe140e93d8e18406ed93a77f311a63a641023a00c50034c834"
+  },
+  "results/feasibility_pilot_20261018/logs/analysisB_run.log": {
+   "origin": "work/feasibility_pilot_20261018/logs/analysisB_run.log",
+   "origin_sha256": "3141d6457d3c3b1c33a7a0fd535ea9127e9454cedc242ad90e338117bc4ef86c",
+   "bytes": 2567,
+   "sha256": "3141d6457d3c3b1c33a7a0fd535ea9127e9454cedc242ad90e338117bc4ef86c"
+  },
+  "results/feasibility_pilot_20261018/RESULTS_SUMMARY.md": {
+   "origin": "work/feasibility_pilot_20261018/RESULTS_SUMMARY.md",
+   "origin_sha256": "39e966ee2a21417540cab398d013b71c98ae3b7b9db965def55c35f27ab8bcc0",
+   "bytes": 18956,
+   "sha256": "39e966ee2a21417540cab398d013b71c98ae3b7b9db965def55c35f27ab8bcc0"
+  },
+  "results/feasibility_pilot_20261018/OUTPUT_MANIFEST.json": {
+   "origin": "work/feasibility_pilot_20261018/OUTPUT_MANIFEST.json",
+   "origin_sha256": "21a43b3cdc9174fb7ac048a2075f2e706dd776a81913ad11a96bbf468fb8ed01",
+   "bytes": 4134,
+   "sha256": "21a43b3cdc9174fb7ac048a2075f2e706dd776a81913ad11a96bbf468fb8ed01"
+  },
+  "results/feasibility_pilot_20261018/figures/feasibility_pilot_figure.png": {
+   "origin": "work/feasibility_pilot_20261018/figures/feasibility_pilot_figure.png",
+   "origin_sha256": "802c71f183baa39dba25cda4aedf17c068d4dc84604ab732e1bc443f9b16afb7",
+   "bytes": 228675,
+   "sha256": "802c71f183baa39dba25cda4aedf17c068d4dc84604ab732e1bc443f9b16afb7"
+  },
+  "results/feasibility_pilot_20261018/inputs/INPUT_MANIFEST.json": {
+   "origin": "work/feasibility_pilot_20261018/inputs/INPUT_MANIFEST.json",
+   "origin_sha256": "b7753101340e38d60d3a3e8434e1ef10dd26b14d1b3645a7da7589778b405803",
+   "bytes": 55624,
+   "sha256": "b7753101340e38d60d3a3e8434e1ef10dd26b14d1b3645a7da7589778b405803"
+  },
+  "results/feasibility_pilot_20261018/inputs/download_log.jsonl": {
+   "origin": "work/feasibility_pilot_20261018/inputs/download_log.jsonl",
+   "origin_sha256": "632031b4fcd1af978effe7c92b288e611cb87d27c192867e0eec02d8bfd805f1",
+   "bytes": 39256,
+   "sha256": "632031b4fcd1af978effe7c92b288e611cb87d27c192867e0eec02d8bfd805f1"
   }
  }
 }

@@ -1,0 +1,20 @@
+error_weighted {'sequence_context': 0.0923, 'secondary_context': 0.0859, 'geometry_context': 0.0889, 'shuffled_geometry_context': 0.0881, 'base_context': 0.0853, 'shuffled_base_context': 0.0897}
+unweighted {'sequence_context': 0.2196, 'secondary_context': 0.2151, 'geometry_context': 0.2197, 'shuffled_geometry_context': 0.2135, 'base_context': 0.2111, 'shuffled_base_context': 0.2207}
+error_weighted  error_weighted_mse  secondary_context        -> base  mean +0.0006 rel +0.007 CI [-0.0014,+0.0025] favour 2/4
+error_weighted  error_weighted_mse  shuffled_base_context    -> base  mean +0.0044 rel +0.049 CI [-0.0023,+0.0153] favour 2/4
+error_weighted  error_weighted_mse  sequence_context         -> base  mean +0.0070 rel +0.076 CI [-0.0033,+0.0173] favour 3/4
+error_weighted  error_weighted_mse  geometry_context         -> base  mean +0.0035 rel +0.040 CI [-0.0004,+0.0092] favour 3/4
+error_weighted  unweighted_mse      secondary_context        -> base  mean -0.0035 rel -0.018 CI [-0.0083,-0.0004] favour 0/4
+error_weighted  unweighted_mse      shuffled_base_context    -> base  mean +0.0013 rel +0.006 CI [-0.0111,+0.0172] favour 1/4
+error_weighted  unweighted_mse      sequence_context         -> base  mean +0.0105 rel +0.048 CI [-0.0033,+0.0242] favour 3/4
+error_weighted  unweighted_mse      geometry_context         -> base  mean +0.0058 rel +0.027 CI [-0.0004,+0.0120] favour 3/4
+unweighted      unweighted_mse      secondary_context        -> base  mean +0.0039 rel +0.018 CI [-0.0031,+0.0133] favour 2/4
+unweighted      unweighted_mse      shuffled_base_context    -> base  mean +0.0095 rel +0.043 CI [-0.0041,+0.0232] favour 2/4
+unweighted      unweighted_mse      sequence_context         -> base  mean +0.0085 rel +0.039 CI [-0.0077,+0.0246] favour 2/4
+unweighted      unweighted_mse      geometry_context         -> base  mean +0.0085 rel +0.039 CI [-0.0003,+0.0178] favour 3/4
+gate {'error_weighted:secondary_context': False, 'error_weighted:shuffled_base_context': False, 'unweighted:secondary_context': False, 'unweighted:shuffled_base_context': False} False
+calibration error_weighted:base_context obs 0.0853 null mean 0.0907 p 0.1437
+calibration error_weighted:geometry_context obs 0.0889 null mean 0.0888 p 0.6806
+calibration unweighted:base_context obs 0.2111 null mean 0.2389 p 0.0519
+calibration unweighted:geometry_context obs 0.2197 null mean 0.2157 p 0.8483
+reproduction {'passed': True, 'max_abs_difference': 0.0, 'n_values_checked': 96, 'published_results_sha256': 'e6b96b27139fb18e6222101b155fc0c66d11f9912f4bb454dbbf4554d90a62c5'}

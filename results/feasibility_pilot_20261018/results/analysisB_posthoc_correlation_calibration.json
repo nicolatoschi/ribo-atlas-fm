@@ -1,0 +1,95 @@
+{
+ "status": "post_hoc_not_preregistered",
+ "endpoint": "equal-lineage mean of held-out within-profile Pearson r",
+ "n_permutations": 500,
+ "results": {
+  "error_weighted:base_context": {
+   "observed_mean_r": 0.532874162476886,
+   "null_mean_r": 0.37951710299335745,
+   "null_r_2.5_97.5": [
+    0.3265644675048241,
+    0.4304038316880008
+   ],
+   "p_one_sided_r_ge_observed": 0.001996007984031936,
+   "mse_null_mean_matches_frozen_run": true,
+   "observed_lineage_r": {
+    "P4P6_groupI": 0.471707546340036,
+    "TPP_riboswitch": 0.3747139593243209,
+    "adenine_add": 0.7242529489235476,
+    "ydao_cdiamp_riboswitch": 0.5608221953196394
+   },
+   "secondary_lineage_r": {
+    "P4P6_groupI": 0.4132706193372655,
+    "TPP_riboswitch": 0.2393346032569366,
+    "adenine_add": 0.5365664541708269,
+    "ydao_cdiamp_riboswitch": 0.4975651870126405
+   }
+  },
+  "error_weighted:geometry_context": {
+   "observed_mean_r": 0.3975506527904422,
+   "null_mean_r": 0.3729846620616335,
+   "null_r_2.5_97.5": [
+    0.3118849268083095,
+    0.4352259666138295
+   ],
+   "p_one_sided_r_ge_observed": 0.2155688622754491,
+   "mse_null_mean_matches_frozen_run": true,
+   "observed_lineage_r": {
+    "P4P6_groupI": 0.4136772989407418,
+    "TPP_riboswitch": 0.19123818184642807,
+    "adenine_add": 0.49077704708190034,
+    "ydao_cdiamp_riboswitch": 0.4945100832926988
+   },
+   "secondary_lineage_r": {
+    "P4P6_groupI": 0.4132706193372655,
+    "TPP_riboswitch": 0.2393346032569366,
+    "adenine_add": 0.5365664541708269,
+    "ydao_cdiamp_riboswitch": 0.4975651870126405
+   }
+  },
+  "unweighted:base_context": {
+   "observed_mean_r": 0.5208005239601797,
+   "null_mean_r": 0.3679970877508987,
+   "null_r_2.5_97.5": [
+    0.3136336266019167,
+    0.4129214345322871
+   ],
+   "p_one_sided_r_ge_observed": 0.001996007984031936,
+   "mse_null_mean_matches_frozen_run": true,
+   "observed_lineage_r": {
+    "P4P6_groupI": 0.3983863614345592,
+    "TPP_riboswitch": 0.37931127953281035,
+    "adenine_add": 0.693767515983719,
+    "ydao_cdiamp_riboswitch": 0.6117369388896304
+   },
+   "secondary_lineage_r": {
+    "P4P6_groupI": 0.39052938712808627,
+    "TPP_riboswitch": 0.2147882106195019,
+    "adenine_add": 0.43685500750914286,
+    "ydao_cdiamp_riboswitch": 0.5533178416300183
+   }
+  },
+  "unweighted:geometry_context": {
+   "observed_mean_r": 0.4047413424551902,
+   "null_mean_r": 0.3682918674870566,
+   "null_r_2.5_97.5": [
+    0.2971508360364423,
+    0.42670454976713096
+   ],
+   "p_one_sided_r_ge_observed": 0.12574850299401197,
+   "mse_null_mean_matches_frozen_run": true,
+   "observed_lineage_r": {
+    "P4P6_groupI": 0.3896182861467372,
+    "TPP_riboswitch": 0.20620481346235497,
+    "adenine_add": 0.4824055662726098,
+    "ydao_cdiamp_riboswitch": 0.540736703939059
+   },
+   "secondary_lineage_r": {
+    "P4P6_groupI": 0.39052938712808627,
+    "TPP_riboswitch": 0.2147882106195019,
+    "adenine_add": 0.43685500750914286,
+    "ydao_cdiamp_riboswitch": 0.5533178416300183
+   }
+  }
+ }
+}

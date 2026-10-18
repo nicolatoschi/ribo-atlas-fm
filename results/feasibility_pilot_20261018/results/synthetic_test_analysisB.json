@@ -1,0 +1,4711 @@
+{
+ "schema": "feasibility-analysisB-v1",
+ "completed_utc": "2026-10-17T23:07:05.156487+00:00",
+ "synthetic_plumbing_test": true,
+ "plan_sha256": "eb6fedb065588735da5b2f475ff1e3916b3352c6e501be399c698b1157eb57e7",
+ "code_sha256": "53c4783caffc9da26a97842b9a8e4b3721355845f44f8ae4ee1f3e7c25e9ff56",
+ "wavef_code_sha256": "1adceaa9d89b26d11a07ffeceac7394bb4e181c44ea2a26b73337402077a8ee4",
+ "cohort_sha256": "16daa486d622ff039a5b020e3061253f11a42fb1e598ef1f42a810c9dbd2a8b8",
+ "descriptors_sha256": "4cd1c1ee74aa3957cc9a7fc9c59a96bd81f8ce0b4e7d345fb7ebadf2328d7acc",
+ "numpy": "2.5.0",
+ "n_common_observations": 382,
+ "arms": [
+  "sequence_context",
+  "secondary_context",
+  "geometry_context",
+  "shuffled_geometry_context",
+  "base_context",
+  "shuffled_base_context"
+ ],
+ "feature_counts": {
+  "sequence_context": 123,
+  "secondary_context": 153,
+  "geometry_context": 207,
+  "shuffled_geometry_context": 207,
+  "base_context": 177,
+  "shuffled_base_context": 177
+ },
+ "shuffled_base_marginal_audit": [
+  {
+   "example_id": "adenine_add_SHAPE_holo",
+   "n_scored_rows": 71,
+   "scored_row_base_marginal_preserved": true,
+   "fraction_rows_with_changed_base_block": 1.0
+  },
+  {
+   "example_id": "P4P6_SHAPE_aqueous",
+   "n_scored_rows": 158,
+   "scored_row_base_marginal_preserved": true,
+   "fraction_rows_with_changed_base_block": 0.9746835443037974
+  },
+  {
+   "example_id": "P4P6_DMS_aqueous",
+   "n_scored_rows": 78,
+   "scored_row_base_marginal_preserved": true,
+   "fraction_rows_with_changed_base_block": 0.9871794871794872
+  },
+  {
+   "example_id": "TPP_DMS_holo_WT",
+   "n_scored_rows": 36,
+   "scored_row_base_marginal_preserved": true,
+   "fraction_rows_with_changed_base_block": 0.9166666666666666
+  },
+  {
+   "example_id": "ydaO_DMS_holo_WT",
+   "n_scored_rows": 39,
+   "scored_row_base_marginal_preserved": true,
+   "fraction_rows_with_changed_base_block": 0.9487179487179487
+  }
+ ],
+ "wavef_reproduction_check": {
+  "passed": null,
+  "reason": "synthetic"
+ },
+ "shuffle_calibration": {
+  "error_weighted:base_context": {
+   "metric": "error_weighted_mse",
+   "n_permutations": 500,
+   "observed_equal_lineage_mse": 0.19771450759630546,
+   "null_mean_mse": 0.19988857623333586,
+   "null_2.5_97.5": [
+    0.1968775729043953,
+    0.20268361813512617
+   ],
+   "observed_minus_null_mean": -0.002174068637030402,
+   "p_one_sided_observed_mse_le_shuffled": 0.08582834331337326,
+   "per_lineage_fraction_of_shuffles_beaten": {
+    "P4P6_groupI": 0.622,
+    "TPP_riboswitch": 0.946,
+    "adenine_add": 0.776,
+    "ydao_cdiamp_riboswitch": 0.91
+   }
+  },
+  "error_weighted:geometry_context": {
+   "metric": "error_weighted_mse",
+   "n_permutations": 500,
+   "observed_equal_lineage_mse": 0.19744441185689504,
+   "null_mean_mse": 0.19967893163789052,
+   "null_2.5_97.5": [
+    0.19444092857106773,
+    0.2036413088166277
+   ],
+   "observed_minus_null_mean": -0.002234519780995481,
+   "p_one_sided_observed_mse_le_shuffled": 0.1217564870259481,
+   "per_lineage_fraction_of_shuffles_beaten": {
+    "P4P6_groupI": 0.884,
+    "TPP_riboswitch": 0.716,
+    "adenine_add": 0.674,
+    "ydao_cdiamp_riboswitch": 0.888
+   }
+  },
+  "unweighted:base_context": {
+   "metric": "unweighted_mse",
+   "n_permutations": 500,
+   "observed_equal_lineage_mse": 0.1936325436137518,
+   "null_mean_mse": 0.1956899348585501,
+   "null_2.5_97.5": [
+    0.19274866956266462,
+    0.19831656628873537
+   ],
+   "observed_minus_null_mean": -0.0020573912447983123,
+   "p_one_sided_observed_mse_le_shuffled": 0.08183632734530938,
+   "per_lineage_fraction_of_shuffles_beaten": {
+    "P4P6_groupI": 0.594,
+    "TPP_riboswitch": 0.95,
+    "adenine_add": 0.744,
+    "ydao_cdiamp_riboswitch": 0.91
+   }
+  },
+  "unweighted:geometry_context": {
+   "metric": "unweighted_mse",
+   "n_permutations": 500,
+   "observed_equal_lineage_mse": 0.19354596000711288,
+   "null_mean_mse": 0.19552998107592298,
+   "null_2.5_97.5": [
+    0.19036915024829623,
+    0.1994289361665009
+   ],
+   "observed_minus_null_mean": -0.001984021068810099,
+   "p_one_sided_observed_mse_le_shuffled": 0.13572854291417166,
+   "per_lineage_fraction_of_shuffles_beaten": {
+    "P4P6_groupI": 0.838,
+    "TPP_riboswitch": 0.732,
+    "adenine_add": 0.532,
+    "ydao_cdiamp_riboswitch": 0.886
+   }
+  }
+ },
+ "schemes": {
+  "error_weighted": {
+   "arms": {
+    "sequence_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 5.908616084767956,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.5038321719012997
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.5034003741976689
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.4991721047951588
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.4631953034958764
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3001444183117963
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17595658436299477
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.04210771374601,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.25727700249990293
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.2571269205536704
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.2556966712592807
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.24594274600573254
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22275952562874846
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20772093647433235
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.030587888037227,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7570133352299854
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.7564498564112606
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.7508670279648256
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.6998260268724477
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.4440167632232557
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.24305066083921403
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.054037566743294,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.29636718266733114
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.2960795836556291
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.2932892804054267
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.27179615175442107
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21435517542127977
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.1972162751063814
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4298795018088875,
+       "unweighted_mse": 0.4070694564253061,
+       "pearson_correlation": 0.25841170510801337
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17683562928493146,
+       "unweighted_mse": 0.17503918309143854,
+       "pearson_correlation": 0.028669422158211527
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.185294839114931,
+       "unweighted_mse": 0.185294839114931,
+       "pearson_correlation": 0.010440829114162421
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.12299162864789717,
+       "unweighted_mse": 0.11892548324261193,
+       "pearson_correlation": -0.001609784945991074
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.1902848574489169,
+       "unweighted_mse": 0.1902848574489169,
+       "pearson_correlation": -0.04242324017696234
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.3033575655469095,
+       "unweighted_mse": 0.2910543197583723,
+       "pearson_correlation": 0.14354056363311246
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.185294839114931,
+       "unweighted_mse": 0.185294839114931,
+       "pearson_correlation": 0.010440829114162421
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.12299162864789717,
+       "unweighted_mse": 0.11892548324261193,
+       "pearson_correlation": -0.001609784945991074
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.1902848574489169,
+       "unweighted_mse": 0.1902848574489169,
+       "pearson_correlation": -0.04242324017696234
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4298795018088875,
+         "unweighted_mse": 0.4070694564253061,
+         "pearson_correlation": 0.25841170510801337
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.185294839114931,
+         "unweighted_mse": 0.185294839114931,
+         "pearson_correlation": 0.010440829114162421
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.1902848574489169,
+         "unweighted_mse": 0.1902848574489169,
+         "pearson_correlation": -0.04242324017696234
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.26848639945757846,
+       "equal_lineage_unweighted_mse": 0.26088305099638465
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17683562928493146,
+         "unweighted_mse": 0.17503918309143854,
+         "pearson_correlation": 0.028669422158211527
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12299162864789717,
+         "unweighted_mse": 0.11892548324261193,
+         "pearson_correlation": -0.001609784945991074
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.1499136289664143,
+       "equal_lineage_unweighted_mse": 0.14698233316702525
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.20048222268966365,
+     "equal_lineage_unweighted_mse": 0.19638987489120802
+    },
+    "secondary_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.529323044062859,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6616063520406016
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6544820789812389
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5996422948004999
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.4482386690637439
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2735734648240664
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17317737540652503
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.710716014674187,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.34275852809900137
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.3397300169999475
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.31703703584598736
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.2618323578919036
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22263612994454793
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.2085740994645132
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.696807202712366,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6658375185081411
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6652347579068806
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6593986628170366
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.6127686211044564
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.406094325243441
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.239381853781145
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.7122972725522,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.4005725755356564
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.39934354145616374
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.3884475866555401
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3299330800067074
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2244323152082478
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.197400497474687
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.42912942995796105,
+       "unweighted_mse": 0.40629036559027715,
+       "pearson_correlation": 0.2451467726955302
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.1780245317332225,
+       "unweighted_mse": 0.17620934235359795,
+       "pearson_correlation": -0.010720112135528509
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18226124130170016,
+       "unweighted_mse": 0.18226124130170016,
+       "pearson_correlation": 0.083530123512794
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.12351480155731595,
+       "unweighted_mse": 0.11944593509452205,
+       "pearson_correlation": -0.013786390978263624
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18868440397548314,
+       "unweighted_mse": 0.18868440397548314,
+       "pearson_correlation": 0.011572358186833028
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.30357698084559176,
+       "unweighted_mse": 0.29124985397193753,
+       "pearson_correlation": 0.11721333028000085
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18226124130170016,
+       "unweighted_mse": 0.18226124130170016,
+       "pearson_correlation": 0.083530123512794
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.12351480155731595,
+       "unweighted_mse": 0.11944593509452205,
+       "pearson_correlation": -0.013786390978263624
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18868440397548314,
+       "unweighted_mse": 0.18868440397548314,
+       "pearson_correlation": 0.011572358186833028
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.42912942995796105,
+         "unweighted_mse": 0.40629036559027715,
+         "pearson_correlation": 0.2451467726955302
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18226124130170016,
+         "unweighted_mse": 0.18226124130170016,
+         "pearson_correlation": 0.083530123512794
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18868440397548314,
+         "unweighted_mse": 0.18868440397548314,
+         "pearson_correlation": 0.011572358186833028
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2666916917450481,
+       "equal_lineage_unweighted_mse": 0.2590786702891535
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.1780245317332225,
+         "unweighted_mse": 0.17620934235359795,
+         "pearson_correlation": -0.010720112135528509
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12351480155731595,
+         "unweighted_mse": 0.11944593509452205,
+         "pearson_correlation": -0.013786390978263624
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.15076966664526922,
+       "equal_lineage_unweighted_mse": 0.14782763872406
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19950935692002275,
+     "equal_lineage_unweighted_mse": 0.19541035858591072
+    },
+    "geometry_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.03488856966235,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 4.263211809174706
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.9687999913534284
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.8323322106584353
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.36351547847439103
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.25996864692028687
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.1755818553304105
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.286367633995878,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 1.719351280513106
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.790012241109218
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.416037596206037
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.28131706816247554
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2254516494064813
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20753940657828507
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.33429169815294,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.867187601263948
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.8097461152210409
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6084732981357254
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5246380937352347
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3703182648152182
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.23391945694240304
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.244263568105666,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 3.2578768100694204
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6135173569445368
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.4595646840657306
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.33628686031457705
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22170662311006104
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19747993019144325
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4204658234779303,
+       "unweighted_mse": 0.39909232015460905,
+       "pearson_correlation": 0.2642693912942933
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.18030230566985406,
+       "unweighted_mse": 0.1784787317046133,
+       "pearson_correlation": -0.03629680228322456
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18101152169017434,
+       "unweighted_mse": 0.18101152169017432,
+       "pearson_correlation": 0.07298395230773083
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.12334391744139868,
+       "unweighted_mse": 0.11920466064585754,
+       "pearson_correlation": 0.026775705613580655
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18503814372211497,
+       "unweighted_mse": 0.18503814372211497,
+       "pearson_correlation": 0.05095073065063062
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.3003840645738922,
+       "unweighted_mse": 0.28878552592961115,
+       "pearson_correlation": 0.11398629450553435
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18101152169017434,
+       "unweighted_mse": 0.18101152169017432,
+       "pearson_correlation": 0.07298395230773083
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.12334391744139868,
+       "unweighted_mse": 0.11920466064585754,
+       "pearson_correlation": 0.026775705613580655
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18503814372211497,
+       "unweighted_mse": 0.18503814372211497,
+       "pearson_correlation": 0.05095073065063062
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4204658234779303,
+         "unweighted_mse": 0.39909232015460905,
+         "pearson_correlation": 0.2642693912942933
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18101152169017434,
+         "unweighted_mse": 0.18101152169017432,
+         "pearson_correlation": 0.07298395230773083
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18503814372211497,
+         "unweighted_mse": 0.18503814372211497,
+         "pearson_correlation": 0.05095073065063062
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.26217182963007324,
+       "equal_lineage_unweighted_mse": 0.25504732852229944
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.18030230566985406,
+         "unweighted_mse": 0.1784787317046133,
+         "pearson_correlation": -0.03629680228322456
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12334391744139868,
+         "unweighted_mse": 0.11920466064585754,
+         "pearson_correlation": 0.026775705613580655
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.15182311155562636,
+       "equal_lineage_unweighted_mse": 0.14884169617523543
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19744441185689504,
+     "equal_lineage_unweighted_mse": 0.1935099629969395
+    },
+    "shuffled_geometry_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.24497006270224,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 3.006597481798431
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.5797983048775421
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.9929252436166457
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5166695304465103
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2428894845686603
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17223019292491162
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.50825709902582,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7053904803685546
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.38905939789965965
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.31945866916304505
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.25471331129227726
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21579911162107757
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20533353560533718
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.551988795871452,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7994527351077786
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.771766912643379
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6602579598205374
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5736350152418573
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3865314252359147
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.24189416498119676
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.463759634748488,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.8298540429421384
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.643411826376663
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5289809496855805
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.36683780060477195
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.23556928045935785
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19973662451775742
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4286516558697398,
+       "unweighted_mse": 0.4058591983480866,
+       "pearson_correlation": 0.20646621861797787
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17781605610641077,
+       "unweighted_mse": 0.17598904583770447,
+       "pearson_correlation": -0.008830551231088063
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18654860084467673,
+       "unweighted_mse": 0.1865486008446767,
+       "pearson_correlation": -0.037483558003412916
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.12364984809408812,
+       "unweighted_mse": 0.11956235237573301,
+       "pearson_correlation": -0.004812952401294094
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.19173196176822224,
+       "unweighted_mse": 0.19173196176822224,
+       "pearson_correlation": 0.0014217400012295303
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.3032338559880753,
+       "unweighted_mse": 0.29092412209289553,
+       "pearson_correlation": 0.0988178336934449
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18654860084467673,
+       "unweighted_mse": 0.1865486008446767,
+       "pearson_correlation": -0.037483558003412916
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.12364984809408812,
+       "unweighted_mse": 0.11956235237573301,
+       "pearson_correlation": -0.004812952401294094
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.19173196176822224,
+       "unweighted_mse": 0.19173196176822224,
+       "pearson_correlation": 0.0014217400012295303
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4286516558697398,
+         "unweighted_mse": 0.4058591983480866,
+         "pearson_correlation": 0.20646621861797787
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18654860084467673,
+         "unweighted_mse": 0.1865486008446767,
+         "pearson_correlation": -0.037483558003412916
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.19173196176822224,
+         "unweighted_mse": 0.19173196176822224,
+         "pearson_correlation": 0.0014217400012295303
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2689774061608796,
+       "equal_lineage_unweighted_mse": 0.26137992032032853
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17781605610641077,
+         "unweighted_mse": 0.17598904583770447,
+         "pearson_correlation": -0.008830551231088063
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12364984809408812,
+         "unweighted_mse": 0.11956235237573301,
+         "pearson_correlation": -0.004812952401294094
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.15073295210024945,
+       "equal_lineage_unweighted_mse": 0.14777569910671873
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.2012910666737656,
+     "equal_lineage_unweighted_mse": 0.19719175927038188
+    },
+    "base_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.710757442534446,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7010670845183796
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6574637830844159
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.4772645130661633
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.2777029420538423
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.19818047021657503
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.168236872182335
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.939534500132007,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.47844669898606246
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.4614495194138047
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.3845859826623567
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.27634423790104284
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22424795436160724
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20912140545147997
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.96680308990397,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.41305935923192827
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.41180617148235915
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.4008287045509232
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.34989770400430226
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2815145947992565
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.23331460261157114
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.96432680360027,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.4945872203040729
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.4898160901120847
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.45992956530395873
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3609998146271438
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2292607098987518
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19831229819433135
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4290427623480705,
+       "unweighted_mse": 0.40634876497798095,
+       "pearson_correlation": 0.14530621269840122
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17739554704714888,
+       "unweighted_mse": 0.17568690768987014,
+       "pearson_correlation": 0.006509863204943471
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.17881328196559482,
+       "unweighted_mse": 0.17881328196559482,
+       "pearson_correlation": 0.14481516792592702
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.12311634188561163,
+       "unweighted_mse": 0.11914383090313214,
+       "pearson_correlation": 0.009076326175655802
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18570925183640577,
+       "unweighted_mse": 0.18570925183640577,
+       "pearson_correlation": 0.06854514077030888
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.3032191546976097,
+       "unweighted_mse": 0.29101783633392553,
+       "pearson_correlation": 0.07590803795167235
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.17881328196559482,
+       "unweighted_mse": 0.17881328196559482,
+       "pearson_correlation": 0.14481516792592702
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.12311634188561163,
+       "unweighted_mse": 0.11914383090313214,
+       "pearson_correlation": 0.009076326175655802
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18570925183640577,
+       "unweighted_mse": 0.18570925183640577,
+       "pearson_correlation": 0.06854514077030888
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4290427623480705,
+         "unweighted_mse": 0.40634876497798095,
+         "pearson_correlation": 0.14530621269840122
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17881328196559482,
+         "unweighted_mse": 0.17881328196559482,
+         "pearson_correlation": 0.14481516792592702
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18570925183640577,
+         "unweighted_mse": 0.18570925183640577,
+         "pearson_correlation": 0.06854514077030888
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.26452176538335703,
+       "equal_lineage_unweighted_mse": 0.2569570995933272
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17739554704714888,
+         "unweighted_mse": 0.17568690768987014,
+         "pearson_correlation": 0.006509863204943471
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12311634188561163,
+         "unweighted_mse": 0.11914383090313214,
+         "pearson_correlation": 0.009076326175655802
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.15025594446638024,
+       "equal_lineage_unweighted_mse": 0.14741536929650115
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19771450759630546,
+     "equal_lineage_unweighted_mse": 0.19367105025976455
+    },
+    "shuffled_base_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.858150835134987,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 1.241200121629631
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.1887406425650342
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.8892925483577052
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5019113048170784
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.283702289116478
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17441334423658097
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.081267944898206,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6309256486458775
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6124802932760275
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5024576587469899
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3221157628304775
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2248831934849155
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.2072730808126869
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.111144044104112,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6243268167899845
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6235108847529469
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6160568815074208
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5728272098643389
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3943663940012823
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.23886338758842385
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.087295603233779,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6741553032855742
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6598969018319628
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5748807773488028
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.40592610742184115
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2351486385645689
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19798746395117803
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.427754764693837,
+       "unweighted_mse": 0.4050315203427397,
+       "pearson_correlation": 0.24816845627308268
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.1789823877986461,
+       "unweighted_mse": 0.17715718605204916,
+       "pearson_correlation": 0.013640083587790786
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18352798962624378,
+       "unweighted_mse": 0.18352798962624378,
+       "pearson_correlation": 0.05203424227143482
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.1232207264924869,
+       "unweighted_mse": 0.1191363666927463,
+       "pearson_correlation": -0.007240171326245952
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18846356182523832,
+       "unweighted_mse": 0.18846356182523835,
+       "pearson_correlation": 0.014075757355856991
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.30336857624624153,
+       "unweighted_mse": 0.2910943531973944,
+       "pearson_correlation": 0.13090426993043675
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18352798962624378,
+       "unweighted_mse": 0.18352798962624378,
+       "pearson_correlation": 0.05203424227143482
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.1232207264924869,
+       "unweighted_mse": 0.1191363666927463,
+       "pearson_correlation": -0.007240171326245952
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18846356182523832,
+       "unweighted_mse": 0.18846356182523835,
+       "pearson_correlation": 0.014075757355856991
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.427754764693837,
+         "unweighted_mse": 0.4050315203427397,
+         "pearson_correlation": 0.24816845627308268
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18352798962624378,
+         "unweighted_mse": 0.18352798962624378,
+         "pearson_correlation": 0.05203424227143482
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18846356182523832,
+         "unweighted_mse": 0.18846356182523835,
+         "pearson_correlation": 0.014075757355856991
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.266582105381773,
+       "equal_lineage_unweighted_mse": 0.259007690598074
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.1789823877986461,
+         "unweighted_mse": 0.17715718605204916,
+         "pearson_correlation": 0.013640083587790786
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.1232207264924869,
+         "unweighted_mse": 0.1191363666927463,
+         "pearson_correlation": -0.007240171326245952
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.1511015571455665,
+       "equal_lineage_unweighted_mse": 0.14814677637239773
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19964521354755266,
+     "equal_lineage_unweighted_mse": 0.19555556783540573
+    }
+   },
+   "study_holdout_sensitivity": [
+    {
+     "held_out_study": "Cheng2017",
+     "held_out_lineages": [
+      "TPP_riboswitch",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "train_lineages": [
+      "P4P6_groupI",
+      "adenine_add"
+     ],
+     "status": "executed",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.1717176618575174,
+         "unweighted_mse": 0.1717176618575174,
+         "pearson_correlation": 0.23846958256677642
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.1861765155704199,
+         "unweighted_mse": 0.18617651557041986,
+         "pearson_correlation": 0.13768019724580077
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17176899250599315,
+         "unweighted_mse": 0.17176899250599315,
+         "pearson_correlation": 0.22107131575297262
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18720963867393536,
+         "unweighted_mse": 0.18720963867393536,
+         "pearson_correlation": 0.1408767305307796
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.1717008620557713,
+         "unweighted_mse": 0.1717008620557713,
+         "pearson_correlation": 0.2457263868030003
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18214587740777874,
+         "unweighted_mse": 0.1821458774077788,
+         "pearson_correlation": 0.1459302127555
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17523843299141928,
+         "unweighted_mse": 0.1752384329914193,
+         "pearson_correlation": 0.16233179588177737
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18387158171815843,
+         "unweighted_mse": 0.18387158171815843,
+         "pearson_correlation": 0.1738602079756775
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17379861349851147,
+         "unweighted_mse": 0.17379861349851147,
+         "pearson_correlation": 0.19050851192271734
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.19022101867273777,
+         "unweighted_mse": 0.19022101867273777,
+         "pearson_correlation": 0.12682905793320032
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17279475820680684,
+         "unweighted_mse": 0.17279475820680684,
+         "pearson_correlation": 0.19977503887600107
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18521131865613524,
+         "unweighted_mse": 0.18521131865613527,
+         "pearson_correlation": 0.13913557870655732
+        }
+       ]
+      }
+     }
+    },
+    {
+     "held_out_study": "Cordero2012",
+     "held_out_lineages": [
+      "P4P6_groupI"
+     ],
+     "train_lineages": [
+      "TPP_riboswitch",
+      "adenine_add",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "status": "executed",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4298795018088875,
+         "unweighted_mse": 0.4070694564253061,
+         "pearson_correlation": 0.25841170510801337
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.42912942995796105,
+         "unweighted_mse": 0.40629036559027715,
+         "pearson_correlation": 0.2451467726955302
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4204658234779303,
+         "unweighted_mse": 0.39909232015460905,
+         "pearson_correlation": 0.2642693912942933
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4286516558697398,
+         "unweighted_mse": 0.4058591983480866,
+         "pearson_correlation": 0.20646621861797787
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4290427623480705,
+         "unweighted_mse": 0.40634876497798095,
+         "pearson_correlation": 0.14530621269840122
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.427754764693837,
+         "unweighted_mse": 0.4050315203427397,
+         "pearson_correlation": 0.24816845627308268
+        }
+       ]
+      }
+     }
+    },
+    {
+     "held_out_study": "Kladwang2011",
+     "held_out_lineages": [
+      "P4P6_groupI",
+      "adenine_add"
+     ],
+     "train_lineages": [
+      "TPP_riboswitch",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "status": "executed",
+     "chemistry_extrapolation": "Held-out chemistry absent from training (extrapolation).",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17584825126335654,
+         "unweighted_mse": 0.1741166547109802,
+         "pearson_correlation": 0.054597128326502736
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.132537895625136,
+         "unweighted_mse": 0.1296425097338382,
+         "pearson_correlation": 0.22052242929192864
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17710805520089537,
+         "unweighted_mse": 0.17532997385941082,
+         "pearson_correlation": -0.03193147436762712
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.13007066121493208,
+         "unweighted_mse": 0.1268342781195861,
+         "pearson_correlation": 0.16185288802420428
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17955545421796787,
+         "unweighted_mse": 0.17784553585724197,
+         "pearson_correlation": -0.020590182443554834
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.13652541954947578,
+         "unweighted_mse": 0.13353927703694848,
+         "pearson_correlation": 0.26862094480370025
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.18468561277094522,
+         "unweighted_mse": 0.18278492798396292,
+         "pearson_correlation": -0.03323386577571279
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11884245699642072,
+         "unweighted_mse": 0.11494991416169567,
+         "pearson_correlation": 0.17148616152896687
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17844187673293,
+         "unweighted_mse": 0.17670647950516216,
+         "pearson_correlation": -0.06530583592944475
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12822896901367828,
+         "unweighted_mse": 0.12501504069663863,
+         "pearson_correlation": 0.1684292975871784
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17726454539801215,
+         "unweighted_mse": 0.17549945567937744,
+         "pearson_correlation": -0.03370833319629508
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.13150930989894963,
+         "unweighted_mse": 0.1281818821757794,
+         "pearson_correlation": 0.1531820871543034
+        }
+       ]
+      }
+     }
+    }
+   ]
+  },
+  "unweighted": {
+   "arms": {
+    "sequence_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 5.906866785639963,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.5059068216564276
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.5054729981348477
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5012243266998397
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.4650404266114539
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3006843967635151
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17499139320465398
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.039730472489913,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.24984581150965993
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.24969923778879255
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.24830288043271417
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.2388031719783773
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2162225909103254
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20143846693528975
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.028924553145751,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7495152349549477
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.7489513373586218
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.7433648194335202
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.6923226498805937
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.43711072232843134
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.2381060522636834
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 6.048235377515787,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.28885141428019073
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.28856456028473076
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.2857831049496737
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.26445512828893597
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.20827139060599645
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19210409434922993
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.40695468877933577,
+       "unweighted_mse": 0.4069546887793358,
+       "pearson_correlation": 0.26009337349902184
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17528167497742658,
+       "unweighted_mse": 0.17528167497742664,
+       "pearson_correlation": 0.022617212271582136
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.1857364446632309,
+       "unweighted_mse": 0.18573644466323092,
+       "pearson_correlation": 0.0123518622724527
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.1191078653062217,
+       "unweighted_mse": 0.1191078653062217,
+       "pearson_correlation": -0.008623275494971428
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18964203526561255,
+       "unweighted_mse": 0.18964203526561255,
+       "pearson_correlation": -0.057976971331438816
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2911181818783812,
+       "unweighted_mse": 0.29111818187838123,
+       "pearson_correlation": 0.141355292885302
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.1857364446632309,
+       "unweighted_mse": 0.18573644466323092,
+       "pearson_correlation": 0.0123518622724527
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.1191078653062217,
+       "unweighted_mse": 0.1191078653062217,
+       "pearson_correlation": -0.008623275494971428
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18964203526561255,
+       "unweighted_mse": 0.18964203526561255,
+       "pearson_correlation": -0.057976971331438816
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40695468877933577,
+         "unweighted_mse": 0.4069546887793358,
+         "pearson_correlation": 0.26009337349902184
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.1857364446632309,
+         "unweighted_mse": 0.18573644466323092,
+         "pearson_correlation": 0.0123518622724527
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18964203526561255,
+         "unweighted_mse": 0.18964203526561255,
+         "pearson_correlation": -0.057976971331438816
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2607777229027264,
+       "equal_lineage_unweighted_mse": 0.26077772290272644
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17528167497742658,
+         "unweighted_mse": 0.17528167497742664,
+         "pearson_correlation": 0.022617212271582136
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.1191078653062217,
+         "unweighted_mse": 0.1191078653062217,
+         "pearson_correlation": -0.008623275494971428
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.14719477014182414,
+       "equal_lineage_unweighted_mse": 0.14719477014182417
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19640113177836155,
+     "equal_lineage_unweighted_mse": 0.1964011317783616
+    },
+    "secondary_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.5404334011163865,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6601893105480965
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6530873390197408
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5983988040649045
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.44735129952052044
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.273015036374153
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17203069525579395
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.719435879674235,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.3307686676073313
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.3278187055504039
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.3057510993439189
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.25287046777006156
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2162700520143804
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20216128878775508
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.698547606417614,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6575717557440054
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6569647804623676
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6510959506412807
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.6045708160739474
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.39958610770906855
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.23447595176465952
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 7.71679020858662,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.38803537929227855
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.38682316399473704
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.3761273632862087
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3196435920266432
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21811345935393947
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.1921772824100967
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.40608427548396436,
+       "unweighted_mse": 0.40608427548396436,
+       "pearson_correlation": 0.2466296474693117
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.1765748258670088,
+       "unweighted_mse": 0.17657482586700876,
+       "pearson_correlation": -0.021720519069921736
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18259348912278014,
+       "unweighted_mse": 0.18259348912278017,
+       "pearson_correlation": 0.08666604705576852
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.11962447882425079,
+       "unweighted_mse": 0.11962447882425079,
+       "pearson_correlation": -0.020338270726584975
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18786600301958392,
+       "unweighted_mse": 0.18786600301958392,
+       "pearson_correlation": 0.0006382910323234716
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2913295506754866,
+       "unweighted_mse": 0.29132955067548655,
+       "pearson_correlation": 0.11245456419969499
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18259348912278014,
+       "unweighted_mse": 0.18259348912278017,
+       "pearson_correlation": 0.08666604705576852
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.11962447882425079,
+       "unweighted_mse": 0.11962447882425079,
+       "pearson_correlation": -0.020338270726584975
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18786600301958392,
+       "unweighted_mse": 0.18786600301958392,
+       "pearson_correlation": 0.0006382910323234716
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40608427548396436,
+         "unweighted_mse": 0.40608427548396436,
+         "pearson_correlation": 0.2466296474693117
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18259348912278014,
+         "unweighted_mse": 0.18259348912278017,
+         "pearson_correlation": 0.08666604705576852
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18786600301958392,
+         "unweighted_mse": 0.18786600301958392,
+         "pearson_correlation": 0.0006382910323234716
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2588479225421095,
+       "equal_lineage_unweighted_mse": 0.2588479225421095
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.1765748258670088,
+         "unweighted_mse": 0.17657482586700876,
+         "pearson_correlation": -0.021720519069921736
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11962447882425079,
+         "unweighted_mse": 0.11962447882425079,
+         "pearson_correlation": -0.020338270726584975
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.14809965234562977,
+       "equal_lineage_unweighted_mse": 0.14809965234562977
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19535338041052536,
+     "equal_lineage_unweighted_mse": 0.19535338041052536
+    },
+    "geometry_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.052799337736618,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 4.269231502097026
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.9665982248961311
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.8288893193807944
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3622001245806336
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2594764891374686
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17443720645155703
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.299511378361572,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 1.8015327350036474
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.7877676602869803
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.39843146786951694
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.27103360744235155
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22000047741753015
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20141168758158234
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.334833235675493,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.8591525755447903
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.801623190277506
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6003375817234342
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5158629578353323
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.36387211479890075
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.22940403027111297
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.247963415449906,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 3.174429944313168
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.5775668727958249
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.439140577286381
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.32591248458952676
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21725451395706227
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19274952121473918
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.3987427853645173,
+       "unweighted_mse": 0.3987427853645173,
+       "pearson_correlation": 0.2680755093411022
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17879938677469823,
+       "unweighted_mse": 0.17879938677469828,
+       "pearson_correlation": -0.04299161096012937
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.18126319197075463,
+       "unweighted_mse": 0.18126319197075458,
+       "pearson_correlation": 0.07805004959461627
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.11977633578185837,
+       "unweighted_mse": 0.1197763357818584,
+       "pearson_correlation": 0.00726071685063374
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.18437322620623073,
+       "unweighted_mse": 0.18437322620623073,
+       "pearson_correlation": 0.03321292152957573
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2887710860696078,
+       "unweighted_mse": 0.2887710860696078,
+       "pearson_correlation": 0.1125419491904864
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.18126319197075463,
+       "unweighted_mse": 0.18126319197075458,
+       "pearson_correlation": 0.07805004959461627
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.11977633578185837,
+       "unweighted_mse": 0.1197763357818584,
+       "pearson_correlation": 0.00726071685063374
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.18437322620623073,
+       "unweighted_mse": 0.18437322620623073,
+       "pearson_correlation": 0.03321292152957573
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.3987427853645173,
+         "unweighted_mse": 0.3987427853645173,
+         "pearson_correlation": 0.2680755093411022
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.18126319197075463,
+         "unweighted_mse": 0.18126319197075458,
+         "pearson_correlation": 0.07805004959461627
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18437322620623073,
+         "unweighted_mse": 0.18437322620623073,
+         "pearson_correlation": 0.03321292152957573
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.25479306784716754,
+       "equal_lineage_unweighted_mse": 0.25479306784716754
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17879938677469823,
+         "unweighted_mse": 0.17879938677469828,
+         "pearson_correlation": -0.04299161096012937
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11977633578185837,
+         "unweighted_mse": 0.1197763357818584,
+         "pearson_correlation": 0.00726071685063374
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.1492878612782783,
+       "equal_lineage_unweighted_mse": 0.14928786127827834
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19354596000711288,
+     "equal_lineage_unweighted_mse": 0.19354596000711288
+    },
+    "shuffled_geometry_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.260757065556659,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 3.018324300562146
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.5922114197897324
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.9987885567243119
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5145624865256168
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.24189518194023374
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.17084598777499868
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.520547707257665,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7053307249745763
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.3755391971664208
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.3069440806389993
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.24584119547947947
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21024463184610667
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.198892899596283
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.553547467392598,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7834041970937506
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.7564458437037255
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6479993501521281
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.5632892955773546
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.37960983990093383
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.23682163342096066
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.470225245480162,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.7804510803693224
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6233135273578927
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5067432519367342
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.35426764679755346
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22933405895982803
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19464239901971392
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4057256702389184,
+       "unweighted_mse": 0.4057256702389184,
+       "pearson_correlation": 0.20758224852236373
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17638651494995236,
+       "unweighted_mse": 0.17638651494995236,
+       "pearson_correlation": -0.02097925491599646
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.1867664519547881,
+       "unweighted_mse": 0.1867664519547881,
+       "pearson_correlation": -0.03613078185437362
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.11973301235075882,
+       "unweighted_mse": 0.1197330123507588,
+       "pearson_correlation": -0.01004080869558974
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.1905459492497096,
+       "unweighted_mse": 0.19054594924970958,
+       "pearson_correlation": -0.007311997447004535
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2910560925944354,
+       "unweighted_mse": 0.2910560925944354,
+       "pearson_correlation": 0.09330149680318364
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.1867664519547881,
+       "unweighted_mse": 0.1867664519547881,
+       "pearson_correlation": -0.03613078185437362
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.11973301235075882,
+       "unweighted_mse": 0.1197330123507588,
+       "pearson_correlation": -0.01004080869558974
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.1905459492497096,
+       "unweighted_mse": 0.19054594924970958,
+       "pearson_correlation": -0.007311997447004535
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4057256702389184,
+         "unweighted_mse": 0.4057256702389184,
+         "pearson_correlation": 0.20758224852236373
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.1867664519547881,
+         "unweighted_mse": 0.1867664519547881,
+         "pearson_correlation": -0.03613078185437362
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.1905459492497096,
+         "unweighted_mse": 0.19054594924970958,
+         "pearson_correlation": -0.007311997447004535
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2610126904811387,
+       "equal_lineage_unweighted_mse": 0.2610126904811387
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17638651494995236,
+         "unweighted_mse": 0.17638651494995236,
+         "pearson_correlation": -0.02097925491599646
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11973301235075882,
+         "unweighted_mse": 0.1197330123507588,
+         "pearson_correlation": -0.01004080869558974
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.14805976365035559,
+       "equal_lineage_unweighted_mse": 0.14805976365035559
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19702537653742297,
+     "equal_lineage_unweighted_mse": 0.19702537653742297
+    },
+    "base_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.741783799959808,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6983645831281419
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6535028926482167
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.47235372174124773
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.2750978097327183
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.19709993309443596
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.16711083731172396
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.957718020994303,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.47319891185870216
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.4557626946916173
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.37757357490409
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.2688259743255401
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21825892995269458
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20268878150345068
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.971633676694303,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.4052965833086548
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.4041224945681228
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.39376358576347764
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.34433738649711604
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.27644134050958197
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.2285443145877173
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.97456291835627,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.48239316143447386
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.47759490460213555
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.44790793351050945
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.35135578590347105
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.22351974969043462
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.19309231065460322
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.40603612858859295,
+       "unweighted_mse": 0.40603612858859306,
+       "pearson_correlation": 0.14937164542816483
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.17623716347351384,
+       "unweighted_mse": 0.1762371634735138,
+       "pearson_correlation": -0.010981858594190184
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.17917276621741385,
+       "unweighted_mse": 0.17917276621741385,
+       "pearson_correlation": 0.1466723606654172
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.11933142590586848,
+       "unweighted_mse": 0.11933142590586848,
+       "pearson_correlation": 0.002380672600044003
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.1848893363006714,
+       "unweighted_mse": 0.1848893363006714,
+       "pearson_correlation": 0.059033013432415925
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2911366460310534,
+       "unweighted_mse": 0.29113664603105344,
+       "pearson_correlation": 0.06919489341698733
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.17917276621741385,
+       "unweighted_mse": 0.17917276621741385,
+       "pearson_correlation": 0.1466723606654172
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.11933142590586848,
+       "unweighted_mse": 0.11933142590586848,
+       "pearson_correlation": 0.002380672600044003
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.1848893363006714,
+       "unweighted_mse": 0.1848893363006714,
+       "pearson_correlation": 0.059033013432415925
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40603612858859295,
+         "unweighted_mse": 0.40603612858859306,
+         "pearson_correlation": 0.14937164542816483
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17917276621741385,
+         "unweighted_mse": 0.17917276621741385,
+         "pearson_correlation": 0.1466723606654172
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.1848893363006714,
+         "unweighted_mse": 0.1848893363006714,
+         "pearson_correlation": 0.059033013432415925
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.2566994103688927,
+       "equal_lineage_unweighted_mse": 0.25669941036889277
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17623716347351384,
+         "unweighted_mse": 0.1762371634735138,
+         "pearson_correlation": -0.010981858594190184
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11933142590586848,
+         "unweighted_mse": 0.11933142590586848,
+         "pearson_correlation": 0.002380672600044003
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.14778429468969118,
+       "equal_lineage_unweighted_mse": 0.14778429468969115
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19363254361375176,
+     "equal_lineage_unweighted_mse": 0.1936325436137518
+    },
+    "shuffled_base_context": {
+     "folds": [
+      {
+       "held_out_lineage": "P4P6_groupI",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 8.87256466658432,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 1.2378525901889645
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 1.1856350111141831
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.8869567959872979
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.49919013419631314
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.28262530492510146
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.1732486176313165
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "TPP_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.092379926781852,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.5824461128392904
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.5655766396196743
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.46584220620026534
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.3063974005249888
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.21864092538945057
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.20092004093962038
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "adenine_add",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.113452814354908,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6129057041189387
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6121127841176737
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.6048731633899501
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.562945747474154
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.3874798442373946
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.2339882089117502
+        }
+       ]
+      },
+      {
+       "held_out_lineage": "ydao_cdiamp_riboswitch",
+       "alpha": 10.0,
+       "effective_degrees_of_freedom": 9.092421714231552,
+       "inner_selection": [
+        {
+         "alpha": 0.0001,
+         "inner_equal_lineage_mse": 0.6261869096477208
+        },
+        {
+         "alpha": 0.001,
+         "inner_equal_lineage_mse": 0.6129767858464386
+        },
+        {
+         "alpha": 0.01,
+         "inner_equal_lineage_mse": 0.5343308567634869
+        },
+        {
+         "alpha": 0.1,
+         "inner_equal_lineage_mse": 0.38390952959906005
+        },
+        {
+         "alpha": 1.0,
+         "inner_equal_lineage_mse": 0.2278680894878947
+        },
+        {
+         "alpha": 10.0,
+         "inner_equal_lineage_mse": 0.1926808162070415
+        }
+       ]
+      }
+     ],
+     "profile_metrics": [
+      {
+       "example_id": "P4P6_DMS_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Cordero2012",
+       "chemistry": "DMS",
+       "n": 78,
+       "error_weighted_mse": 0.4048835250897788,
+       "unweighted_mse": 0.4048835250897789,
+       "pearson_correlation": 0.24898600929224585
+      },
+      {
+       "example_id": "P4P6_SHAPE_aqueous",
+       "lineage_id": "P4P6_groupI",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 158,
+       "error_weighted_mse": 0.1775022744276294,
+       "unweighted_mse": 0.1775022744276294,
+       "pearson_correlation": 0.00700038681674156
+      },
+      {
+       "example_id": "TPP_DMS_holo_WT",
+       "lineage_id": "TPP_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 36,
+       "error_weighted_mse": 0.1838082368912368,
+       "unweighted_mse": 0.18380823689123676,
+       "pearson_correlation": 0.05661713105679628
+      },
+      {
+       "example_id": "adenine_add_SHAPE_holo",
+       "lineage_id": "adenine_add",
+       "study_id": "Kladwang2011",
+       "chemistry": "SHAPE",
+       "n": 71,
+       "error_weighted_mse": 0.11930561598739466,
+       "unweighted_mse": 0.11930561598739471,
+       "pearson_correlation": -0.013119485767202206
+      },
+      {
+       "example_id": "ydaO_DMS_holo_WT",
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "study_id": "Cheng2017",
+       "chemistry": "DMS",
+       "n": 39,
+       "error_weighted_mse": 0.1877113115198713,
+       "unweighted_mse": 0.18771131151987136,
+       "pearson_correlation": 0.004693693190944631
+      }
+     ],
+     "lineage_metrics": [
+      {
+       "lineage_id": "P4P6_groupI",
+       "profiles": 2,
+       "n": 236,
+       "error_weighted_mse": 0.2911928997587041,
+       "unweighted_mse": 0.2911928997587041,
+       "pearson_correlation": 0.1279931980544937
+      },
+      {
+       "lineage_id": "TPP_riboswitch",
+       "profiles": 1,
+       "n": 36,
+       "error_weighted_mse": 0.1838082368912368,
+       "unweighted_mse": 0.18380823689123676,
+       "pearson_correlation": 0.05661713105679628
+      },
+      {
+       "lineage_id": "adenine_add",
+       "profiles": 1,
+       "n": 71,
+       "error_weighted_mse": 0.11930561598739466,
+       "unweighted_mse": 0.11930561598739471,
+       "pearson_correlation": -0.013119485767202206
+      },
+      {
+       "lineage_id": "ydao_cdiamp_riboswitch",
+       "profiles": 1,
+       "n": 39,
+       "error_weighted_mse": 0.1877113115198713,
+       "unweighted_mse": 0.18771131151987136,
+       "pearson_correlation": 0.004693693190944631
+      }
+     ],
+     "chemistry_stratified_metrics": {
+      "DMS": {
+       "n_lineages": 3,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4048835250897788,
+         "unweighted_mse": 0.4048835250897789,
+         "pearson_correlation": 0.24898600929224585
+        },
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.1838082368912368,
+         "unweighted_mse": 0.18380823689123676,
+         "pearson_correlation": 0.05661713105679628
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.1877113115198713,
+         "unweighted_mse": 0.18771131151987136,
+         "pearson_correlation": 0.004693693190944631
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.25880102450029563,
+       "equal_lineage_unweighted_mse": 0.2588010245002957
+      },
+      "SHAPE": {
+       "n_lineages": 2,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.1775022744276294,
+         "unweighted_mse": 0.1775022744276294,
+         "pearson_correlation": 0.00700038681674156
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11930561598739466,
+         "unweighted_mse": 0.11930561598739471,
+         "pearson_correlation": -0.013119485767202206
+        }
+       ],
+       "equal_lineage_error_weighted_mse": 0.14840394520751202,
+       "equal_lineage_unweighted_mse": 0.14840394520751204
+      }
+     },
+     "equal_lineage_error_weighted_mse": 0.19550451603930172,
+     "equal_lineage_unweighted_mse": 0.19550451603930175
+    }
+   },
+   "study_holdout_sensitivity": [
+    {
+     "held_out_study": "Cheng2017",
+     "held_out_lineages": [
+      "TPP_riboswitch",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "train_lineages": [
+      "P4P6_groupI",
+      "adenine_add"
+     ],
+     "status": "executed",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17119317665579853,
+         "unweighted_mse": 0.17119317665579853,
+         "pearson_correlation": 0.24801351252923093
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18398509152494272,
+         "unweighted_mse": 0.18398509152494272,
+         "pearson_correlation": 0.12882573233866945
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17093865000852987,
+         "unweighted_mse": 0.17093865000852987,
+         "pearson_correlation": 0.23081392193034764
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18467072400408704,
+         "unweighted_mse": 0.18467072400408702,
+         "pearson_correlation": 0.13528088099329802
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17054275362728857,
+         "unweighted_mse": 0.17054275362728855,
+         "pearson_correlation": 0.2570267523446925
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.17990884139911723,
+         "unweighted_mse": 0.17990884139911723,
+         "pearson_correlation": 0.13932265928369558
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17468907820968038,
+         "unweighted_mse": 0.17468907820968038,
+         "pearson_correlation": 0.16472772395833768
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18092077152679614,
+         "unweighted_mse": 0.18092077152679614,
+         "pearson_correlation": 0.17157036463475092
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17280698226292068,
+         "unweighted_mse": 0.17280698226292068,
+         "pearson_correlation": 0.19997116834045525
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18736401865478747,
+         "unweighted_mse": 0.1873640186547874,
+         "pearson_correlation": 0.12027572133084968
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "TPP_riboswitch",
+         "profiles": 1,
+         "n": 36,
+         "error_weighted_mse": 0.17185526834296644,
+         "unweighted_mse": 0.17185526834296647,
+         "pearson_correlation": 0.21095673913068194
+        },
+        {
+         "lineage_id": "ydao_cdiamp_riboswitch",
+         "profiles": 1,
+         "n": 39,
+         "error_weighted_mse": 0.18271963515202447,
+         "unweighted_mse": 0.18271963515202452,
+         "pearson_correlation": 0.13886592605088574
+        }
+       ]
+      }
+     }
+    },
+    {
+     "held_out_study": "Cordero2012",
+     "held_out_lineages": [
+      "P4P6_groupI"
+     ],
+     "train_lineages": [
+      "TPP_riboswitch",
+      "adenine_add",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "status": "executed",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40695468877933577,
+         "unweighted_mse": 0.4069546887793358,
+         "pearson_correlation": 0.26009337349902184
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40608427548396436,
+         "unweighted_mse": 0.40608427548396436,
+         "pearson_correlation": 0.2466296474693117
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.3987427853645173,
+         "unweighted_mse": 0.3987427853645173,
+         "pearson_correlation": 0.2680755093411022
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4057256702389184,
+         "unweighted_mse": 0.4057256702389184,
+         "pearson_correlation": 0.20758224852236373
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.40603612858859295,
+         "unweighted_mse": 0.40603612858859306,
+         "pearson_correlation": 0.14937164542816483
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 78,
+         "error_weighted_mse": 0.4048835250897788,
+         "unweighted_mse": 0.4048835250897789,
+         "pearson_correlation": 0.24898600929224585
+        }
+       ]
+      }
+     }
+    },
+    {
+     "held_out_study": "Kladwang2011",
+     "held_out_lineages": [
+      "P4P6_groupI",
+      "adenine_add"
+     ],
+     "train_lineages": [
+      "TPP_riboswitch",
+      "ydao_cdiamp_riboswitch"
+     ],
+     "status": "executed",
+     "chemistry_extrapolation": "Held-out chemistry absent from training (extrapolation).",
+     "arms": {
+      "sequence_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.1741166547109802,
+         "unweighted_mse": 0.1741166547109802,
+         "pearson_correlation": 0.054597128326502736
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.1296425097338382,
+         "unweighted_mse": 0.1296425097338382,
+         "pearson_correlation": 0.22052242929192864
+        }
+       ]
+      },
+      "secondary_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17532997385941082,
+         "unweighted_mse": 0.17532997385941082,
+         "pearson_correlation": -0.03193147436762712
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.1268342781195861,
+         "unweighted_mse": 0.1268342781195861,
+         "pearson_correlation": 0.16185288802420428
+        }
+       ]
+      },
+      "geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.177845535857242,
+         "unweighted_mse": 0.17784553585724197,
+         "pearson_correlation": -0.020590182443554834
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.13353927703694846,
+         "unweighted_mse": 0.13353927703694848,
+         "pearson_correlation": 0.26862094480370025
+        }
+       ]
+      },
+      "shuffled_geometry_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.18278492798396295,
+         "unweighted_mse": 0.18278492798396292,
+         "pearson_correlation": -0.03323386577571279
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.11494991416169567,
+         "unweighted_mse": 0.11494991416169567,
+         "pearson_correlation": 0.17148616152896687
+        }
+       ]
+      },
+      "base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17670647950516216,
+         "unweighted_mse": 0.17670647950516216,
+         "pearson_correlation": -0.06530583592944475
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.12501504069663863,
+         "unweighted_mse": 0.12501504069663863,
+         "pearson_correlation": 0.1684292975871784
+        }
+       ]
+      },
+      "shuffled_base_context": {
+       "alpha": 10.0,
+       "lineage_metrics": [
+        {
+         "lineage_id": "P4P6_groupI",
+         "profiles": 1,
+         "n": 158,
+         "error_weighted_mse": 0.17549945567937744,
+         "unweighted_mse": 0.17549945567937744,
+         "pearson_correlation": -0.03370833319629508
+        },
+        {
+         "lineage_id": "adenine_add",
+         "profiles": 1,
+         "n": 71,
+         "error_weighted_mse": 0.1281818821757794,
+         "unweighted_mse": 0.1281818821757794,
+         "pearson_correlation": 0.1531820871543034
+        }
+       ]
+      }
+     }
+    }
+   ]
+  }
+ },
+ "comparisons": [
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "geometry_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.0029735009730172957,
+    "TPP_riboswitch": 0.004283317424756655,
+    "adenine_add": -0.00035228879350150677,
+    "ydao_cdiamp_riboswitch": 0.005246713726801938
+   },
+   "mean_difference": 0.0030378108327685956,
+   "relative_mse_reduction": 0.01515251971977073,
+   "descriptive_bootstrap_95_interval": [
+    0.0008066127610630337,
+    0.004765015575779297
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "secondary_context",
+   "candidate": "geometry_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.003192916271699542,
+    "TPP_riboswitch": 0.0012497196115258125,
+    "adenine_add": 0.00017088411591727193,
+    "ydao_cdiamp_riboswitch": 0.003646260253368172
+   },
+   "mean_difference": 0.0020649450631276996,
+   "relative_mse_reduction": 0.010350116380533838,
+   "descriptive_bootstrap_95_interval": [
+    0.0007103018637215422,
+    0.003419588262533857
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "shuffled_geometry_context",
+   "candidate": "geometry_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.002849791414183067,
+    "TPP_riboswitch": 0.005537079154502383,
+    "adenine_add": 0.0003059306526894401,
+    "ydao_cdiamp_riboswitch": 0.006693818046107275
+   },
+   "mean_difference": 0.0038466548168705414,
+   "relative_mse_reduction": 0.019109913223843426,
+   "descriptive_bootstrap_95_interval": [
+    0.0015778610334362536,
+    0.006115448600304829
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "secondary_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.00021941529868224618,
+    "TPP_riboswitch": 0.0030335978132308428,
+    "adenine_add": -0.0005231729094187787,
+    "ydao_cdiamp_riboswitch": 0.001600453473433766
+   },
+   "mean_difference": 0.000972865769640896,
+   "relative_mse_reduction": 0.004852628610102967,
+   "descriptive_bootstrap_95_interval": [
+    -0.00037129410405051244,
+    0.0023170256433323044
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "secondary_context",
+   "candidate": "base_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.00035782614798207657,
+    "TPP_riboswitch": 0.0034479593361053384,
+    "adenine_add": 0.00039845967170432095,
+    "ydao_cdiamp_riboswitch": 0.0029751521390773694
+   },
+   "mean_difference": 0.0017948493237172763,
+   "relative_mse_reduction": 0.008996316520817503,
+   "descriptive_bootstrap_95_interval": [
+    0.00037814290984319876,
+    0.003211555737591354
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "shuffled_base_context",
+   "candidate": "base_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.0001494215486318451,
+    "TPP_riboswitch": 0.004714707660648965,
+    "adenine_add": 0.00010438460687527129,
+    "ydao_cdiamp_riboswitch": 0.002754309988832554
+   },
+   "mean_difference": 0.0019307059512471587,
+   "relative_mse_reduction": 0.009670684896171037,
+   "descriptive_bootstrap_95_interval": [
+    0.0001269030777535582,
+    0.0037345088247407593
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "base_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.00013841084929983039,
+    "TPP_riboswitch": 0.006481557149336181,
+    "adenine_add": -0.00012471323771445775,
+    "ydao_cdiamp_riboswitch": 0.0045756056125111355
+   },
+   "mean_difference": 0.0027677150933581723,
+   "relative_mse_reduction": 0.013805289347986008,
+   "descriptive_bootstrap_95_interval": [
+    6.848805792686319e-06,
+    0.005528581380923658
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "geometry_context",
+   "candidate": "base_context",
+   "metric": "error_weighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.0028350901237174653,
+    "TPP_riboswitch": 0.002198239724579526,
+    "adenine_add": 0.00022757555578704902,
+    "ydao_cdiamp_riboswitch": -0.0006711081142908026
+   },
+   "mean_difference": -0.0002700957394104232,
+   "relative_mse_reduction": -0.0013679583882383304,
+   "descriptive_bootstrap_95_interval": [
+    -0.0020694237038413367,
+    0.0014809027648619438
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.002268793828761162,
+    "TPP_riboswitch": 0.004283317424756683,
+    "adenine_add": -0.000279177403245609,
+    "ydao_cdiamp_riboswitch": 0.005246713726801938
+   },
+   "mean_difference": 0.0028799118942685435,
+   "relative_mse_reduction": 0.014664258510597338,
+   "descriptive_bootstrap_95_interval": [
+    0.000861446303754964,
+    0.0047650155757793106
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "secondary_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.0024643280423263803,
+    "TPP_riboswitch": 0.0012497196115258402,
+    "adenine_add": 0.00024127444866450798,
+    "ydao_cdiamp_riboswitch": 0.003646260253368172
+   },
+   "mean_difference": 0.0019003955889712251,
+   "relative_mse_reduction": 0.009725152764282607,
+   "descriptive_bootstrap_95_interval": [
+    0.0007454970300951741,
+    0.003055294147847276
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "shuffled_geometry_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.0021385961632843786,
+    "TPP_riboswitch": 0.005537079154502383,
+    "adenine_add": 0.0003576917298754728,
+    "ydao_cdiamp_riboswitch": 0.006693818046107275
+   },
+   "mean_difference": 0.0036817962734423774,
+   "relative_mse_reduction": 0.018671146740944878,
+   "descriptive_bootstrap_95_interval": [
+    0.0012481439465799257,
+    0.006115448600304829
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "secondary_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.00019553421356521827,
+    "TPP_riboswitch": 0.0030335978132308428,
+    "adenine_add": -0.000520451851910117,
+    "ydao_cdiamp_riboswitch": 0.001600453473433766
+   },
+   "mean_difference": 0.0009795163052973184,
+   "relative_mse_reduction": 0.0049876110254662084,
+   "descriptive_bootstrap_95_interval": [
+    -0.00035799303273766764,
+    0.0023170256433323044
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "secondary_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.00023201763801200537,
+    "TPP_riboswitch": 0.0034479593361053384,
+    "adenine_add": 0.0003021041913899014,
+    "ydao_cdiamp_riboswitch": 0.0029751521390773694
+   },
+   "mean_difference": 0.0017393083261461537,
+   "relative_mse_reduction": 0.00890079900949304,
+   "descriptive_bootstrap_95_interval": [
+    0.0002670609147009534,
+    0.003211555737591354
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "shuffled_base_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 7.651686346887843e-05,
+    "TPP_riboswitch": 0.004714707660648965,
+    "adenine_add": -7.464210385846326e-06,
+    "ydao_cdiamp_riboswitch": 0.0027543099888325817
+   },
+   "mean_difference": 0.0018845175756411446,
+   "relative_mse_reduction": 0.009636736997574502,
+   "descriptive_bootstrap_95_interval": [
+    3.452632654151605e-05,
+    0.003734508824740773
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "sequence_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 3.6483424446787094e-05,
+    "TPP_riboswitch": 0.006481557149336181,
+    "adenine_add": -0.0002183476605202156,
+    "ydao_cdiamp_riboswitch": 0.0045756056125111355
+   },
+   "mean_difference": 0.002718824631443472,
+   "relative_mse_reduction": 0.013844016311684042,
+   "descriptive_bootstrap_95_interval": [
+    -9.093211803671425e-05,
+    0.005528581380923658
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "error_weighted",
+   "reference": "geometry_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.002232310404314375,
+    "TPP_riboswitch": 0.0021982397245794982,
+    "adenine_add": 6.082974272539343e-05,
+    "ydao_cdiamp_riboswitch": -0.0006711081142908026
+   },
+   "mean_difference": -0.00016108726282507146,
+   "relative_mse_reduction": -0.0008324494528874421,
+   "descriptive_bootstrap_95_interval": [
+    -0.0016590253675544328,
+    0.001480902764861923
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "sequence_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.0023470958087734584,
+    "TPP_riboswitch": 0.004473252692476337,
+    "adenine_add": -0.000668470475636701,
+    "ydao_cdiamp_riboswitch": 0.005268809059381818
+   },
+   "mean_difference": 0.002855171771248728,
+   "relative_mse_reduction": 0.014537450703037625,
+   "descriptive_bootstrap_95_interval": [
+    0.0006169603163915585,
+    0.004871030875929078
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "secondary_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.002558464605878774,
+    "TPP_riboswitch": 0.0013302971520255946,
+    "adenine_add": -0.0001518569576076101,
+    "ydao_cdiamp_riboswitch": 0.0034927768133531933
+   },
+   "mean_difference": 0.001807420403412488,
+   "relative_mse_reduction": 0.00925205593890561,
+   "descriptive_bootstrap_95_interval": [
+    0.000525723433263986,
+    0.0030256207096159837
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "shuffled_geometry_context",
+   "candidate": "geometry_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.002285006524827604,
+    "TPP_riboswitch": 0.005503259984033532,
+    "adenine_add": -4.332343109959835e-05,
+    "ydao_cdiamp_riboswitch": 0.0061727230434788505
+   },
+   "mean_difference": 0.003479416530310097,
+   "relative_mse_reduction": 0.017659738006638028,
+   "descriptive_bootstrap_95_interval": [
+    0.0011208415468640029,
+    0.005837991513756191
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "sequence_context",
+   "candidate": "secondary_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.00021136879710531575,
+    "TPP_riboswitch": 0.0031429555404507425,
+    "adenine_add": -0.0005166135180290909,
+    "ydao_cdiamp_riboswitch": 0.0017760322460286249
+   },
+   "mean_difference": 0.0010477513678362402,
+   "relative_mse_reduction": 0.0053347521898123584,
+   "descriptive_bootstrap_95_interval": [
+    -0.00036399115756720335,
+    0.0024594938932396837
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "secondary_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 0.00019290464443311173,
+    "TPP_riboswitch": 0.0034207229053663246,
+    "adenine_add": 0.00029305291838230274,
+    "ydao_cdiamp_riboswitch": 0.0029766667189125295
+   },
+   "mean_difference": 0.0017208367967735672,
+   "relative_mse_reduction": 0.008808840641289721,
+   "descriptive_bootstrap_95_interval": [
+    0.00024297878140770723,
+    0.003198694812139427
+   ],
+   "n_lineages_favouring_candidate": 4,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "shuffled_base_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": 5.625372765066805e-05,
+    "TPP_riboswitch": 0.004635470673822917,
+    "adenine_add": -2.58099184737709e-05,
+    "ydao_cdiamp_riboswitch": 0.002821975219199968
+   },
+   "mean_difference": 0.0018719724255499455,
+   "relative_mse_reduction": 0.009575085340604755,
+   "descriptive_bootstrap_95_interval": [
+    1.5221904588448576e-05,
+    0.0037287229465114424
+   ],
+   "n_lineages_favouring_candidate": 3,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "sequence_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -1.8464152672204026e-05,
+    "TPP_riboswitch": 0.006563678445817067,
+    "adenine_add": -0.0002235605996467882,
+    "ydao_cdiamp_riboswitch": 0.004752698964941154
+   },
+   "mean_difference": 0.0027685881646098073,
+   "relative_mse_reduction": 0.014096599849201252,
+   "descriptive_bootstrap_95_interval": [
+    -0.00012101237615949612,
+    0.005658188705379111
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  },
+  {
+   "scheme": "unweighted",
+   "reference": "geometry_context",
+   "candidate": "base_context",
+   "metric": "unweighted_mse",
+   "unit": "lineage",
+   "n": 4,
+   "lineage_differences_reference_minus_candidate": {
+    "P4P6_groupI": -0.0023655599614456624,
+    "TPP_riboswitch": 0.00209042575334073,
+    "adenine_add": 0.00044490987598991283,
+    "ydao_cdiamp_riboswitch": -0.0005161100944406638
+   },
+   "mean_difference": -8.658360663892084e-05,
+   "relative_mse_reduction": -0.0004473542441068719,
+   "descriptive_bootstrap_95_interval": [
+    -0.0016629425020867686,
+    0.0014387917913953815
+   ],
+   "n_lineages_favouring_candidate": 2,
+   "confirmatory_p_value": null
+  }
+ ],
+ "interpretation_gate_base": {
+  "frozen_rule": "Base-resolved geometry is described as adding held-out information only if, in BOTH the error-weighted primary and the unweighted refit, the mean lineage difference favours base_context over secondary_context AND over shuffled_base_context, with at least 3 of 4 held-out lineages favouring base_context in each of those four comparisons. Otherwise the result is reported as null or mixed. Base-versus-sequence and base-versus-C4' are descriptive.",
+  "criteria_met": {
+   "error_weighted:secondary_context": true,
+   "error_weighted:shuffled_base_context": true,
+   "unweighted:secondary_context": true,
+   "unweighted:shuffled_base_context": true
+  },
+  "adds_information_by_frozen_gate": true
+ },
+ "interpretation_gate_c4prime_reproduced": {
+  "criteria_met": {
+   "error_weighted:secondary_context": true,
+   "error_weighted:shuffled_geometry_context": true,
+   "unweighted:secondary_context": true,
+   "unweighted:shuffled_geometry_context": true
+  },
+  "adds_information_by_frozen_gate": true
+ }
+}

@@ -1,0 +1,23 @@
+cdigmp_DCP_1M7                   n=  79 {'L': 13, 'T': 32, 'R': 34} AUC_LT=0.665 p_circ=0.0127 executed
+adocbl_DCP_1M7                   n= 154 {'L': 15, 'T': 46, 'R': 93} AUC_LT=0.480 p_circ=0.6429 executed
+cdigmp_DCP_DMS                   n=  43 {'L': 9, 'T': 18, 'R': 16} AUC_LT=0.808 p_circ=0.0233 executed
+cdigmp_K2011_SHAPE               n=  79 {'L': 13, 'T': 32, 'R': 34} AUC_LT=0.629 p_circ=0.0253 executed
+adocbl_DCP_DMS                   n=  72 {'L': 7, 'T': 23, 'R': 42} AUC_LT=0.643 p_circ=0.0833 executed
+adocbl_PZ6_1M7                   n= 158 {'L': 15, 'T': 46, 'R': 97} AUC_LT=0.598 p_circ=0.1456 executed
+adocbl_PZ6_DMS                   n=  74 {'L': 7, 'T': 23, 'R': 44} AUC_LT=0.769 p_circ=0.0270 executed
+adocbl_PZ6_CMCT                  n=  84 {'L': 8, 'T': 23, 'R': 53} AUC_LT=0.432 p_circ=0.8214 executed
+adocbl_M2_DMS                    n=  72 {'L': 7, 'T': 23, 'R': 42} AUC_LT=0.569 p_circ=0.1667 executed
+adenine_DCP_1M7                  n=  71 {'L': 9, 'T': 24, 'R': 38} AUC_LT=0.741 p_circ=0.0423 executed
+adenine_DCP_DMS                  n=  32 {'L': 4, 'T': 12, 'R': 16} AUC_LT=0.727 p_circ=0.0312 executed
+adenine_K2011_SHAPE              n=  71 {'L': 9, 'T': 24, 'R': 38} AUC_LT=0.754 p_circ=0.0282 executed
+glycine_DCP_1M7                  n= 155 {'L': 15, 'T': 75, 'R': 65} AUC_LT=0.644 p_circ=0.0065 executed
+glycine_DCP_DMS                  n=  85 {'L': 7, 'T': 42, 'R': 36} AUC_LT=0.721 p_circ=0.0118 executed
+glycine_K2011_SHAPE              n= 155 {'L': 15, 'T': 75, 'R': 65} AUC_LT=0.647 p_circ=0.0129 executed
+fmn_DCP_1M7                      n= 101 {'L': 12, 'T': 53, 'R': 36} AUC_LT=0.463 p_circ=0.6733 executed
+fmn_DCP_DMS                      n=  47 {'L': 4, 'T': 26, 'R': 17} AUC_LT=0.735 p_circ=0.0426 executed
+tpp_M2_DMS                       n=  37 {'L': 5, 'T': 17, 'R': 15} AUC_LT=0.527 p_circ=0.4595 executed
+ydao_M2_DMS                      n=  58 {'L': 11, 'T': 17, 'R': 30} AUC_LT=0.556 p_circ=0.2759 executed
+cdigmp_DCP_1M7_classes3IRW       n=  78 {'L': 13, 'T': 29, 'R': 36} AUC_LT=0.657 p_circ=0.0385 executed
+adocbl_DCP_1M7_withB1Z302        n= 154 {'L': 21, 'T': 42, 'R': 91} AUC_LT=0.500 p_circ=0.5649 executed
+pooled {'pair_ids': ['cdigmp_DCP_1M7', 'adocbl_DCP_1M7', 'adenine_DCP_1M7', 'glycine_DCP_1M7', 'fmn_DCP_1M7'], 'mean_auc_minus_half': 0.09856076031572802, 'mean_auc': 0.598560760315728, 'p_independent_circular_shifts': 0.0033999660003399966, 'n_draws': 100000, 'fisher_chi2': 26.828772243407332, 'fisher_df': 10, 'fisher_p_approx': 0.0027717685395280767}
+primary family ['cdigmp_DCP_1M7', 'adocbl_DCP_1M7'] [0.012658227848101266, 0.6428571428571429] [0.02531645569620253, 0.6428571428571429]

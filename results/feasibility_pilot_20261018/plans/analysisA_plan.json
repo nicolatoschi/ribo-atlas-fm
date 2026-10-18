@@ -1,0 +1,951 @@
+{
+ "schema": "feasibility-analysisA-plan-v1",
+ "created_utc": "2026-10-17T22:59:19.178054+00:00",
+ "title": "Ligand-response localisation of chemical-probing changes (apo vs holo) against a-priori crystal contact classes",
+ "status": "FROZEN before any apo/holo reactivity difference was computed or inspected",
+ "classes_file": "results/analysisA_classes.json",
+ "class_definitions": "See results/analysisA_classes.json 'definitions' (structure_features.py docstring): L = any heavy atom within 4.0 A of the designated ligand heavy atoms; T = not L and a <=4.0 A heavy-atom contact to a non-local residue (not a sequence neighbour within 3, not its nested canonical partner, not in the same nested helix, not in the same hairpin or internal/bulge loop unit; pseudoknot/kissing canonical pairs and junction contacts count as tertiary); R = rest. Engineered crystallisation-module residues are excluded from mapping and are never contact partners. Canonical pairs and helices are detected from the crystal geometry alone (no chemical-mapping-derived annotation enters the classes).",
+ "matching_rule": "A pair is admitted only if apo and holo share the identical construct sequence, SEQPOS/offset, modifier, buffer, Mg2+ and temperature annotations, and differ only by the ligand annotation (checked from RDAT headers, recorded per pair). Pairs come either from the same RDAT (rows of one experiment) or from the Deep Chemical Profiling apo/holo deposit pairs that share one experiment identifier.",
+ "structures": {
+  "cdigmp": "3MXH chain R + C2E R 1 (2.3 A; U1A loop 660-669 engineered); sensitivity 3IRW chain R",
+  "adocbl": "4GXY chain A + B1Z A 301 (3.05 A); sensitivity adds the 18-atom B1Z A 302 fragment",
+  "adenine": "1Y26 chain X + ADE X 90",
+  "glycine": "3P49 chain A + GLY A 745, 746 (U1A loop engineered)",
+  "fmn": "3F2Q chain X + FMN X 200",
+  "tpp": "2GDI chain X + TPP X 100",
+  "ydao": "4QLM chain A + 2BA A 203, 204"
+ },
+ "profile_pairs": [
+  {
+   "id": "cdigmp_DCP_1M7",
+   "system": "cdigmp",
+   "tier": "primary",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "1M7; 0 vs 10 uM c-di-GMP",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:cyclic-diguanosine-monophosphate:10uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ]
+   }
+  },
+  {
+   "id": "adocbl_DCP_1M7",
+   "system": "adocbl",
+   "tier": "primary",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/CBLAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/local_copies/CBLHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "1M7; 0 vs 70 uM AdoCbl",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:adenosyl-cobalamin:70uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ]
+   }
+  },
+  {
+   "id": "cdigmp_DCP_DMS",
+   "system": "cdigmp",
+   "tier": "replication",
+   "construct": "DCP",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGAPO_DCP_0000.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGHLO_DCP_0000.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:cyclic-diguanosine-monophosphate:10uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ]
+   }
+  },
+  {
+   "id": "cdigmp_K2011_SHAPE",
+   "system": "cdigmp",
+   "tier": "replication",
+   "construct": "K2011",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/CIDGMP_SHP_0001.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/local_copies/CIDGMP_SHP_0001.rdat",
+    "row": 1
+   },
+   "note": "same RDAT; 14/15 replicates",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState processing:backgroundSubtraction temperature:24C processing:overmodificationCorrection modifier:SHAPE chemical:MgCl2:10mM chemical:Na-HEPES:50mM(pH8.0) sequenceSource:PDB:3MXH sequenceSource:PDB:3IWN sequenceSource:PDB:3MUV sequenceSource:PDB:3MUT modifier:SHAPE",
+    "holo_annotation": "experimentType:StandardState processing:backgroundSubtraction temperature:24C processing:overmodificationCorrection modifier:SHAPE chemical:MgCl2:10mM chemical:Na-HEPES:50mM(pH8.0) sequenceSource:PDB:3MXH sequenceSource:PDB:3IWN sequenceSource:PDB:3MUV sequenceSource:PDB:3MUT modifier:SHAPE chemical:cyclic-diguanosine-monophosphate:10uM",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Averaged from 15 replicates over 6 independent experiments.",
+     "Averaged from 14 replicates over 6 independent experiments.",
+     "Auxiliary sequences are marked in lowercase."
+    ],
+    "holo_comments": [
+     "Averaged from 15 replicates over 6 independent experiments.",
+     "Averaged from 14 replicates over 6 independent experiments.",
+     "Auxiliary sequences are marked in lowercase."
+    ]
+   }
+  },
+  {
+   "id": "adocbl_DCP_DMS",
+   "system": "adocbl",
+   "tier": "replication",
+   "construct": "DCP",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/CBLAPO_DCP_0000.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/local_copies/CBLHLO_DCP_0000.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:adenosyl-cobalamin:70uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ]
+   }
+  },
+  {
+   "id": "adocbl_PZ6_1M7",
+   "system": "adocbl",
+   "tier": "replication",
+   "construct": "PZ6",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 5
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 6
+   },
+   "note": "same RDAT; preliminary, 2 replicates",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:1M7",
+    "holo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:1M7 chemical:adenosylcobalamin:70uM",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ],
+    "holo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ]
+   }
+  },
+  {
+   "id": "adocbl_PZ6_DMS",
+   "system": "adocbl",
+   "tier": "replication",
+   "construct": "PZ6",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:DMS",
+    "holo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:DMS chemical:adenosylcobalamin:70uM",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ],
+    "holo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ]
+   }
+  },
+  {
+   "id": "adocbl_PZ6_CMCT",
+   "system": "adocbl",
+   "tier": "replication",
+   "construct": "PZ6",
+   "chemistry": "CMCT",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 3
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat",
+    "row": 4
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:CMCT",
+    "holo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrection modifier:CMCT chemical:adenosylcobalamin:70uM",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ],
+    "holo_comments": [
+     "Preliminary data, averaged over 2 replicates.",
+     "Additional sequences at 5' and 3' end not shown; two different flanking sequences were used and averaged.",
+     "Data are normalized based on GAGUA pentaloops in flanking sequences (not shown).",
+     "DMS, CMCT, and SHAPE normalized so that As, Us, or all 5 pentaloop residues give mean reactivity of 1.0.",
+     "Taken on Oct. 9, 2012 for sixth RNA Puzzle community-wide modeling trial."
+    ]
+   }
+  },
+  {
+   "id": "adocbl_M2_DMS",
+   "system": "adocbl",
+   "tier": "replication",
+   "construct": "M2",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADOCBL_DMS_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADOCBL_DMS_0001.rdat",
+    "row": 1
+   },
+   "note": "mutate-and-map WT rows; 300 mM cacodylate pH 7",
+   "header_match": {
+    "apo_annotation": "chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "holo_annotation": "chemical:adenosylcobalamin:70uM chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ],
+    "holo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ]
+   }
+  },
+  {
+   "id": "adenine_DCP_1M7",
+   "system": "adenine",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADDAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADDHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "0 vs 5 mM adenine",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:adenine:5mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp78_071513_exp82_add_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp78_071513_exp82_add_2HP"
+    ]
+   }
+  },
+  {
+   "id": "adenine_DCP_DMS",
+   "system": "adenine",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADDAPO_DCP_0000.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/ADDHLO_DCP_0000.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:adenine:5mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp78_071513_exp82_add_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp78_071513_exp82_add_2HP"
+    ]
+   }
+  },
+  {
+   "id": "adenine_K2011_SHAPE",
+   "system": "adenine",
+   "tier": "extension",
+   "construct": "K2011",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/ADDRSW_SHP_0001.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/local_copies/ADDRSW_SHP_0001.rdat",
+    "row": 1
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C modifier:SHAPE processing:overmodificationCorrection processing:backgroundSubtraction modifier:SHAPE",
+    "holo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C modifier:SHAPE processing:overmodificationCorrection processing:backgroundSubtraction chemical:adenine:5mM modifier:SHAPE",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Averaged from 15 replicates over 4 independent experiments.",
+     "Averaged from 15 replicates over 4 independent experiments."
+    ],
+    "holo_comments": [
+     "Averaged from 15 replicates over 4 independent experiments.",
+     "Averaged from 15 replicates over 4 independent experiments."
+    ]
+   }
+  },
+  {
+   "id": "glycine_DCP_1M7",
+   "system": "glycine",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/GLYAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/GLYHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "0 vs 10 mM glycine",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:glycine:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070213_exp77_071613_exp84_FN_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070213_exp77_071613_exp84_FN_2HP"
+    ]
+   }
+  },
+  {
+   "id": "glycine_DCP_DMS",
+   "system": "glycine",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/GLYAPO_DCP_0000.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/GLYHLO_DCP_0000.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:glycine:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070213_exp77_071613_exp84_FN_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070213_exp77_071613_exp84_FN_2HP"
+    ]
+   }
+  },
+  {
+   "id": "glycine_K2011_SHAPE",
+   "system": "glycine",
+   "tier": "extension",
+   "construct": "K2011",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/GLYCFN_SHP_0001.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/local_copies/GLYCFN_SHP_0001.rdat",
+    "row": 1
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C modifier:SHAPE processing:overmodificationCorrection processing:backgroundSubtraction modifier:SHAPE",
+    "holo_annotation": "experimentType:StandardState chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C modifier:SHAPE processing:overmodificationCorrection processing:backgroundSubtraction modifier:SHAPE chemical:glycine:10mM",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Averaged from 22 replicates over 8 independent experiments.",
+     "Averaged from 24 replicates over 9 independent experiments."
+    ],
+    "holo_comments": [
+     "Averaged from 22 replicates over 8 independent experiments.",
+     "Averaged from 24 replicates over 9 independent experiments."
+    ]
+   }
+  },
+  {
+   "id": "fmn_DCP_1M7",
+   "system": "fmn",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/FMNAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/FMNHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "0 vs 200 uM FMN",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:FMN:200uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp80_071613_exp86_FMN_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp80_071613_exp86_FMN_2HP"
+    ]
+   }
+  },
+  {
+   "id": "fmn_DCP_DMS",
+   "system": "fmn",
+   "tier": "extension",
+   "construct": "DCP",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/FMNAPO_DCP_0000.rdat",
+    "row": 2
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/FMNHLO_DCP_0000.rdat",
+    "row": 2
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:FMN:200uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:DMS",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp80_071613_exp86_FMN_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071013_exp80_071613_exp86_FMN_2HP"
+    ]
+   }
+  },
+  {
+   "id": "tpp_M2_DMS",
+   "system": "tpp",
+   "tier": "extension",
+   "construct": "M2",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/TPPRSW_DMS_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/local_copies/TPPRSW_DMS_0001.rdat",
+    "row": 1
+   },
+   "note": "mutate-and-map WT rows; cacodylate",
+   "header_match": {
+    "apo_annotation": "chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "holo_annotation": "chemical:thiamine pyrophosphate:10mM chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ],
+    "holo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ]
+   }
+  },
+  {
+   "id": "ydao_M2_DMS",
+   "system": "ydao",
+   "tier": "extension",
+   "construct": "M2",
+   "chemistry": "DMS",
+   "structure": "primary",
+   "apo": {
+    "file": "inputs/local_copies/YDAORS_DMS_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/local_copies/YDAORS_DMS_0001.rdat",
+    "row": 1
+   },
+   "note": "mutate-and-map WT rows; cacodylate",
+   "header_match": {
+    "apo_annotation": "chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "holo_annotation": "chemical:c-di-AMP:10uM chemical:Na-cacodylate:300mM(pH7.0) chemical:MgCl2:10mM modifier:DMS temperature:24C experimentType:MutateAndMap mutation:WT",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ],
+    "holo_comments": [
+     "Mutate-and-map-seq data.",
+     "DNA template generated by PCR assembly from primers.",
+     "Data collected by W. Kladwang and analyzed by J.D. Yesselman and R. Das."
+    ]
+   }
+  },
+  {
+   "id": "cdigmp_DCP_1M7_classes3IRW",
+   "system": "cdigmp",
+   "tier": "structure_sensitivity",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "3IRW",
+   "apo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/downloaded/rmdb_rdat/CDGHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:cyclic-diguanosine-monophosphate:10uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "070913_exp79_071913_exp87_cdGMP_1HP"
+    ]
+   }
+  },
+  {
+   "id": "adocbl_DCP_1M7_withB1Z302",
+   "system": "adocbl",
+   "tier": "structure_sensitivity",
+   "construct": "DCP",
+   "chemistry": "SHAPE",
+   "structure": "4GXY_with_B1Z302",
+   "apo": {
+    "file": "inputs/local_copies/CBLAPO_DCP_0000.rdat",
+    "row": 1
+   },
+   "holo": {
+    "file": "inputs/local_copies/CBLHLO_DCP_0000.rdat",
+    "row": 1
+   },
+   "note": "",
+   "header_match": {
+    "apo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "holo_annotation": "chemical:Na-HEPES:50mM(pH8.0) chemical:MgCl2:10mM chemical:adenosyl-cobalamin:70uM temperature:24C processing:backgroundSubtraction processing:overmodificationCorrectionExact experimentType:StandardState modifier:1M7",
+    "checks": {
+     "same_sequence": true,
+     "same_offset_and_seqpos": true,
+     "ligand_in_holo_only": true,
+     "identical_annotations_apart_from_ligand": true,
+     "same_comment_lines": true,
+     "modifier_matches_chemistry": true
+    },
+    "apo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ],
+    "holo_comments": [
+     "Deep chemical profiling data",
+     "Folding protocol: RNA was heated to 95 C for 1 minute in MES, pH 6.0; cooled to room temp; Mg(2+) added; incubated at 50 C for 30 mins; then pH raised with HEPES.",
+     "071113_exp83_071713_exp85_AdoCBL_2HP"
+    ]
+   }
+  }
+ ],
+ "scored_positions": "Construct positions mapped to the crystal chain (identity mapping, see classes file), chemically eligible (SHAPE/1M7: all; DMS: A and C; CMCT: G and U), with finite reactivity in BOTH apo and holo rows. Ordered by construct index.",
+ "statistics": {
+  "seed": 20261018,
+  "normalisation": {
+   "method": "2-8% normalisation of each profile separately over its scored positions: drop the top round(0.02 n) values, divide by the mean of the next max(1, round(0.08 n)) values",
+   "drop_top_fraction": 0.02,
+   "average_next_fraction": 0.08,
+   "justification": "apo and holo profiles were processed as separate profiles (separate RDAT files for DCP); a robust per-profile scale removes global intensity/scale differences so that |delta| reflects positional changes. As-deposited delta is a pre-specified sensitivity."
+  },
+  "response": "r_i = |holo_norm_i - apo_norm_i|",
+  "error_scaled_floor": 0.05,
+  "error_scaled_sensitivity": "r_i / sqrt(sd_apo^2 + sd_holo^2 + 0.05^2) with deposited REACTIVITY_ERROR rescaled by the same normalisation factors (only pairs where both rows report errors)",
+  "contrasts": [
+   "LT_vs_R",
+   "L_vs_R",
+   "T_vs_R"
+  ],
+  "primary_statistic": "AUC (Mann-Whitney, ties 0.5) of r for L+T versus R; AUC>0.5 means larger ligand-induced changes at structural-contact nucleotides",
+  "null": "Exact circular-shift null: the class-label vector is rotated over the ordered scored positions by every shift k=0..n-1 (k=0 is the observed labelling); one-sided p = fraction of shifts with AUC >= observed. Preserves the autocorrelation of both the response and the class runs.",
+  "block_length": 5,
+  "n_block_permutations": 10000,
+  "block_null": "Sensitivity: label blocks of 5 consecutive scored positions permuted (within-block order kept), 10,000 permutations, p=(1+#>=)/(1+N)",
+  "n_bootstrap": 10000,
+  "interval": "Descriptive 95% moving-block bootstrap interval (block 5) for the AUC",
+  "top_decile": "Enrichment of L+T among the top ceil(0.1 n) |delta| positions relative to their overall fraction, circular-shift p",
+  "min_scored": 20,
+  "min_class": 5
+ },
+ "multiplicity": {
+  "primary_family": [
+   "cdigmp_DCP_1M7",
+   "adocbl_DCP_1M7"
+  ],
+  "primary_correction": "Holm over the two primary tests, alpha 0.05",
+  "secondary": "Benjamini-Hochberg over all replication and extension pair-level LT_vs_R tests (q reported); structure-sensitivity and variant (as-deposited, error-scaled, block-null) results are descriptive robustness checks, not additional tests"
+ },
+ "pooled_endpoint": {
+  "description": "Mean over the five Deep Chemical Profiling 1M7 apo/holo pairs (one per riboswitch) of (AUC_LT - 0.5); null by independent random circular shifts in each system; Fisher combination reported alongside",
+  "pair_ids": [
+   "cdigmp_DCP_1M7",
+   "adocbl_DCP_1M7",
+   "adenine_DCP_1M7",
+   "glycine_DCP_1M7",
+   "fmn_DCP_1M7"
+  ],
+  "n_draws": 100000
+ },
+ "interpretation": {
+  "supported": "A primary system supports ligand-response localisation if AUC_LT > 0.5 with Holm-adjusted circular-shift p < 0.05.",
+  "null": "Otherwise the system is reported as null for this endpoint (not as evidence of absence).",
+  "scope": "Crystal holo contacts are a structural proxy for the solution holo state; the test asks whether ligand-induced reactivity changes concentrate at a-priori structural-contact nucleotides. It does not test a learned model and does not establish mechanism."
+ },
+ "not_executed": [
+  {
+   "id": "adocbl_A124U_A125U_mutant_response",
+   "reason": "No public 1D chemical-mapping profiles exist for the A124U/A125U double mutant (RMDB holds only MOHCA-seq 2D data, RNAPZ6_MCA_0004-0007, metadata checked). Those MOHCA data are the application's withheld response endpoint, so they were not opened. The mutant-versus-parent pocket-response comparison is therefore not testable here and is deferred to the award (G1 admission)."
+  },
+  {
+   "id": "other_RMDB_holo_only_profiles",
+   "reason": "CIDGMP_DMS_0001, CIDGMP_CMC_0001, ADDRSW_DMS_0001/CMC_0001, GLYCFN_DMS_0001/CMC_0001 contain a ligand-present row only (no matched apo row): excluded."
+  },
+  {
+   "id": "37C_1M7_series",
+   "reason": "CIDGMP/ADDRSW/TPPRSW_1M7_0001-0003 (37 C, 100 mM HEPES/NaCl) are ligand-present replicates without a matched apo deposit in the same series: excluded."
+  },
+  {
+   "id": "SAM-IV, glycine tandem (VCKT/FNKT), CLILIG",
+   "reason": "No holo crystal structure used here (cryo-EM / not riboswitch / tandem constructs not matched to an on-disk crystal); not admitted."
+  }
+ ],
+ "disclosures": [
+  "Before this plan was frozen, the first ~40 deposited values of CIDGMP_SHP_0001 rows 1 and 2 (5' flank and first P1 nucleotides) were displayed once during a file-format inspection; no apo/holo difference was computed or examined for any system before freezing.",
+  "A plumbing test with seeded random (lognormal) reactivities was run before freezing (results/synthetic_test_analysisA.json); it contains no real data.",
+  "Base-pair (3.8 A / 60 deg) and stacking thresholds were set on the crystal structures alone (agreement with deposited RDAT secondary structures; helix-neighbour stacking rate), before any reactivity was read."
+ ],
+ "frozen_files_sha256": {
+  "inputs/downloaded/rmdb_rdat/ADDAPO_DCP_0000.rdat": "7fdef14a632e540b507daf84fcd4c0ef36d243d654a4c9d4a9d51d0c0ef4cd6e",
+  "inputs/downloaded/rmdb_rdat/ADDHLO_DCP_0000.rdat": "331472f4c177bf9e160f9516cf4354ce8edaf0a70bf443fe2007489b98883695",
+  "inputs/downloaded/rmdb_rdat/ADOCBL_DMS_0000.rdat": "71e336f1e8644c93682d285cf997aeee6b117a2cf2499e793bbe6a8d81f5c6d0",
+  "inputs/downloaded/rmdb_rdat/ADOCBL_DMS_0001.rdat": "754e5d6bd5394c2fc8c45b23836754abc8bd4133bfa7d57c05d4d037fd4b3c7a",
+  "inputs/downloaded/rmdb_rdat/CDGAPO_DCP_0000.rdat": "d0093791d7f16d2f4fad72755d108b8fd812993584c138ff50b4dbb823f42a8d",
+  "inputs/downloaded/rmdb_rdat/CDGHLO_DCP_0000.rdat": "e0fc6ced00e68ba5296521a318f22bea1517f403797dcb327791522723a193b7",
+  "inputs/downloaded/rmdb_rdat/FMNAPO_DCP_0000.rdat": "6e702a8cf3a61aa04c1095780ecf09015ec767f6c8b09335ea6b76ccf2575266",
+  "inputs/downloaded/rmdb_rdat/FMNHLO_DCP_0000.rdat": "970d662eed9fd62a4a0bc5b9e4ab2aac88e6d5bb3c87d19da90986d693e303d4",
+  "inputs/downloaded/rmdb_rdat/GLYAPO_DCP_0000.rdat": "aec95185dccfd4282afe3151c749a005e8cc5a40305730577b6499140b1f1e22",
+  "inputs/downloaded/rmdb_rdat/GLYHLO_DCP_0000.rdat": "2cf0943214e68e9fa786b967c2741869d1c7bcff602c51a45d4ad95404cfd865",
+  "inputs/downloaded/rmdb_rdat/RNAPZ6_STD_0001.rdat": "0e74d434f1a7d650112dfcdb039f4c6552c7be3446c59b6d13077c081313d599",
+  "inputs/local_copies/ADDRSW_SHP_0001.rdat": "731ef0da63473c4e01246b1cdc592fc921ae634e7dd444d59d5fcacbc2258b74",
+  "inputs/local_copies/CBLAPO_DCP_0000.rdat": "3cad3986639df974cb49ac9868fa219b1249941f588034f358fcd2f549aaff82",
+  "inputs/local_copies/CBLHLO_DCP_0000.rdat": "0205727322f77e7686082fbc304555afd85c3846ad314a873e57d92587a5f03a",
+  "inputs/local_copies/CIDGMP_SHP_0001.rdat": "b4aca1b97d60b068f7ebbd9dbccfd11b434dbbfe849a35aa4f09d000f278b035",
+  "inputs/local_copies/GLYCFN_SHP_0001.rdat": "b69e10ca3efba49b210aac0e251048403a161a94fc39da6c0738b0159ec7f8c0",
+  "inputs/local_copies/TPPRSW_DMS_0000.rdat": "0a44b1e170d67dd1535ca042cd402e25b0adbd9c7426bc62180a8db1bccfed22",
+  "inputs/local_copies/TPPRSW_DMS_0001.rdat": "0e6bd1e33f0bc85e7775c363086ec469e8f1a7fcd40ae291e09f1752046be85e",
+  "inputs/local_copies/YDAORS_DMS_0000.rdat": "57559bb38f6741b181ba668d48b72d407e47e47295dca85c705a99672f615f4c",
+  "inputs/local_copies/YDAORS_DMS_0001.rdat": "16f1b2d80ae2612a16967979cca0ed1c2a9d1e34d901674ab5a282d9b3cc834b",
+  "results/analysisA_classes.json": "f892ffaec463661bdbb737b866350084d68f1ded179bbc06832e54a425071342",
+  "scripts/analysis_a.py": "c2715249081e331c53ce8e365839031b10230214540320d02ec317a5d541220f",
+  "scripts/build_classes_A.py": "89aedda02a7f062c1438df4842cd060dbefdd0d154a965b6edc1b6370a0ae039",
+  "scripts/make_plan_A.py": "643180ed8bed18a38f3d357dab888147f0b25cfd4a4c820fc517c68cb849ef95",
+  "scripts/pdbtools.py": "8bea82184e58cb7cb7064ee886a2afdc2d3b5074aa4e20c5e8d6acf9c2fab590",
+  "scripts/rdat.py": "d19d6fd98740473da1675b21df5a448e51071ba31b63edbd8cdd0801be262f9f",
+  "scripts/structure_features.py": "a8321a5e81155084c17f621d29ef8e45e3900e745794c0174f8979100f0439f6"
+ }
+}

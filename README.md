@@ -104,12 +104,42 @@ model=Workload().to(device);torch.autograd.set_detect_anomaly(False);assert not 
 
 The cost diagnosis is in [docs/DIAGNOSIS.md](docs/DIAGNOSIS.md).
 
+## Scientific feasibility pilot (v2.1, CPU, pre-registered)
+
+Added on 18 October 2026. It ran on CPU only, on public RMDB profiles and PDB structures.
+
+Both analysis plans were frozen and hashed before any outcome was computed. The plans, hashes and freeze log are in `results/feasibility_pilot_20261018/plans/`.
+
+### A. Is the ligand response visible where the crystal structure predicts it?
+
+Contact classes (ligand-contact and tertiary-contact nucleotides) were fixed from the holo crystal structures. The test is the AUC of |Δreactivity| at those contacts against the rest. Its null is a circular shift, which preserves sequence autocorrelation.
+
+| Pair | n | AUC [95% CI] | p (circular shift) |
+|---|---|---|---|
+| c-di-GMP, 1M7 (primary) | 79 | 0.66 [0.55, 0.81] | 0.025 (Holm) |
+| AdoCbl, 1M7 (primary) | 154 | 0.48 [0.35, 0.59] | 0.64 (Holm) |
+| Five riboswitches, one 1M7 protocol, pooled | | mean 0.60 | 0.003 |
+
+- c-di-GMP replicates with DMS and with an independent SHAPE dataset.
+- AdoCbl is null because its public apo and holo profiles barely differ (median change 0.009, ρ = 0.93).
+- The A124U/A125U mutant has no public one-dimensional profiles. The proposal therefore admits the AdoCbl cells only if G1 finds data that carry a response.
+
+### B. Base-resolved observation head
+
+The frozen Wave F protocol was rerun with base-resolved descriptors in place of C4′ geometry. The descriptors are base-face and 2′-OH exposure, pairing and stacking.
+
+- **Frozen error gate: not met.** Held-out error came within 2% of the secondary-structure baseline.
+- **Held-out correlation (post hoc): improved.** It rose in all four lineages, from 0.42 to 0.53, above all 500 shuffled controls.
+
+Code is in `src/feasibility_pilot/`. Results, the figure and `RESULTS_SUMMARY.md` are in `results/feasibility_pilot_20261018/`. The input manifests record the URL and SHA-256 of every public file; raw downloads are not redistributed, and `fetch_public.py` retrieves them.
+
 ## Limits of this evidence
 
 - **Cost runs.** They use one physical RNA (5zwm_B, 175 nt) as 128 synthetic stochastic instances, with synthetic observations and a random frozen head. They measure cost, scaling, memory and restart, not learning. The length-ladder cases are RNAbpFlow training structures.
 - **Wave D.** This is pipeline QA, not an accuracy claim: every case is in RNAbpFlow's training metadata, and the bpRNA entries are distillation targets. Eight cases are missing because one node (jpbo-090-25) hit a CUDA out-of-memory error at start-up. The 80% packing used for pricing is an assumption of production scheduling; the measured static partition reached 22%. Generation reproduces the pilot bit for bit, but refinement is not bit-reproducible. `results/waveD_job2340563/SUPERSEDED_FIELDS_NOTE.json` marks the findings fields that refer to an earlier internal costing.
 - **Wave E.** Null for transfer. RNA-FM was pretrained on RNAcentral, which very likely contains these sequences, so the plan keeps the prior frozen.
-- **Wave F.** Null, on four lineages, with crystals as proxies for solution states, one backbone atom per nucleotide and a possibly probe-informed secondary baseline. The plan responds with base-resolved descriptors and a G1 skill gate that must pass before inverse training.
+- **Wave F.** Null, on four lineages, with crystals as proxies for solution states, one backbone atom per nucleotide and a possibly probe-informed secondary baseline. The plan responds with base-resolved descriptors and a G1 skill gate that must pass before inverse training. The v2.1 base-resolved follow-up missed the frozen error gate but raised held-out correlation (post hoc); G1 recalibrates the head on more lineages.
+- **Feasibility pilot.** Seven riboswitches with public apo/holo pairs; crystals stand in for solution states; Analysis B's correlation result is post hoc.
 - **Gradient spikes.** In the 512-GPU update, 3 of 512 cases had local gradient norms above 10³ (median 0.086). Production uses per-microbatch clipping.
 - **Node screening.** The unit costs come from healthy, screened nodes. Five nodes were excluded: jpbo-048-33, jpbo-049-19 and jpbo-061-16 were 23–35% slower than the median node (facts `scaling.slow_node_excess`), while jpbo-055-37 and jpbo-090-25 were faulty. The ledger contains no straggler contingency.
 - **Data counts.** The data-admission counts are parse results. Family, lineage and study holdouts are applied at G1. The 15% holdout is the design's planning fraction. The 16 Oct parser writes a fixed header that still describes the 8-file run. `results/data_expansion/SCOPE_NOTE.json` records the actual scope: 60 files, 17 groups, VIRWIN included.
@@ -123,6 +153,8 @@ The cost diagnosis is in [docs/DIAGNOSIS.md](docs/DIAGNOSIS.md).
 | `src/evaluation/` | Wave D packet code: generation, refinement, metrics, aggregation, packet builder, and the inference copy of RNAbpFlow |
 | `src/sequence_prior/` | Wave E RNA-FM continued-pretraining code, split builder, config and manifest (no weights, no dataset) |
 | `src/forward_head_pilot/` | Wave F cohort builder, raw-source verifier, ridge pilot, contract tests, `CHANGES.md` |
+| `src/feasibility_pilot/` | v2.1 pilot: input collection, contact classes, frozen-plan builders, Analyses A and B, post-hoc checks, figure |
+| `results/feasibility_pilot_20261018/` | v2.1 pilot plans and freeze log, results, logs, figure, input manifests, `RESULTS_SUMMARY.md` |
 | `src/data_admission/` | RMDB RDAT parser and audits, Rfam inventory curation, the 16 Oct expansion download list, manifest and fetch script |
 | `jobs/` | sbatch scripts for Waves B–E and `submission_records.json` |
 | `analysis/` | Analysis and aggregation scripts for Waves B–E and the Figure 1 script |

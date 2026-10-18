@@ -1,0 +1,4 @@
+error_weighted base_context obs r 0.533 null mean 0.38 [0.3265644675048241, 0.4304038316880008] p 0.002 mse-null-match True
+error_weighted geometry_context obs r 0.398 null mean 0.373 [0.3118849268083095, 0.4352259666138295] p 0.2156 mse-null-match True
+unweighted base_context obs r 0.521 null mean 0.368 [0.3136336266019167, 0.4129214345322871] p 0.002 mse-null-match True
+unweighted geometry_context obs r 0.405 null mean 0.368 [0.2971508360364423, 0.42670454976713096] p 0.1257 mse-null-match True
